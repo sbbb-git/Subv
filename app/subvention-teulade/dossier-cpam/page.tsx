@@ -2,6 +2,21 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
 
+const howToLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "Constituer un dossier CPAM pour la subvention Teulade",
+  description: "Étapes pour obtenir la subvention Teulade auprès de la CPAM pour un centre de santé.",
+  step: [
+    { "@type": "HowToStep", position: 1, name: "Demander le formulaire CPAM", text: "Contactez votre CPAM pour obtenir le formulaire de subvention Teulade propre à votre caisse." },
+    { "@type": "HowToStep", position: 2, name: "Obtenir l’attestation URSSAF", text: "Demandez à l’URSSAF une attestation de paiement des cotisations sociales pour la période concernée." },
+    { "@type": "HowToStep", position: 3, name: "Calculer l’assiette éligible", text: "Identifiez les soignants salariés réalisant des actes remboursables et sommez leurs assiettes URSSAF." },
+    { "@type": "HowToStep", position: 4, name: "Renseigner le formulaire", text: "Complétez le formulaire avec le détail par salarié et joignez les justificatifs (DSN, bulletins, attestations)." },
+    { "@type": "HowToStep", position: 5, name: "Envoyer en recommandé", text: "Adressez le dossier par courrier recommandé avec accusé de réception au service approprié de la CPAM." },
+    { "@type": "HowToStep", position: 6, name: "Relancer jusqu’au versement", text: "Effectuez une relance écrite tous les 60 jours jusqu’à réception du virement sur le compte du CDS." },
+  ],
+};
+
 export const metadata: Metadata = {
   title: "Dossier CPAM pour la subvention Teulade : formulaire, justificatifs, délais",
   description:
@@ -77,6 +92,7 @@ export default function Page() {
         primary={{ href: "/contact", label: "Confier mon dossier" }}
         secondary={{ href: "/accompagnement", label: "Voir l’accompagnement" }}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
     </>
   );
 }

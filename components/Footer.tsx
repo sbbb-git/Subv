@@ -27,16 +27,22 @@ export default function Footer() {
             <li><Link href="/subvention-teulade/conditions" className="hover:text-white">Conditions d’éligibilité</Link></li>
             <li><Link href="/subvention-teulade/calcul" className="hover:text-white">Calcul du montant</Link></li>
             <li><Link href="/subvention-teulade/dossier-cpam" className="hover:text-white">Dossier CPAM</Link></li>
+            <li><Link href="/article-l162-32" className="hover:text-white">Article L162-32</Link></li>
             <li><Link href="/simulateur" className="hover:text-white">Simulateur</Link></li>
+            <li><Link href="/subvention-teulade/villes" className="hover:text-white">Par ville</Link></li>
           </ul>
         </div>
         <div>
-          <h3 className="font-semibold text-white mb-3 text-sm uppercase tracking-wide">Cabinet</h3>
+          <h3 className="font-semibold text-white mb-3 text-sm uppercase tracking-wide">Ressources</h3>
           <ul className="space-y-2 text-sm text-white/70">
-            <li><Link href="/accompagnement" className="hover:text-white">Notre accompagnement</Link></li>
+            <li><Link href="/centre-de-sante" className="hover:text-white">Typologies de CDS</Link></li>
+            <li><Link href="/accompagnement" className="hover:text-white">Accompagnement</Link></li>
             <li><Link href="/autres-financements" className="hover:text-white">Autres financements</Link></li>
+            <li><Link href="/comparatif-cds-msp" className="hover:text-white">CDS vs MSP</Link></li>
+            <li><Link href="/lexique" className="hover:text-white">Lexique</Link></li>
             <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
             <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
+            <li><Link href="/a-propos" className="hover:text-white">À propos</Link></li>
             <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
             <li><Link href="/mentions-legales" className="hover:text-white">Mentions légales</Link></li>
           </ul>

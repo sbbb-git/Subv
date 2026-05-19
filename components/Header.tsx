@@ -2,11 +2,13 @@ import Link from "next/link";
 import { SITE_NAME } from "@/lib/seo";
 
 const navItems = [
-  { href: "/subvention-teulade", label: "La subvention Teulade" },
-  { href: "/accompagnement", label: "Notre accompagnement" },
-  { href: "/autres-financements", label: "Autres financements" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/subvention-teulade", label: "Subvention Teulade" },
+  { href: "/centre-de-sante", label: "Centres de santé" },
+  { href: "/accompagnement", label: "Accompagnement" },
+  { href: "/autres-financements", label: "Financements" },
+  { href: "/simulateur", label: "Simulateur" },
   { href: "/blog", label: "Blog" },
+  { href: "/faq", label: "FAQ" },
 ];
 
 export default function Header() {

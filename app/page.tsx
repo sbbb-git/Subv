@@ -3,6 +3,9 @@ import { CTASection } from "@/components/CTA";
 import { Faq } from "@/components/Faq";
 import { SectionHeading } from "@/components/SectionHeading";
 import type { Metadata } from "next";
+import { cities } from "@/content/cities";
+import { cdsTypes } from "@/content/cds-types";
+import { posts } from "@/content/posts";
 
 export const metadata: Metadata = {
   title: "Subvention Teulade pour centres de santé (CDS) — Récupérez 11,5 % des charges patronales",
@@ -285,6 +288,82 @@ export default function HomePage() {
                 <div className="text-3xl font-extrabold text-brand-300">{n}</div>
                 <div className="mt-2 text-white/80 text-sm">{l}</div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TYPOLOGIES */}
+      <section className="py-20 bg-brand-50/60 border-y border-brand-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Par typologie de CDS"
+            title="Une expertise adaptée à votre centre"
+            subtitle="Médical, dentaire, infirmier, polyvalent, municipal, mutualiste : chaque typologie a ses spécificités, chaque centre a son potentiel Teulade."
+          />
+          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {cdsTypes.map((t) => (
+              <Link
+                key={t.slug}
+                href={`/centre-de-sante/${t.slug}`}
+                className="group rounded-2xl bg-white ring-1 ring-brand-100 hover:ring-brand-300 hover:shadow-lg p-6 transition"
+              >
+                <h3 className="font-bold text-ink group-hover:text-brand-700">{t.name}</h3>
+                <p className="mt-2 text-ink-soft text-sm leading-relaxed line-clamp-3">{t.shortDesc}</p>
+                <div className="mt-3 text-xs text-brand-700 font-semibold">
+                  ≈ {t.exemple.annuel.toLocaleString("fr-FR")} € / an →
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CITIES */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Partout en France"
+            title="Subvention Teulade par ville"
+            subtitle="Nous accompagnons les centres de santé dans toutes les grandes villes françaises. Retrouvez votre département."
+          />
+          <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            {cities.slice(0, 18).map((c) => (
+              <Link
+                key={c.slug}
+                href={`/subvention-teulade/${c.slug}`}
+                className="rounded-lg bg-white ring-1 ring-brand-100 hover:ring-brand-300 px-3 py-2 text-sm font-medium text-ink hover:text-brand-700 text-center"
+              >
+                {c.name} <span className="text-ink-mute">({c.deptNum})</span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-6 text-center">
+            <Link href="/subvention-teulade/villes" className="text-brand-700 hover:text-brand-900 font-semibold">
+              Voir toutes les villes →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* BLOG TEASER */}
+      <section className="py-20 bg-brand-50/60 border-y border-brand-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Ressources"
+            title="Articles & guides récents"
+          />
+          <div className="mt-12 grid md:grid-cols-3 gap-5">
+            {[...posts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3).map((p) => (
+              <Link
+                key={p.slug}
+                href={`/blog/${p.slug}`}
+                className="rounded-2xl bg-white ring-1 ring-brand-100 hover:ring-brand-300 p-6 transition"
+              >
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-600">{p.category}</span>
+                <h3 className="mt-2 font-bold text-ink">{p.title}</h3>
+                <p className="mt-3 text-ink-soft text-sm line-clamp-3">{p.description}</p>
+              </Link>
             ))}
           </div>
         </div>

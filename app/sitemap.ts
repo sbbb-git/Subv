@@ -1,29 +1,50 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { posts } from "@/content/posts";
+import { cities } from "@/content/cities";
+import { cdsTypes } from "@/content/cds-types";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const staticRoutes = [
-    "",
-    "/subvention-teulade",
-    "/subvention-teulade/conditions",
-    "/subvention-teulade/calcul",
-    "/subvention-teulade/dossier-cpam",
-    "/accompagnement",
-    "/autres-financements",
-    "/faq",
-    "/blog",
-    "/simulateur",
-    "/contact",
-    "/mentions-legales",
+  const staticRoutes: { path: string; priority: number }[] = [
+    { path: "", priority: 1 },
+    { path: "/subvention-teulade", priority: 0.95 },
+    { path: "/subvention-teulade/conditions", priority: 0.85 },
+    { path: "/subvention-teulade/calcul", priority: 0.85 },
+    { path: "/subvention-teulade/dossier-cpam", priority: 0.85 },
+    { path: "/subvention-teulade/villes", priority: 0.8 },
+    { path: "/article-l162-32", priority: 0.85 },
+    { path: "/accompagnement", priority: 0.9 },
+    { path: "/autres-financements", priority: 0.85 },
+    { path: "/centre-de-sante", priority: 0.85 },
+    { path: "/comparatif-cds-msp", priority: 0.7 },
+    { path: "/lexique", priority: 0.65 },
+    { path: "/faq", priority: 0.8 },
+    { path: "/blog", priority: 0.75 },
+    { path: "/simulateur", priority: 0.85 },
+    { path: "/contact", priority: 0.9 },
+    { path: "/a-propos", priority: 0.6 },
+    { path: "/mentions-legales", priority: 0.2 },
   ];
+
   return [
-    ...staticRoutes.map((path) => ({
+    ...staticRoutes.map(({ path, priority }) => ({
       url: `${SITE_URL}${path}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
-      priority: path === "" ? 1 : 0.8,
+      priority,
+    })),
+    ...cities.map((c) => ({
+      url: `${SITE_URL}/subvention-teulade/${c.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    })),
+    ...cdsTypes.map((t) => ({
+      url: `${SITE_URL}/centre-de-sante/${t.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
     })),
     ...posts.map((p) => ({
       url: `${SITE_URL}/blog/${p.slug}`,
