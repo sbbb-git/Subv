@@ -4,33 +4,27 @@ import { CTASection } from "@/components/CTA";
 import { Faq } from "@/components/Faq";
 
 export const metadata: Metadata = {
-  title: "FAQ subvention Teulade et financement des centres de santé",
+  title: "FAQ — Accompagnement et financements des centres de santé",
   description:
-    "Toutes les réponses aux questions des directeurs de centres de santé sur la subvention Teulade, l’article L162-32, le calcul, les démarches CPAM, le rattrapage, le cumul avec l’ACI, le FIR.",
+    "Réponses aux questions fréquentes sur l’accompagnement des centres de santé, leur modèle économique et la mobilisation de leurs financements.",
   alternates: { canonical: "/faq" },
 };
 
 const faqs = [
-  { q: "Qu’est-ce que la subvention Teulade ?", a: "C’est le remboursement par la CPAM de 11,5 % de l’assiette des cotisations patronales maladie, maternité, invalidité et décès dues à l’URSSAF pour les professionnels de santé salariés d’un centre de santé. Le dispositif est prévu par l’article L162-32 du code de la sécurité sociale et tire son nom de René Teulade, ministre signataire du décret du 14 décembre 1992." },
-  { q: "Quelle est la base légale de la subvention Teulade ?", a: "Article L162-32 du code de la sécurité sociale et décret n° 92-1257 du 14 décembre 1992." },
-  { q: "Quel est le taux exact ?", a: "11,5 % de l’assiette des cotisations patronales d’assurance maladie, maternité, invalidité et décès." },
-  { q: "Qui paie la subvention Teulade ?", a: "La caisse primaire d’assurance maladie (CPAM) du département où est implanté le centre de santé." },
-  { q: "Quels centres de santé sont éligibles ?", a: "Tous les centres de santé conventionnés au sens de l’article L6323-1 du CSP : médicaux, dentaires, infirmiers, polyvalents, pluriprofessionnels, quel que soit le statut juridique." },
-  { q: "Quels professionnels entrent dans l’assiette ?", a: "Tous les praticiens et auxiliaires médicaux salariés réalisant des actes remboursables : médecins, chirurgiens-dentistes, sages-femmes, infirmiers, kinésithérapeutes, orthophonistes, orthoptistes, pédicures-podologues." },
-  { q: "Le personnel administratif est-il éligible ?", a: "Non. Seul le personnel soignant produisant des actes remboursables est éligible. Les agents d’accueil, secrétaires, comptables et directeurs sont exclus de l’assiette." },
-  { q: "Peut-on cumuler Teulade avec l’ACI ?", a: "Oui, à condition qu’il n’y ait pas double financement d’une même mission. Un salarié dont la rémunération est intégralement portée par l’ACI ne peut pas figurer dans l’assiette Teulade." },
-  { q: "Peut-on cumuler Teulade avec les aides FIR ?", a: "Oui, à condition que le FIR ne couvre pas déjà la rémunération du salarié concerné." },
-  { q: "Combien d’années de rattrapage peut-on demander ?", a: "Généralement 3 années non prescrites, en plus de l’année en cours. Au-delà, la prescription est généralement opposée par la CPAM." },
-  { q: "Quel est le délai de versement de la CPAM ?", a: "Entre 2 et 9 mois selon les caisses, à compter de la réception du dossier complet. Plus pour un rattrapage pluriannuel." },
-  { q: "Quels justificatifs joindre ?", a: "Formulaire CPAM, attestation URSSAF de paiement des cotisations, détail par salarié de l’assiette éligible, RIB du centre, attestation sur l’honneur de non-double financement." },
-  { q: "Pourquoi 25 % des CDS ne touchent pas Teulade ?", a: "Selon le rapport IGAS 2025 : méconnaissance du dispositif, formulaires propres à chaque CPAM, complexité du calcul d’assiette, absence d’interlocuteur dédié, défaut de relances." },
-  { q: "Comment se calcule concrètement la subvention ?", a: "Subvention = Σ (assiette cotisations patronales maladie/maternité/invalidité/décès par salarié éligible) × 11,5 %. L’assiette correspond généralement au salaire brut, plafonnée selon les règles URSSAF." },
-  { q: "Faut-il être à jour à l’URSSAF ?", a: "Oui. Un retard URSSAF non purgé bloque le versement. Un plan d’apurement à jour suffit toutefois à débloquer la subvention." },
-  { q: "Quel est votre modèle de rémunération ?", a: "Pour la mission Teulade, nous appliquons une rémunération au résultat (success fee), proportionnelle aux montants effectivement versés par la CPAM. Pas de versement, pas d’honoraires." },
-  { q: "Combien de temps mobilise-t-on en interne ?", a: "Comptez 1 à 2 heures pour la transmission sécurisée des DSN, paies et attestations URSSAF. Nous nous occupons du reste." },
-  { q: "Travaillez-vous avec toutes les CPAM ?", a: "Oui. Nous intervenons sur l’ensemble du territoire français métropolitain et ultramarin." },
-  { q: "Avez-vous une convention spécifique avec la CPAM ?", a: "Non, et c’est volontaire. Nous sommes un cabinet indépendant — nous défendons l’intérêt exclusif du centre de santé." },
-  { q: "Mon centre est en création, puis-je demander Teulade ?", a: "Oui, dès la date d’effet du conventionnement avec l’Assurance Maladie." },
+  { q: "Quels types de centres de santé accompagnez-vous ?", a: "Tous : CDS médicaux, dentaires, infirmiers, polyvalents, pluriprofessionnels, qu’ils soient portés par une association, une mutuelle, une collectivité (CMS), une SCIC ou un établissement public." },
+  { q: "Comment commence une mission ?", a: "Par un premier échange de 30 minutes pour cadrer votre situation, suivi d’un audit gratuit livré sous 48h ouvrées. À l’issue, nous proposons un plan d’action priorisé et un mode de rémunération transparent." },
+  { q: "Quel est votre modèle de rémunération ?", a: "Selon la mission : honoraires fixes transparents ou rémunération au résultat (success fee) proportionnelle aux montants effectivement obtenus. Le modèle est contractualisé en amont, sans frais cachés." },
+  { q: "Êtes-vous indépendants ?", a: "Oui. Nous sommes un cabinet privé indépendant, sans lien capitalistique ou contractuel avec la CPAM, l’URSSAF, l’Assurance Maladie ou la FNCS. Nous défendons l’intérêt exclusif de nos clients." },
+  { q: "Travaillez-vous partout en France ?", a: "Oui, sur l’ensemble du territoire métropolitain et ultramarin. Selon les missions, nous intervenons à distance et/ou sur site." },
+  { q: "Que couvre votre audit gratuit ?", a: "Une cartographie de vos recettes et financements actuels, l’identification des dispositifs non mobilisés, une estimation du potentiel récupérable et un plan d’action priorisé." },
+  { q: "Combien de temps prend un accompagnement ?", a: "Le diagnostic initial est livré sous 48h. La mise en œuvre varie selon les dispositifs concernés : quelques semaines à plusieurs mois pour les démarches longues." },
+  { q: "Quels dispositifs peuvent être mobilisés par un CDS ?", a: "Une dizaine de dispositifs cumulables : rémunérations conventionnelles, ACI, Forfait Structure, ROSP, FIR/ARS, aides à l’installation, dispositifs CPAM spécifiques (dont la subvention Teulade), aides des collectivités." },
+  { q: "La subvention Teulade peut-elle être incluse dans l’accompagnement ?", a: "Oui, parmi d’autres dispositifs. Nous abordons systématiquement la subvention Teulade dans le cadre d’un audit global, car son articulation avec l’ACI et le FIR est l’une des sources d’erreurs les plus fréquentes." },
+  { q: "Quel niveau de mobilisation interne demandez-vous ?", a: "Le minimum nécessaire : une heure ou deux pour l’échange initial et la transmission sécurisée des éléments comptables et administratifs. Nous gérons ensuite la partie technique." },
+  { q: "Mes données sont-elles confidentielles ?", a: "Oui. Charte RGPD, accord de confidentialité signé en amont de tout audit, données stockées en France." },
+  { q: "Pouvez-vous accompagner un CDS en création ?", a: "Oui, depuis l’étude de faisabilité jusqu’à l’ouverture conventionnée, en passant par les statuts juridiques, le projet de santé, le dossier ARS et le conventionnement CPAM." },
+  { q: "Et si nous sommes déjà accompagnés ailleurs ?", a: "Nous intervenons en complémentarité, sur un périmètre spécifique. Beaucoup de nos missions cohabitent avec un expert-comptable, un commissaire aux comptes ou un cabinet juridique." },
+  { q: "Qui sont vos interlocuteurs habituels ?", a: "Les directeurs et gestionnaires de CDS, les trésoriers d’associations, les DGS de collectivités portant un CMS, les responsables financiers de mutuelles." },
 ];
 
 export default function Page() {
@@ -40,10 +34,11 @@ export default function Page() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "FAQ" }]} />
           <h1 className="mt-5 text-4xl md:text-5xl font-extrabold tracking-tight text-ink">
-            FAQ — Subvention Teulade & financement des CDS
+            FAQ — Accompagnement & financements des CDS
           </h1>
           <p className="mt-5 text-lg text-ink-soft max-w-3xl">
-            Les 20 questions les plus posées par les directeurs de centres de santé.
+            Les questions les plus fréquentes des directeurs et gestionnaires de
+            centres de santé que nous accompagnons.
           </p>
         </div>
       </section>

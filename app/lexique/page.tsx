@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 const terms: { term: string; def: string }[] = [
   { term: "ACI", def: "Accord Conventionnel Interprofessionnel. Convention conclue avec l’Assurance Maladie qui finance forfaitairement les structures pluriprofessionnelles selon des indicateurs (1 point = 7 €, minimum 20 000 €/an)." },
-  { term: "Article L162-32", def: "Article du code de la sécurité sociale qui fonde la subvention Teulade et impose à la CPAM de rembourser 11,5 % de l’assiette des cotisations patronales d’un CDS." },
-  { term: "Assiette des cotisations", def: "Base de calcul des cotisations sociales, généralement constituée du salaire brut. C’est sur cette assiette (et non sur le montant des cotisations) que s’applique le taux de 11,5 %." },
+  { term: "Article L162-32", def: "Article du code de la sécurité sociale qui encadre les relations entre l’Assurance Maladie et les centres de santé, et fonde notamment la subvention dite Teulade." },
+  { term: "Assiette des cotisations", def: "Base de calcul des cotisations sociales, généralement constituée du salaire brut. C’est l’élément qui détermine plusieurs dispositifs propres aux CDS." },
   { term: "ARS", def: "Agence Régionale de Santé. Autorité de tutelle des CDS, en charge du zonage, du conventionnement initial et de financements via le FIR." },
   { term: "CDS", def: "Centre de Santé. Structure de soins ambulatoires définie par l’article L6323-1 du code de la santé publique, employant des soignants salariés." },
   { term: "CMS", def: "Centre Municipal de Santé. Centre de santé porté par une commune ou une collectivité territoriale." },
@@ -28,7 +28,7 @@ const terms: { term: string; def: string }[] = [
   { term: "MSP", def: "Maison de Santé Pluriprofessionnelle. Structure libérale coordonnée — à ne pas confondre avec un CDS où les soignants sont salariés." },
   { term: "ROSP", def: "Rémunération sur Objectifs de Santé Publique. Rémunération forfaitaire des médecins traitants liée à des indicateurs de qualité." },
   { term: "SCIC", def: "Société Coopérative d’Intérêt Collectif. Statut juridique possible pour un centre de santé." },
-  { term: "Subvention Teulade", def: "Subvention prévue à l’article L162-32 du code de la sécurité sociale, qui rembourse à un CDS 11,5 % de l’assiette des cotisations patronales d’assurance maladie, maternité, invalidité et décès." },
+  { term: "Subvention Teulade", def: "Dispositif ancien prévu à l’article L162-32 du code de la sécurité sociale, qui organise la prise en charge par l’Assurance Maladie d’une partie des charges sociales des centres de santé conventionnés." },
   { term: "URSSAF", def: "Union de Recouvrement des cotisations de Sécurité Sociale et d’Allocations Familiales. C’est l’organisme qui encaisse les cotisations patronales — son attestation est indispensable au dossier Teulade." },
 ];
 

@@ -8,12 +8,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid gap-10 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="font-bold text-lg">
-            Subvention<span className="text-brand-300">Teulade</span>.fr
+            Subventions<span className="text-brand-300">CDS</span>
           </div>
           <p className="mt-3 text-white/70 max-w-md text-sm leading-relaxed">
-            Cabinet de conseil dédié aux centres de santé. Nous récupérons la subvention Teulade
-            (article L162-32 du code de la sécurité sociale) ainsi que l’ensemble des financements
-            CPAM, ARS et ACI auxquels votre CDS a droit.
+            Cabinet de conseil dédié aux centres de santé. Nous accompagnons les CDS dans la
+            mobilisation de l’ensemble de leurs financements publics et conventionnels.
           </p>
           <p className="mt-4 text-white/60 text-sm">
             ✉ <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white">{CONTACT_EMAIL}</a>
@@ -21,27 +20,21 @@ export default function Footer() {
           </p>
         </div>
         <div>
-          <h3 className="font-semibold text-white mb-3 text-sm uppercase tracking-wide">Subvention Teulade</h3>
+          <h3 className="font-semibold text-white mb-3 text-sm uppercase tracking-wide">Notre offre</h3>
           <ul className="space-y-2 text-sm text-white/70">
-            <li><Link href="/subvention-teulade" className="hover:text-white">La subvention Teulade</Link></li>
-            <li><Link href="/subvention-teulade/conditions" className="hover:text-white">Conditions d’éligibilité</Link></li>
-            <li><Link href="/subvention-teulade/calcul" className="hover:text-white">Calcul du montant</Link></li>
-            <li><Link href="/subvention-teulade/dossier-cpam" className="hover:text-white">Dossier CPAM</Link></li>
-            <li><Link href="/article-l162-32" className="hover:text-white">Article L162-32</Link></li>
-            <li><Link href="/simulateur" className="hover:text-white">Simulateur</Link></li>
-            <li><Link href="/subvention-teulade/villes" className="hover:text-white">Par ville</Link></li>
+            <li><Link href="/accompagnement" className="hover:text-white">Accompagnement</Link></li>
+            <li><Link href="/financements" className="hover:text-white">Financements CDS</Link></li>
+            <li><Link href="/centre-de-sante" className="hover:text-white">Typologies de centres</Link></li>
+            <li><Link href="/subvention-teulade" className="hover:text-white">Subvention Teulade</Link></li>
+            <li><Link href="/comparatif-cds-msp" className="hover:text-white">CDS vs MSP</Link></li>
           </ul>
         </div>
         <div>
           <h3 className="font-semibold text-white mb-3 text-sm uppercase tracking-wide">Ressources</h3>
           <ul className="space-y-2 text-sm text-white/70">
-            <li><Link href="/centre-de-sante" className="hover:text-white">Typologies de CDS</Link></li>
-            <li><Link href="/accompagnement" className="hover:text-white">Accompagnement</Link></li>
-            <li><Link href="/autres-financements" className="hover:text-white">Autres financements</Link></li>
-            <li><Link href="/comparatif-cds-msp" className="hover:text-white">CDS vs MSP</Link></li>
+            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
             <li><Link href="/lexique" className="hover:text-white">Lexique</Link></li>
             <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
-            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
             <li><Link href="/a-propos" className="hover:text-white">À propos</Link></li>
             <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
             <li><Link href="/mentions-legales" className="hover:text-white">Mentions légales</Link></li>

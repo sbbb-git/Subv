@@ -90,7 +90,7 @@ export const cdsTypes: CdsType[] = [
     shortDesc: "Centres pluriprofessionnels (au sens de l’ACI), exerçant en équipe coordonnée.",
     intro: "Le CDS pluriprofessionnel est un centre de santé qui répond aux critères de l’ACI : au moins un médecin et un auxiliaire médical salariés, projet de santé formalisé, équipe coordonnée. La double captation Teulade + ACI y est la norme.",
     pros: [
-      "Cumul Teulade (≥ 11,5 % de l’assiette) + ACI (≥ 20 000 €/an)",
+      "Cumul des dispositifs CDS (Teulade, ACI, FIR, Forfait Structure)",
       "Forte synergie avec FIR et aides régionales",
       "Modèle privilégié par la stratégie nationale de santé",
     ],

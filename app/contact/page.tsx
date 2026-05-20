@@ -20,8 +20,8 @@ export default function Page() {
             Parlons de votre centre de santé
           </h1>
           <p className="mt-5 text-lg text-ink-soft max-w-2xl">
-            Remplissez ce formulaire et obtenez sous 48h ouvrées une estimation
-            chiffrée du montant de subvention Teulade que votre CDS peut récupérer.
+            Remplissez ce formulaire et obtenez sous 48h ouvrées un premier
+            retour sur votre situation et nos pistes d’accompagnement.
           </p>
         </div>
       </section>
@@ -45,10 +45,10 @@ export default function Page() {
             <div className="rounded-2xl bg-brand-600 text-white p-6">
               <h2 className="text-lg font-bold">Diagnostic 100 % gratuit</h2>
               <ul className="mt-4 space-y-2 text-sm text-white/90">
-                <li>✓ Estimation chiffrée Teulade en 48h</li>
-                <li>✓ Identification des autres financements oubliés</li>
+                <li>✓ Premier retour sous 48h ouvrées</li>
+                <li>✓ Cartographie de vos financements</li>
                 <li>✓ Sans engagement</li>
-                <li>✓ Honoraires uniquement au succès</li>
+                <li>✓ Honoraires transparents</li>
               </ul>
             </div>
             <div className="rounded-2xl bg-white ring-1 ring-brand-100 p-6 shadow-sm">

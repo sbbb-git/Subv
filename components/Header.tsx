@@ -2,13 +2,12 @@ import Link from "next/link";
 import { SITE_NAME } from "@/lib/seo";
 
 const navItems = [
-  { href: "/subvention-teulade", label: "Subvention Teulade" },
-  { href: "/centre-de-sante", label: "Centres de santé" },
   { href: "/accompagnement", label: "Accompagnement" },
-  { href: "/autres-financements", label: "Financements" },
-  { href: "/simulateur", label: "Simulateur" },
-  { href: "/blog", label: "Blog" },
+  { href: "/financements", label: "Financements CDS" },
+  { href: "/centre-de-sante", label: "Centres de santé" },
+  { href: "/blog", label: "Ressources" },
   { href: "/faq", label: "FAQ" },
+  { href: "/a-propos", label: "À propos" },
 ];
 
 export default function Header() {
@@ -17,10 +16,10 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group" aria-label={`${SITE_NAME} — accueil`}>
           <span className="w-9 h-9 rounded-lg bg-brand-600 text-white grid place-items-center font-bold shadow-sm group-hover:bg-brand-700 transition">
-            ST
+            S
           </span>
           <span className="font-bold text-ink tracking-tight">
-            Subvention<span className="text-brand-600">Teulade</span>.fr
+            Subventions<span className="text-brand-600">CDS</span>
           </span>
         </Link>
         <nav className="hidden lg:flex items-center gap-6" aria-label="Navigation principale">

@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 export function CTASection({
-  title = "Combien votre centre de santé peut récupérer ?",
+  title = "Faisons le point sur vos financements",
   subtitle = "Diagnostic gratuit en 48h. Sans engagement.",
   primary = { href: "/contact", label: "Demander mon diagnostic" },
-  secondary = { href: "/subvention-teulade", label: "Comprendre la subvention" },
+  secondary = { href: "/accompagnement", label: "Voir l’accompagnement" },
 }: {
   title?: string;
   subtitle?: string;

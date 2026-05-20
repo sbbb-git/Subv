@@ -17,12 +17,12 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
   const city = getCity(params.ville);
   if (!city) return {};
   return {
-    title: `Subvention Teulade à ${city.name} (${city.deptNum}) — accompagnement CDS`,
-    description: `Subvention Teulade pour les centres de santé de ${city.name} et du département ${city.dept} (${city.deptNum}). Récupération de 11,5 % des charges patronales via la ${city.cpam}. Diagnostic gratuit en 48h.`,
+    title: `Subvention Teulade à ${city.name} (${city.deptNum}) — accompagnement des centres de santé`,
+    description: `Centres de santé à ${city.name} et dans le département ${city.dept} (${city.deptNum}) : accompagnement sur la subvention Teulade et l’ensemble des financements CDS, en lien avec la ${city.cpam}.`,
     alternates: { canonical: `/subvention-teulade/${city.slug}` },
     openGraph: {
       title: `Subvention Teulade ${city.name} (${city.deptNum})`,
-      description: `Cabinet de conseil dédié aux centres de santé de ${city.name} pour récupérer la subvention Teulade.`,
+      description: `Cabinet de conseil dédié aux centres de santé de ${city.name}.`,
       url: `${SITE_URL}/subvention-teulade/${city.slug}`,
     },
   };
@@ -36,37 +36,29 @@ export default function Page({ params }: { params: Params }) {
 
   const faqs = [
     {
-      q: `Mon centre de santé à ${city.name} est-il éligible à la subvention Teulade ?`,
-      a: `Oui, dès lors que votre centre est conventionné avec l’Assurance Maladie et qu’il salarie des professionnels de santé réalisant des actes remboursables. Cela vaut pour tous les CDS du département ${city.dept} (${city.deptNum}).`,
+      q: `Mon centre de santé à ${city.name} peut-il être concerné par la subvention Teulade ?`,
+      a: `Les centres de santé conventionnés du département ${city.dept} (${city.deptNum}) peuvent être concernés, sous conditions. Nous vérifions votre éligibilité dans le cadre d’un audit gratuit.`,
     },
     {
-      q: `Quelle CPAM traite ma demande Teulade à ${city.name} ?`,
-      a: `Les dossiers Teulade des centres de santé de ${city.name} et du ${city.deptNum} sont instruits par la ${city.cpam}. Chaque caisse dispose de son propre formulaire et de ses propres délais d’instruction.`,
+      q: `Quel est le rôle de la CPAM à ${city.name} ?`,
+      a: `La ${city.cpam} est l’interlocuteur de référence des centres de santé du ${city.deptNum} pour l’ensemble des dispositifs relevant de l’Assurance Maladie, dont la subvention Teulade.`,
     },
     {
-      q: `Combien de temps prend l’obtention de la subvention Teulade à ${city.name} ?`,
-      a: `Pour la ${city.cpam}, comptez en moyenne 3 à 6 mois pour un dossier en cours, et 6 à 12 mois pour un rattrapage pluriannuel. Le respect des justificatifs URSSAF accélère significativement le délai.`,
-    },
-    {
-      q: `Peut-on récupérer la subvention sur les exercices passés à ${city.name} ?`,
-      a: `Oui. Les centres de santé du ${city.deptNum} peuvent en principe réclamer les exercices N-1, N-2 et N-3 non versés, sous réserve de produire les attestations URSSAF correspondantes.`,
-    },
-    {
-      q: `Comment intervenez-vous concrètement pour un CDS à ${city.name} ?`,
-      a: `À distance et sur place si nécessaire. Nous récupérons vos DSN et attestations URSSAF, calculons l’assiette éligible, montons le dossier complet pour la ${city.cpam} et assurons les relances jusqu’au versement.`,
+      q: `Intervenez-vous physiquement à ${city.name} ?`,
+      a: `Notre cabinet intervient sur l’ensemble du territoire français. À ${city.name} et dans le ${city.deptNum}, nous travaillons indifféremment à distance et sur site, selon les besoins de la mission.`,
     },
   ];
 
   const localBusinessLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: `${SITE_NAME} — Subvention Teulade ${city.name}`,
+    name: `${SITE_NAME} — Centres de santé ${city.name}`,
     url: `${SITE_URL}/subvention-teulade/${city.slug}`,
     areaServed: {
       "@type": "AdministrativeArea",
       name: `${city.dept} (${city.deptNum})`,
     },
-    serviceType: "Accompagnement à la récupération de la subvention Teulade pour centres de santé",
+    serviceType: "Accompagnement et conseil financier pour centres de santé",
   };
 
   return (
@@ -84,21 +76,21 @@ export default function Page({ params }: { params: Params }) {
             Département {city.deptNum} · {city.region}
           </span>
           <h1 className="mt-2 text-4xl md:text-5xl font-extrabold tracking-tight text-ink">
-            Subvention Teulade à {city.name} ({city.deptNum})
+            Centres de santé à {city.name} ({city.deptNum})
           </h1>
           <p className="mt-5 text-lg text-ink-soft max-w-3xl leading-relaxed">
-            Cabinet de conseil spécialisé centres de santé, intervenant sur{" "}
-            <strong>{city.name}</strong> et l’ensemble du département{" "}
-            <strong>{city.dept}</strong>. Nous récupérons pour votre CDS{" "}
-            <strong>11,5 % des cotisations patronales URSSAF</strong> via la{" "}
-            <strong>{city.cpam}</strong>, en cours et sur les exercices non prescrits.
+            Cabinet de conseil dédié aux centres de santé, intervenant sur{" "}
+            <strong>{city.name}</strong> et le département{" "}
+            <strong>{city.dept}</strong>. Nous accompagnons les CDS du secteur sur
+            l’ensemble de leurs financements, en lien notamment avec la{" "}
+            <strong>{city.cpam}</strong>.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href="/contact" className="rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-3">
-              Diagnostic gratuit pour mon CDS à {city.name}
+              Diagnostic gratuit
             </Link>
-            <Link href="/simulateur" className="rounded-lg ring-1 ring-brand-200 hover:bg-brand-50 text-ink font-semibold px-5 py-3">
-              Simulateur Teulade
+            <Link href="/accompagnement" className="rounded-lg ring-1 ring-brand-200 hover:bg-brand-50 text-ink font-semibold px-5 py-3">
+              Notre accompagnement
             </Link>
           </div>
         </div>
@@ -108,44 +100,23 @@ export default function Page({ params }: { params: Params }) {
         <h2>Les centres de santé à {city.name}</h2>
         <p>{city.intro} On y compte aujourd’hui <strong>{city.nbCds}</strong> centres de santé conventionnés.</p>
 
-        <h2>Comment fonctionne la subvention Teulade pour un CDS de {city.name} ?</h2>
+        <h2>Notre intervention dans le {city.deptNum}</h2>
         <p>
-          La subvention Teulade, prévue à l’article L162-32 du code de la sécurité
-          sociale, oblige la <strong>{city.cpam}</strong> à rembourser à votre centre
-          de santé <strong>11,5 % de l’assiette des cotisations patronales</strong>{" "}
-          versées à l’URSSAF pour vos soignants salariés. Le mécanisme est strictement
-          identique partout en France, mais chaque CPAM applique sa propre procédure et
-          son propre formulaire — c’est précisément ce point qui retarde ou bloque tant
-          de dossiers dans le département {city.deptNum}.
+          Nous accompagnons les centres de santé de {city.name} et du département{" "}
+          {city.dept} sur l’ensemble du spectre : audit financier, mobilisation des
+          dispositifs <Link href="/financements">CPAM, ARS, ACI et FIR</Link>,
+          subvention Teulade, accompagnement à la création et à la mise en
+          conformité.
         </p>
 
-        <h2>Spécificités locales et bonnes pratiques</h2>
-        <ul>
-          <li>Interlocuteur : <strong>{city.cpam}</strong> — service du conventionnement / centres de santé.</li>
-          <li>Justificatifs URSSAF à demander à l’URSSAF compétente du {city.deptNum}.</li>
-          <li>Délais constatés : 3 à 9 mois selon la complexité du dossier.</li>
-          <li>Recours gracieux possible auprès du directeur de la {city.cpam} en cas de retard prolongé.</li>
-        </ul>
-
-        <h2>Nos missions à {city.name}</h2>
-        <ul>
-          <li><strong>Audit gratuit</strong> de votre situation Teulade (en cours + rattrapage N-3)</li>
-          <li><strong>Reconstitution</strong> des assiettes URSSAF par salarié</li>
-          <li><strong>Montage du dossier</strong> au format attendu par la {city.cpam}</li>
-          <li><strong>Relances</strong> jusqu’au versement effectif</li>
-          <li><strong>Optimisation</strong> des autres financements (ACI, FIR, ARS, Forfait Structure)</li>
-        </ul>
-
-        <h2>Combien votre CDS de {city.name} peut récupérer ?</h2>
+        <h2>Pourquoi être accompagné localement ?</h2>
         <p>
-          À titre d’exemple, un centre de santé du {city.deptNum} employant 8 soignants
-          salariés équivalents temps plein peut espérer entre <strong>35 000 € et
-          90 000 €</strong> par an au titre de la subvention Teulade. Sur trois années
-          de rattrapage, le total dépasse fréquemment <strong>200 000 €</strong>. Notre{" "}
-          <Link href="/simulateur">simulateur</Link> donne une estimation immédiate.
+          Chaque CPAM applique sa propre procédure et son propre calendrier
+          d’instruction. La connaissance des pratiques de la <strong>{city.cpam}</strong>{" "}
+          est un atout pour structurer efficacement les dossiers.
         </p>
 
-        <h2>Questions fréquentes — Subvention Teulade {city.name}</h2>
+        <h2>Questions fréquentes — {city.name}</h2>
       </article>
 
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
@@ -154,7 +125,7 @@ export default function Page({ params }: { params: Params }) {
 
       <section className="py-14 bg-brand-50/60 border-y border-brand-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-ink">Autres villes où nous intervenons</h2>
+          <h2 className="text-2xl font-bold text-ink">Autres villes</h2>
           <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
             {others.map((c) => (
               <Link
@@ -162,7 +133,7 @@ export default function Page({ params }: { params: Params }) {
                 href={`/subvention-teulade/${c.slug}`}
                 className="rounded-lg bg-white ring-1 ring-brand-100 hover:ring-brand-300 px-4 py-3 text-sm font-medium text-ink hover:text-brand-700"
               >
-                Teulade {c.name} ({c.deptNum})
+                {c.name} ({c.deptNum})
               </Link>
             ))}
           </div>
@@ -175,8 +146,8 @@ export default function Page({ params }: { params: Params }) {
       </section>
 
       <CTASection
-        title={`Activez votre subvention Teulade à ${city.name}`}
-        subtitle="Diagnostic gratuit sous 48h, intervention à distance ou sur place."
+        title={`Accompagnement des CDS à ${city.name}`}
+        subtitle="Diagnostic gratuit sous 48h, sur place ou à distance."
       />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessLd) }} />

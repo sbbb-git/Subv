@@ -16,8 +16,8 @@ export default function ContactForm() {
       <div className="rounded-2xl border border-brand-200 bg-brand-50 p-8 text-center">
         <h3 className="text-2xl font-bold text-ink">Demande reçue ✅</h3>
         <p className="mt-3 text-ink-soft">
-          Nous revenons vers vous sous 24 à 48h ouvrées avec une première estimation
-          du montant de subvention Teulade que votre CDS peut récupérer.
+          Nous revenons vers vous sous 24 à 48h ouvrées avec un premier point sur
+          votre situation et la suite des échanges.
         </p>
       </div>
     );
@@ -38,7 +38,7 @@ export default function ContactForm() {
         <textarea
           name="message"
           rows={5}
-          placeholder="Avez-vous déjà demandé la subvention Teulade ? Sur combien d'années ? Quels sont vos blocages actuels avec la CPAM ?"
+          placeholder="Décrivez brièvement votre centre, vos enjeux du moment et ce que vous attendez de notre échange."
           className="w-full rounded-lg border border-brand-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 px-4 py-3 text-ink placeholder:text-ink-mute/70"
         />
       </div>

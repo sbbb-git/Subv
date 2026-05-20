@@ -43,7 +43,7 @@ export default function Page() {
             <tr><td><strong>Statut des soignants</strong></td><td>Salariés</td><td>Libéraux</td></tr>
             <tr><td><strong>Cadre légal</strong></td><td>Art. L6323-1 CSP</td><td>Art. L6323-3 CSP</td></tr>
             <tr><td><strong>Charges patronales</strong></td><td>Oui — portées par le CDS</td><td>Non — chaque libéral gère ses cotisations</td></tr>
-            <tr><td><strong>Subvention Teulade</strong></td><td>✅ Oui — 11,5 % de l’assiette</td><td>❌ Non éligible</td></tr>
+            <tr><td><strong>Dispositif L162-32 (Teulade)</strong></td><td>✅ Oui (sous conditions)</td><td>❌ Non éligible</td></tr>
             <tr><td><strong>ACI</strong></td><td>✅ Oui</td><td>✅ Oui</td></tr>
             <tr><td><strong>FIR / ARS</strong></td><td>✅ Oui</td><td>✅ Oui</td></tr>
             <tr><td><strong>Modèle économique</strong></td><td>Salaires + recettes Assurance Maladie + subventions</td><td>Honoraires libéraux + ACI</td></tr>
@@ -68,12 +68,12 @@ export default function Page() {
           <li>La gouvernance reste entièrement portée par les professionnels.</li>
         </ul>
 
-        <h2>Le levier Teulade est exclusif au CDS</h2>
+        <h2>Des dispositifs propres au modèle CDS</h2>
         <p>
-          C’est l’<strong>avantage économique majeur</strong> du modèle CDS : 11,5 %
-          de l’assiette des cotisations patronales remboursés par la CPAM. Pour un CDS
-          moyen, c’est entre 30 000 € et 100 000 € de recettes annuelles
-          supplémentaires, indispensables à la viabilité du modèle salarial.
+          Plusieurs dispositifs sont propres aux centres de santé conventionnés
+          (dont la prise en charge prévue à l’article L162-32 du code de la sécurité
+          sociale). Ce sont des leviers structurels pour la viabilité du modèle
+          salarial — encore faut-il les mobiliser correctement.
         </p>
       </article>
 

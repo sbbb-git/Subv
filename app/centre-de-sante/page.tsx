@@ -40,7 +40,7 @@ export default function Page() {
               <h2 className="text-xl font-bold text-ink group-hover:text-brand-700">{t.name}</h2>
               <p className="mt-3 text-ink-soft text-[15px]">{t.shortDesc}</p>
               <div className="mt-4 text-xs text-brand-700 font-semibold">
-                Exemple Teulade annuel : {t.exemple.annuel.toLocaleString("fr-FR")} € →
+                En savoir plus →
               </div>
             </Link>
           ))}
