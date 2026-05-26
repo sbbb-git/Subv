@@ -22,7 +22,7 @@ export default function Page() {
           </h1>
           <p className="mt-5 text-lg text-ink-soft max-w-3xl">
             Guides pratiques, décryptages réglementaires, analyses sur le
-            financement et le pilotage des CDS.
+            financement et le pilotage des centres de santé.
           </p>
         </div>
       </section>

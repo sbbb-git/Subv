@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const items = [
-  { id: "remunerations", name: "Rémunérations conventionnelles", base: "Accord national CDS", desc: "Actes remboursables, tiers payant, forfaits divers : la recette de base de tout centre de santé conventionné." },
+  { id: "remunerations", name: "Rémunérations conventionnelles", base: "Accord national des centres de santé", desc: "Actes remboursables, tiers payant, forfaits divers : la recette de base de tout centre de santé conventionné." },
   { id: "aci", name: "Accord Conventionnel Interprofessionnel (ACI)", base: "Arrêté 21 août 2019", desc: "Rémunération forfaitaire pour les structures pluriprofessionnelles, calculée sur indicateurs socle et optionnels." },
   { id: "fir", name: "Fonds d’Intervention Régional (FIR)", base: "Géré par l’ARS", desc: "Cofinancement de missions de prévention, coordination territoriale, accès aux soins, projets innovants." },
-  { id: "teulade", name: "Dispositif L162-32 (subvention Teulade)", base: "Article L162-32 CSS", desc: "Dispositif ancien prévoyant la prise en charge par l’Assurance Maladie d’une partie des charges sociales des CDS conventionnés. Voir la page dédiée." },
+  { id: "teulade", name: "Dispositif L162-32 (subvention Teulade)", base: "Article L162-32 CSS", desc: "Dispositif ancien prévoyant la prise en charge par l’Assurance Maladie d’une partie des charges sociales des centres de santé conventionnés. Voir la page dédiée." },
   { id: "forfait-structure", name: "Forfait Structure", base: "Convention médicale", desc: "Forfait versé aux médecins pour la modernisation de leur outil de travail." },
   { id: "rosp", name: "ROSP", base: "Convention médicale", desc: "Rémunération sur Objectifs de Santé Publique, sur indicateurs de qualité." },
   { id: "installation", name: "Aides à l’installation (CAIM, COSCOM, COTRAM, CSTM)", base: "Convention médicale", desc: "Contrats d’aide à l’installation et à la consultation en zones sous-dotées." },
@@ -31,7 +31,7 @@ export default function Page() {
           </h1>
           <p className="mt-5 text-lg text-ink-soft max-w-3xl">
             Une dizaine de dispositifs cumulables pour structurer durablement le
-            modèle économique d’un CDS.
+            modèle économique d’un centre de santé.
           </p>
         </div>
       </section>

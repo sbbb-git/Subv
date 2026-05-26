@@ -6,7 +6,7 @@ import { cdsTypes } from "@/content/types";
 export const metadata: Metadata = {
   title: "Centres de santé : typologies, statuts, accompagnement",
   description:
-    "Panorama des centres de santé : CDS médical, dentaire, infirmier, polyvalent, pluriprofessionnel, municipal, associatif, mutualiste. Accompagnement spécifique pour chaque typologie.",
+    "Panorama des centres de santé : Centre de santé médical, dentaire, infirmier, polyvalent, pluriprofessionnel, municipal, associatif, mutualiste. Accompagnement spécifique pour chaque typologie.",
   alternates: { canonical: "/centres-de-sante" },
 };
 
@@ -21,7 +21,7 @@ export default function Page() {
           </h1>
           <p className="mt-5 text-lg text-ink-soft max-w-3xl">
             De la maison médicale au centre dentaire en passant par le CMS et la
-            structure pluriprofessionnelle, chaque typologie de CDS a ses
+            structure pluriprofessionnelle, chaque typologie de centres de santé a ses
             spécificités. Nous les connaissons toutes.
           </p>
         </div>

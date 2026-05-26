@@ -28,7 +28,7 @@ export const services: Service[] = [
   },
   {
     slug: "developpement-cds",
-    name: "Développement d’un CDS existant",
+    name: "Développement d’un centre de santé existant",
     short: "Faire grandir un centre de santé en activité.",
     hero: "Accompagnement au développement d’un centre de santé déjà ouvert : structuration RH, élargissement de l’offre de soins, ouverture d’antennes, montée en charge des financements.",
     pillars: [
@@ -40,15 +40,15 @@ export const services: Service[] = [
     ],
     metaTitle: "Développer un centre de santé : ouverture d’antennes, RH, offre de soins",
     metaDescription: "Accompagnement au développement d’un centre de santé : élargissement de l’offre, ouverture d’antennes, structuration RH, optimisation financière.",
-    keywords: ["développer un centre de santé", "agrandir un CDS", "ouvrir une antenne CDS", "RH centre de santé"],
+    keywords: ["développer un centre de santé", "agrandir un centre de santé", "ouvrir une antenne CDS", "RH centre de santé"],
   },
   {
     slug: "comptabilite-cds",
     name: "Optimisation comptable & gestion",
-    short: "Pilotage budgétaire, paie, URSSAF, fiscalité — adapté aux CDS.",
+    short: "Pilotage budgétaire, paie, URSSAF, fiscalité — adapté aux centres de santé.",
     hero: "Accompagnement comptable et financier sur-mesure pour les centres de santé : tenue de gestion, suivi budgétaire, paie URSSAF, fiscalité, rapprochement avec les financements CPAM et ARS.",
     pillars: [
-      { title: "Tenue de gestion", desc: "Comptabilité analytique adaptée aux CDS, ventilation par activité, suivi mensuel." },
+      { title: "Tenue de gestion", desc: "Comptabilité analytique adaptée aux centres de santé, ventilation par activité, suivi mensuel." },
       { title: "Pilotage budgétaire", desc: "Construction et suivi du budget, alertes, prévisions de trésorerie." },
       { title: "Paie & URSSAF", desc: "Suivi des bulletins, DSN, attestations URSSAF, conformité." },
       { title: "Fiscalité spécifique", desc: "Optimisation fiscale tenant compte du statut juridique (association, mutuelle, SCIC, public)." },
@@ -86,7 +86,7 @@ export const services: Service[] = [
       { title: "Articulation avec l’ACI", desc: "Sécurisation de l’éligibilité à l’Accord Conventionnel Interprofessionnel." },
     ],
     metaTitle: "Conventionnement CPAM d’un centre de santé — accompagnement",
-    metaDescription: "Accompagnement pour conventionner ou renouveler le conventionnement de votre CDS auprès de la CPAM : dossier, échanges, articulation avec l’ACI.",
+    metaDescription: "Accompagnement pour conventionner ou renouveler le conventionnement de votre centre de santé auprès de la CPAM : dossier, échanges, articulation avec l’ACI.",
     keywords: ["conventionnement CPAM CDS", "convention nationale centre de santé", "ACI centre de santé"],
   },
   {
@@ -95,9 +95,9 @@ export const services: Service[] = [
     short: "Mobilisation de tous les dispositifs publics et conventionnels.",
     hero: "Cartographie et activation de l’ensemble des financements mobilisables par votre centre de santé : dispositifs CPAM, ARS, ACI, FIR, aides à l’installation, fonds collectivités.",
     pillars: [
-      { title: "Cartographie des dispositifs", desc: "Identification de tous les financements auxquels votre CDS peut prétendre." },
+      { title: "Cartographie des dispositifs", desc: "Identification de tous les financements auxquels votre centre de santé peut prétendre." },
       { title: "Mobilisation opérationnelle", desc: "Préparation et dépôt des dossiers, suivi auprès des organismes." },
-      { title: "Dispositifs CDS spécifiques", desc: "Dont la subvention prévue à l’article L162-32 du code de la sécurité sociale (dite subvention Teulade)." },
+      { title: "Dispositifs spécifiques aux centres de santé", desc: "Dont la subvention prévue à l’article L162-32 du code de la sécurité sociale (dite subvention Teulade)." },
       { title: "Optimisation pluriannuelle", desc: "Calendrier prévisionnel, articulation des dispositifs, sécurisation de la trésorerie." },
     ],
     metaTitle: "Subventions & financements d’un centre de santé — ACI, FIR, ARS, CPAM",
@@ -107,7 +107,7 @@ export const services: Service[] = [
   {
     slug: "audit-financier",
     name: "Audit financier 360°",
-    short: "Diagnostic complet des recettes, charges et financements de votre CDS.",
+    short: "Diagnostic complet des recettes, charges et financements de votre centre de santé.",
     hero: "Audit financier confidentiel des centres de santé : vue d’ensemble des recettes, des coûts, des financements actuels et du potentiel non mobilisé.",
     pillars: [
       { title: "Analyse des recettes", desc: "FSE, tiers payant, forfaits, ROSP, financements conventionnels et publics." },
@@ -125,7 +125,7 @@ export const services: Service[] = [
     short: "Renouvellement du projet de santé, mise en conformité, visite ARS.",
     hero: "Mise à jour du projet de santé, accompagnement aux visites ARS, préparation aux contrôles, conformité réglementaire et RGPD.",
     pillars: [
-      { title: "Audit conformité", desc: "Revue documentaire et organisationnelle de votre CDS." },
+      { title: "Audit conformité", desc: "Revue documentaire et organisationnelle de votre centre de santé." },
       { title: "Rédaction / mise à jour du projet de santé", desc: "Conforme aux attendus de l’ARS et de la convention nationale." },
       { title: "Préparation aux visites", desc: "Coaching, dossier de visite, dry-run." },
       { title: "RGPD & règlement intérieur", desc: "Mise en place des politiques internes attendues." },

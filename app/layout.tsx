@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       "Conventionnement CPAM",
       "Accord Conventionnel Interprofessionnel (ACI)",
       "Fonds d’Intervention Régional (FIR)",
-      "Subventions et financements CDS",
+      "Subventions et financements des centres de santé",
     ],
   };
   return (

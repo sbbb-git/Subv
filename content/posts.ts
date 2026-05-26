@@ -13,7 +13,7 @@ export const posts: Post[] = [
     slug: "creer-centre-de-sante-etapes",
     title: "Créer un centre de santé : les grandes étapes",
     description:
-      "Étude de faisabilité, statut juridique, projet de santé, conventionnement CPAM : panorama du parcours de création d’un CDS.",
+      "Étude de faisabilité, statut juridique, projet de santé, conventionnement CPAM : panorama du parcours de création d’un centre de santé.",
     date: "2026-05-12",
     readingTime: "6 min",
     category: "Création",
@@ -39,19 +39,19 @@ export const posts: Post[] = [
     slug: "modele-economique-cds",
     title: "Le modèle économique des centres de santé",
     description:
-      "Comprendre les leviers financiers d’un CDS et leur articulation : conventionnement, dispositifs CPAM, ACI, FIR, aides publiques.",
+      "Comprendre les leviers financiers d’un centre de santé et leur articulation : conventionnement, dispositifs CPAM, ACI, FIR, aides publiques.",
     date: "2026-04-22",
     readingTime: "5 min",
     category: "Comprendre",
     content: `
 <h2>Une logique différente du libéral</h2>
-<p>Un CDS salarie ses soignants. Cela change tout : charges patronales, gestion administrative, gouvernance, financements.</p>
+<p>Un centre de santé salarie ses soignants. Cela change tout : charges patronales, gestion administrative, gouvernance, financements.</p>
 <h2>Une mosaïque de recettes</h2>
-<p>Actes remboursables, rémunérations forfaitaires (ACI, Forfait Structure, ROSP), financements publics (FIR, dotations ARS, aides collectivités), dispositifs spécifiques CDS.</p>
+<p>Actes remboursables, rémunérations forfaitaires (ACI, Forfait Structure, ROSP), financements publics (FIR, dotations ARS, aides collectivités), dispositifs spécifiques aux centres de santé.</p>
 <h2>Un équilibre fragile</h2>
 <p>Le rapport IGAS 2025 souligne la fragilité de cet équilibre, et le fait que de nombreux dispositifs restent sous-mobilisés.</p>
 <h2>Un pilotage à organiser</h2>
-<p>La viabilité d’un CDS repose sur une vision intégrée : cartographier, prioriser, sécuriser.</p>
+<p>La viabilité d’un centre de santé repose sur une vision intégrée : cartographier, prioriser, sécuriser.</p>
 `,
   },
   {
@@ -77,13 +77,13 @@ export const posts: Post[] = [
     slug: "comptabilite-centre-de-sante-specificites",
     title: "Les spécificités comptables d’un centre de santé",
     description:
-      "Pourquoi la comptabilité d’un CDS demande une expertise particulière : ventilation analytique, paie URSSAF, articulation avec les financements publics.",
+      "Pourquoi la comptabilité d’un centre de santé demande une expertise particulière : ventilation analytique, paie URSSAF, articulation avec les financements publics.",
     date: "2026-02-15",
     readingTime: "5 min",
     category: "Gestion",
     content: `
 <h2>Une analytique fine</h2>
-<p>Le CDS doit ventiler ses recettes et charges par activité pour piloter correctement la rentabilité de chaque ligne.</p>
+<p>Le centre de santé doit ventiler ses recettes et charges par activité pour piloter correctement la rentabilité de chaque ligne.</p>
 <h2>Une paie sous contrainte</h2>
 <p>Les DSN et attestations URSSAF sont la base de plusieurs dispositifs financiers. La moindre erreur a des conséquences directes.</p>
 <h2>Une articulation avec les financements publics</h2>
@@ -94,7 +94,7 @@ export const posts: Post[] = [
   },
   {
     slug: "igas-2025-cds",
-    title: "Rapport IGAS 2025 : ce qu’il faut retenir pour les CDS",
+    title: "Rapport IGAS 2025 : ce qu’il faut retenir pour les centres de santé",
     description:
       "Synthèse du rapport IGAS de février 2025 sur l’évaluation du modèle économique des centres de santé pluriprofessionnels.",
     date: "2026-01-30",
@@ -102,18 +102,18 @@ export const posts: Post[] = [
     category: "Actualité",
     content: `
 <h2>Un état des lieux attendu</h2>
-<p>Le rapport IGAS de février 2025 propose un panorama fouillé du secteur des CDS pluriprofessionnels : diversité des modèles, sources de financement, viabilité économique.</p>
+<p>Le rapport IGAS de février 2025 propose un panorama fouillé du secteur des centres de santé pluriprofessionnels : diversité des modèles, sources de financement, viabilité économique.</p>
 <h2>Des dispositifs sous-mobilisés</h2>
 <p>Le rapport relève qu’un nombre significatif de dispositifs anciens restent sous-utilisés par les structures concernées, parfois faute d’information.</p>
 <h2>Des recommandations structurelles</h2>
-<p>Simplification des procédures, harmonisation des pratiques entre caisses, meilleure information des directions de CDS.</p>
+<p>Simplification des procédures, harmonisation des pratiques entre caisses, meilleure information des directions de centres de santé.</p>
 <h2>Une responsabilité opérationnelle</h2>
-<p>En attendant les évolutions réglementaires, c’est aux directions de CDS — accompagnées si besoin — de mobiliser correctement les leviers à leur disposition.</p>
+<p>En attendant les évolutions réglementaires, c’est aux directions de centres de santé — accompagnées si besoin — de mobiliser correctement les leviers à leur disposition.</p>
 `,
   },
   {
     slug: "developper-cds-antennes",
-    title: "Développer un CDS : faut-il ouvrir une antenne ?",
+    title: "Développer un centre de santé : faut-il ouvrir une antenne ?",
     description:
       "Les bonnes questions à se poser avant d’ouvrir une seconde implantation pour un centre de santé existant.",
     date: "2025-12-20",

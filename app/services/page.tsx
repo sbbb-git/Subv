@@ -20,7 +20,7 @@ export default function Page() {
             Nos services pour centres de santé
           </h1>
           <p className="mt-5 text-lg text-ink-soft max-w-3xl">
-            Un cabinet, neuf expertises couvrant tout le cycle de vie d’un CDS —
+            Un cabinet, neuf expertises couvrant tout le cycle de vie d’un centre de santé —
             de l’étude d’opportunité jusqu’au pilotage financier au quotidien.
           </p>
         </div>

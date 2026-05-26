@@ -34,8 +34,8 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold text-white mb-3 text-sm uppercase tracking-wide">Ressources</h3>
           <ul className="space-y-2 text-sm text-white/70">
-            <li><Link href="/centres-de-sante" className="hover:text-white">Typologies de CDS</Link></li>
-            <li><Link href="/financements" className="hover:text-white">Financements CDS</Link></li>
+            <li><Link href="/centres-de-sante" className="hover:text-white">Typologies de centres de santé</Link></li>
+            <li><Link href="/financements" className="hover:text-white">Financements des centres de santé</Link></li>
             <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
             <li><Link href="/lexique" className="hover:text-white">Lexique</Link></li>
             <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>

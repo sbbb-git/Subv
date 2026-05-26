@@ -9,7 +9,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 export const metadata: Metadata = {
   title: "SubventionsCDS — Cabinet d’accompagnement des centres de santé",
   description:
-    "Cabinet d’accompagnement dédié aux centres de santé. Spécialiste de la subvention Teulade (article L162-32 du code de la sécurité sociale) et de l’ensemble des sujets administratifs des CDS.",
+    "Cabinet d’accompagnement dédié aux centres de santé. Spécialiste de la subvention Teulade (article L162-32 du code de la sécurité sociale) et de l’ensemble des sujets administratifs des centres de santé.",
   alternates: { canonical: "/" },
 };
 
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "Sur quels types de centres de santé intervenez-vous ?",
-    a: "Tous : CDS médicaux, dentaires, infirmiers, polyvalents, pluriprofessionnels, qu’ils soient portés par une association, une mutuelle, une collectivité ou une SCIC.",
+    a: "Tous : centres de santé médicaux, dentaires, infirmiers, polyvalents, pluriprofessionnels, qu’ils soient portés par une association, une mutuelle, une collectivité ou une SCIC.",
   },
   {
     q: "Quel est votre modèle de rémunération ?",
@@ -101,24 +101,24 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Ce que nous faisons"
-            title="Une équipe qui ne parle que CDS"
+            title="Une équipe qui ne parle que centres de santé"
             subtitle="Nous connaissons l’écosystème des centres de santé : cadre conventionnel, dispositifs CPAM et ARS, financements et obligations sociales. Pas généralistes — spécialistes."
           />
           <div className="mt-12 grid md:grid-cols-3 gap-6">
             {[
               {
                 t: "Subvention Teulade",
-                d: "Cœur de métier. Le dispositif prévu à l’article L162-32 du code de la sécurité sociale, sur lequel beaucoup de CDS passent à côté.",
+                d: "Cœur de métier. Le dispositif prévu à l’article L162-32 du code de la sécurité sociale, sur lequel beaucoup de centres de santé passent à côté.",
                 h: "/subvention-teulade",
               },
               {
-                t: "Sujets administratifs CDS",
+                t: "Sujets administratifs des centres de santé",
                 d: "Création, conventionnement, projet de santé, dossiers ARS, suivi des financements conventionnels.",
                 h: "/services",
               },
               {
                 t: "Toutes typologies",
-                d: "CDS médicaux, dentaires, infirmiers, polyvalents, pluripro — associatifs, mutualistes, municipaux.",
+                d: "centres de santé médicaux, dentaires, infirmiers, polyvalents, pluripro — associatifs, mutualistes, municipaux.",
                 h: "/centres-de-sante",
               },
             ].map((b) => (
@@ -141,7 +141,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Nos domaines d’intervention"
-            title="Un cabinet, plusieurs sujets CDS"
+            title="Un cabinet, plusieurs sujets des centres de santé"
           />
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s) => (
@@ -163,7 +163,7 @@ export default function HomePage() {
       <section className="py-20 bg-brand-50/60 border-y border-brand-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            eyebrow="Tous les types de CDS"
+            eyebrow="Tous les types de centres de santé"
             title="Une expertise pour chaque typologie"
           />
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -184,7 +184,7 @@ export default function HomePage() {
       {/* BLOG TEASER */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Ressources" title="Le blog du CDS" />
+          <SectionHeading eyebrow="Ressources" title="Le blog du centre de santé" />
           <div className="mt-12 grid md:grid-cols-3 gap-5">
             {[...posts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3).map((p) => (
               <Link key={p.slug} href={`/blog/${p.slug}`} className="rounded-2xl bg-white ring-1 ring-brand-100 hover:ring-brand-300 p-6 transition">

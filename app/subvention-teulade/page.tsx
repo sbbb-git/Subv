@@ -65,7 +65,7 @@ export default function Page() {
               Nous contacter
             </Link>
             <Link href="/financements" className="rounded-lg ring-1 ring-brand-200 hover:bg-brand-50 text-ink font-semibold px-5 py-3">
-              Tous les financements CDS
+              Tous les financements des centres de santé
             </Link>
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function Page() {
         <p>
           Le rapport IGAS de février 2025 sur l’évaluation du modèle économique
           des centres de santé pluriprofessionnels relève qu’<strong>environ un
-          quart des CDS</strong> n’a pas perçu cette subvention au titre de
+          quart des centres de santé</strong> n’a pas perçu cette subvention au titre de
           2022. Les causes sont structurelles : méconnaissance du dispositif,
           complexité de la mise en œuvre, articulation délicate entre l’URSSAF,
           la CPAM et la paie.
@@ -96,11 +96,11 @@ export default function Page() {
         <p>
           Plutôt que d’aborder la subvention Teulade isolément, nous
           l’intégrons systématiquement à une vue d’ensemble du financement de
-          votre CDS, afin d’éviter les doublons avec d’autres dispositifs
+          votre centre de santé, afin d’éviter les doublons avec d’autres dispositifs
           (ACI, FIR) et de construire une architecture financière durable.
         </p>
 
-        <h2>Articulation avec les autres dispositifs CDS</h2>
+        <h2>Articulation avec les autres dispositifs des centres de santé</h2>
         <p>
           La subvention Teulade n’existe pas dans le vide. Voir notre vue
           d’ensemble des{" "}

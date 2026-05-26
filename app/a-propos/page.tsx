@@ -30,13 +30,13 @@ export default function Page() {
         <p>
           Le secteur des centres de santé est en croissance, mais son équilibre
           économique reste fragile. Beaucoup de dispositifs publics existent
-          pour soutenir le modèle CDS — encore faut-il les connaître, les
+          pour soutenir le modèle des centres de santé — encore faut-il les connaître, les
           activer et les piloter. C’est notre métier.
         </p>
 
         <h2>Notre méthode</h2>
         <ul>
-          <li><strong>Spécialisation exclusive</strong> : un seul secteur, un seul métier — les CDS.</li>
+          <li><strong>Spécialisation exclusive</strong> : un seul secteur, un seul métier — les centres de santé.</li>
           <li><strong>Honoraires transparents</strong> : forfait ou résultat, jamais de frais cachés.</li>
           <li><strong>Confidentialité totale</strong> : charte RGPD et NDA systématique.</li>
           <li><strong>Indépendance</strong> : aucun lien avec la CPAM, l’URSSAF, l’Assurance Maladie ou la FNCS.</li>
@@ -51,7 +51,7 @@ export default function Page() {
 
         <h2>Avec qui nous travaillons</h2>
         <p>
-          Directeurs et gestionnaires de CDS, trésoriers d’associations, DGS de
+          Directeurs et gestionnaires de centres de santé, trésoriers d’associations, DGS de
           collectivités portant un CMS, responsables financiers de mutuelles,
           médecins coordinateurs. Toute personne en charge de la santé
           administrative ou financière d’un centre de santé.
