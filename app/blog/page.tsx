@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { posts } from "@/content/posts";
 
 export const metadata: Metadata = {
-  title: "Blog — Subvention Teulade & financement des centres de santé",
+  title: "Blog & ressources — Centres de santé",
   description:
-    "Analyses, guides et actualités sur la subvention Teulade, l’ACI, le FIR et tous les financements mobilisables par un centre de santé.",
+    "Articles et guides sur les centres de santé : création, développement, comptabilité, dossiers ARS, conventionnement CPAM, financements et subventions.",
   alternates: { canonical: "/blog" },
 };
 
@@ -21,8 +21,8 @@ export default function Page() {
             Blog & ressources pour centres de santé
           </h1>
           <p className="mt-5 text-lg text-ink-soft max-w-3xl">
-            Guides pratiques, décryptages réglementaires et études chiffrées sur la
-            subvention Teulade et le financement des CDS.
+            Guides pratiques, décryptages réglementaires, analyses sur le
+            financement et le pilotage des CDS.
           </p>
         </div>
       </section>
@@ -30,11 +30,7 @@ export default function Page() {
       <section className="py-14">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sorted.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/blog/${p.slug}`}
-              className="group rounded-2xl bg-white ring-1 ring-brand-100 hover:ring-brand-300 hover:shadow-lg transition p-6 flex flex-col"
-            >
+            <Link key={p.slug} href={`/blog/${p.slug}`} className="group rounded-2xl bg-white ring-1 ring-brand-100 hover:ring-brand-300 hover:shadow-lg p-6 transition flex flex-col">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-600">{p.category}</span>
               <h2 className="mt-2 text-xl font-bold text-ink group-hover:text-brand-700">{p.title}</h2>
               <p className="mt-3 text-ink-soft text-[15px] flex-1">{p.description}</p>

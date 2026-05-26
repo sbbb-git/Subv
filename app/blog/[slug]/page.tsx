@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { CTASection } from "@/components/CTA";
 import { posts } from "@/content/posts";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
@@ -32,7 +31,6 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
 export default function Page({ params }: { params: Params }) {
   const post = posts.find((p) => p.slug === params.slug);
   if (!post) notFound();
-
   const related = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   const articleLd = {
@@ -76,11 +74,7 @@ export default function Page({ params }: { params: Params }) {
           <h2 className="text-2xl font-bold text-ink">À lire aussi</h2>
           <div className="mt-6 grid md:grid-cols-3 gap-5">
             {related.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/blog/${p.slug}`}
-                className="rounded-2xl bg-white ring-1 ring-brand-100 hover:ring-brand-300 p-5 transition"
-              >
+              <Link key={p.slug} href={`/blog/${p.slug}`} className="rounded-2xl bg-white ring-1 ring-brand-100 hover:ring-brand-300 p-5 transition">
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-600">{p.category}</span>
                 <h3 className="mt-2 font-bold text-ink">{p.title}</h3>
               </Link>
@@ -89,7 +83,15 @@ export default function Page({ params }: { params: Params }) {
         </div>
       </section>
 
-      <CTASection />
+      <section className="bg-gradient-to-br from-brand-600 to-brand-800 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Parlons de votre centre de santé</h2>
+          <p className="mt-4 text-brand-50/90 text-lg">Diagnostic gratuit en 48h, sans engagement.</p>
+          <Link href="/contact" className="mt-8 inline-block rounded-lg bg-white text-brand-700 hover:bg-brand-50 px-6 py-3 font-semibold shadow">
+            Demander mon diagnostic
+          </Link>
+        </div>
+      </section>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
     </>

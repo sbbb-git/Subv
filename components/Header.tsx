@@ -2,11 +2,10 @@ import Link from "next/link";
 import { SITE_NAME } from "@/lib/seo";
 
 const navItems = [
-  { href: "/accompagnement", label: "Accompagnement" },
-  { href: "/financements", label: "Financements CDS" },
-  { href: "/centre-de-sante", label: "Centres de santé" },
+  { href: "/services", label: "Nos services" },
+  { href: "/centres-de-sante", label: "Centres de santé" },
+  { href: "/financements", label: "Financements" },
   { href: "/blog", label: "Ressources" },
-  { href: "/faq", label: "FAQ" },
   { href: "/a-propos", label: "À propos" },
 ];
 
