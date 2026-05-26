@@ -9,131 +9,122 @@ export const metadata: Metadata = {
     "La subvention Teulade (article L162-32 du code de la sécurité sociale) est l’un des dispositifs structurants des centres de santé. Cabinet spécialisé.",
   alternates: { canonical: "/subvention-teulade" },
   keywords: [
-    "subvention Teulade",
-    "Teulade centre de santé",
-    "article L162-32",
-    "L162-32 code sécurité sociale",
-    "subvention CDS",
-    "aide Teulade",
-    "décret 14 décembre 1992",
-    "subvention CPAM centre de santé",
+    "subvention Teulade", "Teulade centre de santé", "article L162-32",
+    "L162-32 code sécurité sociale", "aide Teulade",
+    "décret 14 décembre 1992", "subvention CPAM centre de santé",
   ],
 };
 
 const faqs = [
-  {
-    q: "Qu’est-ce que la subvention Teulade ?",
-    a: "Un dispositif ancien, prévu à l’article L162-32 du code de la sécurité sociale, qui organise une prise en charge par l’Assurance Maladie d’une partie des charges sociales des centres de santé conventionnés.",
-  },
-  {
-    q: "D’où vient le nom « Teulade » ?",
-    a: "Du nom de René Teulade, ministre des Affaires sociales et de l’Intégration, signataire du décret du 14 décembre 1992 fixant les modalités du dispositif.",
-  },
-  {
-    q: "Tous les centres de santé y ont-ils droit ?",
-    a: "Le dispositif vise les centres de santé conventionnés salariant des praticiens et auxiliaires médicaux. Plusieurs conditions cumulatives s’appliquent — chaque cas s’apprécie individuellement.",
-  },
-  {
-    q: "Est-ce cumulable avec les autres financements ?",
-    a: "Oui, sous conditions. Le dispositif s’articule avec l’ACI, les financements FIR, le Forfait Structure et les aides à l’installation, dès lors qu’il n’y a pas double financement d’une même mission.",
-  },
-  {
-    q: "Pourquoi se faire accompagner ?",
-    a: "Le rapport IGAS 2025 indique qu’environ un quart des centres de santé n’a pas perçu la subvention au titre de 2022. Méconnaissance, complexité de l’articulation URSSAF/CPAM et hétérogénéité des pratiques entre caisses en sont les causes principales.",
-  },
+  { q: "Qu’est-ce que la subvention Teulade ?", a: "Un dispositif ancien, prévu à l’article L162-32 du code de la sécurité sociale, qui organise une prise en charge par l’Assurance Maladie d’une partie des charges sociales des centres de santé conventionnés." },
+  { q: "D’où vient le nom « Teulade » ?", a: "Du nom de René Teulade, ministre des Affaires sociales et de l’Intégration, signataire du décret du 14 décembre 1992 fixant les modalités du dispositif." },
+  { q: "Tous les centres de santé y ont-ils droit ?", a: "Le dispositif vise les centres de santé conventionnés salariant des praticiens et auxiliaires médicaux. Plusieurs conditions cumulatives s’appliquent — chaque cas s’apprécie individuellement." },
+  { q: "Est-ce cumulable avec les autres financements ?", a: "Oui, sous conditions. Le dispositif s’articule avec l’ACI, les financements FIR, le Forfait Structure et les aides à l’installation, dès lors qu’il n’y a pas double financement d’une même mission." },
+  { q: "Pourquoi se faire accompagner ?", a: "Le rapport IGAS 2025 indique qu’environ un quart des centres de santé n’a pas perçu la subvention au titre de 2022. Méconnaissance, complexité de l’articulation URSSAF/CPAM et hétérogénéité des pratiques entre caisses en sont les causes principales." },
 ];
 
 export default function Page() {
   return (
     <>
-      <section className="bg-gradient-to-br from-brand-50 to-white border-b border-brand-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <section className="border-b border-line">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-20 md:pb-28">
           <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "Subvention Teulade" }]} />
-          <span className="mt-5 inline-block text-xs font-bold tracking-widest uppercase text-brand-600">
-            Article L162-32 du code de la sécurité sociale
-          </span>
-          <h1 className="mt-2 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-ink">
-            La subvention Teulade pour les centres de santé
-          </h1>
-          <p className="mt-5 text-lg text-ink-soft max-w-3xl leading-relaxed">
-            Un dispositif ancien, structurant pour le financement des centres de
-            santé, et pourtant l’un des plus sous-mobilisés. Cabinet spécialisé,
-            nous en avons fait notre cœur d’expertise.
-          </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-3 shadow">
-              Nous contacter
-            </Link>
-            <Link href="/financements" className="rounded-lg ring-1 ring-brand-200 hover:bg-brand-50 text-ink font-semibold px-5 py-3">
-              Tous les financements des centres de santé
-            </Link>
+          <div className="mt-12 grid lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-8">
+              <p className="eyebrow">Article L162-32 du code de la sécurité sociale</p>
+              <h1 className="mt-6 serif text-5xl md:text-7xl text-ink tracking-tightest font-light leading-[1.02]">
+                La subvention <span className="italic text-accent-600">Teulade</span>.
+              </h1>
+              <p className="mt-10 text-ink-soft text-lg md:text-xl max-w-2xl leading-[1.65]">
+                Un dispositif ancien, structurant pour le financement des
+                centres de santé, et pourtant l’un des plus sous-mobilisés.
+                Notre cœur d’expertise.
+              </p>
+            </div>
+            <aside className="lg:col-span-4 lg:border-l lg:pl-10 border-line lg:pt-6">
+              <p className="eyebrow">Prendre contact</p>
+              <p className="mt-3 serif text-xl text-ink leading-snug">
+                Quelques lignes sur votre centre, nous revenons vers vous.
+              </p>
+              <Link
+                href="/contact"
+                className="mt-6 inline-block text-[13px] tracking-wide uppercase font-medium border border-ink hover:bg-ink hover:text-bg text-ink transition px-5 py-3"
+              >
+                Nous écrire
+              </Link>
+            </aside>
           </div>
         </div>
       </section>
 
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 prose-content">
-        <h2>Une origine ancienne, un rôle structurant</h2>
-        <p>
-          La subvention tire son nom de <strong>René Teulade</strong>, ministre
-          signataire du décret du <strong>14 décembre 1992</strong>. Elle
-          s’inscrit dans une logique d’équilibrage entre l’exercice libéral —
-          où l’Assurance Maladie contribue à certaines cotisations des
-          praticiens conventionnés — et l’exercice salarié propre aux centres
-          de santé.
-        </p>
+      <article className="bg-paper border-b border-line">
+        <div className="max-w-3xl mx-auto px-6 lg:px-10 py-20 md:py-28 prose-content">
+          <p className="dropcap text-[19px] leading-[1.75] text-ink-soft mb-10">
+            La subvention tire son nom de <strong>René Teulade</strong>, ministre
+            signataire du décret du <strong>14 décembre 1992</strong>. Elle
+            s’inscrit dans une logique d’équilibrage entre l’exercice libéral
+            — où l’Assurance Maladie contribue à certaines cotisations des
+            praticiens conventionnés — et l’exercice salarié propre aux
+            centres de santé.
+          </p>
 
-        <h2>Un dispositif sous-mobilisé</h2>
-        <p>
-          Le rapport IGAS de février 2025 sur l’évaluation du modèle économique
-          des centres de santé pluriprofessionnels relève qu’<strong>environ un
-          quart des centres de santé</strong> n’a pas perçu cette subvention au titre de
-          2022. Les causes sont structurelles : méconnaissance du dispositif,
-          complexité de la mise en œuvre, articulation délicate entre l’URSSAF,
-          la CPAM et la paie.
-        </p>
+          <h2>Un dispositif sous-mobilisé</h2>
+          <p>
+            Le rapport IGAS de février 2025 sur l’évaluation du modèle
+            économique des centres de santé pluriprofessionnels relève
+            qu’<strong>environ un quart des centres de santé</strong> n’a pas
+            perçu cette subvention au titre de 2022. Les causes sont
+            structurelles : méconnaissance du dispositif, complexité de la
+            mise en œuvre, articulation délicate entre l’URSSAF, la CPAM et
+            la paie.
+          </p>
 
-        <h2>Notre approche</h2>
-        <p>
-          Plutôt que d’aborder la subvention Teulade isolément, nous
-          l’intégrons systématiquement à une vue d’ensemble du financement de
-          votre centre de santé, afin d’éviter les doublons avec d’autres dispositifs
-          (ACI, FIR) et de construire une architecture financière durable.
-        </p>
+          <blockquote>
+            « Nous abordons toujours la subvention Teulade dans le cadre
+            d’une vue d’ensemble du financement du centre. Jamais isolément. »
+          </blockquote>
 
-        <h2>Articulation avec les autres dispositifs des centres de santé</h2>
-        <p>
-          La subvention Teulade n’existe pas dans le vide. Voir notre vue
-          d’ensemble des{" "}
-          <Link href="/financements">financements mobilisables par un centre de santé</Link> :
-          <Link href="/financements#aci"> ACI</Link>,{" "}
-          <Link href="/financements#fir">FIR</Link>,{" "}
-          <Link href="/financements#forfait-structure">Forfait Structure</Link>,
-          aides à l’installation et fonds des collectivités.
-        </p>
+          <h2>Articulation avec les autres dispositifs</h2>
+          <p>
+            La subvention Teulade n’existe pas dans le vide. Voir notre vue
+            d’ensemble des{" "}
+            <Link href="/financements">financements mobilisables par un centre de santé</Link> :
+            ACI, FIR, Forfait Structure, aides à l’installation et fonds des
+            collectivités.
+          </p>
 
-        <h2>Pourquoi nous</h2>
-        <ul>
-          <li>Spécialisation exclusive sur les centres de santé</li>
-          <li>Honoraires transparents, contractualisés en amont</li>
-          <li>Confidentialité totale (charte RGPD)</li>
-          <li>Interlocuteur unique pour toutes vos démarches</li>
-        </ul>
-
-        <h2>Questions fréquentes</h2>
+          <h2>Pourquoi nous</h2>
+          <ul>
+            <li>Spécialisation exclusive sur les centres de santé</li>
+            <li>Honoraires transparents, contractualisés en amont</li>
+            <li>Confidentialité totale, NDA systématique</li>
+            <li>Interlocuteur unique pour toutes les démarches</li>
+          </ul>
+        </div>
       </article>
 
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <Faq items={faqs} />
+      <section className="border-b border-line">
+        <div className="max-w-5xl mx-auto px-6 lg:px-10 py-20 md:py-28">
+          <p className="eyebrow">Questions fréquentes</p>
+          <h2 className="mt-4 serif text-4xl md:text-5xl text-ink tracking-tight font-light mb-12">
+            Sur le dispositif.
+          </h2>
+          <Faq items={faqs} />
+        </div>
       </section>
 
-      <section className="bg-gradient-to-br from-brand-600 to-brand-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Parlons de votre centre de santé
-          </h2>
-          <Link href="/contact" className="mt-8 inline-block rounded-lg bg-white text-brand-700 hover:bg-brand-50 px-6 py-3 font-semibold shadow">
-            Nous contacter
-          </Link>
+      <section className="bg-ink text-bg">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28 grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-8">
+            <h2 className="serif text-4xl md:text-5xl text-bg font-light tracking-tight leading-[1.1]">
+              Parlons de votre centre de santé.
+            </h2>
+          </div>
+          <div className="lg:col-span-4 flex lg:justify-end items-center">
+            <Link href="/contact" className="inline-block text-[14px] tracking-wide uppercase font-medium border border-bg hover:bg-bg hover:text-ink text-bg transition px-6 py-3.5">
+              Nous écrire
+            </Link>
+          </div>
         </div>
       </section>
     </>

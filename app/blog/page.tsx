@@ -4,9 +4,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { posts } from "@/content/posts";
 
 export const metadata: Metadata = {
-  title: "Blog & ressources — Centres de santé",
-  description:
-    "Articles et guides sur les centres de santé : création, développement, comptabilité, dossiers ARS, conventionnement CPAM, financements et subventions.",
+  title: "Journal — Centres de santé",
+  description: "Articles et analyses sur le pilotage et le financement des centres de santé.",
   alternates: { canonical: "/blog" },
 };
 
@@ -14,32 +13,48 @@ export default function Page() {
   const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
   return (
     <>
-      <section className="bg-gradient-to-br from-brand-50 to-white border-b border-brand-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "Blog" }]} />
-          <h1 className="mt-5 text-4xl md:text-5xl font-extrabold tracking-tight text-ink">
-            Blog & ressources pour centres de santé
-          </h1>
-          <p className="mt-5 text-lg text-ink-soft max-w-3xl">
-            Guides pratiques, décryptages réglementaires, analyses sur le
-            financement et le pilotage des centres de santé.
-          </p>
+      <section className="border-b border-line">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-20 md:pb-28">
+          <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "Journal" }]} />
+          <div className="mt-12 grid lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-9">
+              <p className="eyebrow">Ressources</p>
+              <h1 className="mt-6 serif text-5xl md:text-7xl text-ink tracking-tightest font-light leading-[1.02]">
+                Journal.
+              </h1>
+              <p className="mt-10 text-ink-soft text-lg max-w-2xl leading-[1.65]">
+                Analyses, décryptages et notes de lecture sur le pilotage et
+                le financement des centres de santé.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="py-14">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sorted.map((p) => (
-            <Link key={p.slug} href={`/blog/${p.slug}`} className="group rounded-2xl bg-white ring-1 ring-brand-100 hover:ring-brand-300 hover:shadow-lg p-6 transition flex flex-col">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-600">{p.category}</span>
-              <h2 className="mt-2 text-xl font-bold text-ink group-hover:text-brand-700">{p.title}</h2>
-              <p className="mt-3 text-ink-soft text-[15px] flex-1">{p.description}</p>
-              <div className="mt-5 text-xs text-ink-mute flex gap-3">
-                <span>{new Date(p.date).toLocaleDateString("fr-FR", { year: "numeric", month: "long", day: "numeric" })}</span>
-                <span>· {p.readingTime}</span>
-              </div>
-            </Link>
-          ))}
+      <section className="bg-paper border-b border-line">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
+          <ul className="divide-y divide-line border-y border-line">
+            {sorted.map((p) => (
+              <li key={p.slug}>
+                <Link href={`/blog/${p.slug}`} className="group grid lg:grid-cols-12 gap-6 py-10 hover:bg-bg transition px-2 -mx-2">
+                  <div className="lg:col-span-2 text-[11px] tracking-[0.18em] uppercase text-ink-mute pt-2">
+                    {p.category}
+                  </div>
+                  <div className="lg:col-span-7">
+                    <h2 className="serif text-2xl md:text-3xl text-ink font-light tracking-tight leading-[1.2] group-hover:text-accent-700 transition">
+                      {p.title}
+                    </h2>
+                    <p className="mt-3 text-ink-soft text-[15px] leading-[1.6] line-clamp-2">{p.description}</p>
+                  </div>
+                  <div className="lg:col-span-3 lg:text-right text-[13px] text-ink-mute tracking-wide pt-2">
+                    {new Date(p.date).toLocaleDateString("fr-FR", { year: "numeric", month: "long", day: "numeric" })}
+                    <span className="mx-2 text-line">·</span>
+                    {p.readingTime}
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>

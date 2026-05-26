@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Lexique des centres de santé — ACI, FIR, ARS, CPAM, Teulade",
+  title: "Lexique des centres de santé",
   description:
-    "Glossaire des termes clés du financement et de la gestion des centres de santé : ACI, FIR, ARS, CPAM, URSSAF, ROSP, CDS, CSI, Forfait Structure, conventionnement, Teulade.",
+    "Glossaire des termes clés du financement et de la gestion des centres de santé.",
   alternates: { canonical: "/lexique" },
 };
 
@@ -14,17 +14,17 @@ const terms = [
   { term: "ARS", def: "Agence Régionale de Santé. Autorité de tutelle des centres de santé, en charge du zonage, du conventionnement initial et de financements via le FIR." },
   { term: "CDS", def: "Centre de Santé. Structure de soins ambulatoires définie à l’article L6323-1 du code de la santé publique, employant des soignants salariés." },
   { term: "CMS", def: "Centre Municipal de Santé. Centre de santé porté par une commune ou une collectivité territoriale." },
-  { term: "Conventionnement", def: "Acte par lequel un centre de santé adhère à l’accord national avec l’Assurance Maladie. Préalable à la facturation en tiers payant et à la subvention Teulade." },
+  { term: "Conventionnement", def: "Acte par lequel un centre de santé adhère à l’accord national avec l’Assurance Maladie." },
   { term: "CPAM", def: "Caisse Primaire d’Assurance Maladie. Caisse départementale qui instruit les dossiers et procède aux versements." },
   { term: "CPTS", def: "Communauté Professionnelle Territoriale de Santé. Forme de coopération entre professionnels d’un territoire." },
   { term: "CSI", def: "Centre de Soins Infirmiers. Centre de santé spécialisé en soins infirmiers." },
-  { term: "DSN", def: "Déclaration Sociale Nominative. Déclaration mensuelle des employeurs qui sert de base à plusieurs dispositifs financiers." },
+  { term: "DSN", def: "Déclaration Sociale Nominative. Déclaration mensuelle des employeurs." },
   { term: "FIR", def: "Fonds d’Intervention Régional. Géré par l’ARS, il cofinance des missions de prévention, coordination ou accès aux soins." },
-  { term: "Forfait Structure", def: "Forfait versé aux médecins pour la modernisation de leur outil de travail (informatique, télémédecine, services numériques)." },
+  { term: "Forfait Structure", def: "Forfait versé aux médecins pour la modernisation de leur outil de travail." },
   { term: "IGAS", def: "Inspection Générale des Affaires Sociales. Auteure du rapport 2025 sur le modèle économique des centres de santé pluriprofessionnels." },
   { term: "MSP", def: "Maison de Santé Pluriprofessionnelle. Structure libérale coordonnée — à distinguer du centre de santé où les soignants sont salariés." },
-  { term: "Projet de santé", def: "Document central exigé par l’ARS pour ouvrir un centre de santé, décrivant l’organisation des soins, la coordination et la gouvernance." },
-  { term: "ROSP", def: "Rémunération sur Objectifs de Santé Publique. Rémunération forfaitaire des médecins traitants liée à des indicateurs de qualité." },
+  { term: "Projet de santé", def: "Document central exigé par l’ARS pour ouvrir un centre de santé." },
+  { term: "ROSP", def: "Rémunération sur Objectifs de Santé Publique." },
   { term: "SCIC", def: "Société Coopérative d’Intérêt Collectif. Statut juridique possible pour un centre de santé." },
   { term: "Subvention Teulade", def: "Dispositif prévu à l’article L162-32 du code de la sécurité sociale qui organise la prise en charge par l’Assurance Maladie d’une partie des charges sociales des centres de santé conventionnés." },
   { term: "URSSAF", def: "Union de Recouvrement des cotisations de Sécurité Sociale et d’Allocations Familiales." },
@@ -33,28 +33,35 @@ const terms = [
 export default function Page() {
   return (
     <>
-      <section className="bg-gradient-to-br from-brand-50 to-white border-b border-brand-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <section className="border-b border-line">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-20 md:pb-28">
           <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "Lexique" }]} />
-          <h1 className="mt-5 text-4xl md:text-5xl font-extrabold tracking-tight text-ink">
-            Lexique des centres de santé
-          </h1>
-          <p className="mt-5 text-lg text-ink-soft max-w-3xl">
-            Les acronymes et concepts clés à connaître quand on dirige ou gère
-            un centre de santé.
-          </p>
+          <div className="mt-12 grid lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-9">
+              <p className="eyebrow">Glossaire</p>
+              <h1 className="mt-6 serif text-5xl md:text-7xl text-ink tracking-tightest font-light leading-[1.02]">
+                Lexique.
+              </h1>
+              <p className="mt-10 text-ink-soft text-lg max-w-2xl leading-[1.65]">
+                Les acronymes et concepts à connaître quand on dirige ou gère un
+                centre de santé.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <dl className="space-y-5">
-          {terms.map((t) => (
-            <div key={t.term} className="rounded-xl bg-white ring-1 ring-brand-100 p-5">
-              <dt className="font-bold text-ink">{t.term}</dt>
-              <dd className="mt-2 text-ink-soft leading-relaxed">{t.def}</dd>
-            </div>
-          ))}
-        </dl>
+      <section className="bg-paper">
+        <div className="max-w-4xl mx-auto px-6 lg:px-10 py-20 md:py-28">
+          <dl className="divide-y divide-line border-y border-line">
+            {terms.map((t) => (
+              <div key={t.term} className="grid lg:grid-cols-12 gap-6 py-8">
+                <dt className="lg:col-span-3 serif text-2xl text-ink font-medium tracking-tight">{t.term}</dt>
+                <dd className="lg:col-span-9 text-ink-soft leading-[1.7] text-[16px]">{t.def}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </section>
     </>
   );

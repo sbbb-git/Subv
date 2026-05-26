@@ -11,24 +11,18 @@ export function Faq({ items, withSchema = true }: { items: FaqItem[]; withSchema
     })),
   };
   return (
-    <div className="space-y-3">
+    <div className="divide-y divide-line border-y border-line">
       {items.map((item, idx) => (
-        <details
-          key={idx}
-          className="group rounded-xl border border-brand-100 bg-white p-5 open:shadow-sm transition"
-        >
-          <summary className="cursor-pointer list-none flex items-start justify-between gap-4">
-            <h3 className="font-semibold text-ink text-[17px]">{item.q}</h3>
-            <span className="text-brand-600 group-open:rotate-45 transition text-xl leading-none">+</span>
+        <details key={idx} className="group py-6">
+          <summary className="cursor-pointer list-none flex items-start justify-between gap-6">
+            <h3 className="serif text-xl md:text-2xl text-ink font-medium tracking-tight leading-snug">{item.q}</h3>
+            <span className="text-accent-600 text-2xl leading-none mt-1 group-open:rotate-45 transition shrink-0">+</span>
           </summary>
-          <p className="mt-3 text-ink-soft leading-relaxed">{item.a}</p>
+          <p className="mt-4 text-ink-soft leading-[1.75] text-[16px] max-w-3xl">{item.a}</p>
         </details>
       ))}
       {withSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       )}
     </div>
   );

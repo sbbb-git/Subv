@@ -46,49 +46,60 @@ export default function Page({ params }: { params: Params }) {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-brand-50 to-white border-b border-brand-100">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <section className="border-b border-line">
+        <div className="max-w-3xl mx-auto px-6 lg:px-10 pt-12 pb-16 md:pb-20">
           <Breadcrumbs
             items={[
               { name: "Accueil", href: "/" },
-              { name: "Blog", href: "/blog" },
+              { name: "Journal", href: "/blog" },
               { name: post.title },
             ]}
           />
-          <span className="mt-5 inline-block text-xs font-bold uppercase tracking-wider text-brand-600">{post.category}</span>
-          <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-ink">{post.title}</h1>
-          <p className="mt-4 text-lg text-ink-soft">{post.description}</p>
-          <div className="mt-4 text-xs text-ink-mute flex gap-3">
-            <span>{new Date(post.date).toLocaleDateString("fr-FR", { year: "numeric", month: "long", day: "numeric" })}</span>
-            <span>· {post.readingTime}</span>
-          </div>
+          <p className="eyebrow mt-12">{post.category}</p>
+          <h1 className="mt-6 serif text-4xl md:text-5xl lg:text-6xl text-ink tracking-tightest font-light leading-[1.05]">
+            {post.title}
+          </h1>
+          <p className="mt-8 text-ink-soft text-lg max-w-2xl leading-[1.6]">{post.description}</p>
+          <p className="mt-6 text-[13px] text-ink-mute tracking-wide">
+            {new Date(post.date).toLocaleDateString("fr-FR", { year: "numeric", month: "long", day: "numeric" })}
+            <span className="mx-2 text-line">·</span>
+            {post.readingTime}
+          </p>
         </div>
       </section>
 
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="prose-content" dangerouslySetInnerHTML={{ __html: post.content }} />
+      <article className="bg-paper border-b border-line">
+        <div className="max-w-3xl mx-auto px-6 lg:px-10 py-20 md:py-28">
+          <div className="prose-content" dangerouslySetInnerHTML={{ __html: post.content }} />
+        </div>
       </article>
 
-      <section className="py-14 bg-brand-50/60 border-y border-brand-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-ink">À lire aussi</h2>
-          <div className="mt-6 grid md:grid-cols-3 gap-5">
+      <section className="border-b border-line">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
+          <p className="eyebrow mb-6">À lire aussi</p>
+          <div className="grid md:grid-cols-3 gap-x-10 gap-y-8">
             {related.map((p) => (
-              <Link key={p.slug} href={`/blog/${p.slug}`} className="rounded-2xl bg-white ring-1 ring-brand-100 hover:ring-brand-300 p-5 transition">
-                <span className="text-xs font-bold uppercase tracking-wider text-brand-600">{p.category}</span>
-                <h3 className="mt-2 font-bold text-ink">{p.title}</h3>
+              <Link key={p.slug} href={`/blog/${p.slug}`} className="group block border-t border-line pt-5">
+                <p className="text-[11px] tracking-[0.18em] uppercase text-accent-600 mb-2">{p.category}</p>
+                <h3 className="serif text-xl text-ink font-medium tracking-tight group-hover:text-accent-700 transition leading-[1.25]">{p.title}</h3>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-gradient-to-br from-brand-600 to-brand-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Parlons de votre centre de santé</h2>
-          <Link href="/contact" className="mt-8 inline-block rounded-lg bg-white text-brand-700 hover:bg-brand-50 px-6 py-3 font-semibold shadow">
-            Nous contacter
-          </Link>
+      <section className="bg-ink text-bg">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28 grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-8">
+            <h2 className="serif text-4xl md:text-5xl text-bg font-light tracking-tight leading-[1.1]">
+              Parlons de votre centre de santé.
+            </h2>
+          </div>
+          <div className="lg:col-span-4 flex lg:justify-end items-center">
+            <Link href="/contact" className="inline-block text-[14px] tracking-wide uppercase font-medium border border-bg hover:bg-bg hover:text-ink text-bg transition px-6 py-3.5">
+              Nous écrire
+            </Link>
+          </div>
         </div>
       </section>
 

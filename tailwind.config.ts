@@ -9,30 +9,46 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50: "#eef7ff",
-          100: "#d9ecff",
-          200: "#bcdfff",
-          300: "#8ecbff",
-          400: "#58aeff",
-          500: "#2f8eff",
-          600: "#1a70f0",
-          700: "#1659d0",
-          800: "#184aa8",
-          900: "#173f83",
-          950: "#0f2858",
-        },
+        bg: "#FBF8F2",        // warm cream
+        paper: "#FFFDF8",     // slightly lighter cream
         ink: {
-          DEFAULT: "#0b1a33",
-          soft: "#1b2c4a",
-          mute: "#516076",
+          DEFAULT: "#14202E", // deep navy-black
+          soft: "#384759",
+          mute: "#7A8595",
+        },
+        line: "#E6DECF",      // warm divider
+        accent: {
+          DEFAULT: "#1F4D3F", // dark forest green
+          50:  "#EEF3F0",
+          100: "#D7E2DC",
+          200: "#AEC4B9",
+          300: "#82A595",
+          400: "#558672",
+          500: "#346856",
+          600: "#1F4D3F",
+          700: "#1A3F34",
+          800: "#143229",
+          900: "#0E2620",
+        },
+        sand: {
+          50:  "#F7F1E1",
+          100: "#EFE4C6",
+          200: "#E1CF9F",
+          300: "#C9B98D",
+          400: "#AF9B6A",
+          500: "#8C7E53",
         },
       },
       fontFamily: {
-        sans: ["ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Inter", "sans-serif"],
+        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "Segoe UI", "Roboto", "sans-serif"],
+        serif: ["var(--font-fraunces)", "Iowan Old Style", "Georgia", "serif"],
       },
       maxWidth: {
-        prose: "70ch",
+        prose: "68ch",
+        narrow: "44rem",
+      },
+      letterSpacing: {
+        tightest: "-0.04em",
       },
     },
   },

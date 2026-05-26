@@ -2,22 +2,22 @@ export function SectionHeading({
   eyebrow,
   title,
   subtitle,
-  align = "center",
 }: {
   eyebrow?: string;
   title: string;
   subtitle?: string;
-  align?: "center" | "left";
 }) {
   return (
-    <div className={align === "center" ? "text-center max-w-3xl mx-auto" : "max-w-3xl"}>
-      {eyebrow && (
-        <span className="inline-block text-xs font-bold tracking-widest uppercase text-brand-600 mb-3">
-          {eyebrow}
-        </span>
+    <div className="grid lg:grid-cols-12 gap-10">
+      <div className="lg:col-span-4">
+        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+        <h2 className="mt-4 serif text-4xl md:text-5xl text-ink tracking-tight font-light">{title}</h2>
+      </div>
+      {subtitle && (
+        <div className="lg:col-span-7 lg:col-start-6">
+          <p className="text-ink-soft text-[17px] leading-[1.75] max-w-xl">{subtitle}</p>
+        </div>
       )}
-      <h2 className="text-3xl md:text-4xl font-bold text-ink tracking-tight">{title}</h2>
-      {subtitle && <p className="mt-4 text-ink-soft text-lg leading-relaxed">{subtitle}</p>}
     </div>
   );
 }

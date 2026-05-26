@@ -3,63 +3,67 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "À propos — Cabinet de conseil pour centres de santé",
+  title: "Cabinet — À propos",
   description:
-    "SubventionsCDS est le seul cabinet de conseil exclusivement dédié aux centres de santé. Notre approche, notre indépendance, nos engagements.",
+    "SubventionsCDS est un cabinet de conseil dédié aux centres de santé. Spécialisation, indépendance, méthode.",
   alternates: { canonical: "/a-propos" },
 };
 
 export default function Page() {
   return (
     <>
-      <section className="bg-gradient-to-br from-brand-50 to-white border-b border-brand-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "À propos" }]} />
-          <h1 className="mt-5 text-4xl md:text-5xl font-extrabold tracking-tight text-ink">
-            Un cabinet 100 % dédié aux centres de santé
-          </h1>
-          <p className="mt-5 text-lg text-ink-soft max-w-3xl">
-            Nous ne faisons qu’une chose : aider les centres de santé à mieux
-            fonctionner, mieux se financer et mieux durer.
-          </p>
+      <section className="border-b border-line">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-20 md:pb-28">
+          <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "Cabinet" }]} />
+          <div className="mt-12 grid lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-9">
+              <p className="eyebrow">À propos</p>
+              <h1 className="mt-6 serif text-5xl md:text-7xl text-ink tracking-tightest font-light leading-[1.02]">
+                Un cabinet,<br /><span className="italic text-accent-600">une seule spécialité.</span>
+              </h1>
+              <p className="mt-10 text-ink-soft text-lg max-w-2xl leading-[1.65]">
+                Les centres de santé. Rien d’autre.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 prose-content">
-        <h2>Pourquoi ce cabinet existe</h2>
-        <p>
-          Le secteur des centres de santé est en croissance, mais son équilibre
-          économique reste fragile. Beaucoup de dispositifs publics existent
-          pour soutenir le modèle des centres de santé — encore faut-il les connaître, les
-          activer et les piloter. C’est notre métier.
-        </p>
+      <article className="bg-paper border-b border-line">
+        <div className="max-w-3xl mx-auto px-6 lg:px-10 py-20 md:py-28 prose-content">
+          <p className="dropcap text-[19px] leading-[1.75] text-ink-soft mb-10">
+            Le secteur des centres de santé est en croissance, mais son équilibre
+            économique reste fragile. Beaucoup de dispositifs publics existent
+            pour soutenir ce modèle — encore faut-il les connaître, les activer,
+            les piloter. C’est notre métier.
+          </p>
 
-        <h2>Notre méthode</h2>
-        <ul>
-          <li><strong>Spécialisation exclusive</strong> : un seul secteur, un seul métier — les centres de santé.</li>
-          <li><strong>Honoraires transparents</strong> : forfait ou résultat, jamais de frais cachés.</li>
-          <li><strong>Confidentialité totale</strong> : charte RGPD et NDA systématique.</li>
-          <li><strong>Indépendance</strong> : aucun lien avec la CPAM, l’URSSAF, l’Assurance Maladie ou la FNCS.</li>
-        </ul>
+          <h2>Notre méthode</h2>
+          <ul>
+            <li>Spécialisation exclusive — un seul secteur, un seul métier.</li>
+            <li>Honoraires transparents — forfait ou résultat, jamais de frais cachés.</li>
+            <li>Confidentialité totale — charte RGPD et NDA systématique.</li>
+            <li>Indépendance — aucun lien avec la CPAM, l’URSSAF, l’Assurance Maladie ou la FNCS.</li>
+          </ul>
 
-        <h2>Nos engagements</h2>
-        <ul>
-          <li>Plan d’action priorisé, sans bullshit.</li>
-          <li>Reporting clair pour chaque mission.</li>
-          <li>Interlocuteur unique pour toutes vos démarches.</li>
-        </ul>
+          <h2>Nos engagements</h2>
+          <ul>
+            <li>Plan d’action priorisé, sans bullshit.</li>
+            <li>Reporting clair pour chaque mission.</li>
+            <li>Interlocuteur unique pour toutes vos démarches.</li>
+          </ul>
 
-        <h2>Avec qui nous travaillons</h2>
-        <p>
-          Directeurs et gestionnaires de centres de santé, trésoriers d’associations, DGS de
-          collectivités portant un CMS, responsables financiers de mutuelles,
-          médecins coordinateurs. Toute personne en charge de la santé
-          administrative ou financière d’un centre de santé.
-        </p>
+          <h2>Avec qui nous travaillons</h2>
+          <p>
+            Directeurs et gestionnaires de centres de santé, trésoriers
+            d’associations, DGS de collectivités portant un CMS, responsables
+            financiers de mutuelles, médecins coordinateurs.
+          </p>
 
-        <p>
-          <Link href="/contact">→ Prendre contact</Link>
-        </p>
+          <p>
+            <Link href="/contact">→ Prendre contact</Link>
+          </p>
+        </div>
       </article>
     </>
   );

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_NAME, CONTACT_EMAIL } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -10,9 +11,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-      <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-ink">Mentions légales</h1>
-      <div className="prose-content mt-8">
+    <section className="max-w-3xl mx-auto px-6 lg:px-10 pt-12 pb-20">
+      <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "Mentions légales" }]} />
+      <h1 className="mt-12 serif text-4xl md:text-5xl font-light tracking-tight text-ink">Mentions légales</h1>
+      <div className="prose-content mt-10">
         <h2>Éditeur</h2>
         <p>
           <strong>{SITE_NAME}</strong>
@@ -24,10 +26,7 @@ export default function Page() {
         <h2>Hébergement</h2>
         <p>Cloudflare Pages — Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA.</p>
         <h2>Propriété intellectuelle</h2>
-        <p>
-          L’ensemble des contenus présents sur ce site est protégé par le droit
-          d’auteur. Toute reproduction sans autorisation est interdite.
-        </p>
+        <p>L’ensemble des contenus présents sur ce site est protégé par le droit d’auteur.</p>
         <h2>Données personnelles</h2>
         <p>
           Les données collectées via le formulaire de contact sont utilisées

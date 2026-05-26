@@ -30,13 +30,13 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
 export default function Page({ params }: { params: Params }) {
   const s = services.find((x) => x.slug === params.slug);
   if (!s) notFound();
-
-  const others = services.filter((x) => x.slug !== s.slug).slice(0, 4);
+  const others = services.filter((x) => x.slug !== s.slug);
+  const idx = services.findIndex((x) => x.slug === s.slug);
 
   return (
     <>
-      <section className="bg-gradient-to-br from-brand-50 to-white border-b border-brand-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <section className="border-b border-line">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-20 md:pb-28">
           <Breadcrumbs
             items={[
               { name: "Accueil", href: "/" },
@@ -44,72 +44,74 @@ export default function Page({ params }: { params: Params }) {
               { name: s.name },
             ]}
           />
-          <h1 className="mt-5 text-4xl md:text-5xl font-extrabold tracking-tight text-ink">{s.name}</h1>
-          <p className="mt-5 text-lg text-ink-soft max-w-3xl leading-relaxed">{s.hero}</p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-3 shadow">
-              Nous contacter
-            </Link>
-            <Link href="/services" className="rounded-lg ring-1 ring-brand-200 hover:bg-brand-50 text-ink font-semibold px-5 py-3">
-              Tous nos services
-            </Link>
+          <div className="mt-12 grid lg:grid-cols-12 gap-12 items-end">
+            <div className="lg:col-span-9">
+              <p className="eyebrow">Service {String(idx + 1).padStart(2, "0")}</p>
+              <h1 className="mt-6 serif text-5xl md:text-7xl text-ink tracking-tightest font-light leading-[1.02]">
+                {s.name}.
+              </h1>
+              <p className="mt-10 text-ink-soft text-lg md:text-xl max-w-2xl leading-[1.65]">
+                {s.hero}
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <h2 className="text-2xl md:text-3xl font-bold text-ink tracking-tight">Ce que comprend la mission</h2>
-        <div className="mt-8 grid md:grid-cols-2 gap-5">
-          {s.pillars.map((p) => (
-            <div key={p.title} className="rounded-2xl bg-white ring-1 ring-brand-100 p-6 shadow-sm">
-              <h3 className="font-bold text-ink">{p.title}</h3>
-              <p className="mt-2 text-ink-soft text-[15px] leading-relaxed">{p.desc}</p>
+      <section className="bg-paper border-b border-line">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
+          <div className="grid lg:grid-cols-12 gap-12 mb-14">
+            <div className="lg:col-span-4">
+              <p className="eyebrow">Ce que comprend la mission</p>
+              <h2 className="mt-4 serif text-3xl md:text-4xl text-ink font-light tracking-tight">
+                Les piliers.
+              </h2>
             </div>
-          ))}
-        </div>
-      </article>
-
-      <section className="py-14 bg-brand-50/60 border-y border-brand-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-ink">Comment ça se passe</h2>
-          <ol className="mt-6 space-y-4">
-            {[
-              ["Premier échange", "Vous nous écrivez quelques lignes, on en discute."],
-              ["Cadrage", "On définit ensemble le périmètre et les attendus."],
-              ["Proposition", "Honoraires transparents, contractualisés en amont."],
-              ["Mise en œuvre", "Nous prenons en charge le dossier et le suivi."],
-            ].map(([t, d], i) => (
-              <li key={t as string} className="flex gap-4 rounded-xl bg-white ring-1 ring-brand-100 p-5">
-                <div className="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white grid place-items-center font-bold">{i + 1}</div>
-                <div>
-                  <div className="font-bold text-ink">{t}</div>
-                  <div className="text-ink-soft text-[15px] mt-1">{d}</div>
+          </div>
+          <div className="border-t border-line">
+            {s.pillars.map((p, i) => (
+              <div key={p.title} className="grid lg:grid-cols-12 gap-6 py-8 border-b border-line">
+                <div className="lg:col-span-1 text-ink-mute font-mono text-sm pt-1">
+                  {String(i + 1).padStart(2, "0")}
                 </div>
-              </li>
+                <div className="lg:col-span-4">
+                  <h3 className="serif text-2xl text-ink font-medium tracking-tight">{p.title}</h3>
+                </div>
+                <div className="lg:col-span-7 text-ink-soft text-[16px] leading-[1.7]">
+                  {p.desc}
+                </div>
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
 
-      <section className="py-14">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-ink">Nos autres services</h2>
-          <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {others.map((o) => (
-              <Link key={o.slug} href={`/services/${o.slug}`} className="rounded-xl bg-white ring-1 ring-brand-100 hover:ring-brand-300 p-4 transition">
-                <div className="font-semibold text-ink text-sm">{o.name}</div>
+      <section className="border-b border-line">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
+          <p className="eyebrow mb-4">Autres domaines</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
+            {others.slice(0, 4).map((o) => (
+              <Link key={o.slug} href={`/services/${o.slug}`} className="group block border-t border-line pt-5">
+                <h3 className="serif text-lg text-ink font-medium tracking-tight group-hover:text-accent-700">{o.name}</h3>
+                <p className="mt-2 text-ink-soft text-[14px] leading-[1.55] line-clamp-2">{o.short}</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-gradient-to-br from-brand-600 to-brand-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Parlons de votre projet</h2>
-          <Link href="/contact" className="mt-8 inline-block rounded-lg bg-white text-brand-700 hover:bg-brand-50 px-6 py-3 font-semibold shadow">
-            Nous contacter
-          </Link>
+      <section className="bg-ink text-bg">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28 grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-8">
+            <h2 className="serif text-4xl md:text-5xl text-bg font-light tracking-tight leading-[1.1]">
+              Parlons de votre projet.
+            </h2>
+          </div>
+          <div className="lg:col-span-4 flex lg:justify-end items-center">
+            <Link href="/contact" className="inline-block text-[14px] tracking-wide uppercase font-medium border border-bg hover:bg-bg hover:text-ink text-bg transition px-6 py-3.5">
+              Nous écrire
+            </Link>
+          </div>
         </div>
       </section>
     </>
