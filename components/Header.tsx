@@ -36,7 +36,7 @@ export default function Header() {
           href="/contact"
           className="inline-flex items-center gap-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold px-4 py-2 shadow-sm transition"
         >
-          Diagnostic gratuit
+          Nous contacter
         </Link>
       </div>
       <nav className="lg:hidden border-t border-brand-100 overflow-x-auto" aria-label="Navigation mobile">

@@ -58,11 +58,10 @@ export default function Page() {
       <section className="bg-gradient-to-br from-brand-600 to-brand-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Audit gratuit de vos financements
+            Parlons de votre situation
           </h2>
-          <p className="mt-4 text-brand-50/90 text-lg">Nous identifions les dispositifs non mobilisés et chiffrons le potentiel.</p>
           <Link href="/contact" className="mt-8 inline-block rounded-lg bg-white text-brand-700 hover:bg-brand-50 px-6 py-3 font-semibold shadow">
-            Demander mon audit
+            Nous contacter
           </Link>
         </div>
       </section>

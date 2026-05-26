@@ -48,7 +48,7 @@ export default function Page({ params }: { params: Params }) {
           <p className="mt-5 text-lg text-ink-soft max-w-3xl leading-relaxed">{s.hero}</p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href="/contact" className="rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-3 shadow">
-              Demander un diagnostic gratuit
+              Nous contacter
             </Link>
             <Link href="/services" className="rounded-lg ring-1 ring-brand-200 hover:bg-brand-50 text-ink font-semibold px-5 py-3">
               Tous nos services
@@ -71,12 +71,12 @@ export default function Page({ params }: { params: Params }) {
 
       <section className="py-14 bg-brand-50/60 border-y border-brand-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-ink">Notre méthode</h2>
+          <h2 className="text-2xl font-bold text-ink">Comment ça se passe</h2>
           <ol className="mt-6 space-y-4">
             {[
-              ["Premier échange", "30 minutes pour cadrer votre situation."],
-              ["Audit gratuit", "Diagnostic confidentiel livré sous 48h ouvrées."],
-              ["Proposition", "Plan d’action priorisé, honoraires transparents."],
+              ["Premier échange", "Vous nous écrivez quelques lignes, on en discute."],
+              ["Cadrage", "On définit ensemble le périmètre et les attendus."],
+              ["Proposition", "Honoraires transparents, contractualisés en amont."],
               ["Mise en œuvre", "Nous prenons en charge le dossier et le suivi."],
             ].map(([t, d], i) => (
               <li key={t as string} className="flex gap-4 rounded-xl bg-white ring-1 ring-brand-100 p-5">
@@ -106,10 +106,9 @@ export default function Page({ params }: { params: Params }) {
 
       <section className="bg-gradient-to-br from-brand-600 to-brand-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Discutons de votre projet</h2>
-          <p className="mt-4 text-brand-50/90 text-lg">Diagnostic gratuit en 48h, sans engagement.</p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Parlons de votre projet</h2>
           <Link href="/contact" className="mt-8 inline-block rounded-lg bg-white text-brand-700 hover:bg-brand-50 px-6 py-3 font-semibold shadow">
-            Demander mon diagnostic
+            Nous contacter
           </Link>
         </div>
       </section>

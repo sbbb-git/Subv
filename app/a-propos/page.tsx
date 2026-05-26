@@ -44,7 +44,6 @@ export default function Page() {
 
         <h2>Nos engagements</h2>
         <ul>
-          <li>Diagnostic gratuit livré sous 48h ouvrées.</li>
           <li>Plan d’action priorisé, sans bullshit.</li>
           <li>Reporting clair pour chaque mission.</li>
           <li>Interlocuteur unique pour toutes vos démarches.</li>

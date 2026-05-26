@@ -5,7 +5,7 @@ import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contactez SubventionsCDS. Diagnostic gratuit en 48h pour les centres de santé.",
+    "Contactez SubventionsCDS, cabinet d’accompagnement dédié aux centres de santé.",
   alternates: { canonical: "/contact" },
 };
 
@@ -18,8 +18,8 @@ export default function Page() {
             Parlons de votre centre de santé
           </h1>
           <p className="mt-5 text-lg text-ink-soft">
-            Remplissez ce formulaire et obtenez sous 48h ouvrées un premier
-            retour sur votre situation.
+            Écrivez-nous quelques lignes sur votre situation. Nous revenons
+            vers vous rapidement.
           </p>
         </div>
       </section>
@@ -40,13 +40,12 @@ export default function Page() {
               </p>
               <p className="mt-1 text-ink-soft text-sm">⏰ Lun.–Ven. 9h–18h</p>
             </div>
-            <div className="rounded-2xl bg-brand-600 text-white p-6">
-              <h2 className="text-lg font-bold">Diagnostic 100 % gratuit</h2>
-              <ul className="mt-4 space-y-2 text-sm text-white/90">
-                <li>✓ Premier retour sous 48h ouvrées</li>
-                <li>✓ Sans engagement</li>
-                <li>✓ Confidentialité totale</li>
-              </ul>
+            <div className="rounded-2xl bg-brand-50 ring-1 ring-brand-100 p-6">
+              <h2 className="text-lg font-bold text-ink">Confidentialité</h2>
+              <p className="mt-3 text-ink-soft text-sm">
+                Vos données sont traitées dans le respect du RGPD et utilisées
+                uniquement pour répondre à votre message.
+              </p>
             </div>
           </aside>
         </div>

@@ -46,7 +46,7 @@ export default function Page({ params }: { params: Params }) {
           <p className="mt-5 text-lg text-ink-soft max-w-3xl leading-relaxed">{t.intro}</p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href="/contact" className="rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-3 shadow">
-              Diagnostic gratuit pour mon {t.name}
+              Nous contacter
             </Link>
             <Link href="/services" className="rounded-lg ring-1 ring-brand-200 hover:bg-brand-50 text-ink font-semibold px-5 py-3">
               Voir nos services
@@ -94,9 +94,8 @@ export default function Page({ params }: { params: Params }) {
       <section className="bg-gradient-to-br from-brand-600 to-brand-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Parlons de votre centre</h2>
-          <p className="mt-4 text-brand-50/90 text-lg">Diagnostic gratuit en 48h, sans engagement.</p>
           <Link href="/contact" className="mt-8 inline-block rounded-lg bg-white text-brand-700 hover:bg-brand-50 px-6 py-3 font-semibold shadow">
-            Demander mon diagnostic
+            Nous contacter
           </Link>
         </div>
       </section>

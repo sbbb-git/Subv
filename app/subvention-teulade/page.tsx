@@ -6,7 +6,7 @@ import { Faq } from "@/components/Faq";
 export const metadata: Metadata = {
   title: "Subvention Teulade — Accompagnement des centres de santé",
   description:
-    "La subvention Teulade (article L162-32 du code de la sécurité sociale) est l’un des dispositifs structurants des centres de santé. Cabinet spécialisé : audit gratuit, accompagnement, suivi.",
+    "La subvention Teulade (article L162-32 du code de la sécurité sociale) est l’un des dispositifs structurants des centres de santé. Cabinet spécialisé.",
   alternates: { canonical: "/subvention-teulade" },
   keywords: [
     "subvention Teulade",
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "Tous les centres de santé y ont-ils droit ?",
-    a: "Le dispositif vise les centres de santé conventionnés salariant des praticiens et auxiliaires médicaux. Plusieurs conditions cumulatives s’appliquent — nous vérifions votre éligibilité dans le cadre de l’audit gratuit.",
+    a: "Le dispositif vise les centres de santé conventionnés salariant des praticiens et auxiliaires médicaux. Plusieurs conditions cumulatives s’appliquent — chaque cas s’apprécie individuellement.",
   },
   {
     q: "Est-ce cumulable avec les autres financements ?",
@@ -62,9 +62,9 @@ export default function Page() {
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href="/contact" className="rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-3 shadow">
-              Vérifier mon éligibilité (gratuit)
+              Nous contacter
             </Link>
-            <Link href="/services/subventions-et-financements" className="rounded-lg ring-1 ring-brand-200 hover:bg-brand-50 text-ink font-semibold px-5 py-3">
+            <Link href="/financements" className="rounded-lg ring-1 ring-brand-200 hover:bg-brand-50 text-ink font-semibold px-5 py-3">
               Tous les financements CDS
             </Link>
           </div>
@@ -75,54 +75,49 @@ export default function Page() {
         <h2>Une origine ancienne, un rôle structurant</h2>
         <p>
           La subvention tire son nom de <strong>René Teulade</strong>, ministre
-          signataire du décret du <strong>14 décembre 1992</strong>. Elle s’inscrit
-          dans une logique d’équilibrage entre l’exercice libéral — où l’Assurance
-          Maladie contribue à certaines cotisations des praticiens conventionnés —
-          et l’exercice salarié propre aux centres de santé.
+          signataire du décret du <strong>14 décembre 1992</strong>. Elle
+          s’inscrit dans une logique d’équilibrage entre l’exercice libéral —
+          où l’Assurance Maladie contribue à certaines cotisations des
+          praticiens conventionnés — et l’exercice salarié propre aux centres
+          de santé.
         </p>
 
         <h2>Un dispositif sous-mobilisé</h2>
         <p>
           Le rapport IGAS de février 2025 sur l’évaluation du modèle économique
           des centres de santé pluriprofessionnels relève qu’<strong>environ un
-          quart des CDS</strong> n’a pas perçu cette subvention au titre de 2022.
-          Les causes sont structurelles : méconnaissance du dispositif, complexité
-          de la mise en œuvre, articulation délicate entre l’URSSAF, la CPAM et
-          la paie.
+          quart des CDS</strong> n’a pas perçu cette subvention au titre de
+          2022. Les causes sont structurelles : méconnaissance du dispositif,
+          complexité de la mise en œuvre, articulation délicate entre l’URSSAF,
+          la CPAM et la paie.
         </p>
 
         <h2>Notre approche</h2>
         <p>
-          Plutôt que d’aborder la subvention Teulade isolément, nous l’intégrons
-          systématiquement à un audit financier global du CDS, afin d’éviter les
-          doublons avec d’autres dispositifs (ACI, FIR) et de construire une
-          architecture financière durable.
+          Plutôt que d’aborder la subvention Teulade isolément, nous
+          l’intégrons systématiquement à une vue d’ensemble du financement de
+          votre CDS, afin d’éviter les doublons avec d’autres dispositifs
+          (ACI, FIR) et de construire une architecture financière durable.
         </p>
-        <ul>
-          <li>Vérification de l’éligibilité de votre centre</li>
-          <li>Analyse fine de votre situation administrative et URSSAF</li>
-          <li>Construction et dépôt du dossier auprès de la CPAM compétente</li>
-          <li>Suivi jusqu’au versement effectif</li>
-          <li>Articulation cohérente avec vos autres financements</li>
-        </ul>
-
-        <h2>Pourquoi nous</h2>
-        <ul>
-          <li><strong>Spécialisation</strong> exclusive sur les centres de santé</li>
-          <li><strong>Honoraires transparents</strong>, contractualisés en amont</li>
-          <li><strong>Confidentialité</strong> totale (charte RGPD, NDA)</li>
-          <li><strong>Interlocuteur unique</strong> pour toutes vos démarches</li>
-        </ul>
 
         <h2>Articulation avec les autres dispositifs CDS</h2>
         <p>
-          La subvention Teulade n’existe pas dans le vide. Voir notre vue d’ensemble
-          des <Link href="/financements">financements mobilisables par un centre de santé</Link> :
+          La subvention Teulade n’existe pas dans le vide. Voir notre vue
+          d’ensemble des{" "}
+          <Link href="/financements">financements mobilisables par un centre de santé</Link> :
           <Link href="/financements#aci"> ACI</Link>,{" "}
           <Link href="/financements#fir">FIR</Link>,{" "}
           <Link href="/financements#forfait-structure">Forfait Structure</Link>,
           aides à l’installation et fonds des collectivités.
         </p>
+
+        <h2>Pourquoi nous</h2>
+        <ul>
+          <li>Spécialisation exclusive sur les centres de santé</li>
+          <li>Honoraires transparents, contractualisés en amont</li>
+          <li>Confidentialité totale (charte RGPD)</li>
+          <li>Interlocuteur unique pour toutes vos démarches</li>
+        </ul>
 
         <h2>Questions fréquentes</h2>
       </article>
@@ -134,13 +129,10 @@ export default function Page() {
       <section className="bg-gradient-to-br from-brand-600 to-brand-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Vérifions votre éligibilité
+            Parlons de votre centre de santé
           </h2>
-          <p className="mt-4 text-brand-50/90 text-lg">
-            Diagnostic gratuit en 48h. Sans engagement. Confidentialité totale.
-          </p>
           <Link href="/contact" className="mt-8 inline-block rounded-lg bg-white text-brand-700 hover:bg-brand-50 px-6 py-3 font-semibold shadow">
-            Demander mon diagnostic
+            Nous contacter
           </Link>
         </div>
       </section>

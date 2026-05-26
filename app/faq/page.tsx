@@ -11,12 +11,11 @@ export const metadata: Metadata = {
 
 const faqs = [
   { q: "Quels types de centres de santé accompagnez-vous ?", a: "Tous : CDS médicaux, dentaires, infirmiers, polyvalents, pluriprofessionnels, qu’ils soient portés par une association, une mutuelle, une collectivité ou une SCIC." },
-  { q: "Comment commence une mission ?", a: "Par un premier échange de 30 minutes, suivi d’un audit gratuit livré sous 48h ouvrées. À l’issue, nous proposons un plan d’action priorisé." },
+  { q: "Comment commence une mission ?", a: "Par un premier échange. Vous nous écrivez quelques lignes, on en discute, on définit ensemble s’il y a matière à travailler ensemble." },
   { q: "Quel est votre modèle de rémunération ?", a: "Forfait transparent ou rémunération au résultat selon la mission, toujours contractualisé en amont." },
   { q: "Êtes-vous indépendants ?", a: "Oui. Cabinet privé indépendant, sans lien capitalistique ou contractuel avec la CPAM, l’URSSAF, l’Assurance Maladie ou la FNCS." },
   { q: "Travaillez-vous partout en France ?", a: "Oui, sur l’ensemble du territoire métropolitain et ultramarin. À distance et/ou sur site selon les missions." },
-  { q: "Que couvre votre audit gratuit ?", a: "Cartographie de votre situation administrative et financière, identification des dispositifs non mobilisés, estimation du potentiel récupérable, plan d’action priorisé." },
-  { q: "Combien de temps prend un accompagnement ?", a: "Le diagnostic initial est livré sous 48h. La mise en œuvre varie selon la mission : quelques semaines à plusieurs mois." },
+  { q: "Combien de temps prend un accompagnement ?", a: "Cela dépend de la mission : quelques semaines à plusieurs mois selon les dispositifs et les organismes concernés." },
   { q: "Pouvez-vous accompagner un projet de création de CDS ?", a: "Oui, de l’étude de faisabilité jusqu’à l’ouverture conventionnée, en passant par les statuts, le projet de santé, le dossier ARS et le conventionnement CPAM." },
   { q: "Aidez-vous à monter un dossier ARS ?", a: "Oui : lecture de l’appel à projets, rédaction du dossier, annexes financières, dépôt et reporting post-octroi." },
   { q: "Prenez-vous en charge la comptabilité quotidienne ?", a: "Nous proposons un pilotage budgétaire mensuel, un suivi RH/paie/URSSAF et la production d’indicateurs. Nous ne remplaçons pas un expert-comptable mais nous travaillons en complémentarité." },

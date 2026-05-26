@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 export function CTASection({
-  title = "Faisons le point sur vos financements",
-  subtitle = "Diagnostic gratuit en 48h. Sans engagement.",
-  primary = { href: "/contact", label: "Demander mon diagnostic" },
-  secondary = { href: "/accompagnement", label: "Voir l’accompagnement" },
+  title = "Parlons de votre centre de santé",
+  subtitle,
+  primary = { href: "/contact", label: "Nous contacter" },
+  secondary,
 }: {
   title?: string;
   subtitle?: string;
@@ -13,9 +13,9 @@ export function CTASection({
 }) {
   return (
     <section className="bg-gradient-to-br from-brand-600 to-brand-800 text-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{title}</h2>
-        <p className="mt-4 text-brand-50/90 text-lg">{subtitle}</p>
+        {subtitle && <p className="mt-4 text-brand-50/90 text-lg">{subtitle}</p>}
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
             href={primary.href}
@@ -23,12 +23,14 @@ export function CTASection({
           >
             {primary.label}
           </Link>
-          <Link
-            href={secondary.href}
-            className="rounded-lg ring-1 ring-white/40 hover:bg-white/10 px-6 py-3 font-semibold"
-          >
-            {secondary.label}
-          </Link>
+          {secondary && (
+            <Link
+              href={secondary.href}
+              className="rounded-lg ring-1 ring-white/40 hover:bg-white/10 px-6 py-3 font-semibold"
+            >
+              {secondary.label}
+            </Link>
+          )}
         </div>
       </div>
     </section>
