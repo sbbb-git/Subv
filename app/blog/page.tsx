@@ -4,8 +4,9 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { posts } from "@/content/posts";
 
 export const metadata: Metadata = {
-  title: "Journal — Centres de santé",
-  description: "Articles et analyses sur le pilotage et le financement des centres de santé.",
+  title: "Journal · Centres de santé, subventions, gestion",
+  description:
+    "Articles et analyses pour les directions de centres de santé : financements, subvention Teulade, dossier ARS, modèle économique, comptabilité, création de CDS.",
   alternates: { canonical: "/blog" },
 };
 

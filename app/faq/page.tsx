@@ -3,9 +3,9 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Faq } from "@/components/Faq";
 
 export const metadata: Metadata = {
-  title: "FAQ — Cabinet de conseil pour centres de santé",
+  title: "FAQ · Accompagnement des centres de santé",
   description:
-    "Questions fréquentes sur l’accompagnement des centres de santé : création, développement, comptabilité, dossiers ARS, conventionnement, subventions et financements.",
+    "Questions fréquentes sur l’accompagnement des centres de santé : missions, modèle de rémunération, subvention Teulade, dossier ARS, conventionnement CPAM, comptabilité.",
   alternates: { canonical: "/faq" },
 };
 

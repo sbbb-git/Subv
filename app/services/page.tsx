@@ -4,10 +4,18 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { services } from "@/content/services";
 
 export const metadata: Metadata = {
-  title: "Services — Cabinet de conseil pour centres de santé",
+  title: "Services pour centres de santé : création, ARS, CPAM, subventions",
   description:
-    "Neuf services dédiés aux centres de santé : création, développement, comptabilité, dossier ARS, conventionnement CPAM, conformité, audit financier, mobilisation des subventions.",
+    "Cabinet de conseil pour centres de santé : création, développement, comptabilité, dossier ARS, conventionnement CPAM, subvention Teulade, audit financier, conformité.",
   alternates: { canonical: "/services" },
+  keywords: [
+    "consultant centre de santé",
+    "cabinet conseil centre de santé",
+    "création centre de santé",
+    "dossier ARS",
+    "conventionnement CPAM",
+    "subvention Teulade",
+  ],
 };
 
 export default function Page() {

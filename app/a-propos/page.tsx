@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Cabinet — À propos",
+  title: "À propos · Cabinet dédié aux centres de santé",
   description:
-    "SubventionsCDS est un cabinet de conseil dédié aux centres de santé. Spécialisation, indépendance, méthode.",
+    "SubventionsCDS : cabinet de conseil indépendant, exclusivement dédié aux centres de santé. Notre approche, notre méthode, nos engagements.",
   alternates: { canonical: "/a-propos" },
 };
 

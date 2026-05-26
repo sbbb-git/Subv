@@ -4,15 +4,28 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Faq } from "@/components/Faq";
 
 export const metadata: Metadata = {
-  title: "Subvention Teulade — Accompagnement des centres de santé",
+  title: "Subvention Teulade : accompagnement spécialisé pour centres de santé",
   description:
-    "La subvention Teulade (article L162-32 du code de la sécurité sociale) est l’un des dispositifs structurants des centres de santé. Cabinet spécialisé.",
+    "Subvention Teulade (article L162-32 du code de la sécurité sociale) : un dispositif structurant, sous-mobilisé. Cabinet spécialisé dans l'accompagnement des centres de santé conventionnés.",
   alternates: { canonical: "/subvention-teulade" },
   keywords: [
-    "subvention Teulade", "Teulade centre de santé", "article L162-32",
-    "L162-32 code sécurité sociale", "aide Teulade",
-    "décret 14 décembre 1992", "subvention CPAM centre de santé",
+    "subvention Teulade",
+    "Teulade centre de santé",
+    "article L162-32",
+    "L162-32 code sécurité sociale",
+    "aide Teulade",
+    "décret 14 décembre 1992 Teulade",
+    "subvention CPAM centre de santé",
+    "subvention Teulade éligibilité",
+    "subvention Teulade accompagnement",
+    "cabinet subvention Teulade",
+    "récupérer subvention Teulade",
   ],
+  openGraph: {
+    title: "Subvention Teulade · Accompagnement spécialisé",
+    description: "Article L162-32 du code de la sécurité sociale. Notre cœur d’expertise.",
+    url: "https://www.subventionscds.fr/subvention-teulade",
+  },
 };
 
 const faqs = [

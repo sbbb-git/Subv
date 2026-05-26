@@ -4,10 +4,20 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { cdsTypes } from "@/content/types";
 
 export const metadata: Metadata = {
-  title: "Centres de santé — typologies & accompagnement",
+  title: "Centres de santé : typologies, statuts, accompagnement",
   description:
-    "Panorama des centres de santé : médical, dentaire, infirmier, polyvalent, pluriprofessionnel, municipal, associatif, mutualiste.",
+    "Tous les types de centres de santé en France : médical, dentaire, infirmier, polyvalent, pluriprofessionnel, municipal, associatif, mutualiste. Accompagnement par typologie.",
   alternates: { canonical: "/centres-de-sante" },
+  keywords: [
+    "centre de santé médical",
+    "centre de santé dentaire",
+    "centre de santé infirmier",
+    "centre de santé polyvalent",
+    "centre municipal de santé",
+    "centre de santé associatif",
+    "centre de santé mutualiste",
+    "centre de santé pluriprofessionnel",
+  ],
 };
 
 export default function Page() {

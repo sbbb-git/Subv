@@ -4,8 +4,9 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: "Contactez SubventionsCDS, cabinet d’accompagnement dédié aux centres de santé.",
+  title: "Contact · Cabinet pour centres de santé",
+  description:
+    "Contactez SubventionsCDS : cabinet de conseil dédié aux centres de santé. Subvention Teulade, dossier ARS, conventionnement CPAM, comptabilité.",
   alternates: { canonical: "/contact" },
 };
 

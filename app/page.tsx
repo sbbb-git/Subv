@@ -5,9 +5,9 @@ import { cdsTypes } from "@/content/types";
 import { posts } from "@/content/posts";
 
 export const metadata: Metadata = {
-  title: "SubventionsCDS — Cabinet de conseil pour centres de santé",
+  title: "Subvention Teulade & accompagnement des centres de santé · SubventionsCDS",
   description:
-    "Cabinet de conseil dédié aux centres de santé. Spécialiste de la subvention Teulade (article L162-32 du code de la sécurité sociale).",
+    "Cabinet de conseil dédié aux centres de santé. Spécialiste de la subvention Teulade (article L162-32 du code de la sécurité sociale). Création, conventionnement CPAM, dossier ARS.",
   alternates: { canonical: "/" },
 };
 

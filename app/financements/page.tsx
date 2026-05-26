@@ -3,10 +3,20 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Financements pour centres de santé : ACI, FIR, ARS, CPAM, Teulade",
+  title: "Financements des centres de santé : ACI, FIR, ARS, Teulade",
   description:
-    "Panorama des financements mobilisables par un centre de santé : ACI, FIR, dotations ARS, Forfait Structure, ROSP, aides à l’installation, dispositifs CPAM (subvention Teulade), aides collectivités.",
+    "Tous les financements et subventions d’un centre de santé : ACI, FIR, dotations ARS, Forfait Structure, ROSP, aides à l’installation, subvention Teulade (article L162-32), aides collectivités.",
   alternates: { canonical: "/financements" },
+  keywords: [
+    "financement centre de santé",
+    "subventions centre de santé",
+    "ACI centre de santé",
+    "FIR centre de santé",
+    "subvention Teulade",
+    "Forfait Structure",
+    "ROSP",
+    "aides ARS",
+  ],
 };
 
 const items = [

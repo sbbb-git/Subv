@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Lexique des centres de santé",
+  title: "Lexique : centres de santé, ACI, FIR, CPAM, Teulade",
   description:
-    "Glossaire des termes clés du financement et de la gestion des centres de santé.",
+    "Glossaire des termes clés du financement et de la gestion des centres de santé : ACI, FIR, ARS, CPAM, URSSAF, ROSP, CDS, CSI, Forfait Structure, subvention Teulade.",
   alternates: { canonical: "/lexique" },
 };
 

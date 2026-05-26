@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B2545"/>
+      <stop offset="1" stop-color="#114E9F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <g opacity="0.10" fill="#fff">
+    <path d="M980 110h40v52h52v40h-52v52h-40v-52h-52v-40h52z"/>
+  </g>
+  <g fill="#fff">
+    <text x="80" y="200" font-family="Georgia, serif" font-size="44" font-weight="400" letter-spacing="-1" fill="#8EBBE8">Subventions<tspan fill="#fff">CDS</tspan></text>
+    <text x="80" y="370" font-family="Georgia, serif" font-size="88" font-weight="300" letter-spacing="-2">
+      <tspan x="80" dy="0">Accompagnement</tspan>
+      <tspan x="80" dy="100" font-style="italic" fill="#8EBBE8">des centres de santé.</tspan>
+    </text>
+    <text x="80" y="580" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" letter-spacing="0.18em" opacity="0.7">CABINET DE CONSEIL · SUBVENTION TEULADE</text>
+  </g>
+</svg>
