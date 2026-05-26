@@ -9,34 +9,35 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#FBF8F2",        // warm cream
-        paper: "#FFFDF8",     // slightly lighter cream
+        bg: "#F4F8FD",        // pale clinical blue-white
+        paper: "#FFFFFF",
         ink: {
-          DEFAULT: "#14202E", // deep navy-black
-          soft: "#384759",
-          mute: "#7A8595",
+          DEFAULT: "#0B2545", // deep navy
+          soft: "#2B4A6F",
+          mute: "#6B8AAE",
         },
-        line: "#E6DECF",      // warm divider
+        line: "#D6E2F0",      // soft blue divider
         accent: {
-          DEFAULT: "#1F4D3F", // dark forest green
-          50:  "#EEF3F0",
-          100: "#D7E2DC",
-          200: "#AEC4B9",
-          300: "#82A595",
-          400: "#558672",
-          500: "#346856",
-          600: "#1F4D3F",
-          700: "#1A3F34",
-          800: "#143229",
-          900: "#0E2620",
+          DEFAULT: "#1660C9", // medical blue
+          50:  "#EFF6FC",
+          100: "#D9E8F8",
+          200: "#B3D1F2",
+          300: "#8EBBE8",
+          400: "#5193DC",
+          500: "#2F77D1",
+          600: "#1660C9",
+          700: "#114E9F",
+          800: "#0E3F80",
+          900: "#0B2F60",
+          950: "#06203F",
         },
-        sand: {
-          50:  "#F7F1E1",
-          100: "#EFE4C6",
-          200: "#E1CF9F",
-          300: "#C9B98D",
-          400: "#AF9B6A",
-          500: "#8C7E53",
+        teal: {
+          50:  "#EFF8F9",
+          100: "#D5EDF0",
+          200: "#A8D9DE",
+          300: "#73BFC8",
+          400: "#3E9FAA",
+          500: "#1E7F8A",
         },
       },
       fontFamily: {

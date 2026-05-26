@@ -15,11 +15,21 @@ export default function HomePage() {
   return (
     <>
       {/* HERO — editorial */}
-      <section className="relative">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-20 md:pt-32 pb-24 md:pb-36">
+      <section className="relative overflow-hidden">
+        <svg
+          aria-hidden="true"
+          className="hidden lg:block absolute top-16 right-8 text-accent-100"
+          width="280" height="280" viewBox="0 0 100 100"
+        >
+          <path d="M40 8h20v32h32v20H60v32H40V60H8V40h32z" fill="currentColor" />
+        </svg>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-10 pt-20 md:pt-32 pb-24 md:pb-36">
           <div className="grid lg:grid-cols-12 gap-12 items-end">
             <div className="lg:col-span-8">
-              <p className="eyebrow">Cabinet de conseil · Paris</p>
+              <p className="eyebrow flex items-center gap-3">
+                <span className="inline-block w-6 h-px bg-accent-600"></span>
+                Cabinet de conseil · Centres de santé
+              </p>
               <h1 className="mt-6 serif text-[44px] md:text-[68px] lg:text-[82px] leading-[0.98] text-ink tracking-tightest font-light">
                 L’accompagnement<br />
                 <span className="italic text-accent-600 font-normal">administratif et financier</span><br />
