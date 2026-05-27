@@ -4,7 +4,7 @@ import { services } from "@/content/services";
 import { Faq } from "@/components/Faq";
 
 export const metadata: Metadata = {
-  title: "SubventionsCDS — Accompagnement des centres de santé",
+  title: "SubventionsCDS · Accompagnement des centres de santé",
   description:
     "Accompagnement des centres de santé : création, recrutement, organisation, gestion, financements. Notre offre phare : la récupération des subventions.",
   alternates: { canonical: "/" },
@@ -117,7 +117,7 @@ export default function HomePage() {
               </h2>
               <p className="mt-5 text-white/90 text-lg leading-relaxed max-w-xl">
                 Près d’un centre de santé sur quatre ne perçoit pas la totalité
-                des subventions auxquelles il a droit — par complexité des
+                des subventions auxquelles il a droit, par complexité des
                 démarches, manque de maîtrise du cadre, ou simplement faute de
                 ressources internes pour suivre les dossiers.
               </p>
@@ -192,7 +192,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.map((s) => (
+            {services.slice(0, 6).map((s) => (
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
@@ -211,7 +211,8 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-12 flex flex-wrap justify-center gap-3">
+            <Link href="/services" className="btn-secondary text-base">Voir tous les services</Link>
             <Link href="/contact" className="btn-primary text-base">Réservez votre checkup subventions →</Link>
           </div>
         </div>
@@ -234,7 +235,7 @@ export default function HomePage() {
             <div>
               <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Notre expertise</p>
               <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold text-ink tracking-tight">
-                On ne fait que des centres de santé.
+                Spécialistes des centres de santé.
               </h2>
               <p className="mt-5 text-ink-soft leading-relaxed text-lg">
                 Une équipe spécialisée qui comprend votre secteur, vos
@@ -274,13 +275,13 @@ export default function HomePage() {
             {[
               {
                 quote: "Ils ont identifié plusieurs dispositifs auxquels nous n’avions pas pensé. Un changement direct sur notre trésorerie.",
-                name: "Directrice — Centre de santé associatif",
+                name: "Directrice, Centre de santé associatif",
                 where: "Île-de-France",
                 avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&q=80",
               },
               {
                 quote: "Pour la première fois, on a une vraie vision de nos chiffres et un interlocuteur qui parle notre langue.",
-                name: "Gestionnaire — Centre municipal de santé",
+                name: "Gestionnaire, Centre municipal de santé",
                 where: "Sud-Ouest",
                 avatar: "https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=200&q=80",
               },
@@ -304,7 +305,7 @@ export default function HomePage() {
           </p>
 
           <div className="mt-10 text-center">
-            <Link href="/contact" className="btn-primary text-base">Rejoignez-les — Réservez votre checkup →</Link>
+            <Link href="/contact" className="btn-primary text-base">Rejoignez-les. Réservez votre checkup →</Link>
           </div>
         </div>
       </section>

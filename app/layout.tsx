@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-int
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "SubventionsCDS — Accompagnement des centres de santé",
+    default: "SubventionsCDS · Accompagnement des centres de santé",
     template: `%s · ${SITE_NAME}`,
   },
   description: DEFAULT_DESCRIPTION,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "SubventionsCDS — Accompagnement des centres de santé",
+    title: "SubventionsCDS · Accompagnement des centres de santé",
     description: DEFAULT_DESCRIPTION,
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
   },

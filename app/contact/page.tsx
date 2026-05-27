@@ -22,7 +22,7 @@ export default function Page() {
           </h1>
           <p className="mt-5 text-lg text-ink-soft max-w-2xl leading-relaxed">
             Un échange dédié pour faire le point sur les subventions que votre
-            centre devrait recevoir — et sur les autres sujets qui méritent
+            centre devrait recevoir, et sur les autres sujets qui méritent
             notre attention.
           </p>
         </div>

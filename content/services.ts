@@ -37,10 +37,10 @@ export const services: Service[] = [
       { title: "Cartographie complète", desc: "Tous les financements auxquels votre centre peut prétendre, identifiés et chiffrés." },
       { title: "Montage des dossiers", desc: "Préparation, dépôt, relances : on s’occupe de tout." },
       { title: "Subvention Teulade", desc: "Dispositif spécifique aux centres de santé conventionnés (article L162-32 du code de la sécurité sociale)." },
-      { title: "Articulation des dispositifs", desc: "Articulation ACI, FIR, aides régionales, aides à l’installation pour maximiser sans doublon." },
+      { title: "Articulation des dispositifs", desc: "Mobilisation cohérente des différents dispositifs disponibles, sans doublon ni perte." },
     ],
     metaTitle: "Subventions et financements pour centres de santé",
-    metaDescription: "Nous récupérons les subventions pour vous. Mobilisation des dispositifs ACI, FIR, subvention Teulade, aides à l’installation, fonds collectivités.",
+    metaDescription: "Nous récupérons les subventions pour vous. Mobilisation de tous les dispositifs auxquels votre centre de santé a droit.",
     keywords: ["subventions centre de santé", "financements centre de santé", "subvention Teulade", "ACI", "FIR"],
   },
   {
@@ -116,7 +116,7 @@ export const services: Service[] = [
     icon: ICONS.megaphone,
     pillars: [
       { title: "Référencement local (SEO)", desc: "Google Maps, fiches d’établissement, présence locale." },
-      { title: "Prise de RDV en ligne", desc: "Doctolib, Maiia, Keldoc — paramétrage et optimisation." },
+      { title: "Prise de RDV en ligne", desc: "Doctolib, Maiia, Keldoc : paramétrage et optimisation." },
       { title: "Communication territoriale", desc: "Mairie, médico-social, prescripteurs locaux." },
       { title: "Rétention patient", desc: "Rappels, satisfaction, parcours fluide." },
     ],

@@ -24,7 +24,7 @@ export default function Page() {
           <br />Directeur de la publication : [à compléter]
         </p>
         <h2>Hébergement</h2>
-        <p>Cloudflare Pages — Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA.</p>
+        <p>Cloudflare Pages, Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA.</p>
         <h2>Propriété intellectuelle</h2>
         <p>L’ensemble des contenus présents sur ce site est protégé par le droit d’auteur.</p>
         <h2>Données personnelles</h2>
