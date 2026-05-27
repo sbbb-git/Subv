@@ -26,7 +26,7 @@ export default function Header() {
           ))}
         </nav>
         <Link href="/contact" className="btn-primary py-2 px-4 text-sm">
-          Checkup gratuit
+          Contactez-nous
         </Link>
       </div>
     </header>

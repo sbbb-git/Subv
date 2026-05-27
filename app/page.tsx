@@ -56,7 +56,7 @@ export default function HomePage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/contact" className="btn-primary text-base">
-                  Réserver mon checkup
+                  Contactez-nous pour un check-up
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
                 </Link>
                 <Link href="#services" className="btn-secondary text-base">Voir nos services</Link>
@@ -172,7 +172,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-10 text-center">
-            <Link href="/contact" className="btn-primary text-base">Réservez votre checkup subventions →</Link>
+            <Link href="/contact" className="btn-primary text-base">Contactez-nous pour un check-up →</Link>
           </div>
         </div>
       </section>
@@ -220,7 +220,7 @@ export default function HomePage() {
 
           <div className="mt-12 flex flex-wrap justify-center gap-3">
             <Link href="/services" className="btn-secondary text-base">Voir tous les services</Link>
-            <Link href="/contact" className="btn-primary text-base">Réservez votre checkup →</Link>
+            <Link href="/contact" className="btn-primary text-base">Contactez-nous pour un check-up →</Link>
           </div>
         </div>
       </section>
@@ -312,7 +312,7 @@ export default function HomePage() {
           </p>
 
           <div className="mt-10 text-center">
-            <Link href="/contact" className="btn-primary text-base">Rejoignez-les. Réservez votre checkup →</Link>
+            <Link href="/contact" className="btn-primary text-base">Rejoignez-les. Contactez-nous pour un check-up →</Link>
           </div>
         </div>
       </section>
@@ -344,7 +344,7 @@ export default function HomePage() {
             Rendez-vous gratuit
           </span>
           <h2 className="mt-6 text-4xl md:text-6xl font-bold tracking-tight leading-tight">
-            Réservez votre <span className="bg-gradient-to-r from-accent-300 to-accent-200 bg-clip-text text-transparent">checkup&nbsp;subventions</span>.
+            Contactez-nous pour un <span className="bg-gradient-to-r from-accent-300 to-accent-200 bg-clip-text text-transparent">check-up</span>.
           </h2>
           <p className="mt-6 text-white/80 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
             Un échange dédié pour faire le point sur les subventions que votre
@@ -352,7 +352,7 @@ export default function HomePage() {
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink hover:bg-accent-50 font-semibold px-7 py-4 text-base transition shadow-lg">
-              Réserver mon checkup
+              Contactez-nous pour un check-up
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </Link>
             <a href="mailto:contact@opti-cds.fr" className="inline-flex items-center justify-center gap-2 rounded-lg ring-1 ring-white/30 hover:bg-white/10 text-white font-semibold px-7 py-4 text-base transition">

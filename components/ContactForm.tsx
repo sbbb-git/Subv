@@ -2,16 +2,7 @@
 
 import { useState } from "react";
 
-const INTERESTS = [
-  "Subventions",
-  "Gestion",
-  "Accompagnement financier",
-  "Création de centre",
-  "Recrutement",
-  "Organisation",
-  "Dossier ARS",
-  "Autre",
-];
+const INTERESTS = ["Subventions", "Gestion", "Accompagnement", "Autres"];
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -28,7 +19,7 @@ export default function ContactForm() {
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12l5 5L20 7"/></svg>
         </div>
         <h3 className="mt-4 text-2xl font-bold text-ink">Demande envoyée.</h3>
-        <p className="mt-3 text-ink-soft">Nous revenons vers vous très rapidement pour planifier votre checkup.</p>
+        <p className="mt-3 text-ink-soft">Nous revenons vers vous très rapidement.</p>
       </div>
     );
   }
@@ -36,15 +27,15 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="bg-white rounded-2xl ring-1 ring-line p-6 md:p-8 space-y-6 shadow-sm">
       <div>
-        <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Checkup gratuit</p>
-        <h3 className="mt-2 text-xl md:text-2xl font-bold text-ink">Réservez votre rendez-vous</h3>
+        <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Check-up gratuit</p>
+        <h3 className="mt-2 text-xl md:text-2xl font-bold text-ink">Contactez-nous</h3>
       </div>
 
       <div className="grid md:grid-cols-2 gap-5">
         <Field label="Nom du centre" name="centre" placeholder="Centre de santé Saint-Exupéry" required />
         <Field label="Votre nom" name="name" placeholder="Dr Dupont" required />
         <Field label="Email" name="email" type="email" placeholder="contact@exemple.fr" required />
-        <Field label="Téléphone" name="phone" placeholder="06 12 34 56 78" />
+        <Field label="Téléphone (facultatif)" name="phone" placeholder="06 12 34 56 78" />
       </div>
 
       <div>
@@ -69,13 +60,8 @@ export default function ContactForm() {
         />
       </div>
 
-      <label className="flex items-start gap-3 text-sm text-ink-soft">
-        <input type="checkbox" required className="mt-1 accent-accent-600" />
-        <span>J’accepte d’être recontacté(e) au sujet de ma demande. Mes données sont utilisées uniquement à cet effet.</span>
-      </label>
-
       <button type="submit" className="btn-primary w-full md:w-auto text-base">
-        Réserver mon checkup
+        Envoyer
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </button>
     </form>

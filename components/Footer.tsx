@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/seo";
+import { CONTACT_EMAIL } from "@/lib/seo";
 import { services } from "@/content/services";
 
 export default function Footer() {
@@ -19,9 +19,8 @@ export default function Footer() {
           <p className="mt-4 text-white/65 text-sm leading-relaxed max-w-sm">
             Accompagnement des centres de santé : création, recrutement, organisation, gestion, financements.
           </p>
-          <p className="mt-5 text-white/65 text-sm space-y-1">
-            <span className="block"><a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white">{CONTACT_EMAIL}</a></span>
-            <span className="block"><a href={`tel:${CONTACT_PHONE.replace(/\s/g, "")}`} className="hover:text-white">{CONTACT_PHONE}</a></span>
+          <p className="mt-5 text-white/65 text-sm">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white">{CONTACT_EMAIL}</a>
           </p>
         </div>
         <div className="md:col-span-4">
@@ -44,9 +43,9 @@ export default function Footer() {
           </ul>
         </div>
         <div className="md:col-span-2">
-          <h3 className="text-xs uppercase tracking-widest text-white/45 mb-4">Checkup</h3>
+          <h3 className="text-xs uppercase tracking-widest text-white/45 mb-4">Contact</h3>
           <Link href="/contact" className="btn-primary text-sm">
-            Réserver
+            Contactez-nous
           </Link>
         </div>
       </div>

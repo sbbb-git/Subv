@@ -26,7 +26,7 @@ export default function Page() {
             Tous les sujets administratifs et stratégiques d’un centre de
             santé, traités par une équipe spécialisée.
           </p>
-          <Link href="/contact" className="mt-7 inline-flex btn-primary">Réserver mon checkup</Link>
+          <Link href="/contact" className="mt-7 inline-flex btn-primary">Contactez-nous pour un check-up</Link>
         </div>
       </section>
 
@@ -67,7 +67,7 @@ export default function Page() {
         );
       })}
 
-      <CTASection title="Parlons de votre centre de santé" label="Réserver mon checkup" href="/contact" />
+      <CTASection title="Parlons de votre centre de santé" label="Contactez-nous pour un check-up" href="/contact" />
     </>
   );
 }
