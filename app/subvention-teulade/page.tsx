@@ -6,16 +6,15 @@ import { Faq } from "@/components/Faq";
 import { SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Subvention Teulade pour centres de santé",
+  title: "Subvention Teulade : nous faisons les démarches à votre place",
   description:
-    "Subvention Teulade : dispositif spécifique aux centres de santé conventionnés. Présentation, conditions générales, raisons d’un accompagnement par Opti-CDS.",
+    "Subvention Teulade : nous prenons en charge la constitution du dossier, la récupération des pièces justificatives, le calcul, la transmission à la CPAM, les échanges et le suivi jusqu’au versement.",
   alternates: { canonical: "/subvention-teulade" },
   keywords: [
     "subvention teulade",
     "subvention teulade cds",
     "subvention teulade centre de santé",
     "subvention teulade centre dentaire",
-    "subvention teulade ide",
     "récupérer subvention teulade",
     "article L162-32",
     "L162-32 code sécurité sociale",
@@ -24,10 +23,11 @@ export const metadata: Metadata = {
     "subvention cpam centre de santé",
     "subvention cds",
     "subventions cds",
+    "dossier subvention teulade",
   ],
   openGraph: {
-    title: "Subvention Teulade pour centres de santé",
-    description: "Présentation et accompagnement à la mobilisation de la subvention Teulade par Opti-CDS.",
+    title: "Subvention Teulade : nous faisons les démarches à votre place",
+    description: "Nous prenons en charge tout le dossier, de la constitution jusqu’au versement.",
     url: `${SITE_URL}/subvention-teulade`,
   },
 };
@@ -35,20 +35,33 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Qu’est-ce que la subvention Teulade ?",
-    a: "Un dispositif spécifique aux centres de santé conventionnés, prévu par le code de la sécurité sociale et fixé par un décret de 1992. Il participe au financement des centres de santé.",
+    a: "Un dispositif spécifique aux centres de santé conventionnés, prévu par le code de la sécurité sociale. Il participe au financement des centres de santé.",
+  },
+  {
+    q: "Pourquoi beaucoup de centres ne la perçoivent pas ?",
+    a: "Parce que les démarches sont longues, techniques et chronophages. Constituer le dossier, rassembler les pièces, faire les calculs, transmettre à la CPAM, suivre les échanges : peu de centres ont les ressources internes pour le faire correctement.",
+  },
+  {
+    q: "Que faites-vous concrètement ?",
+    a: "On prend tout en charge : constitution du dossier, récupération des pièces justificatives, calcul, transmission à la CPAM, échanges et validation jusqu’au paiement.",
   },
   {
     q: "Mon centre de santé peut-il y prétendre ?",
-    a: "Les centres de santé conventionnés peuvent en principe être concernés, sous réserve de conditions précises. Chaque situation s’apprécie individuellement : contactez-nous pour un check-up gratuit.",
+    a: "Les centres de santé conventionnés peuvent en principe être concernés. Chaque situation s’apprécie individuellement. Contactez-nous pour un check-up gratuit.",
   },
   {
-    q: "Est-ce compatible avec les autres financements ?",
-    a: "Oui, sous conditions. La subvention Teulade s’articule avec les autres dispositifs publics et conventionnels mobilisables par un centre de santé.",
+    q: "Combien ça coûte ?",
+    a: "Honoraires transparents, contractualisés en amont, sans frais cachés. On en discute lors du premier échange.",
   },
-  {
-    q: "Pourquoi se faire accompagner ?",
-    a: "Une part significative des centres ne mobilise pas la totalité des subventions disponibles, par complexité des démarches ou manque de ressources internes. Un accompagnement spécialisé sécurise la démarche.",
-  },
+];
+
+const steps = [
+  { n: "01", t: "Vérification de l’éligibilité", d: "Premier échange pour valider que votre centre peut prétendre au dispositif." },
+  { n: "02", t: "Récupération des pièces", d: "Nous collectons auprès de vos équipes ou prestataires les documents nécessaires au dossier." },
+  { n: "03", t: "Constitution du dossier", d: "Calculs, formulaires, justificatifs : nous assemblons un dossier conforme et complet." },
+  { n: "04", t: "Transmission à la CPAM", d: "Nous adressons le dossier à la caisse compétente et suivons sa réception." },
+  { n: "05", t: "Échanges et validation", d: "Nous répondons aux demandes de la CPAM et défendons le dossier jusqu’à acceptation." },
+  { n: "06", t: "Suivi jusqu’au versement", d: "Nous restons sur le dossier jusqu’à la réception effective des fonds par votre centre." },
 ];
 
 export default function Page() {
@@ -60,12 +73,13 @@ export default function Page() {
           <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "Subvention Teulade" }]} />
           <p className="mt-8 text-xs uppercase tracking-widest font-semibold text-accent-700">Article L162-32 du code de la sécurité sociale</p>
           <h1 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-ink leading-tight">
-            La <span className="bg-gradient-to-r from-accent-600 to-accent-400 bg-clip-text text-transparent">subvention Teulade</span> pour les centres de santé.
+            Subvention <span className="bg-gradient-to-r from-accent-600 to-accent-400 bg-clip-text text-transparent">Teulade</span> :<br/>
+            nous faisons les démarches à votre place.
           </h1>
           <p className="mt-5 text-lg text-ink-soft max-w-3xl leading-relaxed">
-            Dispositif spécifique aux centres de santé conventionnés.
-            Opti-CDS accompagne les centres dans l’évaluation et la
-            mobilisation des subventions auxquelles ils ont droit.
+            Nous prenons en charge l’intégralité du dossier : constitution,
+            récupération des pièces justificatives, calcul, transmission à la
+            CPAM, échanges et suivi jusqu’au versement effectif des fonds.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href="/contact" className="btn-primary text-base">Contactez-nous pour un check-up</Link>
@@ -74,15 +88,58 @@ export default function Page() {
         </div>
       </section>
 
+      <section className="bg-white border-b border-line">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Le constat</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
+              La plupart des centres ne vont pas chercher cette subvention.
+            </h2>
+            <p className="mt-4 text-ink-soft leading-relaxed text-[17px]">
+              Pas par manque d’envie, par manque de temps. Les démarches sont
+              longues, techniques, chronophages. Beaucoup de centres ne disposent
+              pas des ressources internes pour les mener à bien. Résultat : une
+              part significative passe à côté de financements auxquels ils ont
+              pourtant droit.
+            </p>
+            <p className="mt-4 text-ink-soft leading-relaxed text-[17px]">
+              On va la chercher pour vous.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-soft border-b border-line">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Notre prise en charge</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
+              De A à Z, sans intervention de votre part.
+            </h2>
+            <p className="mt-4 text-ink-soft leading-relaxed text-[17px]">
+              On s’occupe de tout. Vous validez, on agit.
+            </p>
+          </div>
+
+          <ol className="mt-10 grid md:grid-cols-2 gap-5">
+            {steps.map((s) => (
+              <li key={s.n} className="rounded-2xl bg-white ring-1 ring-line p-6">
+                <div className="text-3xl font-bold text-accent-200">{s.n}</div>
+                <h3 className="mt-2 text-lg font-bold text-ink">{s.t}</h3>
+                <p className="mt-2 text-[15px] text-ink-soft leading-relaxed">{s.d}</p>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mt-10 text-center">
+            <Link href="/contact" className="btn-primary text-base">Contactez-nous pour un check-up</Link>
+          </div>
+        </div>
+      </section>
+
       <article className="bg-white border-b border-line">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 prose-content">
-          <h2>Un dispositif spécifique aux centres de santé</h2>
-          <p>La subvention dite Teulade est l’un des dispositifs de financement propres aux centres de santé conventionnés. Elle s’inscrit dans un ensemble plus large de subventions et de financements mobilisables par un CDS.</p>
-
-          <h2>Un dispositif souvent sous-mobilisé</h2>
-          <p>Une part significative des centres de santé ne perçoit pas la totalité des subventions auxquelles ils ont droit. Méconnaissance, complexité administrative ou manque de ressources internes : les causes sont multiples. C’est précisément la raison d’être de notre accompagnement.</p>
-
-          <h2>Pour quels types de centres ?</h2>
+          <h2>Pour quels centres ?</h2>
           <p>Le dispositif concerne en principe l’ensemble des typologies de centres de santé conventionnés :</p>
           <ul>
             <li><a href="/centres-de-sante/medical">Centres de santé médicaux</a></li>
@@ -94,9 +151,6 @@ export default function Page() {
             <li><a href="/centres-de-sante/associatif">Centres associatifs (loi 1901)</a></li>
             <li><a href="/centres-de-sante/mutualiste">Centres mutualistes</a></li>
           </ul>
-
-          <h2>Notre accompagnement</h2>
-          <p>Nous évaluons votre éligibilité, identifions les autres dispositifs cumulables et accompagnons la démarche jusqu’à l’aboutissement. <a href="/contact">Contactez-nous pour un check-up gratuit</a>.</p>
         </div>
       </article>
 
@@ -109,7 +163,7 @@ export default function Page() {
         </div>
       </section>
 
-      <CTASection title="Évaluons ensemble vos subventions" label="Contactez-nous pour un check-up" href="/contact" />
+      <CTASection title="On va chercher votre subvention pour vous" label="Contactez-nous pour un check-up" href="/contact" />
     </>
   );
 }

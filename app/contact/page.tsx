@@ -39,7 +39,6 @@ export default function Page() {
               <p className="mt-3 text-sm text-ink-soft">
                 <a className="text-accent-700 hover:text-accent-900" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
               </p>
-              <p className="mt-2 text-sm text-ink-mute">Lundi à Vendredi, 9h à 18h</p>
             </div>
             <div className="rounded-xl bg-gradient-to-br from-accent-600 to-accent-500 text-white p-6">
               <h2 className="font-semibold">Le check-up</h2>
