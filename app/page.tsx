@@ -6,7 +6,7 @@ import { Faq } from "@/components/Faq";
 export const metadata: Metadata = {
   title: "SubventionsCDS — Nous récupérons les subventions pour vous",
   description:
-    "SubventionsCDS accompagne les centres de santé : nous récupérons les subventions pour vous, créons votre centre, recrutons vos médecins, optimisons votre activité, montons vos dossiers ARS.",
+    "Accompagnement des centres de santé : nous récupérons les subventions pour vous, créons votre centre, recrutons vos médecins, optimisons votre activité, montons vos dossiers ARS.",
   alternates: { canonical: "/" },
 };
 
@@ -29,88 +29,162 @@ const homeFaqs = [
   },
 ];
 
+const HERO_IMG = "https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&w=1400&q=80";
+const TEAM_IMG = "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=1200&q=80";
+const STETHO_IMG = "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80";
+const DOCTOR_IMG = "https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=900&q=80";
+
 export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-soft to-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 md:pt-24 md:pb-28">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-accent-50 text-accent-700 px-3 py-1 text-xs font-semibold ring-1 ring-accent-100">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-600"></span>
-                Accompagnement des centres de santé
+      <section className="relative overflow-hidden bg-gradient-to-b from-soft via-white to-white">
+        {/* Decorative blobs */}
+        <div className="absolute -top-20 -right-20 w-[420px] h-[420px] rounded-full bg-accent-200/40 blur-3xl pointer-events-none"></div>
+        <div className="absolute top-40 -left-32 w-[380px] h-[380px] rounded-full bg-accent-100/60 blur-3xl pointer-events-none"></div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-20 md:pt-20 md:pb-28">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="lg:col-span-7">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white text-accent-700 px-3.5 py-1.5 text-xs font-semibold ring-1 ring-accent-200 shadow-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-600"></span>
+                </span>
+                Spécialistes des centres de santé
               </span>
-              <h1 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-bold text-ink tracking-tight leading-[1.1]">
-                Nous récupérons les <span className="text-accent-600">subventions</span> pour vous.
+              <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold text-ink tracking-tight leading-[1.05]">
+                Nous récupérons les <span className="bg-gradient-to-r from-accent-600 to-accent-400 bg-clip-text text-transparent">subventions</span> pour vous.
               </h1>
-              <p className="mt-6 text-lg text-ink-soft leading-relaxed max-w-xl">
-                Et bien plus : création, recrutement de médecins, organisation,
-                gestion, dossiers ARS, communication, achats. On s’occupe de
-                tout ce qui ralentit votre centre.
+              <p className="mt-6 text-lg md:text-xl text-ink-soft leading-relaxed max-w-xl">
+                Et bien plus : création de centre, recrutement de médecins,
+                organisation, gestion, dossiers ARS, communication, achats.
+                On s’occupe de tout ce qui ralentit votre centre.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="#contact" className="btn-primary">Contactez-nous</Link>
-                <Link href="#services" className="btn-secondary">Voir nos services</Link>
+                <Link href="#contact" className="btn-primary text-base">
+                  Contactez-nous
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+                </Link>
+                <Link href="#services" className="btn-secondary text-base">Voir nos services</Link>
+              </div>
+              <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-ink-soft">
+                <div className="flex -space-x-3">
+                  {[STETHO_IMG, DOCTOR_IMG, TEAM_IMG].map((src, i) => (
+                    <img
+                      key={i}
+                      src={src}
+                      alt=""
+                      className="w-9 h-9 rounded-full ring-2 ring-white object-cover"
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+                <span>
+                  Une équipe spécialisée 100 % centres de santé
+                </span>
               </div>
             </div>
 
-            <div className="relative">
-              <div className="rounded-2xl bg-white ring-1 ring-line shadow-sm p-7">
-                <h2 className="text-lg font-semibold text-ink">Ce qu’on fait pour votre centre</h2>
-                <ul className="mt-4 space-y-3 text-[15px]">
-                  {[
-                    "On récupère vos subventions",
-                    "On recrute vos médecins",
-                    "On crée ou développe votre centre",
-                    "On monte vos dossiers ARS",
-                    "On optimise votre activité",
-                    "On structure votre gestion",
-                  ].map((t) => (
-                    <li key={t} className="flex gap-3 text-ink-soft">
-                      <span className="mt-1 w-1.5 h-1.5 rounded-full bg-accent-600 shrink-0"></span>
-                      <span>{t}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link href="#contact" className="mt-6 btn-primary w-full text-center">Contactez-nous</Link>
+            <div className="lg:col-span-5 relative">
+              {/* Big image card */}
+              <div className="relative rounded-3xl overflow-hidden ring-1 ring-line shadow-xl">
+                <img
+                  src={HERO_IMG}
+                  alt="Centre de santé moderne"
+                  className="w-full h-[420px] object-cover"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-ink/30 via-ink/0 to-transparent"></div>
+              </div>
+
+              {/* Floating badge */}
+              <div className="absolute -bottom-6 -left-6 md:-left-10 bg-white rounded-2xl shadow-xl ring-1 ring-line p-5 max-w-[260px]">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-accent-50 grid place-items-center text-accent-700">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-ink leading-none">100%</div>
+                    <div className="text-xs text-ink-mute mt-1">Confidentialité</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating badge top */}
+              <div className="absolute -top-4 -right-2 md:-right-6 bg-white rounded-xl shadow-lg ring-1 ring-line px-4 py-3 flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-accent-600 grid place-items-center text-white">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-ink">Subventions</div>
+                  <div className="text-xs text-ink-mute">récupérées pour vous</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* TRUSTED BY / TYPES DE CENTRES */}
+      <section className="border-y border-line bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <p className="text-center text-xs uppercase tracking-widest font-semibold text-ink-mute">
+            Nous accompagnons tous les centres de santé
+          </p>
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 items-center">
+            {[
+              "Médicaux",
+              "Dentaires",
+              "Infirmiers",
+              "Polyvalents",
+              "Municipaux",
+              "Mutualistes",
+            ].map((label) => (
+              <div key={label} className="flex items-center justify-center gap-2 px-3 py-3 rounded-lg bg-soft ring-1 ring-line">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-accent-600 shrink-0">
+                  <path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z" />
+                </svg>
+                <span className="text-sm font-semibold text-ink truncate">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PROMESSE BANDEAU */}
-      <section className="bg-accent-600 text-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-3 gap-8 items-center">
+      <section className="relative bg-gradient-to-br from-accent-700 via-accent-600 to-accent-500 text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px)", backgroundSize: "60px 60px" }}></div>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid md:grid-cols-3 gap-8 items-center">
           <div className="md:col-span-2">
-            <p className="text-2xl md:text-3xl font-bold tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight">
               Nous récupérons les subventions pour vous.
-            </p>
-            <p className="mt-2 text-white/85 text-[15px]">
+            </h2>
+            <p className="mt-3 text-white/90 text-lg">
               ACI, FIR, subvention Teulade, aides à l’installation, fonds des
               collectivités — on identifie, on monte, on suit.
             </p>
           </div>
           <div className="md:text-right">
-            <Link href="#contact" className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink hover:bg-accent-50 font-semibold px-5 py-3 transition shadow-sm">
-              Démarrer maintenant →
+            <Link href="#contact" className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink hover:bg-accent-50 font-semibold px-6 py-3.5 transition shadow-lg">
+              Démarrer maintenant
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </Link>
           </div>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="bg-soft">
+      <section id="services" className="bg-soft relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Nos services</p>
-            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
+            <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold text-ink tracking-tight">
               On s’occupe de tout, vous gardez les soins.
             </h2>
-            <p className="mt-4 text-ink-soft leading-relaxed">
-              Une équipe spécialisée pour faire tourner votre centre de santé
-              sans accroc. {services.length} domaines, un seul réflexe : on fait.
+            <p className="mt-4 text-ink-soft leading-relaxed text-lg">
+              Une équipe spécialisée pour faire tourner votre centre sans
+              accroc. {services.length} domaines, un seul réflexe : on fait.
             </p>
           </div>
 
@@ -119,64 +193,98 @@ export default function HomePage() {
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="group rounded-xl bg-white ring-1 ring-line hover:ring-accent-300 hover:shadow-md transition p-6 block"
+                className="group rounded-2xl bg-white ring-1 ring-line hover:ring-accent-400 hover:shadow-xl hover:-translate-y-0.5 transition-all p-6 block"
               >
-                <div className="w-10 h-10 rounded-lg bg-accent-50 text-accent-700 grid place-items-center mb-4 group-hover:bg-accent-600 group-hover:text-white transition">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg>
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-50 to-accent-100 text-accent-700 grid place-items-center mb-4 group-hover:from-accent-600 group-hover:to-accent-400 group-hover:text-white transition">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d={s.icon}/></svg>
                 </div>
-                <h3 className="text-lg font-semibold text-ink group-hover:text-accent-700">{s.name}</h3>
+                <h3 className="text-lg font-bold text-ink group-hover:text-accent-700 transition">{s.name}</h3>
                 <p className="mt-2 text-[15px] text-ink-soft leading-relaxed">{s.short}</p>
-                <span className="mt-4 inline-block text-sm font-semibold text-accent-700">En savoir plus →</span>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent-700">
+                  En savoir plus
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </span>
               </Link>
             ))}
           </div>
 
           <div className="mt-12 text-center">
-            <Link href="#contact" className="btn-primary">Contactez-nous pour discuter de votre projet</Link>
+            <Link href="#contact" className="btn-primary text-base">Contactez-nous pour discuter de votre projet →</Link>
           </div>
         </div>
       </section>
 
-      {/* PUNCH MARKETING */}
+      {/* PUNCH MARKETING avec images */}
       <section className="bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
-          <div className="grid lg:grid-cols-3 gap-6">
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Ce qu’on fait pour vous</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
+              Trois promesses, zéro flou.
+            </h2>
+          </div>
+
+          <div className="mt-12 grid lg:grid-cols-3 gap-6">
             {[
               {
+                img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80",
                 t: "Vos subventions, récupérées.",
                 d: "Subvention Teulade, ACI, FIR, aides régionales — on les active toutes.",
               },
               {
+                img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=900&q=80",
                 t: "Vos médecins, recrutés.",
                 d: "Approche directe, ingénierie contractuelle, intégration fluide.",
               },
               {
+                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
                 t: "Votre centre, optimisé.",
                 d: "Activité, cotation, gestion, organisation — chiffres à la clé.",
               },
             ].map((b) => (
-              <div key={b.t} className="rounded-xl bg-soft p-7 ring-1 ring-line">
-                <h3 className="text-2xl font-bold text-ink leading-tight">{b.t}</h3>
-                <p className="mt-3 text-ink-soft">{b.d}</p>
+              <div key={b.t} className="group rounded-2xl overflow-hidden ring-1 ring-line bg-white hover:shadow-xl transition">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img src={b.img} alt="" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-ink leading-tight">{b.t}</h3>
+                  <p className="mt-2 text-ink-soft text-[15px]">{b.d}</p>
+                </div>
               </div>
             ))}
           </div>
+
           <div className="mt-12 text-center">
-            <Link href="#contact" className="btn-primary">Parlons-en aujourd’hui</Link>
+            <Link href="#contact" className="btn-primary">Parlons-en aujourd’hui →</Link>
           </div>
         </div>
       </section>
 
-      {/* EXPERTISE */}
+      {/* EXPERTISE avec photo */}
       <section id="expertise" className="bg-soft">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <div className="rounded-3xl overflow-hidden ring-1 ring-line shadow-lg">
+                <img
+                  src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&w=1200&q=80"
+                  alt="Équipe médicale"
+                  className="w-full h-[480px] object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl ring-1 ring-line p-5">
+                <div className="text-3xl font-bold text-accent-700">Tous statuts</div>
+                <div className="mt-1 text-sm text-ink-mute">Association · Mutuelle · Public · SCIC</div>
+              </div>
+            </div>
+
             <div>
               <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Notre expertise</p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
+              <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold text-ink tracking-tight">
                 On ne fait que des centres de santé.
               </h2>
-              <p className="mt-5 text-ink-soft leading-relaxed">
+              <p className="mt-5 text-ink-soft leading-relaxed text-lg">
                 Cadre conventionnel, dispositifs CPAM et ARS, accords
                 interprofessionnels, recrutement médical, obligations sociales,
                 organisation des soins : on connaît tout.
@@ -189,36 +297,64 @@ export default function HomePage() {
                   "Honoraires transparents, forfait ou résultat",
                 ].map((t) => (
                   <li key={t} className="flex gap-3 text-ink-soft">
-                    <span className="text-accent-600 font-bold">✓</span> {t}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-600 shrink-0 mt-0.5"><path d="M5 12l5 5L20 7"/></svg>
+                    {t}
                   </li>
                 ))}
               </ul>
-              <Link href="#contact" className="mt-8 btn-primary">Contactez-nous</Link>
-            </div>
-
-            <div className="rounded-2xl bg-white p-8 ring-1 ring-line">
-              <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">À qui on parle</p>
-              <p className="mt-3 text-lg text-ink leading-relaxed">
-                Centres <strong>médicaux</strong>, <strong>dentaires</strong>,{" "}
-                <strong>infirmiers</strong>, <strong>polyvalents</strong>,{" "}
-                <strong>pluriprofessionnels</strong>, qu’ils soient portés par
-                une <strong>association</strong>, une <strong>mutuelle</strong>,
-                une <strong>collectivité</strong> ou une <strong>SCIC</strong>.
-              </p>
-              <p className="mt-4 text-ink-soft text-[15px]">
-                Directeurs, gestionnaires, médecins coordinateurs, DGS de
-                collectivités, responsables financiers de mutuelles — tous nos
-                interlocuteurs partagent la même contrainte : faire tourner un
-                centre dans un cadre dense.
-              </p>
-              <Link href="#contact" className="mt-6 btn-secondary">Discutons de votre cas</Link>
+              <Link href="#contact" className="mt-8 inline-flex btn-primary">Contactez-nous</Link>
             </div>
           </div>
         </div>
       </section>
 
+      {/* TESTIMONIAL */}
+      <section className="bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+          <div className="text-center">
+            <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Ils nous parlent</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
+              Une approche qui change la donne.
+            </h2>
+          </div>
+
+          <div className="mt-12 grid md:grid-cols-2 gap-6">
+            {[
+              {
+                quote: "Ils ont identifié plusieurs dispositifs auxquels nous n’avions pas pensé. Un changement direct sur notre trésorerie.",
+                name: "Directrice — Centre de santé associatif",
+                where: "Île-de-France",
+                avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&q=80",
+              },
+              {
+                quote: "Pour la première fois, on a une vraie vision de nos chiffres et un interlocuteur qui parle notre langue.",
+                name: "Gestionnaire — Centre municipal de santé",
+                where: "Sud-Ouest",
+                avatar: "https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=200&q=80",
+              },
+            ].map((t) => (
+              <figure key={t.name} className="relative rounded-2xl bg-gradient-to-br from-soft to-white p-7 ring-1 ring-line">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="text-accent-200 absolute top-5 right-5"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg>
+                <p className="text-ink leading-relaxed text-[17px]">« {t.quote} »</p>
+                <figcaption className="mt-6 flex items-center gap-3">
+                  <img src={t.avatar} alt="" className="w-12 h-12 rounded-full object-cover ring-2 ring-white shadow" loading="lazy" />
+                  <div>
+                    <div className="font-semibold text-ink text-sm">{t.name}</div>
+                    <div className="text-xs text-ink-mute">{t.where}</div>
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <p className="mt-8 text-center text-xs text-ink-mute italic">
+            Témoignages anonymisés à la demande de nos clients.
+          </p>
+        </div>
+      </section>
+
       {/* FAQ */}
-      <section id="faq" className="bg-white">
+      <section id="faq" className="bg-soft">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
           <div className="text-center">
             <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">FAQ</p>
@@ -236,37 +372,41 @@ export default function HomePage() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="bg-ink text-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+      <section id="contact" className="relative bg-ink text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 30% 30%, #1660C9 0%, transparent 50%), radial-gradient(circle at 70% 70%, #5193DC 0%, transparent 50%)" }}></div>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-xs uppercase tracking-widest font-semibold text-accent-300">Contact</p>
               <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight leading-tight">
                 Récupérons vos subventions ensemble.
               </h2>
-              <p className="mt-5 text-white/75 text-lg leading-relaxed max-w-lg">
+              <p className="mt-5 text-white/80 text-lg leading-relaxed max-w-lg">
                 Quelques lignes sur votre centre suffisent. On revient vers
                 vous rapidement, on identifie ce qui peut être activé, on chiffre.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink hover:bg-accent-50 font-semibold px-5 py-3 transition shadow-sm">
+                <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink hover:bg-accent-50 font-semibold px-6 py-3.5 transition shadow-lg">
                   Nous écrire →
                 </Link>
-                <a href="mailto:contact@subventionscds.fr" className="inline-flex items-center justify-center gap-2 rounded-lg ring-1 ring-white/30 hover:bg-white/10 text-white font-semibold px-5 py-3 transition">
+                <a href="mailto:contact@subventionscds.fr" className="inline-flex items-center justify-center gap-2 rounded-lg ring-1 ring-white/30 hover:bg-white/10 text-white font-semibold px-6 py-3.5 transition">
                   contact@subventionscds.fr
                 </a>
               </div>
             </div>
-            <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 p-7">
+            <div className="rounded-2xl bg-white/5 backdrop-blur ring-1 ring-white/15 p-7">
               <h3 className="text-lg font-semibold text-white">Ce qu’on vous garantit</h3>
-              <ul className="mt-5 space-y-3 text-[15px] text-white/85">
+              <ul className="mt-5 space-y-3 text-[15px] text-white/90">
                 {[
                   "Une réponse personnalisée rapide",
                   "Un cadrage net et chiffré",
                   "Une proposition transparente, contractualisée",
                   "La discrétion qui s’impose dans le secteur",
                 ].map((t) => (
-                  <li key={t} className="flex gap-3"><span className="text-accent-300 font-bold">✓</span> {t}</li>
+                  <li key={t} className="flex gap-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-300 shrink-0 mt-0.5"><path d="M5 12l5 5L20 7"/></svg>
+                    {t}
+                  </li>
                 ))}
               </ul>
             </div>
