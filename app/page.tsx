@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const homeFaqs = [
   {
     q: "Concrètement, vous faites quoi ?",
-    a: "Nous récupérons les subventions pour vous, nous recrutons vos médecins, nous montons vos dossiers ARS, nous optimisons votre activité, nous structurons votre gestion. Vous restez concentré sur les soins.",
+    a: "Un accompagnement personnalisé dans la gestion administrative et financière de votre centre de santé : nous adaptons notre intervention à votre situation, à votre équipe et à vos priorités.",
   },
   {
     q: "Travaillez-vous avec tous les types de centres ?",
