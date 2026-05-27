@@ -160,7 +160,7 @@ export default function HomePage() {
             {[
               { n: "237", l: "dossiers de subvention acceptés" },
               { n: "58", l: "centres de santé accompagnés" },
-              { n: "14,2 M€", l: "obtenus pour nos clients" },
+              { n: "3,9 M€", l: "obtenus pour nos clients" },
               { n: "0", l: "fuite d’information à ce jour" },
             ].map((r) => (
               <div key={r.l} className="rounded-2xl bg-gradient-to-br from-soft to-white ring-1 ring-line p-6 text-center">
