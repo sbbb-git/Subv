@@ -55,8 +55,8 @@ export default function HomePage() {
                 Création, recrutement, organisation, gestion, financements.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="#contact" className="btn-primary text-base">
-                  Contactez-nous
+                <Link href="/contact" className="btn-primary text-base">
+                  Réserver mon checkup
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
                 </Link>
                 <Link href="#services" className="btn-secondary text-base">Voir nos services</Link>
@@ -124,7 +124,7 @@ export default function HomePage() {
               <p className="mt-3 text-white/85 leading-relaxed max-w-xl">
                 Nous prenons en charge ce sujet à votre place.
               </p>
-              <Link href="#contact" className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink hover:bg-accent-50 font-semibold px-6 py-3.5 transition shadow-lg">
+              <Link href="/contact" className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink hover:bg-accent-50 font-semibold px-6 py-3.5 transition shadow-lg">
                 Contactez-nous
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
               </Link>
@@ -170,6 +170,10 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+
+          <div className="mt-10 text-center">
+            <Link href="/contact" className="btn-primary text-base">Réservez votre checkup subventions →</Link>
+          </div>
         </div>
       </section>
 
@@ -208,7 +212,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12 text-center">
-            <Link href="#contact" className="btn-primary text-base">Contactez-nous pour discuter de votre projet →</Link>
+            <Link href="/contact" className="btn-primary text-base">Réservez votre checkup subventions →</Link>
           </div>
         </div>
       </section>
@@ -250,7 +254,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Link href="#contact" className="mt-8 inline-flex btn-primary">Contactez-nous</Link>
+              <Link href="/contact" className="mt-8 inline-flex btn-primary">Contactez-nous</Link>
             </div>
           </div>
         </div>
@@ -298,6 +302,10 @@ export default function HomePage() {
           <p className="mt-8 text-center text-xs text-ink-mute italic">
             Témoignages anonymisés à la demande de nos clients.
           </p>
+
+          <div className="mt-10 text-center">
+            <Link href="/contact" className="btn-primary text-base">Rejoignez-les — Réservez votre checkup →</Link>
+          </div>
         </div>
       </section>
 
@@ -314,7 +322,7 @@ export default function HomePage() {
             <Faq items={homeFaqs} />
           </div>
           <div className="mt-10 text-center">
-            <Link href="#contact" className="btn-primary">Contactez-nous</Link>
+            <Link href="/contact" className="btn-primary">Contactez-nous</Link>
           </div>
         </div>
       </section>
