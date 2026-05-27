@@ -27,7 +27,7 @@ const homeFaqs = [
 
 const HERO_IMG = "https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&w=1400&q=80";
 const TEAM_IMG = "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=1200&q=80";
-const STETHO_IMG = "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80";
+const STETHO_IMG = "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=400&q=80";
 const DOCTOR_IMG = "https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=900&q=80";
 
 export default function HomePage() {
