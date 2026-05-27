@@ -322,43 +322,30 @@ export default function HomePage() {
       {/* CONTACT */}
       <section id="contact" className="relative bg-ink text-white overflow-hidden">
         <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 30% 30%, #1660C9 0%, transparent 50%), radial-gradient(circle at 70% 70%, #5193DC 0%, transparent 50%)" }}></div>
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-xs uppercase tracking-widest font-semibold text-accent-300">Contact</p>
-              <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight leading-tight">
-                Parlons de votre centre de santé.
-              </h2>
-              <p className="mt-5 text-white/80 text-lg leading-relaxed max-w-lg">
-                Quelques lignes sur votre situation suffisent. On revient vers
-                vous rapidement.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink hover:bg-accent-50 font-semibold px-6 py-3.5 transition shadow-lg">
-                  Nous écrire →
-                </Link>
-                <a href="mailto:contact@subventionscds.fr" className="inline-flex items-center justify-center gap-2 rounded-lg ring-1 ring-white/30 hover:bg-white/10 text-white font-semibold px-6 py-3.5 transition">
-                  contact@subventionscds.fr
-                </a>
-              </div>
-            </div>
-            <div className="rounded-2xl bg-white/5 backdrop-blur ring-1 ring-white/15 p-7">
-              <h3 className="text-lg font-semibold text-white">Ce qu’on vous garantit</h3>
-              <ul className="mt-5 space-y-3 text-[15px] text-white/90">
-                {[
-                  "Une réponse personnalisée rapide",
-                  "Un cadrage net et chiffré",
-                  "Une proposition transparente, contractualisée",
-                  "La discrétion qui s’impose dans le secteur",
-                ].map((t) => (
-                  <li key={t} className="flex gap-3">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-300 shrink-0 mt-0.5"><path d="M5 12l5 5L20 7"/></svg>
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 ring-1 ring-white/20 px-3.5 py-1.5 text-xs font-semibold backdrop-blur">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
+            Rendez-vous gratuit
+          </span>
+          <h2 className="mt-6 text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+            Réservez votre <span className="bg-gradient-to-r from-accent-300 to-accent-200 bg-clip-text text-transparent">checkup&nbsp;subventions</span>.
+          </h2>
+          <p className="mt-6 text-white/80 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+            Un échange dédié pour faire le point sur les subventions que votre
+            centre de santé devrait recevoir.
+          </p>
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink hover:bg-accent-50 font-semibold px-7 py-4 text-base transition shadow-lg">
+              Réserver mon checkup
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </Link>
+            <a href="mailto:contact@subventionscds.fr" className="inline-flex items-center justify-center gap-2 rounded-lg ring-1 ring-white/30 hover:bg-white/10 text-white font-semibold px-7 py-4 text-base transition">
+              contact@subventionscds.fr
+            </a>
           </div>
+          <p className="mt-6 text-xs text-white/50">
+            Sans engagement · Confidentialité totale
+          </p>
         </div>
       </section>
     </>
