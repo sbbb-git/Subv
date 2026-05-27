@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CONTACT_EMAIL } from "@/lib/seo";
 import { services } from "@/content/services";
+import { cdsTypes } from "@/content/types";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -17,36 +18,42 @@ export default function Footer() {
             </span>
           </div>
           <p className="mt-4 text-white/65 text-sm leading-relaxed max-w-sm">
-            Accompagnement des centres de santé : création, recrutement, organisation, gestion, financements.
+            Accompagnement des centres de santé : création, recrutement, organisation, gestion, financements. Notre offre phare : la récupération des subventions.
           </p>
           <p className="mt-5 text-white/65 text-sm">
             <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white">{CONTACT_EMAIL}</a>
           </p>
         </div>
-        <div className="md:col-span-4">
-          <h3 className="text-xs uppercase tracking-widest text-white/45 mb-4">Nos services</h3>
+
+        <div className="md:col-span-3">
+          <h3 className="text-xs uppercase tracking-widest text-white/45 mb-4">Subventions</h3>
           <ul className="space-y-2 text-sm text-white/75">
-            {services.slice(0, 6).map((s) => (
-              <li key={s.slug}><Link href={`/services/${s.slug}`} className="hover:text-white">{s.name}</Link></li>
-            ))}
-            <li><Link href="/services" className="text-accent-300 hover:text-white">Voir tous les services →</Link></li>
+            <li><Link href="/subvention-teulade" className="hover:text-white">Subvention Teulade</Link></li>
+            <li><Link href="/financements" className="hover:text-white">Financements CDS</Link></li>
+            <li><Link href="/ressources" className="hover:text-white">Ressources</Link></li>
+            <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
+            <li><Link href="/lexique" className="hover:text-white">Lexique</Link></li>
           </ul>
         </div>
-        <div className="md:col-span-2">
-          <h3 className="text-xs uppercase tracking-widest text-white/45 mb-4">Site</h3>
+
+        <div className="md:col-span-3">
+          <h3 className="text-xs uppercase tracking-widest text-white/45 mb-4">Centres de santé</h3>
           <ul className="space-y-2 text-sm text-white/75">
-            <li><Link href="/#services" className="hover:text-white">Services</Link></li>
-            <li><Link href="/#expertise" className="hover:text-white">Expertise</Link></li>
-            <li><Link href="/#faq" className="hover:text-white">FAQ</Link></li>
+            {cdsTypes.slice(0, 6).map((t) => (
+              <li key={t.slug}><Link href={`/centres-de-sante/${t.slug}`} className="hover:text-white">{t.name}</Link></li>
+            ))}
+            <li><Link href="/centres-de-sante" className="text-accent-300 hover:text-white">Toutes les typologies →</Link></li>
+          </ul>
+        </div>
+
+        <div className="md:col-span-2">
+          <h3 className="text-xs uppercase tracking-widest text-white/45 mb-4">Cabinet</h3>
+          <ul className="space-y-2 text-sm text-white/75">
+            <li><Link href="/services" className="hover:text-white">Services</Link></li>
             <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
             <li><Link href="/mentions-legales" className="hover:text-white">Mentions légales</Link></li>
           </ul>
-        </div>
-        <div className="md:col-span-2">
-          <h3 className="text-xs uppercase tracking-widest text-white/45 mb-4">Contact</h3>
-          <Link href="/contact" className="btn-primary text-sm">
-            Contactez-nous
-          </Link>
+          <Link href="/contact" className="mt-5 btn-primary text-sm">Contactez-nous</Link>
         </div>
       </div>
       <div className="border-t border-white/10">

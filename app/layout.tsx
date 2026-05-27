@@ -10,25 +10,45 @@ const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-int
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Opti-CDS · Accompagnement des centres de santé",
+    default: "Opti-CDS · Subventions et accompagnement des centres de santé",
     template: `%s · ${SITE_NAME}`,
   },
   description: DEFAULT_DESCRIPTION,
   keywords: [
+    // Subventions
+    "subvention teulade",
+    "subvention teulade cds",
+    "subvention teulade centre de santé",
+    "subvention teulade centre dentaire",
+    "récupérer subvention teulade",
+    "subventions cds",
+    "subventions centre de santé",
+    "subventions centre dentaire",
+    "subventions centre médical",
+    "subventions centre infirmier",
+    "subventions cms",
+    "article L162-32",
+    // Financement
+    "financement cds",
+    "financement centre de santé",
+    "financement centre dentaire",
+    "financement cms",
+    "aide centre de santé",
+    "aide ouverture centre de santé",
+    // Accompagnement
     "accompagnement centre de santé",
+    "consultant centre de santé",
+    "audit financier centre de santé",
+    // Création / typologies
     "créer un centre de santé",
     "ouvrir un centre de santé",
-    "développer un centre de santé",
-    "recrutement médecin centre de santé",
-    "conseil organisation centre de santé",
-    "optimisation activité centre de santé",
-    "comptabilité centre de santé",
-    "dossier ARS",
-    "subventions centre de santé",
-    "financements centre de santé",
-    "subvention Teulade",
-    "ACI",
-    "FIR",
+    "centre de santé médical",
+    "centre de santé dentaire",
+    "centre de santé infirmier",
+    "centre municipal de santé",
+    "centre de santé associatif",
+    "centre de santé mutualiste",
+    "centre de santé pluriprofessionnel",
   ],
   authors: [{ name: SITE_NAME }],
   publisher: SITE_NAME,
@@ -38,7 +58,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "Opti-CDS · Accompagnement des centres de santé",
+    title: "Opti-CDS · Subventions et accompagnement des centres de santé",
     description: DEFAULT_DESCRIPTION,
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
   },
@@ -49,17 +69,37 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large", "max-video-preview": -1 },
   },
   category: "santé",
+  formatDetection: { telephone: false, email: true, address: false },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const orgLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": `${SITE_URL}#org`,
     name: SITE_NAME,
     url: SITE_URL,
     description: DEFAULT_DESCRIPTION,
     areaServed: "FR",
     serviceType: "Accompagnement des centres de santé",
+    knowsAbout: [
+      "Subvention Teulade",
+      "Article L162-32 du code de la sécurité sociale",
+      "Subventions des centres de santé",
+      "Financement des centres de santé",
+      "Création de centre de santé",
+      "Conventionnement CPAM",
+      "Recrutement médical",
+      "Gestion administrative et financière des centres de santé",
+    ],
+  };
+  const websiteLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: SITE_URL,
+    inLanguage: "fr-FR",
+    publisher: { "@id": `${SITE_URL}#org` },
   };
   return (
     <html lang="fr" className={inter.variable}>
@@ -67,6 +107,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta name="theme-color" content="#1660C9" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
       </head>
       <body className="min-h-screen flex flex-col font-sans bg-white">
         <Header />
