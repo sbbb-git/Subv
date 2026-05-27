@@ -2,23 +2,49 @@
 
 import { useState } from "react";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzdwyeep";
 const INTERESTS = ["Subventions", "Gestion", "Accompagnement", "Autres"];
 
-export default function ContactForm() {
-  const [sent, setSent] = useState(false);
+type Status = "idle" | "sending" | "sent" | "error";
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+export default function ContactForm() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSent(true);
+    const form = e.currentTarget;
+    setStatus("sending");
+    setErrorMsg(null);
+
+    try {
+      const formData = new FormData(form);
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setErrorMsg(data?.errors?.[0]?.message || "Une erreur est survenue. Réessayez ou écrivez-nous directement.");
+        setStatus("error");
+      }
+    } catch {
+      setErrorMsg("Impossible d’envoyer le message. Vérifiez votre connexion ou écrivez-nous directement.");
+      setStatus("error");
+    }
   }
 
-  if (sent) {
+  if (status === "sent") {
     return (
       <div className="rounded-xl bg-accent-50 ring-1 ring-accent-200 p-8 text-center">
         <div className="w-14 h-14 rounded-full bg-accent-600 text-white grid place-items-center mx-auto">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12l5 5L20 7"/></svg>
         </div>
-        <h3 className="mt-4 text-2xl font-bold text-ink">Demande envoyée.</h3>
+        <h3 className="mt-4 text-2xl font-bold text-ink">Message envoyé.</h3>
         <p className="mt-3 text-ink-soft">Nous revenons vers vous très rapidement.</p>
       </div>
     );
@@ -43,7 +69,7 @@ export default function ContactForm() {
         <div className="grid grid-cols-2 gap-2">
           {INTERESTS.map((label) => (
             <label key={label} className="flex items-center gap-2.5 rounded-lg border border-line hover:border-accent-400 hover:bg-accent-50/50 px-3 py-2.5 cursor-pointer transition has-[:checked]:border-accent-600 has-[:checked]:bg-accent-50">
-              <input type="checkbox" name="interest" value={label} className="accent-accent-600 w-4 h-4" />
+              <input type="checkbox" name="sujets" value={label} className="accent-accent-600 w-4 h-4" />
               <span className="text-sm text-ink select-none">{label}</span>
             </label>
           ))}
@@ -60,9 +86,23 @@ export default function ContactForm() {
         />
       </div>
 
-      <button type="submit" className="btn-primary w-full md:w-auto text-base">
-        Envoyer
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      {/* Honeypot anti-spam (caché) */}
+      <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+
+      {/* Sujet par défaut côté inbox Formspree */}
+      <input type="hidden" name="_subject" value="Nouvelle demande de check-up — Opti-CDS" />
+
+      {status === "error" && errorMsg && (
+        <div className="rounded-lg bg-red-50 border border-red-200 text-red-800 text-sm px-4 py-3">
+          {errorMsg}
+        </div>
+      )}
+
+      <button type="submit" disabled={status === "sending"} className="btn-primary w-full md:w-auto text-base disabled:opacity-60 disabled:cursor-not-allowed">
+        {status === "sending" ? "Envoi en cours…" : "Envoyer"}
+        {status !== "sending" && (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        )}
       </button>
     </form>
   );
