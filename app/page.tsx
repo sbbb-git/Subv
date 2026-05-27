@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { services } from "@/content/services";
+import { services, PILLARS } from "@/content/services";
 import { Faq } from "@/components/Faq";
 
 export const metadata: Metadata = {
@@ -177,43 +177,50 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* SERVICES — 4 piliers */}
       <section id="services" className="bg-soft relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Nos services</p>
             <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold text-ink tracking-tight">
-              Création, recrutement, organisation, gestion, financements.
+              Quatre piliers pour votre centre de santé.
             </h2>
             <p className="mt-4 text-ink-soft leading-relaxed text-lg">
-              Une équipe spécialisée pour faire tourner votre centre sans
-              accroc.
+              Financement, structuration, développement, accompagnement.
+              Une équipe spécialisée à chaque étape de la vie de votre centre.
             </p>
           </div>
 
-          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.slice(0, 6).map((s) => (
-              <Link
-                key={s.slug}
-                href={`/services/${s.slug}`}
-                className="group rounded-2xl bg-white ring-1 ring-line hover:ring-accent-400 hover:shadow-xl hover:-translate-y-0.5 transition-all p-6 block"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-50 to-accent-100 text-accent-700 grid place-items-center mb-4 group-hover:from-accent-600 group-hover:to-accent-400 group-hover:text-white transition">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d={s.icon}/></svg>
+          <div className="mt-12 grid md:grid-cols-2 gap-5">
+            {PILLARS.map((p) => {
+              const items = services.filter((s) => s.pillar === p.id);
+              return (
+                <div key={p.id} className="rounded-2xl bg-white ring-1 ring-line p-7">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent-600 to-accent-400 text-white grid place-items-center font-bold text-sm">
+                      {p.label.charAt(0)}
+                    </div>
+                    <h3 className="text-xl font-bold text-ink">{p.label}</h3>
+                  </div>
+                  <p className="mt-3 text-[15px] text-ink-soft">{p.desc}</p>
+                  <ul className="mt-5 space-y-1.5">
+                    {items.map((s) => (
+                      <li key={s.slug}>
+                        <Link href={`/services/${s.slug}`} className="group flex items-center gap-2 text-[15px] text-ink hover:text-accent-700 py-1">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent-600"><path d="M9 18l6-6-6-6"/></svg>
+                          <span className="group-hover:underline underline-offset-2">{s.name}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="text-lg font-bold text-ink group-hover:text-accent-700 transition">{s.name}</h3>
-                <p className="mt-2 text-[15px] text-ink-soft leading-relaxed">{s.short}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent-700">
-                  En savoir plus
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-                </span>
-              </Link>
-            ))}
+              );
+            })}
           </div>
 
           <div className="mt-12 flex flex-wrap justify-center gap-3">
             <Link href="/services" className="btn-secondary text-base">Voir tous les services</Link>
-            <Link href="/contact" className="btn-primary text-base">Réservez votre checkup subventions →</Link>
+            <Link href="/contact" className="btn-primary text-base">Réservez votre checkup →</Link>
           </div>
         </div>
       </section>
