@@ -20,12 +20,8 @@ const homeFaqs = [
     a: "Oui : centres médicaux, dentaires, infirmiers, polyvalents, pluriprofessionnels, qu’ils soient portés par une association, une mutuelle, une collectivité ou une SCIC.",
   },
   {
-    q: "Quel est votre modèle de rémunération ?",
-    a: "Forfait transparent ou rémunération au résultat selon la mission. Contractualisé en amont, sans frais cachés.",
-  },
-  {
     q: "Et la subvention Teulade ?",
-    a: "Oui, c’est l’un des dispositifs que nous mobilisons régulièrement pour nos clients, en articulation avec les autres financements (ACI, FIR, aides régionales).",
+    a: "Oui, c’est l’un des dispositifs que nous mobilisons régulièrement pour nos clients.",
   },
 ];
 
@@ -161,8 +157,7 @@ export default function HomePage() {
               Nous récupérons les subventions pour vous.
             </h2>
             <p className="mt-3 text-white/90 text-lg">
-              ACI, FIR, subvention Teulade, aides à l’installation, fonds des
-              collectivités — on identifie, on monte, on suit.
+              On les identifie, on monte les dossiers, on suit jusqu’à versement.
             </p>
           </div>
           <div className="md:text-right">
@@ -229,7 +224,7 @@ export default function HomePage() {
               {
                 img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80",
                 t: "Vos subventions, récupérées.",
-                d: "Subvention Teulade, ACI, FIR, aides régionales — on les active toutes.",
+                d: "Toutes les subventions auxquelles votre centre a droit, mobilisées pour vous.",
               },
               {
                 img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=900&q=80",
