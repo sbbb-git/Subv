@@ -36,32 +36,32 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-b from-soft via-white to-white">
         <div className="absolute -top-20 -right-20 w-[420px] h-[420px] rounded-full bg-accent-200/40 blur-3xl pointer-events-none"></div>
-        <div className="absolute top-40 -left-32 w-[380px] h-[380px] rounded-full bg-accent-100/60 blur-3xl pointer-events-none"></div>
+        <div className="absolute top-40 -left-32 w-[380px] h-[380px] rounded-full bg-accent-100/60 blur-3xl pointer-events-none hidden md:block"></div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-20 md:pt-20 md:pb-28">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-14 md:pt-20 md:pb-28">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-center">
             <div className="lg:col-span-7">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white text-accent-700 px-3.5 py-1.5 text-xs font-semibold ring-1 ring-accent-200 shadow-sm">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white text-accent-700 px-3 py-1.5 text-[11px] sm:text-xs font-semibold ring-1 ring-accent-200 shadow-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-600"></span>
                 </span>
                 Spécialistes des centres de santé
               </span>
-              <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold text-ink tracking-tight leading-[1.05]">
+              <h1 className="mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-ink tracking-tight leading-[1.1]">
                 Accompagnement des <span className="bg-gradient-to-r from-accent-600 to-accent-400 bg-clip-text text-transparent">centres de santé</span>.
               </h1>
-              <p className="mt-6 text-lg md:text-xl text-ink-soft leading-relaxed max-w-xl">
+              <p className="mt-5 text-base sm:text-lg md:text-xl text-ink-soft leading-relaxed max-w-xl">
                 Création, recrutement, organisation, gestion, financements.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/contact" className="btn-primary text-base">
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link href="/contact" className="btn-primary text-sm sm:text-base">
                   Contactez-nous pour un check-up
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
                 </Link>
-                <Link href="#services" className="btn-secondary text-base">Voir nos services</Link>
+                <Link href="#services" className="btn-secondary text-sm sm:text-base">Voir nos services</Link>
               </div>
-              <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-ink-soft">
+              <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-ink-soft">
                 <div className="flex -space-x-3">
                   {[STETHO_IMG, DOCTOR_IMG, TEAM_IMG].map((src, i) => (
                     <img key={i} src={src} alt="" className="w-9 h-9 rounded-full ring-2 ring-white object-cover" loading="lazy" />
@@ -71,26 +71,25 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden ring-1 ring-line shadow-xl">
-                <img src={HERO_IMG} alt="Centre de santé moderne" className="w-full h-[420px] object-cover" loading="eager" />
+            <div className="lg:col-span-5 relative mt-2 lg:mt-0">
+              <div className="relative rounded-2xl md:rounded-3xl overflow-hidden ring-1 ring-line shadow-xl">
+                <img src={HERO_IMG} alt="Centre de santé moderne" className="w-full h-[220px] sm:h-[320px] md:h-[400px] lg:h-[420px] object-cover" loading="eager" />
                 <div className="absolute inset-0 bg-gradient-to-tr from-ink/30 via-ink/0 to-transparent"></div>
               </div>
 
-              <div className="absolute -bottom-6 -left-6 md:-left-10 bg-white rounded-2xl shadow-xl ring-1 ring-line p-5 max-w-[260px]">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-accent-50 grid place-items-center text-accent-700">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-ink leading-none">100%</div>
-                    <div className="text-xs text-ink-mute mt-1">Confidentialité</div>
-                  </div>
+              {/* Floating badges — desktop seulement */}
+              <div className="hidden md:flex absolute -bottom-6 -left-6 md:-left-10 bg-white rounded-2xl shadow-xl ring-1 ring-line p-5 max-w-[260px] items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-accent-50 grid place-items-center text-accent-700 shrink-0">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-ink leading-none">100%</div>
+                  <div className="text-xs text-ink-mute mt-1">Confidentialité</div>
                 </div>
               </div>
 
-              <div className="absolute -top-4 -right-2 md:-right-6 bg-white rounded-xl shadow-lg ring-1 ring-line px-4 py-3 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-accent-600 grid place-items-center text-white">
+              <div className="hidden md:flex absolute -top-4 -right-2 md:-right-6 bg-white rounded-xl shadow-lg ring-1 ring-line px-4 py-3 items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-accent-600 grid place-items-center text-white shrink-0">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                 </div>
                 <div>
@@ -106,7 +105,7 @@ export default function HomePage() {
       {/* OFFRE PHARE */}
       <section className="relative bg-gradient-to-br from-accent-700 via-accent-600 to-accent-500 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px)", backgroundSize: "60px 60px" }}></div>
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/15 ring-1 ring-white/30 px-3.5 py-1.5 text-xs font-semibold backdrop-blur">
@@ -149,7 +148,7 @@ export default function HomePage() {
 
       {/* RÉALISATIONS */}
       <section className="bg-white border-b border-line">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
           <div className="text-center max-w-2xl mx-auto">
             <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Nos réalisations</p>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
@@ -179,7 +178,7 @@ export default function HomePage() {
 
       {/* SERVICES — 4 piliers */}
       <section id="services" className="bg-soft relative">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Nos services</p>
             <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold text-ink tracking-tight">
@@ -227,11 +226,11 @@ export default function HomePage() {
 
       {/* EXPERTISE */}
       <section id="expertise" className="bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <div className="rounded-3xl overflow-hidden ring-1 ring-line shadow-lg">
-                <img src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&w=1200&q=80" alt="Équipe médicale" className="w-full h-[480px] object-cover" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&w=1200&q=80" alt="Équipe médicale" className="w-full h-[280px] sm:h-[380px] md:h-[480px] object-cover" loading="lazy" />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl ring-1 ring-line p-5">
                 <div className="text-3xl font-bold text-accent-700">Tous statuts</div>
@@ -270,7 +269,7 @@ export default function HomePage() {
 
       {/* TESTIMONIAL */}
       <section className="bg-soft">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
           <div className="text-center">
             <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Ils nous parlent</p>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
@@ -319,7 +318,7 @@ export default function HomePage() {
 
       {/* FAQ */}
       <section id="faq" className="bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
           <div className="text-center">
             <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">FAQ</p>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
