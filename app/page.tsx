@@ -4,7 +4,7 @@ import { services } from "@/content/services";
 import { Faq } from "@/components/Faq";
 
 export const metadata: Metadata = {
-  title: "SubventionsCDS · Accompagnement des centres de santé",
+  title: "Opti-CDS · Accompagnement des centres de santé",
   description:
     "Accompagnement des centres de santé : création, recrutement, organisation, gestion, financements. Notre offre phare : la récupération des subventions.",
   alternates: { canonical: "/" },
@@ -348,8 +348,8 @@ export default function HomePage() {
               Réserver mon checkup
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </Link>
-            <a href="mailto:contact@subventionscds.fr" className="inline-flex items-center justify-center gap-2 rounded-lg ring-1 ring-white/30 hover:bg-white/10 text-white font-semibold px-7 py-4 text-base transition">
-              contact@subventionscds.fr
+            <a href="mailto:contact@opti-cds.fr" className="inline-flex items-center justify-center gap-2 rounded-lg ring-1 ring-white/30 hover:bg-white/10 text-white font-semibold px-7 py-4 text-base transition">
+              contact@opti-cds.fr
             </a>
           </div>
           <p className="mt-6 text-xs text-white/50">

@@ -4,7 +4,7 @@ import { SITE_NAME, CONTACT_EMAIL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
-  description: "Mentions légales de SubventionsCDS.",
+  description: "Mentions légales de Opti-CDS.",
   alternates: { canonical: "/mentions-legales" },
   robots: { index: false, follow: true },
 };
