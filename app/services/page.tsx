@@ -1,74 +1,53 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CTASection } from "@/components/CTA";
 import { services } from "@/content/services";
 
 export const metadata: Metadata = {
-  title: "Services pour centres de santé : création, ARS, CPAM, subventions",
+  title: "Nos services pour centres de santé",
   description:
-    "Cabinet de conseil pour centres de santé : création, développement, comptabilité, dossier ARS, conventionnement CPAM, subvention Teulade, audit financier, conformité.",
+    "Création, recrutement de médecins, conseil en organisation, optimisation de l’activité, comptabilité, dossier ARS, subventions et financements, audit financier, conformité.",
   alternates: { canonical: "/services" },
-  keywords: [
-    "consultant centre de santé",
-    "cabinet conseil centre de santé",
-    "création centre de santé",
-    "dossier ARS",
-    "conventionnement CPAM",
-    "subvention Teulade",
-  ],
 };
 
 export default function Page() {
   return (
     <>
-      <section className="border-b border-line">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-20 md:pb-28">
+      <section className="bg-soft border-b border-line">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "Services" }]} />
-          <div className="mt-12 grid lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-8">
-              <p className="eyebrow">Nos domaines d’intervention</p>
-              <h1 className="mt-6 serif text-5xl md:text-7xl text-ink tracking-tightest font-light leading-[1.02]">
-                Un cabinet,<br /><span className="italic text-accent-600">plusieurs sujets.</span>
-              </h1>
-              <p className="mt-10 text-ink-soft text-lg max-w-2xl leading-[1.65]">
-                De l’étude d’opportunité à l’ouverture, de la mobilisation des
-                financements au pilotage quotidien — nous prenons en charge ce
-                qui ralentit votre centre.
-              </p>
-            </div>
-          </div>
+          <h1 className="mt-6 text-4xl md:text-5xl font-bold tracking-tight text-ink">
+            Nos services
+          </h1>
+          <p className="mt-4 text-lg text-ink-soft max-w-2xl leading-relaxed">
+            Tous les sujets administratifs et stratégiques d’un centre de
+            santé, traités par une équipe spécialisée.
+          </p>
+          <Link href="/#contact" className="mt-7 inline-flex btn-primary">Contactez-nous</Link>
         </div>
       </section>
 
-      <section className="bg-paper border-b border-line">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
-          <ul className="divide-y divide-line border-y border-line">
-            {services.map((s, i) => (
-              <li key={s.slug}>
-                <Link
-                  href={`/services/${s.slug}`}
-                  className="group grid lg:grid-cols-12 gap-6 py-10 hover:bg-bg transition px-2 -mx-2"
-                >
-                  <div className="lg:col-span-1 text-ink-mute font-mono text-sm pt-2">
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  <div className="lg:col-span-5">
-                    <h2 className="serif text-2xl md:text-3xl text-ink font-light tracking-tight group-hover:text-accent-700 transition">
-                      {s.name}
-                    </h2>
-                  </div>
-                  <div className="lg:col-span-5 text-ink-soft text-[16px] leading-[1.6]">
-                    {s.short}
-                  </div>
-                  <div className="lg:col-span-1 lg:text-right text-accent-600 text-2xl pt-1 group-hover:translate-x-1 transition">
-                    →
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
+      <section className="bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services.map((s) => (
+            <Link
+              key={s.slug}
+              href={`/services/${s.slug}`}
+              className="group rounded-xl bg-white ring-1 ring-line hover:ring-accent-300 hover:shadow-md transition p-6 block"
+            >
+              <div className="w-10 h-10 rounded-lg bg-accent-50 text-accent-700 grid place-items-center mb-4 group-hover:bg-accent-600 group-hover:text-white transition">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg>
+              </div>
+              <h2 className="text-lg font-semibold text-ink group-hover:text-accent-700">{s.name}</h2>
+              <p className="mt-2 text-[15px] text-ink-soft leading-relaxed">{s.short}</p>
+              <span className="mt-4 inline-block text-sm font-semibold text-accent-700">En savoir plus →</span>
+            </Link>
+          ))}
         </div>
       </section>
+
+      <CTASection />
     </>
   );
 }

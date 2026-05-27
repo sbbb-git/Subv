@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CTASection } from "@/components/CTA";
 import { services } from "@/content/services";
 import { SITE_URL } from "@/lib/seo";
 
@@ -19,101 +20,80 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
     description: s.metaDescription,
     keywords: s.keywords,
     alternates: { canonical: `/services/${s.slug}` },
-    openGraph: {
-      title: s.metaTitle,
-      description: s.metaDescription,
-      url: `${SITE_URL}/services/${s.slug}`,
-    },
+    openGraph: { title: s.metaTitle, description: s.metaDescription, url: `${SITE_URL}/services/${s.slug}` },
   };
 }
 
 export default function Page({ params }: { params: Params }) {
   const s = services.find((x) => x.slug === params.slug);
   if (!s) notFound();
-  const others = services.filter((x) => x.slug !== s.slug);
-  const idx = services.findIndex((x) => x.slug === s.slug);
+  const others = services.filter((x) => x.slug !== s.slug).slice(0, 4);
 
   return (
     <>
-      <section className="border-b border-line">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-20 md:pb-28">
-          <Breadcrumbs
-            items={[
-              { name: "Accueil", href: "/" },
-              { name: "Services", href: "/services" },
-              { name: s.name },
-            ]}
-          />
-          <div className="mt-12 grid lg:grid-cols-12 gap-12 items-end">
-            <div className="lg:col-span-9">
-              <p className="eyebrow">Service {String(idx + 1).padStart(2, "0")}</p>
-              <h1 className="mt-6 serif text-5xl md:text-7xl text-ink tracking-tightest font-light leading-[1.02]">
-                {s.name}.
-              </h1>
-              <p className="mt-10 text-ink-soft text-lg md:text-xl max-w-2xl leading-[1.65]">
-                {s.hero}
-              </p>
-            </div>
+      <section className="bg-soft border-b border-line">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "Services", href: "/services" }, { name: s.name }]} />
+          <h1 className="mt-6 text-4xl md:text-5xl font-bold tracking-tight text-ink">{s.name}</h1>
+          <p className="mt-5 text-lg text-ink-soft max-w-3xl leading-relaxed">{s.hero}</p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link href="/#contact" className="btn-primary">Contactez-nous</Link>
+            <Link href="/services" className="btn-secondary">Tous nos services</Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-paper border-b border-line">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
-          <div className="grid lg:grid-cols-12 gap-12 mb-14">
-            <div className="lg:col-span-4">
-              <p className="eyebrow">Ce que comprend la mission</p>
-              <h2 className="mt-4 serif text-3xl md:text-4xl text-ink font-light tracking-tight">
-                Les piliers.
-              </h2>
-            </div>
-          </div>
-          <div className="border-t border-line">
-            {s.pillars.map((p, i) => (
-              <div key={p.title} className="grid lg:grid-cols-12 gap-6 py-8 border-b border-line">
-                <div className="lg:col-span-1 text-ink-mute font-mono text-sm pt-1">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <div className="lg:col-span-4">
-                  <h3 className="serif text-2xl text-ink font-medium tracking-tight">{p.title}</h3>
-                </div>
-                <div className="lg:col-span-7 text-ink-soft text-[16px] leading-[1.7]">
-                  {p.desc}
-                </div>
+      <section className="bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-ink tracking-tight">Ce que comprend la mission</h2>
+          <div className="mt-8 grid md:grid-cols-2 gap-5">
+            {s.pillars.map((p) => (
+              <div key={p.title} className="rounded-xl bg-white ring-1 ring-line p-6">
+                <h3 className="font-semibold text-ink">{p.title}</h3>
+                <p className="mt-2 text-[15px] text-ink-soft leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-b border-line">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
-          <p className="eyebrow mb-4">Autres domaines</p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
-            {others.slice(0, 4).map((o) => (
-              <Link key={o.slug} href={`/services/${o.slug}`} className="group block border-t border-line pt-5">
-                <h3 className="serif text-lg text-ink font-medium tracking-tight group-hover:text-accent-700">{o.name}</h3>
-                <p className="mt-2 text-ink-soft text-[14px] leading-[1.55] line-clamp-2">{o.short}</p>
+      <section className="bg-soft border-y border-line">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <h2 className="text-2xl font-bold text-ink">Comment ça se passe</h2>
+          <ol className="mt-6 grid md:grid-cols-4 gap-4">
+            {[
+              ["01", "Premier échange", "Vous nous écrivez quelques lignes."],
+              ["02", "Cadrage", "Périmètre et attendus définis ensemble."],
+              ["03", "Proposition", "Honoraires transparents, contractualisés."],
+              ["04", "Mise en œuvre", "Nous prenons en charge l’opérationnel."],
+            ].map(([n, t, d]) => (
+              <li key={n as string} className="rounded-xl bg-white ring-1 ring-line p-5">
+                <div className="text-2xl font-bold text-accent-200">{n}</div>
+                <h3 className="mt-1 font-semibold text-ink">{t}</h3>
+                <p className="mt-1 text-sm text-ink-soft">{d}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-10 text-center">
+            <Link href="/#contact" className="btn-primary">Contactez-nous</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <h2 className="text-xl font-semibold text-ink">Autres services</h2>
+          <div className="mt-5 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {others.map((o) => (
+              <Link key={o.slug} href={`/services/${o.slug}`} className="rounded-xl ring-1 ring-line hover:ring-accent-300 p-4 transition">
+                <span className="font-semibold text-ink text-sm">{o.name}</span>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-ink text-bg">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28 grid lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-8">
-            <h2 className="serif text-4xl md:text-5xl text-bg font-light tracking-tight leading-[1.1]">
-              Parlons de votre projet.
-            </h2>
-          </div>
-          <div className="lg:col-span-4 flex lg:justify-end items-center">
-            <Link href="/contact" className="inline-block text-[14px] tracking-wide uppercase font-medium border border-bg hover:bg-bg hover:text-ink text-bg transition px-6 py-3.5">
-              Nous écrire
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTASection />
     </>
   );
 }

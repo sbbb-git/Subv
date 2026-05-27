@@ -13,16 +13,16 @@ export function Breadcrumbs({ items }: { items: { name: string; href?: string }[
     })),
   };
   return (
-    <nav aria-label="Fil d’Ariane" className="text-[12px] tracking-wide uppercase text-ink-mute">
+    <nav aria-label="Fil d’Ariane" className="text-sm text-ink-mute">
       <ol className="flex flex-wrap gap-x-2">
         {items.map((it, i) => (
           <li key={i} className="flex items-center gap-2">
             {it.href ? (
-              <Link href={it.href} className="hover:text-accent-700 transition">{it.name}</Link>
+              <Link href={it.href} className="hover:text-accent-700">{it.name}</Link>
             ) : (
               <span className="text-ink">{it.name}</span>
             )}
-            {i < items.length - 1 && <span className="text-ink-mute/60">/</span>}
+            {i < items.length - 1 && <span className="text-ink-mute/50">/</span>}
           </li>
         ))}
       </ol>

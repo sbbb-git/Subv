@@ -4,17 +4,17 @@ import { SITE_NAME, CONTACT_EMAIL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
-  description: "Mentions légales du site SubventionsCDS",
+  description: "Mentions légales de SubventionsCDS.",
   alternates: { canonical: "/mentions-legales" },
   robots: { index: false, follow: true },
 };
 
 export default function Page() {
   return (
-    <section className="max-w-3xl mx-auto px-6 lg:px-10 pt-12 pb-20">
+    <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
       <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "Mentions légales" }]} />
-      <h1 className="mt-12 serif text-4xl md:text-5xl font-light tracking-tight text-ink">Mentions légales</h1>
-      <div className="prose-content mt-10">
+      <h1 className="mt-6 text-3xl md:text-4xl font-bold tracking-tight text-ink">Mentions légales</h1>
+      <div className="prose-content mt-8">
         <h2>Éditeur</h2>
         <p>
           <strong>{SITE_NAME}</strong>

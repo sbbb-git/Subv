@@ -4,55 +4,47 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact · Cabinet pour centres de santé",
-  description:
-    "Contactez SubventionsCDS : cabinet de conseil dédié aux centres de santé. Subvention Teulade, dossier ARS, conventionnement CPAM, comptabilité.",
+  title: "Contact",
+  description: "Contactez SubventionsCDS pour discuter de votre centre de santé.",
   alternates: { canonical: "/contact" },
 };
 
 export default function Page() {
   return (
     <>
-      <section className="border-b border-line">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-16 md:pb-24">
+      <section className="bg-soft border-b border-line">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "Contact" }]} />
-          <div className="mt-12 grid lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-8">
-              <p className="eyebrow">Échangeons</p>
-              <h1 className="mt-6 serif text-5xl md:text-7xl text-ink tracking-tightest font-light leading-[1.02]">
-                Parlons de votre<br /><span className="italic text-accent-600">centre de santé.</span>
-              </h1>
-              <p className="mt-10 text-ink-soft text-lg max-w-2xl leading-[1.65]">
-                Quelques lignes sur votre situation suffisent pour amorcer
-                l’échange. Nous revenons vers vous rapidement.
-              </p>
-            </div>
-          </div>
+          <h1 className="mt-6 text-4xl md:text-5xl font-bold tracking-tight text-ink">
+            Parlons de votre centre de santé.
+          </h1>
+          <p className="mt-4 text-lg text-ink-soft max-w-2xl leading-relaxed">
+            Écrivez-nous quelques lignes. Nous revenons vers vous rapidement.
+          </p>
         </div>
       </section>
 
-      <section className="bg-paper border-b border-line">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28 grid lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-7">
+      <section className="bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid lg:grid-cols-5 gap-10">
+          <div className="lg:col-span-3">
             <ContactForm />
           </div>
-          <aside className="lg:col-span-5 lg:pl-10 lg:border-l border-line space-y-12">
-            <div>
-              <p className="eyebrow">Directement</p>
-              <p className="mt-4 serif text-2xl text-ink leading-snug">
-                <a href={`mailto:${CONTACT_EMAIL}`} className="link-underline">{CONTACT_EMAIL}</a>
+          <aside className="lg:col-span-2 space-y-5">
+            <div className="rounded-xl bg-white ring-1 ring-line p-6">
+              <h2 className="font-semibold text-ink">Nous joindre</h2>
+              <p className="mt-3 text-sm text-ink-soft">
+                <a className="text-accent-700 hover:text-accent-900" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
               </p>
-              <p className="mt-2 serif text-2xl text-ink leading-snug">
-                <a href={`tel:${CONTACT_PHONE.replace(/\s/g, "")}`} className="link-underline">{CONTACT_PHONE}</a>
+              <p className="mt-1 text-sm text-ink-soft">
+                <a className="text-accent-700 hover:text-accent-900" href={`tel:${CONTACT_PHONE.replace(/\s/g, "")}`}>{CONTACT_PHONE}</a>
               </p>
-              <p className="mt-3 text-ink-mute text-sm">Lundi — Vendredi · 9h–18h</p>
+              <p className="mt-2 text-sm text-ink-mute">Lundi – Vendredi · 9h – 18h</p>
             </div>
-            <div>
-              <p className="eyebrow">Confidentialité</p>
-              <p className="mt-4 text-ink-soft text-[15px] leading-[1.7]">
-                Vos données sont traitées dans le respect du RGPD et utilisées
-                exclusivement pour répondre à votre demande. NDA signé à votre
-                demande avant tout échange détaillé.
+            <div className="rounded-xl bg-accent-600 text-white p-6">
+              <h2 className="font-semibold">Confidentialité</h2>
+              <p className="mt-3 text-sm text-white/90 leading-relaxed">
+                Vos données sont utilisées uniquement pour répondre à votre
+                demande. NDA disponible sur simple demande.
               </p>
             </div>
           </aside>

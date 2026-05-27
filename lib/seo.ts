@@ -1,10 +1,9 @@
 export const SITE_NAME = "SubventionsCDS";
 export const SITE_URL = "https://www.subventionscds.fr";
 export const DEFAULT_DESCRIPTION =
-  "Cabinet de conseil dédié aux centres de santé. Accompagnement administratif et financier, spécialiste de la subvention Teulade (article L162-32 du code de la sécurité sociale).";
+  "SubventionsCDS accompagne les centres de santé sur leur création, leur développement, leur organisation, leur recrutement médical et la mobilisation de leurs subventions et financements.";
 
 export const CONTACT_EMAIL = "contact@subventionscds.fr";
 export const CONTACT_PHONE = "01 00 00 00 00";
 
-// Open Graph image (1200x630)
 export const OG_IMAGE = "/og-image.svg";

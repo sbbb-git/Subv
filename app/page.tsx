@@ -1,259 +1,290 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { services } from "@/content/services";
-import { cdsTypes } from "@/content/types";
-import { posts } from "@/content/posts";
+import { Faq } from "@/components/Faq";
 
 export const metadata: Metadata = {
-  title: "Subvention Teulade & accompagnement des centres de santé · SubventionsCDS",
+  title: "SubventionsCDS — Accompagnement des centres de santé",
   description:
-    "Cabinet de conseil dédié aux centres de santé. Spécialiste de la subvention Teulade (article L162-32 du code de la sécurité sociale). Création, conventionnement CPAM, dossier ARS.",
+    "SubventionsCDS accompagne les centres de santé : création, recrutement de médecins, conseil en organisation, optimisation de l’activité, gestion, dossier ARS, subventions et financements.",
   alternates: { canonical: "/" },
 };
+
+const homeFaqs = [
+  {
+    q: "Sur quels sujets accompagnez-vous les centres de santé ?",
+    a: "Création de centre, recrutement de médecins, conseil en organisation, optimisation de l’activité, comptabilité et gestion, dossier ARS, mobilisation des subventions et financements, conformité réglementaire et projet de santé.",
+  },
+  {
+    q: "Travaillez-vous avec tous les types de centres ?",
+    a: "Oui : centres médicaux, dentaires, infirmiers, polyvalents, pluriprofessionnels, qu’ils soient portés par une association, une mutuelle, une collectivité ou une SCIC.",
+  },
+  {
+    q: "Comment se déroule une mission ?",
+    a: "Vous nous écrivez quelques lignes sur votre situation. Nous en discutons, nous cadrons ensemble le périmètre et les attendus, puis nous prenons en charge l’opérationnel jusqu’au résultat.",
+  },
+  {
+    q: "Quel est votre modèle de rémunération ?",
+    a: "Forfait transparent ou rémunération au résultat selon la mission. Toujours contractualisé en amont, sans frais cachés.",
+  },
+  {
+    q: "Connaissez-vous la subvention Teulade ?",
+    a: "Oui, c’est l’un des dispositifs spécifiques aux centres de santé que nous mobilisons régulièrement, en articulation avec les autres financements (ACI, FIR, aides régionales).",
+  },
+];
 
 export default function HomePage() {
   return (
     <>
-      {/* HERO — editorial */}
-      <section className="relative overflow-hidden">
-        <svg
-          aria-hidden="true"
-          className="hidden lg:block absolute top-16 right-8 text-accent-100"
-          width="280" height="280" viewBox="0 0 100 100"
-        >
-          <path d="M40 8h20v32h32v20H60v32H40V60H8V40h32z" fill="currentColor" />
-        </svg>
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-10 pt-20 md:pt-32 pb-24 md:pb-36">
-          <div className="grid lg:grid-cols-12 gap-12 items-end">
-            <div className="lg:col-span-8">
-              <p className="eyebrow flex items-center gap-3">
-                <span className="inline-block w-6 h-px bg-accent-600"></span>
-                Cabinet de conseil · Centres de santé
-              </p>
-              <h1 className="mt-6 serif text-[44px] md:text-[68px] lg:text-[82px] leading-[0.98] text-ink tracking-tightest font-light">
-                L’accompagnement<br />
-                <span className="italic text-accent-600 font-normal">administratif et financier</span><br />
-                des centres de santé.
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-soft to-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 md:pt-24 md:pb-28">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full bg-accent-50 text-accent-700 px-3 py-1 text-xs font-semibold ring-1 ring-accent-100">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-600"></span>
+                Accompagnement des centres de santé
+              </span>
+              <h1 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-bold text-ink tracking-tight leading-[1.1]">
+                Faites grandir votre centre de santé en toute sérénité.
               </h1>
-              <p className="mt-10 text-ink-soft text-lg md:text-xl max-w-xl leading-[1.65]">
-                Nous accompagnons les centres de santé sur l’ensemble de leurs
-                sujets administratifs et financiers. Notre cœur d’expertise :
-                la <span className="italic">subvention Teulade</span>, prévue à
-                l’article L162-32 du code de la sécurité sociale.
+              <p className="mt-6 text-lg text-ink-soft leading-relaxed max-w-xl">
+                Création, recrutement de médecins, organisation, gestion,
+                dossier ARS, subventions et financements. Nous accompagnons les
+                centres de santé sur l’ensemble de leurs sujets administratifs
+                et stratégiques.
               </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="#contact" className="btn-primary">Contactez-nous</Link>
+                <Link href="#services" className="btn-secondary">Voir nos services</Link>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-ink-soft">
+                <span className="flex items-center gap-2"><span className="text-accent-600">✓</span> Spécialistes du secteur</span>
+                <span className="flex items-center gap-2"><span className="text-accent-600">✓</span> Honoraires transparents</span>
+                <span className="flex items-center gap-2"><span className="text-accent-600">✓</span> Confidentialité totale</span>
+              </div>
             </div>
-            <div className="lg:col-span-4 lg:pb-2">
-              <div className="border-l border-line pl-6">
-                <p className="eyebrow">Nous écrire</p>
-                <p className="mt-3 serif text-2xl text-ink leading-snug">
-                  Un mot sur votre centre, on en discute.
-                </p>
-                <Link
-                  href="/contact"
-                  className="mt-6 inline-block text-[14px] tracking-wide uppercase font-medium border border-ink hover:bg-ink hover:text-bg text-ink transition px-5 py-3"
-                >
-                  Prendre contact
-                </Link>
+
+            <div className="relative">
+              <div className="rounded-2xl bg-white ring-1 ring-line shadow-sm p-7">
+                <h2 className="text-lg font-semibold text-ink">Nos domaines d’intervention</h2>
+                <ul className="mt-4 space-y-3 text-[15px]">
+                  {[
+                    "Création de centre de santé",
+                    "Recrutement de médecins",
+                    "Conseil en organisation",
+                    "Optimisation de l’activité",
+                    "Comptabilité & gestion",
+                    "Dossier ARS",
+                    "Subventions & financements",
+                  ].map((t) => (
+                    <li key={t} className="flex gap-3 text-ink-soft">
+                      <span className="mt-1 w-1.5 h-1.5 rounded-full bg-accent-600 shrink-0"></span>
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="#contact" className="mt-6 btn-primary w-full text-center">Contactez-nous</Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* MANIFESTO */}
-      <section className="border-t border-line bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 md:py-32 grid lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-3">
-            <p className="eyebrow">Notre conviction</p>
-          </div>
-          <div className="lg:col-span-9">
-            <p className="serif text-3xl md:text-4xl lg:text-5xl text-ink leading-[1.2] tracking-tight font-light">
-              Un centre de santé est une mécanique fragile.<br />
-              <span className="text-ink-soft">Bien financé, il dure. Mal piloté, il s’épuise.</span>
-            </p>
-            <p className="mt-10 max-w-2xl text-ink-soft text-[17px] leading-[1.75]">
-              Notre métier consiste à connaître chaque rouage : cadre
-              conventionnel avec la CPAM, dispositifs de l’ARS, accords
-              interprofessionnels, financements forfaitaires, obligations
-              sociales. Pas généralistes — <em>spécialistes</em>.
-            </p>
-          </div>
+      {/* CHIFFRES / TRUST */}
+      <section className="border-y border-line bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            ["10", "domaines d’intervention"],
+            ["1", "interlocuteur unique"],
+            ["100 %", "confidentialité"],
+            ["FR", "tout le territoire"],
+          ].map(([n, l]) => (
+            <div key={l}>
+              <div className="text-3xl md:text-4xl font-bold text-accent-700">{n}</div>
+              <div className="mt-1 text-sm text-ink-mute">{l}</div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* TEULADE */}
-      <section className="border-t border-line">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 md:py-32 grid lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-5">
-            <p className="eyebrow">La spécialité du cabinet</p>
-            <h2 className="mt-6 serif text-4xl md:text-5xl text-ink tracking-tight font-light">
-              Subvention <span className="italic text-accent-600">Teulade</span>
+      {/* SERVICES */}
+      <section id="services" className="bg-soft">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Nos services</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
+              Un seul interlocuteur pour tous vos sujets.
             </h2>
-            <p className="mt-6 text-ink-soft text-[17px] leading-[1.75]">
-              Dispositif inscrit à l’article L162-32 du code de la sécurité
-              sociale, organisé par le décret du 14 décembre 1992. Ancien,
-              structurant pour les centres de santé conventionnés, et pourtant
-              l’un des plus sous-mobilisés du secteur.
+            <p className="mt-4 text-ink-soft leading-relaxed">
+              De l’étude d’opportunité à l’ouverture, du pilotage quotidien à
+              la mobilisation des financements — nous prenons en charge ce qui
+              ralentit votre centre.
             </p>
-            <Link
-              href="/subvention-teulade"
-              className="mt-8 inline-block text-accent-700 hover:text-accent-900 underline decoration-accent-300 underline-offset-4 hover:decoration-accent-700 transition text-[15px]"
-            >
-              En savoir plus sur notre approche →
-            </Link>
-          </div>
-          <div className="lg:col-span-7 lg:pl-12 lg:border-l border-line">
-            <figure className="max-w-xl">
-              <blockquote className="serif text-2xl md:text-3xl text-ink leading-[1.35] font-light">
-                « Environ un quart des centres de santé n’ont pas perçu cette
-                subvention au titre de l’année 2022. »
-              </blockquote>
-              <figcaption className="mt-6 text-[13px] text-ink-mute tracking-wide uppercase">
-                Inspection Générale des Affaires Sociales — Rapport sur le modèle économique des centres de santé pluriprofessionnels, février 2025
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES — list */}
-      <section className="border-t border-line bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 md:py-32">
-          <div className="grid lg:grid-cols-12 gap-12 mb-16">
-            <div className="lg:col-span-4">
-              <p className="eyebrow">Nos domaines</p>
-              <h2 className="mt-6 serif text-4xl md:text-5xl text-ink tracking-tight font-light">
-                Un cabinet,<br />plusieurs sujets.
-              </h2>
-            </div>
-            <div className="lg:col-span-7 lg:col-start-6">
-              <p className="text-ink-soft text-[17px] leading-[1.75] max-w-xl">
-                De l’étude d’opportunité à l’ouverture, de la mobilisation des
-                financements au pilotage quotidien — nous prenons en charge ce
-                qui ralentit votre centre.
-              </p>
-            </div>
           </div>
 
-          <ul className="divide-y divide-line border-y border-line">
-            {services.map((s, i) => (
-              <li key={s.slug}>
-                <Link
-                  href={`/services/${s.slug}`}
-                  className="group grid lg:grid-cols-12 gap-6 py-8 hover:bg-bg transition px-2 -mx-2"
-                >
-                  <div className="lg:col-span-1 text-ink-mute font-mono text-sm pt-1">
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  <div className="lg:col-span-5">
-                    <h3 className="serif text-2xl md:text-3xl text-ink font-light tracking-tight group-hover:text-accent-700 transition">
-                      {s.name}
-                    </h3>
-                  </div>
-                  <div className="lg:col-span-5 text-ink-soft text-[16px] leading-[1.6]">
-                    {s.short}
-                  </div>
-                  <div className="lg:col-span-1 lg:text-right text-accent-600 text-2xl pt-1 group-hover:translate-x-1 transition">
-                    →
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* TYPOLOGIES */}
-      <section className="border-t border-line">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 md:py-32">
-          <div className="grid lg:grid-cols-12 gap-12 mb-14">
-            <div className="lg:col-span-4">
-              <p className="eyebrow">Tous les types de centres</p>
-              <h2 className="mt-6 serif text-4xl md:text-5xl text-ink tracking-tight font-light">
-                Chaque modèle a ses leviers.
-              </h2>
-            </div>
-            <div className="lg:col-span-7 lg:col-start-6">
-              <p className="text-ink-soft text-[17px] leading-[1.75] max-w-xl">
-                Médical, dentaire, infirmier, polyvalent — associatif,
-                mutualiste, municipal. Nous connaissons toutes les typologies
-                et leurs spécificités.
-              </p>
-            </div>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
-            {cdsTypes.map((t) => (
+          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {services.map((s) => (
               <Link
-                key={t.slug}
-                href={`/centres-de-sante/${t.slug}`}
-                className="group block border-t border-line pt-5"
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className="group rounded-xl bg-white ring-1 ring-line hover:ring-accent-300 hover:shadow-md transition p-6 block"
               >
-                <h3 className="serif text-xl text-ink font-medium tracking-tight group-hover:text-accent-700 transition">
-                  {t.name}
-                </h3>
-                <p className="mt-2 text-ink-soft text-[14px] leading-[1.55] line-clamp-3">{t.short}</p>
+                <div className="w-10 h-10 rounded-lg bg-accent-50 text-accent-700 grid place-items-center mb-4 group-hover:bg-accent-600 group-hover:text-white transition">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg>
+                </div>
+                <h3 className="text-lg font-semibold text-ink group-hover:text-accent-700">{s.name}</h3>
+                <p className="mt-2 text-[15px] text-ink-soft leading-relaxed">{s.short}</p>
+                <span className="mt-4 inline-block text-sm font-semibold text-accent-700">En savoir plus →</span>
               </Link>
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link href="#contact" className="btn-primary">Contactez-nous pour discuter de votre projet</Link>
           </div>
         </div>
       </section>
 
-      {/* BLOG */}
-      <section className="border-t border-line bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 md:py-32">
-          <div className="flex items-baseline justify-between mb-12">
+      {/* EXPERTISE */}
+      <section id="expertise" className="bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="eyebrow">Ressources</p>
-              <h2 className="mt-4 serif text-4xl text-ink font-light tracking-tight">Journal</h2>
+              <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Notre expertise</p>
+              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
+                Une équipe qui ne parle que centres de santé.
+              </h2>
+              <p className="mt-5 text-ink-soft leading-relaxed">
+                Nous connaissons l’écosystème des centres de santé : cadre
+                conventionnel, dispositifs CPAM et ARS, accords
+                interprofessionnels, recrutement médical, obligations sociales.
+              </p>
+              <ul className="mt-6 space-y-3 text-[15px]">
+                {[
+                  "Spécialisation exclusive sur le secteur",
+                  "Approche pragmatique et opérationnelle",
+                  "Interlocuteur unique pour toutes les démarches",
+                  "Confidentialité totale, NDA systématique",
+                ].map((t) => (
+                  <li key={t} className="flex gap-3 text-ink-soft">
+                    <span className="text-accent-600 font-bold">✓</span> {t}
+                  </li>
+                ))}
+              </ul>
+              <Link href="#contact" className="mt-8 btn-primary">Contactez-nous</Link>
             </div>
-            <Link href="/blog" className="text-accent-700 hover:text-accent-900 text-[15px] underline decoration-accent-300 underline-offset-4">
-              Tous les articles →
-            </Link>
+
+            <div className="rounded-2xl bg-soft p-8 ring-1 ring-line">
+              <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">À propos</p>
+              <p className="mt-3 text-lg text-ink leading-relaxed">
+                Nous accompagnons toutes les typologies de centres :{" "}
+                <strong>médicaux</strong>, <strong>dentaires</strong>,{" "}
+                <strong>infirmiers</strong>, <strong>polyvalents</strong>,{" "}
+                <strong>pluriprofessionnels</strong>, qu’ils soient portés par
+                une <strong>association</strong>, une <strong>mutuelle</strong>,
+                une <strong>collectivité</strong> ou une <strong>SCIC</strong>.
+              </p>
+              <p className="mt-4 text-ink-soft text-[15px]">
+                Nous mobilisons l’ensemble des dispositifs publics et
+                conventionnels disponibles, dont la <strong>subvention
+                Teulade</strong> (article L162-32 du code de la sécurité
+                sociale), souvent sous-mobilisée par les structures
+                concernées.
+              </p>
+            </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-x-10 gap-y-10">
-            {[...posts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3).map((p) => (
-              <Link key={p.slug} href={`/blog/${p.slug}`} className="group block">
-                <p className="text-[11px] tracking-[0.22em] uppercase text-accent-600 mb-3">{p.category}</p>
-                <h3 className="serif text-2xl text-ink leading-[1.2] tracking-tight font-medium group-hover:text-accent-700 transition">
-                  {p.title}
-                </h3>
-                <p className="mt-3 text-ink-soft text-[15px] leading-[1.6] line-clamp-3">{p.description}</p>
-                <p className="mt-4 text-[12px] text-ink-mute tracking-wide">
-                  {new Date(p.date).toLocaleDateString("fr-FR", { year: "numeric", month: "long", day: "numeric" })}
-                </p>
-              </Link>
+        </div>
+      </section>
+
+      {/* APPROCHE */}
+      <section id="approche" className="bg-soft">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Notre approche</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
+              Une démarche claire en 4 étapes.
+            </h2>
+            <p className="mt-4 text-ink-soft leading-relaxed">
+              Un parcours simple, des livrables précis, des honoraires
+              transparents.
+            </p>
+          </div>
+
+          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { n: "01", t: "Premier échange", d: "Vous nous écrivez quelques lignes sur votre situation." },
+              { n: "02", t: "Cadrage", d: "Nous définissons ensemble le périmètre, les attendus et les délais." },
+              { n: "03", t: "Proposition", d: "Plan d’action priorisé, honoraires transparents et contractualisés." },
+              { n: "04", t: "Mise en œuvre", d: "Nous prenons en charge l’opérationnel jusqu’au résultat." },
+            ].map((s) => (
+              <div key={s.n} className="rounded-xl bg-white ring-1 ring-line p-6">
+                <div className="text-3xl font-bold text-accent-200">{s.n}</div>
+                <h3 className="mt-2 text-lg font-semibold text-ink">{s.t}</h3>
+                <p className="mt-2 text-[15px] text-ink-soft leading-relaxed">{s.d}</p>
+              </div>
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link href="#contact" className="btn-primary">Démarrer un échange</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+          <div className="text-center">
+            <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">FAQ</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
+              Questions fréquentes
+            </h2>
+          </div>
+          <div className="mt-10">
+            <Faq items={homeFaqs} />
+          </div>
+          <div className="mt-10 text-center">
+            <Link href="#contact" className="btn-primary">Contactez-nous</Link>
           </div>
         </div>
       </section>
 
       {/* CONTACT */}
-      <section className="border-t border-line bg-ink text-bg">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 md:py-32 grid lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-7">
-            <p className="text-[11px] tracking-[0.22em] uppercase text-accent-300">Échangeons</p>
-            <h2 className="mt-6 serif text-4xl md:text-5xl lg:text-6xl text-bg tracking-tight font-light leading-[1.05]">
-              Parlons de votre<br />centre de santé.
-            </h2>
-            <p className="mt-8 text-bg/70 text-lg max-w-lg leading-relaxed">
-              Quelques lignes sur votre situation. On revient vers vous, on
-              discute, on définit ensemble s’il y a matière à travailler.
-            </p>
-          </div>
-          <div className="lg:col-span-5 lg:pl-12 lg:border-l border-bg/15 flex items-end">
+      <section id="contact" className="bg-ink text-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Link
-                href="/contact"
-                className="inline-block text-[14px] tracking-wide uppercase font-medium border border-bg hover:bg-bg hover:text-ink text-bg transition px-6 py-3.5"
-              >
-                Nous écrire
-              </Link>
-              <p className="mt-6 text-bg/55 text-sm">
-                Ou directement à{" "}
-                <a href="mailto:contact@subventionscds.fr" className="text-bg hover:text-accent-300">
+              <p className="text-xs uppercase tracking-widest font-semibold text-accent-300">Contact</p>
+              <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight leading-tight">
+                Parlons de votre centre de santé.
+              </h2>
+              <p className="mt-5 text-white/75 text-lg leading-relaxed max-w-lg">
+                Quelques lignes sur votre situation suffisent. On revient vers
+                vous rapidement, on discute, on définit ensemble s’il y a
+                matière à travailler.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink hover:bg-accent-50 font-semibold px-5 py-3 transition shadow-sm">
+                  Nous écrire →
+                </Link>
+                <a href="mailto:contact@subventionscds.fr" className="inline-flex items-center justify-center gap-2 rounded-lg ring-1 ring-white/30 hover:bg-white/10 text-white font-semibold px-5 py-3 transition">
                   contact@subventionscds.fr
                 </a>
-              </p>
+              </div>
+            </div>
+            <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 p-7">
+              <h3 className="text-lg font-semibold text-white">Ce que vous obtenez</h3>
+              <ul className="mt-5 space-y-3 text-[15px] text-white/85">
+                {[
+                  "Une réponse personnalisée rapide",
+                  "Un interlocuteur dédié pour cadrer votre besoin",
+                  "Une proposition claire, transparente, contractualisée",
+                  "La discrétion qui s’impose dans le secteur",
+                ].map((t) => (
+                  <li key={t} className="flex gap-3"><span className="text-accent-300 font-bold">✓</span> {t}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
