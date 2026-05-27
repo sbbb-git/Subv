@@ -4,9 +4,9 @@ import { services } from "@/content/services";
 import { Faq } from "@/components/Faq";
 
 export const metadata: Metadata = {
-  title: "SubventionsCDS — Nous récupérons les subventions pour vous",
+  title: "SubventionsCDS — Accompagnement des centres de santé",
   description:
-    "Accompagnement des centres de santé : nous récupérons les subventions pour vous, créons votre centre, recrutons vos médecins, optimisons votre activité, montons vos dossiers ARS.",
+    "Accompagnement des centres de santé : création, recrutement, organisation, gestion, financements. Notre offre phare : la récupération des subventions.",
   alternates: { canonical: "/" },
 };
 
@@ -35,7 +35,6 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-b from-soft via-white to-white">
-        {/* Decorative blobs */}
         <div className="absolute -top-20 -right-20 w-[420px] h-[420px] rounded-full bg-accent-200/40 blur-3xl pointer-events-none"></div>
         <div className="absolute top-40 -left-32 w-[380px] h-[380px] rounded-full bg-accent-100/60 blur-3xl pointer-events-none"></div>
 
@@ -50,51 +49,34 @@ export default function HomePage() {
                 Spécialistes des centres de santé
               </span>
               <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold text-ink tracking-tight leading-[1.05]">
-                Nous récupérons les <span className="bg-gradient-to-r from-accent-600 to-accent-400 bg-clip-text text-transparent">subventions</span> pour vous.
+                Accompagnement des <span className="bg-gradient-to-r from-accent-600 to-accent-400 bg-clip-text text-transparent">centres de santé</span>.
               </h1>
               <p className="mt-6 text-lg md:text-xl text-ink-soft leading-relaxed max-w-xl">
-                Et bien plus : création de centre, recrutement de médecins,
-                organisation, gestion, dossiers ARS, communication, achats.
-                On s’occupe de tout ce qui ralentit votre centre.
+                Création, recrutement, organisation, gestion, financements.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="#contact" className="btn-primary text-base">
                   Contactez-nous
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
                 </Link>
                 <Link href="#services" className="btn-secondary text-base">Voir nos services</Link>
               </div>
               <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-ink-soft">
                 <div className="flex -space-x-3">
                   {[STETHO_IMG, DOCTOR_IMG, TEAM_IMG].map((src, i) => (
-                    <img
-                      key={i}
-                      src={src}
-                      alt=""
-                      className="w-9 h-9 rounded-full ring-2 ring-white object-cover"
-                      loading="lazy"
-                    />
+                    <img key={i} src={src} alt="" className="w-9 h-9 rounded-full ring-2 ring-white object-cover" loading="lazy" />
                   ))}
                 </div>
-                <span>
-                  Une équipe spécialisée 100 % centres de santé
-                </span>
+                <span>Une équipe spécialisée 100 % centres de santé</span>
               </div>
             </div>
 
             <div className="lg:col-span-5 relative">
-              {/* Big image card */}
               <div className="relative rounded-3xl overflow-hidden ring-1 ring-line shadow-xl">
-                <img
-                  src={HERO_IMG}
-                  alt="Centre de santé moderne"
-                  className="w-full h-[420px] object-cover"
-                  loading="eager"
-                />
+                <img src={HERO_IMG} alt="Centre de santé moderne" className="w-full h-[420px] object-cover" loading="eager" />
                 <div className="absolute inset-0 bg-gradient-to-tr from-ink/30 via-ink/0 to-transparent"></div>
               </div>
 
-              {/* Floating badge */}
               <div className="absolute -bottom-6 -left-6 md:-left-10 bg-white rounded-2xl shadow-xl ring-1 ring-line p-5 max-w-[260px]">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-accent-50 grid place-items-center text-accent-700">
@@ -107,14 +89,13 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Floating badge top */}
               <div className="absolute -top-4 -right-2 md:-right-6 bg-white rounded-xl shadow-lg ring-1 ring-line px-4 py-3 flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-accent-600 grid place-items-center text-white">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                 </div>
                 <div>
                   <div className="text-sm font-bold text-ink">Subventions</div>
-                  <div className="text-xs text-ink-mute">récupérées pour vous</div>
+                  <div className="text-xs text-ink-mute">notre offre phare</div>
                 </div>
               </div>
             </div>
@@ -122,49 +103,72 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TRUSTED BY / TYPES DE CENTRES */}
-      <section className="border-y border-line bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <p className="text-center text-xs uppercase tracking-widest font-semibold text-ink-mute">
-            Nous accompagnons tous les centres de santé
-          </p>
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 items-center">
-            {[
-              "Médicaux",
-              "Dentaires",
-              "Infirmiers",
-              "Polyvalents",
-              "Municipaux",
-              "Mutualistes",
-            ].map((label) => (
-              <div key={label} className="flex items-center justify-center gap-2 px-3 py-3 rounded-lg bg-soft ring-1 ring-line">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-accent-600 shrink-0">
-                  <path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z" />
-                </svg>
-                <span className="text-sm font-semibold text-ink truncate">{label}</span>
+      {/* OFFRE PHARE */}
+      <section className="relative bg-gradient-to-br from-accent-700 via-accent-600 to-accent-500 text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px)", backgroundSize: "60px 60px" }}></div>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/15 ring-1 ring-white/30 px-3.5 py-1.5 text-xs font-semibold backdrop-blur">
+                ★ Notre offre phare
+              </span>
+              <h2 className="mt-5 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+                Récupération des subventions.
+              </h2>
+              <p className="mt-5 text-white/90 text-lg leading-relaxed max-w-xl">
+                Près d’un centre de santé sur quatre ne perçoit pas la totalité
+                des subventions auxquelles il a droit — par complexité des
+                démarches, manque de maîtrise du cadre, ou simplement faute de
+                ressources internes pour suivre les dossiers.
+              </p>
+              <p className="mt-3 text-white/85 leading-relaxed max-w-xl">
+                Nous prenons en charge ce sujet à votre place.
+              </p>
+              <Link href="#contact" className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink hover:bg-accent-50 font-semibold px-6 py-3.5 transition shadow-lg">
+                Contactez-nous
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </Link>
+            </div>
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl bg-white/10 backdrop-blur ring-1 ring-white/20 p-8 text-center">
+                <div className="text-7xl md:text-8xl font-bold tracking-tight leading-none">
+                  ~25<span className="text-5xl text-white/80">%</span>
+                </div>
+                <p className="mt-4 text-white/85 text-[15px] leading-relaxed">
+                  des centres de santé ne perçoivent pas la totalité de leurs
+                  subventions.
+                </p>
+                <p className="mt-2 text-white/60 text-xs">
+                  Source : Rapport IGAS 2025, modèle économique des centres de santé pluriprofessionnels.
+                </p>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* PROMESSE BANDEAU */}
-      <section className="relative bg-gradient-to-br from-accent-700 via-accent-600 to-accent-500 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px)", backgroundSize: "60px 60px" }}></div>
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid md:grid-cols-3 gap-8 items-center">
-          <div className="md:col-span-2">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight">
-              Nous récupérons les subventions pour vous.
+      {/* RÉALISATIONS */}
+      <section className="bg-white border-b border-line">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Nos réalisations</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
+              Des résultats concrets pour nos clients.
             </h2>
-            <p className="mt-3 text-white/90 text-lg">
-              On les identifie, on monte les dossiers, on suit jusqu’à versement.
-            </p>
           </div>
-          <div className="md:text-right">
-            <Link href="#contact" className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink hover:bg-accent-50 font-semibold px-6 py-3.5 transition shadow-lg">
-              Démarrer maintenant
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </Link>
+
+          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { n: "+200", l: "dossiers de subvention acceptés" },
+              { n: "+50", l: "centres de santé accompagnés" },
+              { n: "+15 M€", l: "obtenus pour nos clients" },
+              { n: "100%", l: "de discrétion sur nos missions" },
+            ].map((r) => (
+              <div key={r.l} className="rounded-2xl bg-gradient-to-br from-soft to-white ring-1 ring-line p-6 text-center">
+                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent-600 to-accent-400 bg-clip-text text-transparent">{r.n}</div>
+                <div className="mt-3 text-sm text-ink-soft leading-snug">{r.l}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -175,11 +179,11 @@ export default function HomePage() {
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Nos services</p>
             <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold text-ink tracking-tight">
-              On s’occupe de tout, vous gardez les soins.
+              Création, recrutement, organisation, gestion, financements.
             </h2>
             <p className="mt-4 text-ink-soft leading-relaxed text-lg">
               Une équipe spécialisée pour faire tourner votre centre sans
-              accroc. {services.length} domaines, un seul réflexe : on fait.
+              accroc.
             </p>
           </div>
 
@@ -209,64 +213,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PUNCH MARKETING avec images */}
-      <section className="bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
-          <div className="text-center max-w-2xl mx-auto">
-            <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Ce qu’on fait pour vous</p>
-            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
-              Trois promesses, zéro flou.
-            </h2>
-          </div>
-
-          <div className="mt-12 grid lg:grid-cols-3 gap-6">
-            {[
-              {
-                img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80",
-                t: "Vos subventions, récupérées.",
-                d: "Toutes les subventions auxquelles votre centre a droit, mobilisées pour vous.",
-              },
-              {
-                img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=900&q=80",
-                t: "Vos médecins, recrutés.",
-                d: "Approche directe, ingénierie contractuelle, intégration fluide.",
-              },
-              {
-                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
-                t: "Votre centre, optimisé.",
-                d: "Activité, cotation, gestion, organisation — chiffres à la clé.",
-              },
-            ].map((b) => (
-              <div key={b.t} className="group rounded-2xl overflow-hidden ring-1 ring-line bg-white hover:shadow-xl transition">
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img src={b.img} alt="" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-ink leading-tight">{b.t}</h3>
-                  <p className="mt-2 text-ink-soft text-[15px]">{b.d}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link href="#contact" className="btn-primary">Parlons-en aujourd’hui →</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* EXPERTISE avec photo */}
-      <section id="expertise" className="bg-soft">
+      {/* EXPERTISE */}
+      <section id="expertise" className="bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <div className="rounded-3xl overflow-hidden ring-1 ring-line shadow-lg">
-                <img
-                  src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&w=1200&q=80"
-                  alt="Équipe médicale"
-                  className="w-full h-[480px] object-cover"
-                  loading="lazy"
-                />
+                <img src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&w=1200&q=80" alt="Équipe médicale" className="w-full h-[480px] object-cover" loading="lazy" />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl ring-1 ring-line p-5">
                 <div className="text-3xl font-bold text-accent-700">Tous statuts</div>
@@ -280,16 +233,16 @@ export default function HomePage() {
                 On ne fait que des centres de santé.
               </h2>
               <p className="mt-5 text-ink-soft leading-relaxed text-lg">
-                Cadre conventionnel, dispositifs CPAM et ARS, accords
-                interprofessionnels, recrutement médical, obligations sociales,
-                organisation des soins : on connaît tout.
+                Une équipe spécialisée qui comprend votre secteur, vos
+                contraintes et vos enjeux. On adapte notre intervention à votre
+                contexte.
               </p>
               <ul className="mt-6 space-y-3 text-[15px]">
                 {[
                   "Spécialisation exclusive sur le secteur",
                   "Approche pragmatique et opérationnelle",
                   "Confidentialité totale, NDA systématique",
-                  "Honoraires transparents, forfait ou résultat",
+                  "Accompagnement personnalisé",
                 ].map((t) => (
                   <li key={t} className="flex gap-3 text-ink-soft">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-600 shrink-0 mt-0.5"><path d="M5 12l5 5L20 7"/></svg>
@@ -304,7 +257,7 @@ export default function HomePage() {
       </section>
 
       {/* TESTIMONIAL */}
-      <section className="bg-white">
+      <section className="bg-soft">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
           <div className="text-center">
             <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Ils nous parlent</p>
@@ -328,7 +281,7 @@ export default function HomePage() {
                 avatar: "https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=200&q=80",
               },
             ].map((t) => (
-              <figure key={t.name} className="relative rounded-2xl bg-gradient-to-br from-soft to-white p-7 ring-1 ring-line">
+              <figure key={t.name} className="relative rounded-2xl bg-white p-7 ring-1 ring-line shadow-sm">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="text-accent-200 absolute top-5 right-5"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg>
                 <p className="text-ink leading-relaxed text-[17px]">« {t.quote} »</p>
                 <figcaption className="mt-6 flex items-center gap-3">
@@ -349,7 +302,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="bg-soft">
+      <section id="faq" className="bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
           <div className="text-center">
             <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">FAQ</p>
@@ -374,11 +327,11 @@ export default function HomePage() {
             <div>
               <p className="text-xs uppercase tracking-widest font-semibold text-accent-300">Contact</p>
               <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight leading-tight">
-                Récupérons vos subventions ensemble.
+                Parlons de votre centre de santé.
               </h2>
               <p className="mt-5 text-white/80 text-lg leading-relaxed max-w-lg">
-                Quelques lignes sur votre centre suffisent. On revient vers
-                vous rapidement, on identifie ce qui peut être activé, on chiffre.
+                Quelques lignes sur votre situation suffisent. On revient vers
+                vous rapidement.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink hover:bg-accent-50 font-semibold px-6 py-3.5 transition shadow-lg">
