@@ -156,12 +156,11 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               { n: "237", l: "dossiers de subvention acceptés" },
               { n: "58", l: "centres de santé accompagnés" },
               { n: "3,9 M€", l: "obtenus pour nos clients" },
-              { n: "0", l: "fuite d’information à ce jour" },
             ].map((r) => (
               <div key={r.l} className="rounded-2xl bg-gradient-to-br from-soft to-white ring-1 ring-line p-6 text-center">
                 <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent-600 to-accent-400 bg-clip-text text-transparent">{r.n}</div>
