@@ -100,10 +100,22 @@ function parseCsv(content) {
   });
 }
 
+// Répare le mojibake type "MÃDICAL" -> "MÉDICAL" (UTF-8 lu comme latin-1).
+// Heuristique : si on détecte la séquence 0xC3 0x83 (chars Ã + suivant) on retraite.
+function fixMojibake(s) {
+  if (!s || !/[ÃÂ]/.test(s)) return s;
+  try {
+    const fixed = Buffer.from(s, "latin1").toString("utf-8");
+    // garde la version réparée seulement si on a éliminé les caractères suspects
+    return fixed.includes("�") ? s : fixed;
+  } catch { return s; }
+}
+
 async function main() {
   const content = fs.readFileSync(file, "utf-8");
   const rows = parseCsv(content);
-  console.log(`${rows.length} lignes CDS dans le CSV`);
+  for (const r of rows) for (const k of Object.keys(r)) r[k] = fixMojibake(r[k]);
+  console.log(`${rows.length} lignes CDS dans le CSV (mojibake réparé)`);
 
   const contacts = [];
   for (const r of rows) {
