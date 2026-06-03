@@ -16,20 +16,21 @@ const footer = (unsubUrl: string) =>
 
 // ---- Génère un draft auto à l'import (l'utilisateur peut ensuite éditer) ----
 export function buildDraft(c: Contact): { subject: string; body: string } {
-  const nomShort = (c.nom_cds || "votre centre").slice(0, 60);
   return {
-    subject: `Subvention Teulade — éligibilité de votre centre`,
+    subject: `Un financement Assurance Maladie que la plupart des CDS ne demandent pas`,
     body: `${hello(c)}
 
-Je dirige Opti-CDS, on accompagne les centres de santé sur la subvention Teulade (article L162-32 du code de la sécurité sociale) et le montage des dossiers ARS associés.
+Je dirige Opti-CDS — on accompagne les centres de santé sur un dispositif de financement de l'Assurance Maladie auquel tous les CDS ont droit, mais que la quasi-totalité ne demande jamais.
 
-En moyenne nos clients récupèrent 15 à 20 k€ par dossier validé. Rémunération exclusivement au succès — vous ne nous payez que si la subvention tombe sur votre compte.
+Pas par négligence : le sujet est si peu connu (même des comptables et avocats généralistes) et le dossier tellement administratif que la plupart des directions finissent par laisser tomber. Pourtant c'est une rentrée non négligeable chaque année quand on s'en occupe correctement.
 
-Vous avez 15 min cette semaine pour qu'on regarde rapidement si ${nomShort} est éligible ? Je vous fais un check sans engagement.
+On prend tout en charge, de bout en bout, sans avance de votre part : on n'est rémunéré qu'au succès — uniquement si le versement arrive sur votre compte.
+
+Vous avez 15 min cette semaine pour qu'on en parle ?
 
 Bonne journée,
 
-Sacha Bitoun
+Sacha
 Opti-CDS
 https://opti-cds.fr`,
   };
@@ -42,14 +43,7 @@ export function buildJ4(c: Contact, unsubUrl: string, j0Subject: string) {
 
 Petit up au cas où mon mail serait passé sous le radar.
 
-Pour être concret, voici comment on travaille :
-
-  1. On vérifie votre éligibilité en 48h (gratuit)
-  2. On monte le dossier ARS à votre place
-  3. On suit le versement jusqu'au virement
-  4. Vous payez uniquement quand la subvention arrive
-
-Dossier moyen : 15 à 20 k€. Délai d'instruction ARS : 2 à 4 mois.
+Pour faire simple : on prend le dossier de A à Z, c'est nous qui passons les heures dessus (pas votre équipe), et vous ne payez rien tant que rien ne tombe. Aucun risque, juste un sujet qu'on connaît bien et que peu de gens savent monter.
 
 Un créneau de 15 min vous arrange cette semaine ou la suivante ?
 
@@ -63,11 +57,11 @@ export function buildJ9(c: Contact, unsubUrl: string, j0Subject: string) {
 
 Sans retour de votre part je vais clôturer la prise de contact, pas de souci.
 
-Si le sujet redevient prioritaire un jour (Teulade, FIR, FIQCS, montage de dossier ARS), un mail suffira pour reprendre.
+Si le sujet redevient prioritaire un jour, un mail suffira pour reprendre.
 
 Bonne continuation à votre équipe,
 
-Sacha Bitoun
+Sacha
 Opti-CDS${footer(unsubUrl)}`;
   return { subject, text };
 }

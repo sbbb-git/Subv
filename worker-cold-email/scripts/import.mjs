@@ -68,21 +68,22 @@ function titlecase(s) {
 }
 
 function buildDraft(c) {
-  const nomShort = (c.nom_cds || "votre centre").slice(0, 60);
   const hello = c.first_name ? `Bonjour ${c.first_name},` : "Bonjour,";
   return {
-    subject: `Subvention Teulade — éligibilité de votre centre`,
+    subject: `Un financement Assurance Maladie que la plupart des CDS ne demandent pas`,
     body: `${hello}
 
-Je dirige Opti-CDS, on accompagne les centres de santé sur la subvention Teulade (article L162-32 du code de la sécurité sociale) et le montage des dossiers ARS associés.
+Je dirige Opti-CDS — on accompagne les centres de santé sur un dispositif de financement de l'Assurance Maladie auquel tous les CDS ont droit, mais que la quasi-totalité ne demande jamais.
 
-En moyenne nos clients récupèrent 15 à 20 k€ par dossier validé. Rémunération exclusivement au succès — vous ne nous payez que si la subvention tombe sur votre compte.
+Pas par négligence : le sujet est si peu connu (même des comptables et avocats généralistes) et le dossier tellement administratif que la plupart des directions finissent par laisser tomber. Pourtant c'est une rentrée non négligeable chaque année quand on s'en occupe correctement.
 
-Vous avez 15 min cette semaine pour qu'on regarde rapidement si ${nomShort} est éligible ? Je vous fais un check sans engagement.
+On prend tout en charge, de bout en bout, sans avance de votre part : on n'est rémunéré qu'au succès — uniquement si le versement arrive sur votre compte.
+
+Vous avez 15 min cette semaine pour qu'on en parle ?
 
 Bonne journée,
 
-Sacha Bitoun
+Sacha
 Opti-CDS
 https://opti-cds.fr`,
   };
