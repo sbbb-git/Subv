@@ -290,7 +290,7 @@ async function getStats(env: Env) {
     `SELECT COUNT(*) n FROM sends
      WHERE status NOT IN ('error') AND datetime(sent_at) >= datetime('now', '-1 day')`
   ).first<{ n: number }>();
-  const stats: any = { draft: 0, validated: 0, sent: 0, skipped: 0, total, today_sent: today?.n || 0 };
+  const stats: any = { draft: 0, validated: 0, sent: 0, skipped: 0, bad_email: 0, total, today_sent: today?.n || 0 };
   for (const r of ds.results) stats[r.draft_status] = r.n;
   return stats;
 }
@@ -373,11 +373,27 @@ async function handleSave(env: Env, id: number, req: Request): Promise<Response>
     await env.DB.prepare(`UPDATE contacts SET draft_status='draft', updated_at=? WHERE id=?`).bind(now, id).run();
   } else if (action === "skip") {
     await env.DB.prepare(`UPDATE contacts SET draft_status='skipped', updated_at=? WHERE id=?`).bind(now, id).run();
+  } else if (action === "bad_email") {
+    await env.DB.prepare(`UPDATE contacts SET draft_status='bad_email', updated_at=? WHERE id=?`).bind(now, id).run();
   } else if (action === "send_now") {
     const c = await env.DB.prepare(`SELECT * FROM contacts WHERE id=?`).bind(id).first<any>();
     if (c && c.step === 0) await sendJ0(env, c);
   }
   return Response.redirect(`${new URL(req.url).origin}/c/${id}`, 303);
+}
+
+async function handleQuickFlag(env: Env, id: number, req: Request): Promise<Response> {
+  const form = await req.formData();
+  const status = String(form.get("status") || "");
+  const returnTo = String(form.get("return_to") || "/");
+  const allowed = new Set(["draft", "bad_email", "skipped"]);
+  if (!allowed.has(status)) return new Response("Bad status", { status: 400 });
+  await env.DB.prepare(
+    `UPDATE contacts SET draft_status=?, updated_at=? WHERE id=?`
+  ).bind(status, new Date().toISOString(), id).run();
+  // returnTo doit être relatif pour éviter open-redirect
+  const safeReturn = returnTo.startsWith("/") ? returnTo : "/";
+  return Response.redirect(`${new URL(req.url).origin}${safeReturn}`, 303);
 }
 
 async function handleSaveNotes(env: Env, id: number, req: Request): Promise<Response> {
@@ -416,6 +432,8 @@ export default {
     if (detail && req.method === "GET") return handleDetail(env, parseInt(detail[1], 10));
     const save = path.match(/^\/c\/(\d+)\/save$/);
     if (save && req.method === "POST") return handleSave(env, parseInt(save[1], 10), req);
+    const quick = path.match(/^\/c\/(\d+)\/quickflag$/);
+    if (quick && req.method === "POST") return handleQuickFlag(env, parseInt(quick[1], 10), req);
     const notes = path.match(/^\/c\/(\d+)\/notes$/);
     if (notes && req.method === "POST") return handleSaveNotes(env, parseInt(notes[1], 10), req);
 

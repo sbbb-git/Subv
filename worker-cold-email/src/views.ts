@@ -42,9 +42,11 @@ const STATUS_BADGE: Record<string, string> = {
   validated: "bg-emerald-100 text-emerald-800",
   sent:      "bg-sky-100 text-sky-800",
   skipped:   "bg-slate-200 text-slate-600",
+  bad_email: "bg-rose-100 text-rose-800",
 };
 const STATUS_LABEL: Record<string, string> = {
-  draft: "Brouillon", validated: "Validé", sent: "Envoyé", skipped: "Ignoré",
+  draft: "Brouillon", validated: "Validé", sent: "Envoyé",
+  skipped: "Ignoré", bad_email: "Mail faux",
 };
 
 const STEP_BADGE: Record<number, string> = {
@@ -53,7 +55,7 @@ const STEP_BADGE: Record<number, string> = {
 
 export function renderList(opts: {
   contacts: Array<any>,
-  stats: { draft: number; validated: number; sent: number; skipped: number; total: number; today_sent: number },
+  stats: { draft: number; validated: number; sent: number; skipped: number; bad_email: number; total: number; today_sent: number },
   filters: { status: string; q: string; dept: string; specialite: string },
   page: number,
   pageSize: number,
@@ -69,6 +71,13 @@ export function renderList(opts: {
     return new URLSearchParams(Object.entries(p).filter(([_, v]) => v !== "")).toString();
   };
 
+  // forme du retour vers la liste après quick action
+  const returnTo = `/${(filters.status || filters.q || filters.dept || filters.specialite || page > 1) ? "?" : ""}` +
+    new URLSearchParams(Object.entries({
+      status: filters.status, q: filters.q, dept: filters.dept,
+      specialite: filters.specialite, page: page > 1 ? String(page) : "",
+    }).filter(([_, v]) => v !== "")).toString();
+
   const rows = contacts.map(c => `
     <tr class="border-b hover:bg-slate-50">
       <td class="px-3 py-2">
@@ -82,17 +91,29 @@ export function renderList(opts: {
       <td class="px-3 py-2 text-sm">${esc(c.specialite || "")}</td>
       <td class="px-3 py-2 text-sm">${esc(c.ville || "")} ${c.dept ? `<span class="text-slate-400">(${esc(c.dept)})</span>` : ""}</td>
       <td class="px-3 py-2 text-sm text-slate-500">${esc(c.telephone || "")}</td>
-      <td class="px-3 py-2 text-right">
-        <a href="/c/${c.id}" class="text-emerald-700 hover:underline text-sm">Ouvrir →</a>
+      <td class="px-3 py-2 text-right whitespace-nowrap">
+        ${c.draft_status !== "bad_email" ? `
+          <form method="post" action="/c/${c.id}/quickflag" class="inline">
+            <input type="hidden" name="status" value="bad_email">
+            <input type="hidden" name="return_to" value="${esc(returnTo)}">
+            <button class="text-rose-600 hover:bg-rose-50 px-2 py-1 rounded text-sm" title="Marquer email faux">❌ Faux</button>
+          </form>` : `
+          <form method="post" action="/c/${c.id}/quickflag" class="inline">
+            <input type="hidden" name="status" value="draft">
+            <input type="hidden" name="return_to" value="${esc(returnTo)}">
+            <button class="text-slate-500 hover:bg-slate-100 px-2 py-1 rounded text-sm" title="Annuler le flag">↶ Annuler</button>
+          </form>`}
+        <a href="/c/${c.id}" class="text-emerald-700 hover:underline text-sm ml-2">Ouvrir →</a>
       </td>
     </tr>`).join("");
 
   const body = `
-  <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-4">
+  <div class="grid grid-cols-2 md:grid-cols-6 gap-3 mb-4">
     <div class="bg-white rounded-lg border p-3"><div class="text-xs text-slate-500">Total</div><div class="text-xl font-bold">${stats.total}</div></div>
-    <div class="bg-amber-50 rounded-lg border border-amber-200 p-3"><div class="text-xs text-amber-700">Brouillons</div><div class="text-xl font-bold text-amber-900">${stats.draft}</div></div>
-    <div class="bg-emerald-50 rounded-lg border border-emerald-200 p-3"><div class="text-xs text-emerald-700">Validés (file d'envoi)</div><div class="text-xl font-bold text-emerald-900">${stats.validated}</div></div>
-    <div class="bg-sky-50 rounded-lg border border-sky-200 p-3"><div class="text-xs text-sky-700">Envoyés</div><div class="text-xl font-bold text-sky-900">${stats.sent}</div></div>
+    <a href="/?status=draft" class="bg-amber-50 rounded-lg border border-amber-200 p-3 hover:border-amber-400"><div class="text-xs text-amber-700">Brouillons</div><div class="text-xl font-bold text-amber-900">${stats.draft}</div></a>
+    <a href="/?status=validated" class="bg-emerald-50 rounded-lg border border-emerald-200 p-3 hover:border-emerald-400"><div class="text-xs text-emerald-700">Validés (file)</div><div class="text-xl font-bold text-emerald-900">${stats.validated}</div></a>
+    <a href="/?status=sent" class="bg-sky-50 rounded-lg border border-sky-200 p-3 hover:border-sky-400"><div class="text-xs text-sky-700">Envoyés</div><div class="text-xl font-bold text-sky-900">${stats.sent}</div></a>
+    <a href="/?status=bad_email" class="bg-rose-50 rounded-lg border border-rose-200 p-3 hover:border-rose-400"><div class="text-xs text-rose-700">Mails faux</div><div class="text-xl font-bold text-rose-900">${stats.bad_email || 0}</div></a>
     <div class="bg-slate-100 rounded-lg border p-3"><div class="text-xs text-slate-600">Envoyés aujourd'hui</div><div class="text-xl font-bold">${stats.today_sent}</div></div>
   </div>
 
@@ -105,6 +126,7 @@ export function renderList(opts: {
         <option value="validated"  ${filters.status==="validated" ? "selected" : ""}>Validé</option>
         <option value="sent"       ${filters.status==="sent" ? "selected" : ""}>Envoyé</option>
         <option value="skipped"    ${filters.status==="skipped" ? "selected" : ""}>Ignoré</option>
+        <option value="bad_email"  ${filters.status==="bad_email" ? "selected" : ""}>Mail faux</option>
       </select>
     </div>
     <div>
@@ -215,6 +237,7 @@ export function renderDetail(c: any, history: any[]): Response {
             : `<button name="action" value="validate" class="px-3 py-1.5 rounded bg-emerald-600 text-white text-sm hover:bg-emerald-700">✅ Valider (file d'envoi)</button>`}
           <button name="action" value="send_now" class="px-3 py-1.5 rounded bg-sky-600 text-white text-sm hover:bg-sky-700"
                   onclick="return confirm('Envoyer immédiatement ce mail à ${esc(c.email)} ?')">📤 Envoyer maintenant</button>
+          <button name="action" value="bad_email" class="px-3 py-1.5 rounded bg-rose-100 text-rose-800 text-sm hover:bg-rose-200">❌ Mail faux</button>
           <button name="action" value="skip" class="px-3 py-1.5 rounded bg-slate-100 text-slate-600 text-sm hover:bg-slate-200">Ignorer</button>
         </div>
       </form>
