@@ -1,0 +1,27 @@
+name = "opti-cds-cold-email"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Cron : tous les jours du lundi au vendredi à 10h00 Paris (9h00 UTC en hiver, 8h00 UTC en été)
+# On part sur 9h00 UTC = 11h00 Paris en hiver / 10h Paris en heure d'été est OK
+[triggers]
+crons = ["0 9 * * 1-5"]
+
+# Base SQLite Cloudflare D1 (contacts + tracking)
+[[d1_databases]]
+binding = "DB"
+database_name = "optids-cold"
+database_id = "TO_FILL_AFTER_CREATE"
+
+# Secrets à set via : wrangler secret put RESEND_API_KEY
+# - RESEND_API_KEY    : ta clé Resend
+# - WEBHOOK_SECRET    : secret partagé Resend pour vérifier les webhooks (bounces/complaints)
+# - UNSUBSCRIBE_SALT  : random string pour signer les liens de désinscription
+
+[vars]
+FROM_EMAIL = "Sacha Bitoun <sacha@opti-cds.fr>"
+REPLY_TO   = "sacha@opti-cds.fr"
+DAILY_LIMIT = "30"
+DRY_RUN = "false"
+BASE_URL = "https://cold.opti-cds.fr"

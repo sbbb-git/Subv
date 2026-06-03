@@ -1,0 +1,19 @@
+{
+  "name": "opti-cds-cold-email",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute optids-cold --remote --file=schema.sql",
+    "db:init:local": "wrangler d1 execute optids-cold --local --file=schema.sql",
+    "import": "node scripts/import.mjs",
+    "tail": "wrangler tail",
+    "run:now": "curl -X POST -H \"x-auth: $WEBHOOK_SECRET\" https://opti-cds-cold-email.<your-subdomain>.workers.dev/run"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250101.0",
+    "typescript": "^5.6.0",
+    "wrangler": "^3.95.0"
+  }
+}
