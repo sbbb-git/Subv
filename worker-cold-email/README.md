@@ -1,12 +1,21 @@
-# Opti-CDS cold email worker
+# Opti-CDS cold email — Worker + Dashboard
 
-Worker Cloudflare qui envoie automatiquement la séquence cold email Opti-CDS via Resend.
-
-- **Cron** : lun-ven à 9h UTC (10h Paris en hiver / 11h en été)
-- **Volume** : configurable via `DAILY_LIMIT` (par défaut 30/jour)
-- **Séquence** : J0 → J+4 → J+9 (threadés dans Gmail/Outlook)
+Worker Cloudflare avec :
+- **Dashboard web** : liste tous les CDS avec profil/spécialité/email, éditeur de draft, workflow `draft → validated → sent`
+- **Envoi automatique** via Resend, cron lun-ven 9h UTC, 30 mails/jour configurable
+- **Séquence** : J0 (custom draft) → J+4 / J+9 (templatés, threadés dans le même fil Gmail)
 - **DB** : Cloudflare D1 (SQLite serverless, gratuit jusqu'à 5 GB)
 - **Compliance** : List-Unsubscribe header + lien `/u/:id.:sig` signé HMAC
+- **Auth admin** : Basic Auth (password = `WEBHOOK_SECRET`)
+
+## Workflow
+
+1. Tu importes les CDS scrapés (`scripts/import.mjs`) → chacun arrive avec un draft auto-généré
+2. Tu te connectes au dashboard, parcours les contacts, édites les drafts si besoin
+3. Tu cliques **"✅ Valider"** sur ceux que tu veux envoyer → ils rejoignent la file
+4. Le cron pioche 30/jour dans la file et envoie via Resend
+5. Les relances J+4 / J+9 partent automatiquement sur les mêmes threads
+6. Les réponses arrivent dans `sacha@opti-cds.fr`, les unsub/bounces sont gérés via webhook Resend
 
 ---
 
