@@ -13,7 +13,7 @@ crons = ["0 9 * * 1-5"]
 [[d1_databases]]
 binding = "DB"
 database_name = "optids-cold"
-database_id = "TO_FILL_AFTER_CREATE"
+database_id = "0fae6f3c-62d8-4c4d-ad53-dc049834d6cc"
 
 # Secrets à set via : wrangler secret put RESEND_API_KEY
 # - RESEND_API_KEY    : ta clé Resend
@@ -24,5 +24,5 @@ database_id = "TO_FILL_AFTER_CREATE"
 FROM_EMAIL = "Sacha Bitoun <sacha@opti-cds.fr>"
 REPLY_TO   = "sacha@opti-cds.fr"
 DAILY_LIMIT = "30"
-DRY_RUN = "false"
-BASE_URL = "https://cold.opti-cds.fr"
+DRY_RUN = "true"               # SÉCURITÉ : aucun envoi réel tant que = "true". Passer à "false" pour activer.
+BASE_URL = "https://opti-cds-cold-email.sachabitoun17.workers.dev"
