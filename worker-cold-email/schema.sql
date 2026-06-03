@@ -18,7 +18,10 @@ CREATE TABLE IF NOT EXISTS contacts (
   finess        TEXT,
   siret         TEXT,
   notes         TEXT,                          -- notes manuelles
+  region        TEXT,                          -- Île-de-France / PACA / Bretagne / etc. (calculé depuis dept)
   source        TEXT,                          -- ars_93 / scraping_idf / scraping_fr / manual
+  cds_key       TEXT,                          -- clé de groupement (1 CDS = N contacts, même cds_key)
+  is_primary    INTEGER DEFAULT 0,             -- 1 = email principal de ce CDS, c'est celui qui sera envoyé
 
   -- workflow draft
   draft_subject TEXT,
@@ -39,7 +42,10 @@ CREATE INDEX IF NOT EXISTS idx_contacts_status       ON contacts(status);
 CREATE INDEX IF NOT EXISTS idx_contacts_draft_status ON contacts(draft_status);
 CREATE INDEX IF NOT EXISTS idx_contacts_step         ON contacts(step);
 CREATE INDEX IF NOT EXISTS idx_contacts_dept         ON contacts(dept);
+CREATE INDEX IF NOT EXISTS idx_contacts_region       ON contacts(region);
 CREATE INDEX IF NOT EXISTS idx_contacts_specialite   ON contacts(specialite);
+CREATE INDEX IF NOT EXISTS idx_contacts_primary      ON contacts(is_primary);
+CREATE INDEX IF NOT EXISTS idx_contacts_cds_key      ON contacts(cds_key);
 
 CREATE TABLE IF NOT EXISTS sends (
   id           INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -56,25 +56,26 @@ const STEP_BADGE: Record<number, string> = {
 export function renderList(opts: {
   contacts: Array<any>,
   stats: { draft: number; validated: number; sent: number; skipped: number; bad_email: number; total: number; today_sent: number },
-  filters: { status: string; q: string; dept: string; specialite: string },
+  filters: { status: string; q: string; dept: string; region: string; specialite: string },
   page: number,
   pageSize: number,
   totalFiltered: number,
   specialites: string[],
   depts: string[],
+  regions: Array<{ region: string; n: number }>,
 }): Response {
-  const { contacts, stats, filters, page, pageSize, totalFiltered, specialites, depts } = opts;
+  const { contacts, stats, filters, page, pageSize, totalFiltered, specialites, depts, regions } = opts;
   const totalPages = Math.max(1, Math.ceil(totalFiltered / pageSize));
   const qs = (overrides: Record<string, any>) => {
-    const p: Record<string, string> = { status: filters.status, q: filters.q, dept: filters.dept, specialite: filters.specialite, page: String(page) };
+    const p: Record<string, string> = { status: filters.status, q: filters.q, dept: filters.dept, region: filters.region, specialite: filters.specialite, page: String(page) };
     for (const [k, v] of Object.entries(overrides)) p[k] = String(v);
     return new URLSearchParams(Object.entries(p).filter(([_, v]) => v !== "")).toString();
   };
 
   // forme du retour vers la liste après quick action
-  const returnTo = `/${(filters.status || filters.q || filters.dept || filters.specialite || page > 1) ? "?" : ""}` +
+  const returnTo = `/${(filters.status || filters.q || filters.dept || filters.region || filters.specialite || page > 1) ? "?" : ""}` +
     new URLSearchParams(Object.entries({
-      status: filters.status, q: filters.q, dept: filters.dept,
+      status: filters.status, q: filters.q, dept: filters.dept, region: filters.region,
       specialite: filters.specialite, page: page > 1 ? String(page) : "",
     }).filter(([_, v]) => v !== "")).toString();
 
@@ -86,7 +87,10 @@ export function renderList(opts: {
       </td>
       <td class="px-3 py-2">
         <a href="/c/${c.id}" class="font-medium text-slate-900 hover:text-emerald-700">${esc(c.nom_cds || "(sans nom)")}</a>
-        <div class="text-xs text-slate-500">${esc(c.email)}</div>
+        <div class="text-xs text-slate-500">
+          ${esc(c.email)}
+          ${c.alt_count > 0 ? `<span class="ml-1 inline-block px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 text-[10px]" title="${c.alt_count} autre(s) email(s) pour ce CDS">+${c.alt_count} email${c.alt_count>1?"s":""}</span>` : ""}
+        </div>
       </td>
       <td class="px-3 py-2 text-sm">${esc(c.specialite || "")}</td>
       <td class="px-3 py-2 text-sm">${esc(c.ville || "")} ${c.dept ? `<span class="text-slate-400">(${esc(c.dept)})</span>` : ""}</td>
@@ -127,6 +131,13 @@ export function renderList(opts: {
         <option value="sent"       ${filters.status==="sent" ? "selected" : ""}>Envoyé</option>
         <option value="skipped"    ${filters.status==="skipped" ? "selected" : ""}>Ignoré</option>
         <option value="bad_email"  ${filters.status==="bad_email" ? "selected" : ""}>Mail faux</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-xs text-slate-500">Région</label>
+      <select name="region" class="border rounded px-2 py-1 text-sm">
+        <option value="">Toutes</option>
+        ${regions.map(r => `<option value="${esc(r.region)}" ${filters.region===r.region ? "selected" : ""}>${esc(r.region)} (${r.n})</option>`).join("")}
       </select>
     </div>
     <div>
@@ -176,7 +187,7 @@ export function renderList(opts: {
   return shell("Contacts", body);
 }
 
-export function renderDetail(c: any, history: any[]): Response {
+export function renderDetail(c: any, history: any[], alternatives: any[] = []): Response {
   const subjectVal = esc(c.draft_subject || "");
   const bodyVal = esc(c.draft_body || "");
   const histRows = history.map(h => `
@@ -211,6 +222,24 @@ export function renderDetail(c: any, history: any[]): Response {
         <textarea name="notes" rows="3" class="w-full border rounded p-2 text-sm">${esc(c.notes || "")}</textarea>
         <button class="mt-1 text-xs text-slate-600 hover:text-slate-900">💾 Sauver notes</button>
       </form>
+
+      ${alternatives.length > 0 ? `
+      <div class="mt-4 border-t pt-3">
+        <div class="text-xs text-slate-500 mb-2">Autres emails de ce CDS (${alternatives.length})</div>
+        <div class="space-y-1">
+          ${alternatives.map((a: any) => `
+            <div class="flex items-center justify-between text-xs gap-2 py-1 ${a.draft_status==='bad_email' ? 'opacity-50' : ''}">
+              <div class="flex-1 min-w-0">
+                <a href="/c/${a.id}" class="text-slate-700 hover:text-emerald-700 truncate block">${esc(a.email)}</a>
+                <span class="text-[10px] text-slate-400">${esc(STATUS_LABEL[a.draft_status] || a.draft_status)}${a.source ? " · "+esc(a.source) : ""}</span>
+              </div>
+              ${a.draft_status !== 'bad_email' ? `
+                <form method="post" action="/c/${a.id}/swap-primary" class="inline">
+                  <button class="text-emerald-600 hover:bg-emerald-50 px-2 py-0.5 rounded" title="Faire de cet email le principal">★ Principal</button>
+                </form>` : ""}
+            </div>`).join("")}
+        </div>
+      </div>` : ""}
 
       <div class="mt-4 border-t pt-3">
         <div class="text-xs text-slate-500 mb-1">Historique d'envois</div>

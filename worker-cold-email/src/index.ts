@@ -21,6 +21,7 @@
 import { buildJ4, buildJ9, wrapJ0Body, type Contact } from "./templates";
 import { requireAuth } from "./auth";
 import { renderList, renderDetail, renderStats } from "./views";
+import { regionFromDept, ALL_REGIONS } from "./regions";
 
 export interface Env {
   DB: D1Database;
@@ -182,12 +183,12 @@ async function runPipeline(env: Env) {
     }
   }
 
-  // J0 — uniquement depuis la file 'validated'
+  // J0 — uniquement depuis la file 'validated' ET sur les emails primaires (1 mail / CDS)
   if (budget > 0) {
     const rs = await env.DB.prepare(
       `SELECT id, email, first_name, nom_cds, ville, specialite, draft_subject, draft_body
        FROM contacts
-       WHERE draft_status='validated' AND status='pending' AND step=0
+       WHERE draft_status='validated' AND status='pending' AND step=0 AND is_primary=1
        ORDER BY segment ASC, updated_at ASC
        LIMIT ?`
     ).bind(budget).all<any>();
@@ -260,18 +261,20 @@ async function handleImport(env: Env, req: Request): Promise<Response> {
   for (const c of contacts) {
     const e = (c.email || "").trim().toLowerCase();
     if (!e || !e.includes("@")) { skipped++; continue; }
+    const region = c.region || regionFromDept(c.dept);
+    const cdsKey = (c.finess && String(c.finess).trim()) || (c.nom_cds && c.nom_cds.trim()) || e;
     try {
       const r = await env.DB.prepare(
         `INSERT OR IGNORE INTO contacts
-          (email, first_name, nom_cds, adresse, code_postal, ville, dept, telephone,
-           site_web, specialite, finess, siret, source, segment,
+          (email, first_name, nom_cds, adresse, code_postal, ville, dept, region, telephone,
+           site_web, specialite, finess, siret, source, segment, cds_key,
            draft_subject, draft_body, draft_status)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'draft')`
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'draft')`
       ).bind(
         e, c.first_name || null, c.nom_cds || null, c.adresse || null,
-        c.code_postal || null, c.ville || null, c.dept || null, c.telephone || null,
+        c.code_postal || null, c.ville || null, c.dept || null, region, c.telephone || null,
         c.site_web || null, c.specialite || null, c.finess || null, c.siret || null,
-        c.source || "manual", c.segment || "B_standard",
+        c.source || "manual", c.segment || "B_standard", cdsKey,
         c.draft_subject || null, c.draft_body || null,
       ).run();
       if (r.meta.changes > 0) inserted++; else skipped++;
@@ -280,10 +283,30 @@ async function handleImport(env: Env, req: Request): Promise<Response> {
   return Response.json({ inserted, skipped, total: contacts.length });
 }
 
+// Promote next-best email of a CDS as primary (called when current primary becomes bad/unusable)
+async function promoteNextPrimary(env: Env, cdsKey: string): Promise<void> {
+  if (!cdsKey) return;
+  const next = await env.DB.prepare(
+    `SELECT id FROM contacts
+     WHERE cds_key = ? AND draft_status NOT IN ('bad_email','sent','unsubscribed')
+     ORDER BY
+       CASE WHEN lower(substr(email,1,instr(email,'@')-1))
+            IN ('direction','directeur','accueil','contact','secretariat','info','cabinet')
+            THEN 0 ELSE 1 END,
+       length(email), id
+     LIMIT 1`
+  ).bind(cdsKey).first<{ id: number }>();
+  await env.DB.prepare(`UPDATE contacts SET is_primary = 0 WHERE cds_key = ?`).bind(cdsKey).run();
+  if (next) {
+    await env.DB.prepare(`UPDATE contacts SET is_primary = 1 WHERE id = ?`).bind(next.id).run();
+  }
+}
+
 // ===================== Dashboard =====================
 async function getStats(env: Env) {
+  // les compteurs comptent UN CDS (= is_primary=1), pas chaque email
   const ds = await env.DB.prepare(
-    `SELECT draft_status, COUNT(*) n FROM contacts GROUP BY draft_status`
+    `SELECT draft_status, COUNT(*) n FROM contacts WHERE is_primary=1 GROUP BY draft_status`
   ).all<{ draft_status: string; n: number }>();
   const total = ds.results.reduce((s, r) => s + r.n, 0);
   const today = await env.DB.prepare(
@@ -299,14 +322,17 @@ async function handleList(env: Env, url: URL): Promise<Response> {
   const status = url.searchParams.get("status") || "";
   const q = (url.searchParams.get("q") || "").trim();
   const dept = url.searchParams.get("dept") || "";
+  const region = url.searchParams.get("region") || "";
   const specialite = url.searchParams.get("specialite") || "";
   const page = Math.max(1, parseInt(url.searchParams.get("page") || "1", 10));
   const pageSize = 50;
 
-  const where: string[] = ["1=1"];
+  // ── Liste = 1 ligne par CDS (is_primary=1) ──
+  const where: string[] = ["is_primary = 1"];
   const args: any[] = [];
   if (status)     { where.push("draft_status = ?"); args.push(status); }
   if (dept)       { where.push("dept = ?");         args.push(dept); }
+  if (region)     { where.push("region = ?");       args.push(region); }
   if (specialite) { where.push("specialite = ?");   args.push(specialite); }
   if (q) {
     where.push("(lower(nom_cds) LIKE ? OR lower(email) LIKE ? OR lower(ville) LIKE ?)");
@@ -321,11 +347,15 @@ async function handleList(env: Env, url: URL): Promise<Response> {
   const totalFiltered = totalRow?.n || 0;
 
   const rs = await env.DB.prepare(
-    `SELECT id, email, nom_cds, ville, dept, telephone, specialite, draft_status, step
-     FROM contacts WHERE ${whereSql}
+    `SELECT c.id, c.email, c.nom_cds, c.ville, c.dept, c.region, c.telephone, c.specialite,
+            c.draft_status, c.step, c.cds_key,
+            (SELECT COUNT(*) FROM contacts c2
+             WHERE c2.cds_key = c.cds_key AND c2.id != c.id AND c2.draft_status != 'bad_email') AS alt_count
+     FROM contacts c
+     WHERE ${whereSql.replace(/\bdraft_status\b/g, 'c.draft_status').replace(/\bdept\b/g, 'c.dept').replace(/\bregion\b/g, 'c.region').replace(/\bspecialite\b/g, 'c.specialite').replace(/\bnom_cds\b/g, 'c.nom_cds').replace(/\bemail\b/g, 'c.email').replace(/\bville\b/g, 'c.ville').replace(/\bis_primary\b/g, 'c.is_primary')}
      ORDER BY
-       CASE draft_status WHEN 'validated' THEN 0 WHEN 'draft' THEN 1 WHEN 'sent' THEN 2 ELSE 3 END,
-       updated_at DESC
+       CASE c.draft_status WHEN 'validated' THEN 0 WHEN 'draft' THEN 1 WHEN 'sent' THEN 2 ELSE 3 END,
+       c.updated_at DESC
      LIMIT ? OFFSET ?`
   ).bind(...args, pageSize, (page - 1) * pageSize).all<any>();
 
@@ -335,15 +365,19 @@ async function handleList(env: Env, url: URL): Promise<Response> {
   const depts = await env.DB.prepare(
     `SELECT DISTINCT dept FROM contacts WHERE dept IS NOT NULL ORDER BY dept`
   ).all<{ dept: string }>();
+  const regions = await env.DB.prepare(
+    `SELECT DISTINCT region, COUNT(*) AS n FROM contacts WHERE region IS NOT NULL AND is_primary=1 GROUP BY region ORDER BY region`
+  ).all<{ region: string; n: number }>();
 
   const stats = await getStats(env);
   return renderList({
     contacts: rs.results,
     stats,
-    filters: { status, q, dept, specialite },
+    filters: { status, q, dept, region, specialite },
     page, pageSize, totalFiltered,
     specialites: specs.results.map(r => r.specialite).filter(Boolean),
     depts: depts.results.map(r => r.dept).filter(Boolean),
+    regions: regions.results.filter(r => r.region),
   });
 }
 
@@ -353,7 +387,23 @@ async function handleDetail(env: Env, id: number): Promise<Response> {
   const history = (await env.DB.prepare(
     `SELECT step, sent_at, status, error FROM sends WHERE contact_id=? ORDER BY id DESC`
   ).bind(id).all<any>()).results;
-  return renderDetail(c, history);
+  // Autres emails du même CDS (alternatives)
+  const alternatives = (await env.DB.prepare(
+    `SELECT id, email, draft_status, source FROM contacts
+     WHERE cds_key = ? AND id != ?
+     ORDER BY CASE WHEN draft_status='bad_email' THEN 1 ELSE 0 END, length(email), id`
+  ).bind(c.cds_key, id).all<any>()).results;
+  return renderDetail(c, history, alternatives);
+}
+
+async function handleSwapPrimary(env: Env, id: number, req: Request): Promise<Response> {
+  const c = await env.DB.prepare(`SELECT cds_key FROM contacts WHERE id=?`).bind(id).first<{ cds_key: string }>();
+  if (!c) return new Response("Not found", { status: 404 });
+  await env.DB.batch([
+    env.DB.prepare(`UPDATE contacts SET is_primary = 0 WHERE cds_key = ?`).bind(c.cds_key),
+    env.DB.prepare(`UPDATE contacts SET is_primary = 1, updated_at = ? WHERE id = ?`).bind(new Date().toISOString(), id),
+  ]);
+  return Response.redirect(`${new URL(req.url).origin}/c/${id}`, 303);
 }
 
 async function handleSave(env: Env, id: number, req: Request): Promise<Response> {
@@ -388,10 +438,14 @@ async function handleQuickFlag(env: Env, id: number, req: Request): Promise<Resp
   const returnTo = String(form.get("return_to") || "/");
   const allowed = new Set(["draft", "bad_email", "skipped"]);
   if (!allowed.has(status)) return new Response("Bad status", { status: 400 });
+  const c = await env.DB.prepare(`SELECT cds_key, is_primary FROM contacts WHERE id=?`).bind(id).first<{ cds_key: string; is_primary: number }>();
   await env.DB.prepare(
     `UPDATE contacts SET draft_status=?, updated_at=? WHERE id=?`
   ).bind(status, new Date().toISOString(), id).run();
-  // returnTo doit être relatif pour éviter open-redirect
+  // si on flag le primaire en bad/skip, on promeut un alternatif
+  if (c && c.is_primary && (status === "bad_email" || status === "skipped")) {
+    await promoteNextPrimary(env, c.cds_key);
+  }
   const safeReturn = returnTo.startsWith("/") ? returnTo : "/";
   return Response.redirect(`${new URL(req.url).origin}${safeReturn}`, 303);
 }
@@ -434,6 +488,8 @@ export default {
     if (save && req.method === "POST") return handleSave(env, parseInt(save[1], 10), req);
     const quick = path.match(/^\/c\/(\d+)\/quickflag$/);
     if (quick && req.method === "POST") return handleQuickFlag(env, parseInt(quick[1], 10), req);
+    const swap = path.match(/^\/c\/(\d+)\/swap-primary$/);
+    if (swap && req.method === "POST") return handleSwapPrimary(env, parseInt(swap[1], 10), req);
     const notes = path.match(/^\/c\/(\d+)\/notes$/);
     if (notes && req.method === "POST") return handleSaveNotes(env, parseInt(notes[1], 10), req);
 

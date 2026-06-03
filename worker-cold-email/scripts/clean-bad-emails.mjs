@@ -48,6 +48,34 @@ const BAD_DOMAIN_SUFFIXES = [
   ".herokuapp.com", ".netlify.app", ".vercel.app",
 ];
 
+// TLD pays étrangers : aucun CDS français n'a légitimement un mail là-dedans
+const FOREIGN_TLDS = new Set([
+  "au","uk","de","es","it","pt","be","nl","ch","tr","us","ru","cn",
+  "jp","kr","br","mx","in","ca","ie","at","se","no","dk","fi","pl",
+  "cz","gr","ro","hu","bg","hr","sk","si","lv","lt","ee","mt","lu",
+]);
+// TLD "junky" (apps SaaS, agences pub, etc.)
+const JUNK_TLDS = new Set([
+  "app","shop","online","site","club","xyz","tv","biz","info-online",
+  "agency","studio","tech","works","cloud",
+]);
+
+function hasForeignTld(domain) {
+  const parts = domain.split(".");
+  const tld = parts[parts.length - 1];
+  const sld = parts[parts.length - 2];
+  // .com.au / .co.uk → pays = avant-dernier
+  if (parts.length >= 3 && FOREIGN_TLDS.has(tld)) return tld;
+  // pays direct (.au, .uk, .de, …)
+  if (FOREIGN_TLDS.has(tld)) return tld;
+  return null;
+}
+
+function hasJunkTld(domain) {
+  const tld = domain.split(".").pop();
+  return JUNK_TLDS.has(tld) ? tld : null;
+}
+
 const BAD_LOCAL_PARTS = new Set([
   // techniques
   "noreply", "no-reply", "donotreply", "do-not-reply",
@@ -168,6 +196,10 @@ function classify(email, nomCds) {
   for (const suf of BAD_DOMAIN_SUFFIXES) {
     if (domain.endsWith(suf)) return { bad: true, reason: `domain suffix ${suf}` };
   }
+  const foreignTld = hasForeignTld(domain);
+  if (foreignTld) return { bad: true, reason: `TLD étranger .${foreignTld}` };
+  const junkTld = hasJunkTld(domain);
+  if (junkTld) return { bad: true, reason: `TLD junky .${junkTld}` };
   if (BAD_LOCAL_PARTS.has(local)) return { bad: true, reason: `local ${local}` };
   if (isHashLocal(local)) return { bad: true, reason: "hex hash local" };
   if (isPureDigits(local)) return { bad: true, reason: "pure digits local" };
@@ -210,8 +242,9 @@ function wranglerD1(command) {
 }
 
 console.log("Fetching contacts (draft + validated) from remote D1...");
+// Skip ars_* sources: ces emails sont des contacts officiels ARS, jamais à flagger
 const rows = wranglerD1(
-  "SELECT id, email, nom_cds FROM contacts WHERE draft_status IN ('draft','validated')"
+  "SELECT id, email, nom_cds FROM contacts WHERE draft_status IN ('draft','validated') AND (source IS NULL OR source NOT LIKE 'ars_%')"
 );
 console.log(`-> ${rows.length} contacts à analyser`);
 
