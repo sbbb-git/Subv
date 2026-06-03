@@ -3,11 +3,11 @@ main = "src/index.ts"
 compatibility_date = "2025-01-01"
 compatibility_flags = ["nodejs_compat"]
 
-# Cron : lun-ven 9h UTC (10h Paris hiver / 11h Paris été)
-# Tu peux mettre plusieurs crons pour étaler dans la journée :
-# crons = ["0 9 * * 1-5", "0 14 * * 1-5"]
+# Cron DÉSACTIVÉ tant que la phase de revue n'est pas finie.
+# Pour activer l'envoi automatique, décommenter la ligne crons ci-dessous et redeploy.
 [triggers]
-crons = ["0 9 * * 1-5"]
+crons = []
+# crons = ["0 9 * * 1-5"]
 
 # Base SQLite Cloudflare D1 (contacts + tracking)
 [[d1_databases]]
@@ -24,5 +24,5 @@ database_id = "0fae6f3c-62d8-4c4d-ad53-dc049834d6cc"
 FROM_EMAIL = "Sacha Bitoun <sacha@opti-cds.fr>"
 REPLY_TO   = "sacha@opti-cds.fr"
 DAILY_LIMIT = "30"
-DRY_RUN = "true"               # SÉCURITÉ : aucun envoi réel tant que = "true". Passer à "false" pour activer.
+DRY_RUN = "false"
 BASE_URL = "https://opti-cds-cold-email.sachabitoun17.workers.dev"
