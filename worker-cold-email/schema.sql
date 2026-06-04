@@ -24,9 +24,10 @@ CREATE TABLE IF NOT EXISTS contacts (
   is_primary    INTEGER DEFAULT 0,             -- 1 = email principal de ce CDS, c'est celui qui sera envoyé
 
   -- workflow draft
+  template_id   TEXT,                          -- id du template de la bibliothèque (templates-library.ts)
   draft_subject TEXT,
   draft_body    TEXT,
-  draft_status  TEXT DEFAULT 'draft',          -- draft / validated / sent / skipped
+  draft_status  TEXT DEFAULT 'draft',          -- draft / validated / sent / skipped / bad_email
 
   -- pipeline d'envoi
   segment       TEXT DEFAULT 'B_standard',

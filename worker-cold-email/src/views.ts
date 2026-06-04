@@ -25,6 +25,7 @@ function shell(title: string, body: string): Response {
     <a href="/?status=draft" class="text-sm text-slate-600 hover:text-slate-900">Drafts</a>
     <a href="/?status=validated" class="text-sm text-slate-600 hover:text-slate-900">Validés</a>
     <a href="/?status=sent" class="text-sm text-slate-600 hover:text-slate-900">Envoyés</a>
+    <a href="/templates" class="text-sm text-slate-600 hover:text-slate-900">Modèles</a>
     <a href="/stats" class="text-sm text-slate-600 hover:text-slate-900">Stats</a>
   </div>
 </nav>
@@ -187,7 +188,7 @@ export function renderList(opts: {
   return shell("Contacts", body);
 }
 
-export function renderDetail(c: any, history: any[], alternatives: any[] = []): Response {
+export function renderDetail(c: any, history: any[], alternatives: any[] = [], templates: any[] = []): Response {
   const subjectVal = esc(c.draft_subject || "");
   const bodyVal = esc(c.draft_body || "");
   const histRows = history.map(h => `
@@ -248,6 +249,18 @@ export function renderDetail(c: any, history: any[], alternatives: any[] = []): 
     </section>
 
     <section class="md:col-span-2 bg-white rounded-lg border p-4">
+      ${templates.length > 0 ? `
+      <form method="post" action="/c/${c.id}/apply-template" class="mb-3 flex items-end gap-2 bg-slate-50 p-2 rounded border">
+        <div class="flex-1">
+          <label class="block text-xs text-slate-500">Modèle de mail (10 disponibles, change l'objet et le corps)</label>
+          <select name="template_id" class="w-full border rounded px-2 py-1 text-sm">
+            ${templates.map((t: any) => `<option value="${esc(t.id)}" ${c.template_id===t.id ? "selected" : ""}>${esc(t.name)} — ${esc(t.angle)}</option>`).join("")}
+          </select>
+        </div>
+        <button class="px-3 py-1.5 rounded bg-slate-700 text-white text-sm hover:bg-slate-900" onclick="return confirm('Appliquer ce modèle écrasera vos modifications manuelles du corps.')">↻ Appliquer</button>
+        <a href="/templates" class="text-xs text-slate-500 hover:underline">Voir tous</a>
+      </form>` : ""}
+
       <form method="post" action="/c/${c.id}/save" class="space-y-3">
         <div>
           <label class="block text-xs text-slate-500">Objet</label>
@@ -273,6 +286,30 @@ export function renderDetail(c: any, history: any[], alternatives: any[] = []): 
     </section>
   </div>`;
   return shell(c.nom_cds || "Contact", body);
+}
+
+export function renderTemplatesPage(templates: any[], counts: Record<string, number>): Response {
+  const total = Object.values(counts).reduce((s, n) => s + n, 0) || 1;
+  const cards = templates.map((t: any) => {
+    const sample = t.build({ email: "exemple@cds-test.fr", first_name: null, nom_cds: "CDS EXEMPLE", ville: "PARIS" });
+    const n = counts[t.id] || 0;
+    return `
+    <div class="bg-white rounded-lg border p-4">
+      <div class="flex items-start justify-between mb-1">
+        <h2 class="text-base font-bold">${esc(t.name)}</h2>
+        <span class="text-xs px-2 py-0.5 rounded bg-indigo-50 text-indigo-700">${n} CDS (${Math.round(100*n/total)}%)</span>
+      </div>
+      <div class="text-xs text-slate-500 mb-2">${esc(t.angle)} · <span class="italic">${esc(t.targetFit)}</span></div>
+      <div class="text-xs font-mono text-slate-700 bg-slate-50 rounded p-2 mb-2">
+        <span class="text-slate-400">Objet:</span> ${esc(sample.subject)}
+      </div>
+      <pre class="text-xs font-mono text-slate-600 bg-slate-50 rounded p-2 whitespace-pre-wrap leading-relaxed max-h-64 overflow-auto">${esc(sample.body)}</pre>
+    </div>`;
+  }).join("");
+  return shell("Modèles de mail", `
+    <h1 class="text-xl font-bold mb-1">10 modèles de cold email</h1>
+    <p class="text-sm text-slate-500 mb-4">Chaque CDS reçoit un modèle attribué automatiquement selon sa spécialité, son segment ou un hash de l'email. Ouvre une fiche pour changer manuellement le modèle d'un CDS donné.</p>
+    <div class="grid lg:grid-cols-2 gap-4">${cards}</div>`);
 }
 
 export function renderStats(data: any): Response {

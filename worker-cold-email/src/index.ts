@@ -19,8 +19,9 @@
  */
 
 import { buildJ4, buildJ9, wrapJ0Body, type Contact } from "./templates";
+import { TEMPLATES, templateById, pickTemplateFor } from "./templates-library";
 import { requireAuth } from "./auth";
-import { renderList, renderDetail, renderStats } from "./views";
+import { renderList, renderDetail, renderStats, renderTemplatesPage } from "./views";
 import { regionFromDept, ALL_REGIONS } from "./regions";
 
 export interface Env {
@@ -263,19 +264,25 @@ async function handleImport(env: Env, req: Request): Promise<Response> {
     if (!e || !e.includes("@")) { skipped++; continue; }
     const region = c.region || regionFromDept(c.dept);
     const cdsKey = (c.finess && String(c.finess).trim()) || (c.nom_cds && c.nom_cds.trim()) || e;
+    // Choisit le template adapté + rend le sujet/corps via la bibliothèque
+    const ctx = { email: e, first_name: c.first_name || null, nom_cds: c.nom_cds || null,
+                  ville: c.ville || null, specialite: c.specialite || null,
+                  region: region || null, segment: c.segment || "B_standard" };
+    const tpl = pickTemplateFor(ctx);
+    const rendered = tpl.build(ctx);
     try {
       const r = await env.DB.prepare(
         `INSERT OR IGNORE INTO contacts
           (email, first_name, nom_cds, adresse, code_postal, ville, dept, region, telephone,
-           site_web, specialite, finess, siret, source, segment, cds_key,
+           site_web, specialite, finess, siret, source, segment, cds_key, template_id,
            draft_subject, draft_body, draft_status)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'draft')`
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'draft')`
       ).bind(
         e, c.first_name || null, c.nom_cds || null, c.adresse || null,
         c.code_postal || null, c.ville || null, c.dept || null, region, c.telephone || null,
         c.site_web || null, c.specialite || null, c.finess || null, c.siret || null,
-        c.source || "manual", c.segment || "B_standard", cdsKey,
-        c.draft_subject || null, c.draft_body || null,
+        c.source || "manual", c.segment || "B_standard", cdsKey, tpl.id,
+        rendered.subject, rendered.body,
       ).run();
       if (r.meta.changes > 0) inserted++; else skipped++;
     } catch { skipped++; }
@@ -393,7 +400,21 @@ async function handleDetail(env: Env, id: number): Promise<Response> {
      WHERE cds_key = ? AND id != ?
      ORDER BY CASE WHEN draft_status='bad_email' THEN 1 ELSE 0 END, length(email), id`
   ).bind(c.cds_key, id).all<any>()).results;
-  return renderDetail(c, history, alternatives);
+  return renderDetail(c, history, alternatives, TEMPLATES);
+}
+
+async function handleApplyTemplate(env: Env, id: number, req: Request): Promise<Response> {
+  const form = await req.formData();
+  const tplId = String(form.get("template_id") || "");
+  const tpl = templateById(tplId);
+  if (!tpl) return new Response("Unknown template", { status: 400 });
+  const c = await env.DB.prepare(`SELECT * FROM contacts WHERE id=?`).bind(id).first<any>();
+  if (!c) return new Response("Not found", { status: 404 });
+  const rendered = tpl.build(c);
+  await env.DB.prepare(
+    `UPDATE contacts SET template_id=?, draft_subject=?, draft_body=?, updated_at=? WHERE id=?`
+  ).bind(tpl.id, rendered.subject, rendered.body, new Date().toISOString(), id).run();
+  return Response.redirect(`${new URL(req.url).origin}/c/${id}`, 303);
 }
 
 async function handleSwapPrimary(env: Env, id: number, req: Request): Promise<Response> {
@@ -472,12 +493,50 @@ export default {
       if (req.headers.get("x-auth") !== env.WEBHOOK_SECRET) return new Response("Unauthorized", { status: 401 });
       return Response.json(await runPipeline(env));
     }
+    if (path === "/admin/distribute-templates" && req.method === "POST") {
+      if (req.headers.get("x-auth") !== env.WEBHOOK_SECRET) return new Response("Unauthorized", { status: 401 });
+      // Pour chaque contact éligible (draft/validated, jamais envoyé), pick + render le bon template
+      const force = new URL(req.url).searchParams.get("force") === "1";
+      const where = force
+        ? "draft_status IN ('draft','validated') AND step=0"
+        : "draft_status IN ('draft','validated') AND step=0 AND template_id IS NULL";
+      let updated = 0;
+      const BATCH = 500;
+      let offset = 0;
+      while (true) {
+        const rs = await env.DB.prepare(
+          `SELECT id, email, first_name, nom_cds, ville, specialite, region, segment FROM contacts WHERE ${where} LIMIT ? OFFSET ?`
+        ).bind(BATCH, offset).all<any>();
+        if (rs.results.length === 0) break;
+        const ops = rs.results.map(c => {
+          const tpl = pickTemplateFor(c);
+          const rendered = tpl.build(c);
+          return env.DB.prepare(
+            `UPDATE contacts SET template_id=?, draft_subject=?, draft_body=?, updated_at=? WHERE id=?`
+          ).bind(tpl.id, rendered.subject, rendered.body, new Date().toISOString(), c.id);
+        });
+        await env.DB.batch(ops);
+        updated += rs.results.length;
+        if (rs.results.length < BATCH) break;
+        offset += BATCH;
+      }
+      return Response.json({ updated });
+    }
 
     // dashboard — Basic Auth
     const authFail = requireAuth(req, env.WEBHOOK_SECRET);
     if (authFail) return authFail;
 
     if (path === "/" && req.method === "GET") return handleList(env, url);
+    if (path === "/templates" && req.method === "GET") {
+      // Stats par template
+      const stats = await env.DB.prepare(
+        `SELECT template_id, COUNT(*) AS n FROM contacts WHERE is_primary=1 GROUP BY template_id`
+      ).all<{ template_id: string; n: number }>();
+      const counts: Record<string, number> = {};
+      for (const r of stats.results) counts[r.template_id || "(none)"] = r.n;
+      return renderTemplatesPage(TEMPLATES, counts);
+    }
     if (path === "/stats" && req.method === "GET") {
       const s = await getStats(env);
       return renderStats(s);
@@ -490,6 +549,8 @@ export default {
     if (quick && req.method === "POST") return handleQuickFlag(env, parseInt(quick[1], 10), req);
     const swap = path.match(/^\/c\/(\d+)\/swap-primary$/);
     if (swap && req.method === "POST") return handleSwapPrimary(env, parseInt(swap[1], 10), req);
+    const applyTpl = path.match(/^\/c\/(\d+)\/apply-template$/);
+    if (applyTpl && req.method === "POST") return handleApplyTemplate(env, parseInt(applyTpl[1], 10), req);
     const notes = path.match(/^\/c\/(\d+)\/notes$/);
     if (notes && req.method === "POST") return handleSaveNotes(env, parseInt(notes[1], 10), req);
 
