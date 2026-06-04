@@ -134,8 +134,8 @@ async function main() {
       finess: r.finess || "",
       siret: r.siret || "",
       specialite: guessSpec(nom),
-      source: "scraping_fr",
-      segment: "B_standard",
+      source: process.env.SOURCE || "scraping_fr",
+      segment: process.env.SEGMENT || "B_standard",
       first_name: null,
     };
     for (const email of emails) {
