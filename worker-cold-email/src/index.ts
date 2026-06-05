@@ -21,8 +21,9 @@
 import { buildJ4, buildJ9, wrapJ0Body, type Contact } from "./templates";
 import { TEMPLATES, templateById, pickTemplateFor } from "./templates-library";
 import { requireAuth } from "./auth";
-import { renderList, renderDetail, renderStats, renderTemplatesPage } from "./views";
+import { renderList, renderDetail, renderStats, renderTemplatesPage, renderOffersPage } from "./views";
 import { regionFromDept, ALL_REGIONS } from "./regions";
+import { OFFERS } from "./offers";
 
 export interface Env {
   DB: D1Database;
@@ -528,6 +529,7 @@ export default {
     if (authFail) return authFail;
 
     if (path === "/" && req.method === "GET") return handleList(env, url);
+    if (path === "/offres" && req.method === "GET") return renderOffersPage(OFFERS);
     if (path === "/templates" && req.method === "GET") {
       // Stats par template
       const stats = await env.DB.prepare(

@@ -26,6 +26,7 @@ function shell(title: string, body: string): Response {
     <a href="/?status=validated" class="text-sm text-slate-600 hover:text-slate-900">Validés</a>
     <a href="/?status=sent" class="text-sm text-slate-600 hover:text-slate-900">Envoyés</a>
     <a href="/templates" class="text-sm text-slate-600 hover:text-slate-900">Modèles</a>
+    <a href="/offres" class="text-sm text-slate-600 hover:text-slate-900">Offres</a>
     <a href="/stats" class="text-sm text-slate-600 hover:text-slate-900">Stats</a>
   </div>
 </nav>
@@ -310,6 +311,62 @@ export function renderTemplatesPage(templates: any[], counts: Record<string, num
     <h1 class="text-xl font-bold mb-1">10 modèles de cold email</h1>
     <p class="text-sm text-slate-500 mb-4">Chaque CDS reçoit un modèle attribué automatiquement selon sa spécialité, son segment ou un hash de l'email. Ouvre une fiche pour changer manuellement le modèle d'un CDS donné.</p>
     <div class="grid lg:grid-cols-2 gap-4">${cards}</div>`);
+}
+
+export function renderOffersPage(offers: any[]): Response {
+  const cards = offers.map((o: any) => `
+    <div class="bg-white rounded-lg border ${o.recommended ? "border-emerald-400 ring-2 ring-emerald-100" : ""} p-4">
+      <div class="flex items-start justify-between mb-1 gap-3">
+        <h2 class="text-base font-bold leading-tight">${esc(o.name)}</h2>
+        ${o.recommended ? `<span class="text-xs px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 whitespace-nowrap">⭐ Défaut</span>` : ""}
+      </div>
+      <p class="text-sm text-slate-600 italic mb-3">${esc(o.tagline)}</p>
+
+      <div class="space-y-2 text-sm">
+        <div class="bg-slate-50 rounded p-2">
+          <div class="text-[10px] uppercase tracking-wider text-slate-500 mb-0.5">Formule</div>
+          <div class="text-slate-800">${esc(o.pricing)}</div>
+        </div>
+        <div>
+          <div class="text-[10px] uppercase tracking-wider text-slate-500 mb-0.5">Pour qui</div>
+          <div class="text-slate-700 text-xs">${esc(o.forWho)}</div>
+        </div>
+        <div class="bg-amber-50 rounded p-2 border border-amber-100">
+          <div class="text-[10px] uppercase tracking-wider text-amber-700 mb-0.5">Phrase à dire au call</div>
+          <div class="text-amber-900 text-xs italic">"${esc(o.pitch)}"</div>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="bg-emerald-50 rounded p-2 border border-emerald-100">
+            <div class="text-[10px] uppercase tracking-wider text-emerald-700 mb-0.5">👤 Win CDS</div>
+            <div class="text-emerald-900 text-xs">${esc(o.winCds)}</div>
+          </div>
+          <div class="bg-sky-50 rounded p-2 border border-sky-100">
+            <div class="text-[10px] uppercase tracking-wider text-sky-700 mb-0.5">💼 Win Sacha</div>
+            <div class="text-sky-900 text-xs">${esc(o.winSacha)}</div>
+          </div>
+        </div>
+        ${o.notes ? `<div class="text-[11px] text-slate-500 border-l-2 border-slate-200 pl-2 italic">${esc(o.notes)}</div>` : ""}
+      </div>
+    </div>`).join("");
+
+  const body = `
+  <div class="mb-4">
+    <h1 class="text-xl font-bold mb-1">Bibliothèque d'offres</h1>
+    <p class="text-sm text-slate-500">8 modèles d'offres, à choisir/mixer en fin de call selon le profil prospect. Toutes respectent les règles : <strong>100% au succès, aucune avance, aucun engagement de durée, aucun audit gratuit.</strong> L'offre marquée ⭐ est le défaut recommandé.</p>
+  </div>
+  <div class="grid lg:grid-cols-2 gap-4">${cards}</div>
+  <div class="mt-6 bg-slate-50 border rounded p-4 text-sm">
+    <h3 class="font-bold mb-2">Comment choisir en call</h3>
+    <ul class="space-y-1 text-slate-700">
+      <li>• <strong>Défaut</strong> → Modèle 1 (1.5% du brut) : pour 90% des prospects</li>
+      <li>• Prospect dit "j'aime pas les %" → Modèle 2 (forfait fixe) ou 3 (paliers)</li>
+      <li>• Prospect dit "récurrent c'est non" → Modèle 8 (an 1 seulement)</li>
+      <li>• Prospect dit "vous êtes pas un cabinet sérieux" → Modèle 5 (paiement par livrables) ou 7 (TJM)</li>
+      <li>• Prospect veut un partenaire continu → Modèle 6 (abonnement veille)</li>
+      <li>• Le prospect maîtrise le marché fee-recovery → Modèle 4 (% du récupéré, plus standard)</li>
+    </ul>
+  </div>`;
+  return shell("Offres", body);
 }
 
 export function renderStats(data: any): Response {
