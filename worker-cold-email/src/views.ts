@@ -27,6 +27,7 @@ function shell(title: string, body: string): Response {
     <a href="/?status=sent" class="text-sm text-slate-600 hover:text-slate-900">Envoyés</a>
     <a href="/templates" class="text-sm text-slate-600 hover:text-slate-900">Modèles</a>
     <a href="/offres" class="text-sm text-slate-600 hover:text-slate-900">Offres</a>
+    <a href="/strategie" class="text-sm text-slate-600 hover:text-slate-900">Stratégie</a>
     <a href="/stats" class="text-sm text-slate-600 hover:text-slate-900">Stats</a>
   </div>
 </nav>
@@ -367,6 +368,183 @@ export function renderOffersPage(offers: any[]): Response {
     </ul>
   </div>`;
   return shell("Offres", body);
+}
+
+// ============================================================================
+// Page Stratégie : checklist pré-launch + plan en phases + KPI live + playbook
+// ============================================================================
+export function renderStrategiePage(opts: {
+  settings: Record<string, string>,
+  metrics: {
+    total: number; reviewable: number; validated: number; sent_total: number;
+    sent_today: number; sent_7d: number; open_rate: number | null;
+    reply_rate: number | null; bounce_rate: number | null;
+    bookings: number;
+    by_region: Array<{ region: string; reviewable: number }>;
+  },
+}): Response {
+  const { settings, metrics } = opts;
+  const checked = (k: string) => settings[`checklist.${k}`] === "1";
+  const launchReady = ["dmarc","dkim","calendly","pitch_oral","creneaux","test_send"].every(k => checked(k));
+  const phaseCurrent = parseInt(settings.phase_current || "0", 10);
+
+  const checkbox = (key: string, label: string, why: string) => `
+    <form method="post" action="/strategie/toggle" class="flex items-start gap-3 py-2 border-b last:border-0">
+      <input type="hidden" name="key" value="checklist.${key}">
+      <input type="hidden" name="value" value="${checked(key) ? "0" : "1"}">
+      <button class="mt-0.5 w-5 h-5 rounded border-2 flex items-center justify-center ${checked(key) ? "bg-emerald-500 border-emerald-500 text-white" : "border-slate-300 hover:border-slate-500"}" title="Toggle">
+        ${checked(key) ? "✓" : ""}
+      </button>
+      <div class="flex-1">
+        <div class="text-sm font-medium ${checked(key) ? "text-slate-400 line-through" : "text-slate-900"}">${esc(label)}</div>
+        <div class="text-xs text-slate-500">${esc(why)}</div>
+      </div>
+    </form>`;
+
+  const phaseRow = (n: number, name: string, target: string, volume: string, templates: string) => `
+    <div class="border rounded-lg p-3 ${phaseCurrent === n ? "border-emerald-400 ring-2 ring-emerald-100" : "border-slate-200"}">
+      <div class="flex items-start justify-between mb-2">
+        <h3 class="font-bold text-sm">Phase ${n} · ${esc(name)}</h3>
+        ${phaseCurrent === n ? `<span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">EN COURS</span>` : phaseCurrent > n ? `<span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">FAIT</span>` : ""}
+      </div>
+      <div class="text-xs text-slate-600 space-y-1">
+        <div><span class="text-slate-400">Cible :</span> ${esc(target)}</div>
+        <div><span class="text-slate-400">Volume :</span> ${esc(volume)}</div>
+        <div><span class="text-slate-400">Templates :</span> ${esc(templates)}</div>
+      </div>
+    </div>`;
+
+  const kpiCard = (label: string, value: string, threshold: string, ok: boolean | null) => `
+    <div class="bg-white rounded border p-3">
+      <div class="text-xs text-slate-500">${esc(label)}</div>
+      <div class="text-xl font-bold mt-1 ${ok === false ? "text-rose-600" : ok === true ? "text-emerald-600" : "text-slate-900"}">${esc(value)}</div>
+      <div class="text-[10px] text-slate-400">${esc(threshold)}</div>
+    </div>`;
+
+  const openOk = metrics.open_rate === null ? null : metrics.open_rate >= 40;
+  const replyOk = metrics.reply_rate === null ? null : metrics.reply_rate >= 5;
+  const bounceOk = metrics.bounce_rate === null ? null : metrics.bounce_rate < 3;
+
+  const replyLine = (cas: string, response: string) => `
+    <div class="py-2 border-b last:border-0">
+      <div class="text-xs uppercase tracking-wider text-slate-500 mb-0.5">${esc(cas)}</div>
+      <div class="text-sm text-slate-800 italic">"${esc(response)}"</div>
+    </div>`;
+
+  const body = `
+  <div class="mb-4">
+    <h1 class="text-xl font-bold mb-1">Stratégie de campagne</h1>
+    <p class="text-sm text-slate-500">Le plan en 4 phases, les KPI live, le playbook de réponses. Toutes les cases cochables sont stockées en base — quand tout est vert, tu peux lancer.</p>
+  </div>
+
+  ${!launchReady ? `
+  <div class="mb-4 bg-amber-50 border border-amber-300 rounded p-3 text-sm text-amber-900">
+    ⚠️ <strong>Lancement bloqué</strong> : il reste des cases non-cochées dans la checklist pré-lancement.
+  </div>` : `
+  <div class="mb-4 bg-emerald-50 border border-emerald-400 rounded p-3 text-sm text-emerald-900">
+    ✅ <strong>Prêt à lancer.</strong> Active le cron via le worker (décommenter le schedule dans wrangler.toml + deploy) et valide les premiers contacts.
+  </div>`}
+
+  <div class="grid lg:grid-cols-3 gap-4 mb-6">
+    <section class="lg:col-span-1 bg-white rounded-lg border p-4">
+      <h2 class="font-bold mb-2">Checklist pré-lancement</h2>
+      <p class="text-xs text-slate-500 mb-2">Tu coches au fur et à mesure que tu fais.</p>
+      ${checkbox("dmarc",       "Setup DMARC chez OVH",      "Sans DMARC strict, tes mails finissent en spam Gmail/Outlook")}
+      ${checkbox("dkim",        "DKIM Resend propagé",        "Vérifier que les CNAME ajoutés chez OVH sont actifs (mxtoolbox.com/dmarc.aspx)")}
+      ${checkbox("calendly",    "Calendly / Cal.com actif",   "Lien à coller dans chaque réponse positive")}
+      ${checkbox("pitch_oral",  "Pitch oral du call écrit",   "15 min, scripté, avec gestion des objections — voir doc séparée")}
+      ${checkbox("creneaux",    "Agenda bloqué : 2-3 créneaux 30 min/semaine pour calls", "Tu vas avoir besoin de répondre dispo vite, donc pré-bloque")}
+      ${checkbox("test_send",   "Test send à toi-même + 2 amis", "Vérifier rendu, anti-spam et que le lien d'unsub fonctionne")}
+    </section>
+
+    <section class="lg:col-span-2 bg-white rounded-lg border p-4">
+      <h2 class="font-bold mb-2">KPI live</h2>
+      <p class="text-xs text-slate-500 mb-3">Mis à jour automatiquement dès que les premiers mails partent.</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-3">
+        ${kpiCard("Reviewable",   String(metrics.reviewable),       "Contacts à reviewer",      null)}
+        ${kpiCard("Validés",      String(metrics.validated),        "File d'envoi",             null)}
+        ${kpiCard("Envoyés (7j)", String(metrics.sent_7d),          "Envoyés 7 derniers jours", null)}
+        ${kpiCard("Bookings",     String(metrics.bookings),         "Calls bookés",             null)}
+      </div>
+      <div class="grid grid-cols-3 gap-2">
+        ${kpiCard("Open rate",   metrics.open_rate   === null ? "—" : metrics.open_rate.toFixed(1) + "%",   "Objectif > 40%", openOk)}
+        ${kpiCard("Reply rate",  metrics.reply_rate  === null ? "—" : metrics.reply_rate.toFixed(1) + "%",  "Objectif > 5%",  replyOk)}
+        ${kpiCard("Bounce rate", metrics.bounce_rate === null ? "—" : metrics.bounce_rate.toFixed(1) + "%", "Objectif < 3%",  bounceOk)}
+      </div>
+    </section>
+  </div>
+
+  <h2 class="font-bold mb-2">Phases du plan</h2>
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+    ${phaseRow(0, "Setup (avant J+0)", "Toi-même",
+      "0 envoi tant que la checklist n'est pas tout verte",
+      "—")}
+    ${phaseRow(1, "Pilot IDF (sem. 1-2)", "50 CDS IDF les plus solides",
+      "10-15 / jour, mar-jeu uniquement, 10h-11h",
+      "Rotation t01/t03/t04/t06 puis garde le meilleur")}
+    ${phaseRow(2, "Scale IDF (sem. 3-4)", "Reste des 133 IDF reviewable",
+      "30 / jour + relances J+4 J+9 auto",
+      "Meilleur template phase 1")}
+    ${phaseRow(3, "National (sem. 5-8)", "Reste France, par région",
+      "30 / jour, rotation full 10 templates",
+      "A/B test par sous-segment")}
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-4 mb-6">
+    <section class="bg-white rounded-lg border p-4">
+      <h2 class="font-bold mb-2">Triggers de décision</h2>
+      <p class="text-xs text-slate-500 mb-2">Si une métrique passe sous ces seuils → action immédiate.</p>
+      <table class="text-sm w-full">
+        <tr class="border-b"><td class="py-1.5">Open rate &lt; 30%</td><td class="text-slate-600">→ tester 3 nouveaux objets</td></tr>
+        <tr class="border-b"><td class="py-1.5">Reply rate &lt; 3%</td><td class="text-slate-600">→ raccourcir le corps</td></tr>
+        <tr class="border-b"><td class="py-1.5">Bounce rate &gt; 5%</td><td class="text-slate-600">→ pause, re-passer audit-idf.mjs</td></tr>
+        <tr class="border-b"><td class="py-1.5">Spam complaint &gt; 0</td><td class="text-slate-600 font-bold">→ STOP TOUT, diagnose Resend</td></tr>
+        <tr><td class="py-1.5">Book rate &lt; 1.5%</td><td class="text-slate-600">→ CTA pas clair, revoir dernière phrase</td></tr>
+      </table>
+    </section>
+
+    <section class="bg-white rounded-lg border p-4">
+      <h2 class="font-bold mb-2">Playbook de réponses</h2>
+      <p class="text-xs text-slate-500 mb-2">Réponse en &lt; 4h pendant heures ouvrées. Templates prêts à coller.</p>
+      ${replyLine("Intéressé / dites-en plus",
+        "Je préfère vous expliquer en direct, c'est plus rapide. 15 min cette semaine ? → [lien Calendly]")}
+      ${replyLine("Envoyez-moi une plaquette",
+        "Je n'envoie pas de doc générique. 15 min en visio j'aurai une vraie réponse à votre situation → [lien]")}
+      ${replyLine("Pas pour nous / pas le moment",
+        "Pas de souci, je vous retire de la liste. Si la situation évolue : sacha@opti-cds.fr")}
+      ${replyLine("STOP / désinscription",
+        "(géré automatiquement via /u/ — supprime aussi des futures campagnes)")}
+    </section>
+  </div>
+
+  <section class="bg-slate-50 rounded-lg border p-4 text-sm">
+    <h2 class="font-bold mb-2">Cadence opérationnelle hebdo</h2>
+    <ul class="space-y-1 text-slate-700">
+      <li>• <strong>Lundi matin</strong> : review KPIs sem N-1 sur cette page, valider le batch de la semaine dans la liste</li>
+      <li>• <strong>Mardi-mercredi-jeudi</strong> : jours d'envoi + check inbox toutes les 2h pour répondre vite</li>
+      <li>• <strong>Vendredi</strong> : réponses en retard, nettoyer la liste (flag bad_email résiduels), prépa sem N+1</li>
+    </ul>
+  </section>
+
+  <div class="mt-6 grid md:grid-cols-3 gap-3">
+    <a href="/?status=draft&region=Île-de-France" class="bg-emerald-50 border border-emerald-300 rounded-lg p-3 hover:border-emerald-500 transition">
+      <div class="text-xs uppercase text-emerald-700">Action 1</div>
+      <div class="font-bold mt-1">Reviewer les 133 CDS IDF</div>
+      <div class="text-xs text-slate-600 mt-1">C'est ici que tu prépares ta phase 1 (50 CDS solides à valider).</div>
+    </a>
+    <a href="/templates" class="bg-sky-50 border border-sky-300 rounded-lg p-3 hover:border-sky-500 transition">
+      <div class="text-xs uppercase text-sky-700">Action 2</div>
+      <div class="font-bold mt-1">Vérifier les 10 modèles</div>
+      <div class="text-xs text-slate-600 mt-1">Tu peux ajuster la formulation avant d'envoyer.</div>
+    </a>
+    <a href="/offres" class="bg-amber-50 border border-amber-300 rounded-lg p-3 hover:border-amber-500 transition">
+      <div class="text-xs uppercase text-amber-700">Action 3</div>
+      <div class="font-bold mt-1">Choisir ton offre par défaut</div>
+      <div class="text-xs text-slate-600 mt-1">Le modèle 1 (1.5% pure success) est ton arme principale.</div>
+    </a>
+  </div>`;
+
+  return shell("Stratégie", body);
 }
 
 export function renderStats(data: any): Response {

@@ -21,7 +21,7 @@
 import { buildJ4, buildJ9, wrapJ0Body, type Contact } from "./templates";
 import { TEMPLATES, templateById, pickTemplateFor } from "./templates-library";
 import { requireAuth } from "./auth";
-import { renderList, renderDetail, renderStats, renderTemplatesPage, renderOffersPage } from "./views";
+import { renderList, renderDetail, renderStats, renderTemplatesPage, renderOffersPage, renderStrategiePage } from "./views";
 import { regionFromDept, ALL_REGIONS } from "./regions";
 import { OFFERS } from "./offers";
 
@@ -530,6 +530,76 @@ export default {
 
     if (path === "/" && req.method === "GET") return handleList(env, url);
     if (path === "/offres" && req.method === "GET") return renderOffersPage(OFFERS);
+    if (path === "/strategie" && req.method === "GET") {
+      const settingsRows = (await env.DB.prepare(`SELECT key, value FROM settings`).all<{ key: string; value: string }>()).results;
+      const settings: Record<string, string> = {};
+      for (const r of settingsRows) settings[r.key] = r.value || "";
+
+      const reviewable = (await env.DB.prepare(
+        `SELECT COUNT(*) n FROM contacts WHERE is_primary=1 AND draft_status='draft'`
+      ).first<{ n: number }>())?.n || 0;
+      const validated = (await env.DB.prepare(
+        `SELECT COUNT(*) n FROM contacts WHERE is_primary=1 AND draft_status='validated'`
+      ).first<{ n: number }>())?.n || 0;
+      const total = (await env.DB.prepare(
+        `SELECT COUNT(*) n FROM contacts WHERE is_primary=1`
+      ).first<{ n: number }>())?.n || 0;
+      const sentTotal = (await env.DB.prepare(
+        `SELECT COUNT(*) n FROM sends WHERE status NOT IN ('error')`
+      ).first<{ n: number }>())?.n || 0;
+      const sentToday = (await env.DB.prepare(
+        `SELECT COUNT(*) n FROM sends WHERE status NOT IN ('error') AND datetime(sent_at) >= datetime('now','-1 day')`
+      ).first<{ n: number }>())?.n || 0;
+      const sent7d = (await env.DB.prepare(
+        `SELECT COUNT(*) n FROM sends WHERE status NOT IN ('error') AND datetime(sent_at) >= datetime('now','-7 days')`
+      ).first<{ n: number }>())?.n || 0;
+
+      // Open rate = sends.status='opened' / total delivered
+      const opened = (await env.DB.prepare(
+        `SELECT COUNT(*) n FROM sends WHERE status IN ('opened','clicked')`
+      ).first<{ n: number }>())?.n || 0;
+      const delivered = (await env.DB.prepare(
+        `SELECT COUNT(*) n FROM sends WHERE status IN ('delivered','opened','clicked')`
+      ).first<{ n: number }>())?.n || 0;
+      const bounced = (await env.DB.prepare(
+        `SELECT COUNT(*) n FROM sends WHERE status IN ('bounced','complained')`
+      ).first<{ n: number }>())?.n || 0;
+      const replied = (await env.DB.prepare(
+        `SELECT COUNT(*) n FROM contacts WHERE status='replied'`
+      ).first<{ n: number }>())?.n || 0;
+
+      const open_rate = delivered > 0 ? (opened * 100 / delivered) : null;
+      const bounce_rate = sentTotal > 0 ? (bounced * 100 / sentTotal) : null;
+      const reply_rate = sentTotal > 0 ? (replied * 100 / sentTotal) : null;
+
+      const by_region = (await env.DB.prepare(
+        `SELECT region, COUNT(*) AS reviewable FROM contacts WHERE is_primary=1 AND draft_status='draft' AND region IS NOT NULL GROUP BY region ORDER BY reviewable DESC`
+      ).all<{ region: string; reviewable: number }>()).results;
+
+      return renderStrategiePage({
+        settings,
+        metrics: {
+          total, reviewable, validated,
+          sent_total: sentTotal, sent_today: sentToday, sent_7d: sent7d,
+          open_rate, reply_rate, bounce_rate,
+          bookings: 0,
+          by_region,
+        },
+      });
+    }
+    if (path === "/strategie/toggle" && req.method === "POST") {
+      const form = await req.formData();
+      const key = String(form.get("key") || "");
+      const value = String(form.get("value") || "0");
+      if (!key.startsWith("checklist.") && key !== "phase_current" && key !== "launch_date") {
+        return new Response("Bad key", { status: 400 });
+      }
+      await env.DB.prepare(
+        `INSERT INTO settings (key, value, updated_at) VALUES (?, ?, datetime('now'))
+         ON CONFLICT(key) DO UPDATE SET value=excluded.value, updated_at=excluded.updated_at`
+      ).bind(key, value).run();
+      return Response.redirect(`${new URL(req.url).origin}/strategie`, 303);
+    }
     if (path === "/templates" && req.method === "GET") {
       // Stats par template
       const stats = await env.DB.prepare(
