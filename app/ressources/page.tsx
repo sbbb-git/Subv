@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
-import { posts } from "@/content/posts";
+import { publishedPosts } from "@/content/posts";
 
 export const metadata: Metadata = {
   title: "Ressources : subventions, financements, gestion de centre de santé",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
+  const sorted = [...publishedPosts()].sort((a, b) => b.date.localeCompare(a.date));
   return (
     <>
       <section className="relative bg-gradient-to-b from-soft to-white overflow-hidden border-b border-line">

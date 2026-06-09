@@ -1,0 +1,46 @@
+name: Daily publish
+
+# Rebuild + redéploie le site chaque jour.
+# Effet : un nouvel article du calendrier éditorial (content/posts.ts) devient
+# visible automatiquement à sa date de publication, sans intervention manuelle.
+#
+# IMPORTANT — pré-requis (à faire une seule fois) :
+#   1. Ce workflow doit être présent sur la branche par DÉFAUT du dépôt
+#      (main / master). GitHub n'exécute les "schedule" que depuis la branche
+#      par défaut. Tant que tout est sur la branche de feature, seul le
+#      déclenchement manuel (workflow_dispatch) fonctionne.
+#   2. Ajouter dans Settings → Secrets and variables → Actions :
+#        - Secret  CLOUDFLARE_API_TOKEN   (token avec permission "Cloudflare Pages : Edit")
+#        - Secret  CLOUDFLARE_ACCOUNT_ID  (dadded28b1d9f58295d135e40875d2f1)
+#        - Variable CF_PAGES_PROJECT      (le nom exact du projet Pages, ex: "subvention-teulade")
+#      Pour trouver le nom du projet : dashboard Cloudflare → Workers & Pages.
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # tous les jours à 06:00 UTC (~8h Paris)
+  workflow_dispatch: {}    # déclenchement manuel possible depuis l'onglet Actions
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler@3 pages deploy out --project-name="${{ vars.CF_PAGES_PROJECT }}" --branch=main

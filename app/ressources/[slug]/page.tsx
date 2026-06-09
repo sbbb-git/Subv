@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
-import { posts, getPost } from "@/content/posts";
+import { publishedPosts, getPost } from "@/content/posts";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
 type Params = { slug: string };
 
 export function generateStaticParams() {
-  return posts.map((p) => ({ slug: p.slug }));
+  return publishedPosts().map((p) => ({ slug: p.slug }));
 }
 
 export function generateMetadata({ params }: { params: Params }): Metadata {
@@ -32,7 +32,7 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
 export default function Page({ params }: { params: Params }) {
   const post = getPost(params.slug);
   if (!post) notFound();
-  const related = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const related = publishedPosts().filter((p) => p.slug !== post.slug).slice(0, 3);
 
   const articleLd = {
     "@context": "https://schema.org",

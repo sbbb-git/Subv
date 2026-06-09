@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { services } from "@/content/services";
 import { cdsTypes } from "@/content/types";
-import { posts } from "@/content/posts";
+import { publishedPosts } from "@/content/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -37,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.75,
     })),
-    ...posts.map((p) => ({
+    ...publishedPosts().map((p) => ({
       url: `${SITE_URL}/ressources/${p.slug}`,
       lastModified: new Date(p.date),
       changeFrequency: "monthly" as const,
