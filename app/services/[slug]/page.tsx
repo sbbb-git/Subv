@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
 import { services } from "@/content/services";
-import { SITE_URL } from "@/lib/seo";
+import { makePageMeta } from "@/lib/seo";
 
 type Params = { slug: string };
 
@@ -16,11 +16,12 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
   const s = services.find((x) => x.slug === params.slug);
   if (!s) return {};
   return {
-    title: s.metaTitle,
-    description: s.metaDescription,
+    ...makePageMeta({
+      title: s.metaTitle,
+      description: s.metaDescription,
+      path: `/services/${s.slug}`,
+    }),
     keywords: s.keywords,
-    alternates: { canonical: `/services/${s.slug}` },
-    openGraph: { title: s.metaTitle, description: s.metaDescription, url: `${SITE_URL}/services/${s.slug}` },
   };
 }
 

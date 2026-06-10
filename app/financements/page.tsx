@@ -2,13 +2,15 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
-import { SITE_URL } from "@/lib/seo";
+import { makePageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Financement d’un centre de santé : tous les dispositifs",
-  description:
-    "Panorama des financements et subventions mobilisables par un centre de santé : rémunérations conventionnelles, dispositifs forfaitaires, subvention Teulade, aides à l’installation.",
-  alternates: { canonical: "/financements" },
+  ...makePageMeta({
+    title: "Financement d’un centre de santé",
+    description:
+      "Panorama des financements et subventions d’un centre de santé : rémunérations, forfaits, Teulade, aides à l’installation.",
+    path: "/financements",
+  }),
   keywords: [
     "financement centre de santé",
     "financement cds",
@@ -18,11 +20,6 @@ export const metadata: Metadata = {
     "subvention teulade",
     "dispositif financier centre de santé",
   ],
-  openGraph: {
-    title: "Financement d’un centre de santé : tous les dispositifs",
-    description: "Vue d’ensemble des financements et subventions d’un CDS.",
-    url: `${SITE_URL}/financements`,
-  },
 };
 
 const items = [

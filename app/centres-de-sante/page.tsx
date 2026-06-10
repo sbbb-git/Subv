@@ -3,12 +3,15 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
 import { cdsTypes } from "@/content/types";
+import { makePageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Centres de santé : typologies et accompagnement",
-  description:
-    "Tous les types de centres de santé : médical, dentaire, infirmier, polyvalent, pluriprofessionnel, municipal, associatif, mutualiste. Accompagnement Opti-CDS.",
-  alternates: { canonical: "/centres-de-sante" },
+  ...makePageMeta({
+    title: "Centres de santé : typologies et accompagnement",
+    description:
+      "Tous les types de centres de santé : médical, dentaire, infirmier, polyvalent, pluriprofessionnel, municipal, associatif, mutualiste.",
+    path: "/centres-de-sante",
+  }),
   keywords: [
     "centre de santé médical",
     "centre de santé dentaire",

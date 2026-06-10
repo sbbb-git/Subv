@@ -3,13 +3,14 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
 import { Faq } from "@/components/Faq";
+import { makePageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "FAQ : subventions et accompagnement des centres de santé",
+export const metadata: Metadata = makePageMeta({
+  title: "FAQ : subventions des centres de santé",
   description:
-    "Questions fréquentes sur les subventions, le financement et l’accompagnement des centres de santé. Subvention Teulade, financements CDS, création.",
-  alternates: { canonical: "/faq" },
-};
+    "Questions fréquentes sur les subventions, le financement et l’accompagnement des centres de santé : Teulade, financements CDS, création.",
+  path: "/faq",
+});
 
 const faqs = [
   { q: "Qu’est-ce que la subvention Teulade ?", a: "Un dispositif spécifique aux centres de santé conventionnés, prévu par le code de la sécurité sociale. Il s’inscrit dans l’ensemble des financements publics et conventionnels mobilisables par un CDS." },

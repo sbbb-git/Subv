@@ -16,7 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/faq", priority: 0.75, freq: "monthly" },
     { path: "/lexique", priority: 0.6, freq: "yearly" },
     { path: "/contact", priority: 0.9, freq: "yearly" },
-    { path: "/mentions-legales", priority: 0.1, freq: "yearly" },
+    // /mentions-legales est volontairement noindex (cf. app/mentions-legales/page.tsx),
+    // donc on ne l'inclut PAS dans le sitemap (sinon Ahrefs flag "Noindex page in sitemap").
   ];
   return [
     ...staticRoutes.map(({ path, priority, freq }) => ({

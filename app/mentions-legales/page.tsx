@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { SITE_NAME, CONTACT_EMAIL } from "@/lib/seo";
+import { SITE_NAME, CONTACT_EMAIL, makePageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Mentions légales",
-  description: "Mentions légales de Opti-CDS.",
-  alternates: { canonical: "/mentions-legales" },
+  ...makePageMeta({
+    title: "Mentions légales",
+    description:
+      "Mentions légales du site Opti-CDS : éditeur, hébergement, propriété intellectuelle et données personnelles.",
+    path: "/mentions-legales",
+  }),
   robots: { index: false, follow: true },
 };
 

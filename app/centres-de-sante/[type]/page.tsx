@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
 import { cdsTypes, getType } from "@/content/types";
-import { SITE_URL } from "@/lib/seo";
+import { makePageMeta } from "@/lib/seo";
 
 type Params = { type: string };
 
@@ -15,12 +15,18 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: Params }): Metadata {
   const t = getType(params.type);
   if (!t) return {};
+  // Cible Ahrefs : title ≤ 60 chars, description 70-160. Le suffixe
+  // "· Opti-CDS" (11 chars) est ajouté via le template du root layout, donc
+  // on garde un title de base court.
+  const lname = t.name.toLowerCase();
+  const description = `${t.short} Subventions, financements et accompagnement du ${lname} par une équipe spécialisée.`;
   return {
-    title: `${t.longName} : accompagnement et financements`,
-    description: `${t.longName} : accompagnement, subventions, financements, gestion. Opti-CDS accompagne les centres de santé.`,
-    alternates: { canonical: `/centres-de-sante/${t.slug}` },
-    keywords: [t.name.toLowerCase(), `subventions ${t.name.toLowerCase()}`, `financement ${t.name.toLowerCase()}`],
-    openGraph: { title: t.longName, description: t.short, url: `${SITE_URL}/centres-de-sante/${t.slug}` },
+    ...makePageMeta({
+      title: t.name,
+      description: description.slice(0, 158),
+      path: `/centres-de-sante/${t.slug}`,
+    }),
+    keywords: [lname, `subventions ${lname}`, `financement ${lname}`],
   };
 }
 

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
 import { publishedPosts, getPost } from "@/content/posts";
-import { SITE_NAME, SITE_URL } from "@/lib/seo";
+import { SITE_NAME, SITE_URL, OG_IMAGE, makePageMeta } from "@/lib/seo";
 
 type Params = { slug: string };
 
@@ -15,18 +15,13 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: Params }): Metadata {
   const post = getPost(params.slug);
   if (!post) return {};
-  return {
+  return makePageMeta({
     title: post.title,
     description: post.description,
-    alternates: { canonical: `/ressources/${post.slug}` },
-    openGraph: {
-      type: "article",
-      title: post.title,
-      description: post.description,
-      url: `${SITE_URL}/ressources/${post.slug}`,
-      publishedTime: post.date,
-    },
-  };
+    path: `/ressources/${post.slug}`,
+    ogType: "article",
+    publishedTime: post.date,
+  });
 }
 
 export default function Page({ params }: { params: Params }) {
@@ -34,15 +29,27 @@ export default function Page({ params }: { params: Params }) {
   if (!post) notFound();
   const related = publishedPosts().filter((p) => p.slug !== post.slug).slice(0, 3);
 
+  // Schema.org Article complet : image, dateModified, publisher.logo,
+  // mainEntityOfPage typé. Sans ces champs, le Google Rich Results Test
+  // et Ahrefs flagent "Structured data has schema.org validation error".
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.description,
+    image: [`${SITE_URL}${OG_IMAGE}`],
     datePublished: post.date,
-    author: { "@type": "Organization", name: SITE_NAME },
-    publisher: { "@type": "Organization", name: SITE_NAME },
-    mainEntityOfPage: `${SITE_URL}/ressources/${post.slug}`,
+    dateModified: post.date,
+    author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}${OG_IMAGE}` },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/ressources/${post.slug}`,
+    },
   };
 
   return (

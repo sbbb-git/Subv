@@ -3,13 +3,15 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
 import { Faq } from "@/components/Faq";
-import { SITE_URL } from "@/lib/seo";
+import { makePageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Subvention Teulade : nous faisons les démarches à votre place",
-  description:
-    "Subvention Teulade : nous prenons en charge la constitution du dossier, la récupération des pièces justificatives, le calcul, la transmission à la CPAM, les échanges et le suivi jusqu’au versement.",
-  alternates: { canonical: "/subvention-teulade" },
+  ...makePageMeta({
+    title: "Subvention Teulade : on fait tout",
+    description:
+      "Constitution du dossier, pièces justificatives, calcul, transmission à la CPAM et suivi jusqu’au versement. On prend tout en charge.",
+    path: "/subvention-teulade",
+  }),
   keywords: [
     "subvention teulade",
     "subvention teulade cds",
@@ -25,11 +27,6 @@ export const metadata: Metadata = {
     "subventions cds",
     "dossier subvention teulade",
   ],
-  openGraph: {
-    title: "Subvention Teulade : nous faisons les démarches à votre place",
-    description: "Nous prenons en charge tout le dossier, de la constitution jusqu’au versement.",
-    url: `${SITE_URL}/subvention-teulade`,
-  },
 };
 
 const faqs = [

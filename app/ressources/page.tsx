@@ -3,13 +3,14 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
 import { publishedPosts } from "@/content/posts";
+import { makePageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Ressources : subventions, financements, gestion de centre de santé",
+export const metadata: Metadata = makePageMeta({
+  title: "Ressources sur les centres de santé",
   description:
-    "Ressources et analyses sur les subventions, les financements et la gestion des centres de santé. Subvention Teulade, financement CDS, création de centre.",
-  alternates: { canonical: "/ressources" },
-};
+    "Analyses sur les subventions, les financements et la gestion des centres de santé. Teulade, financement CDS, création de centre.",
+  path: "/ressources",
+});
 
 export default function Page() {
   const sorted = [...publishedPosts()].sort((a, b) => b.date.localeCompare(a.date));

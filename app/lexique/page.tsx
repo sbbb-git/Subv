@@ -2,13 +2,14 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
+import { makePageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Lexique : centres de santé, subventions, financements",
+export const metadata: Metadata = makePageMeta({
+  title: "Lexique des centres de santé",
   description:
     "Glossaire des termes clés des centres de santé : CDS, CMS, CSI, MSP, ARS, CPAM, subvention Teulade, ACI, FIR, conventionnement.",
-  alternates: { canonical: "/lexique" },
-};
+  path: "/lexique",
+});
 
 const terms = [
   { term: "CDS", def: "Centre de santé. Structure de soins ambulatoires définie par le code de la santé publique, qui emploie des soignants salariés." },

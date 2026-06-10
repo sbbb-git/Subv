@@ -11,7 +11,7 @@ export type Post = {
 export const posts: Post[] = [
   {
     slug: "subvention-teulade-centres-de-sante",
-    title: "Subvention Teulade : ce qu’il faut savoir pour un centre de santé",
+    title: "Subvention Teulade : ce qu’il faut savoir",
     description:
       "La subvention Teulade est l’un des dispositifs de financement spécifiques aux centres de santé. Présentation, principes généraux et raisons d’un accompagnement.",
     date: "2026-05-12",
@@ -30,7 +30,7 @@ export const posts: Post[] = [
   },
   {
     slug: "financement-centre-de-sante",
-    title: "Financement d’un centre de santé : panorama général",
+    title: "Financement d’un centre de santé",
     description:
       "Vue d’ensemble du financement d’un centre de santé : rémunérations conventionnelles, dispositifs forfaitaires, subventions, aides à l’installation.",
     date: "2026-04-22",
@@ -110,7 +110,7 @@ export const posts: Post[] = [
   },
   {
     slug: "developper-centre-de-sante",
-    title: "Développer un centre de santé : les bonnes questions",
+    title: "Développer un centre de santé",
     description:
       "Les bonnes questions à se poser avant d’élargir l’offre, ouvrir une antenne ou structurer un réseau multi-sites.",
     date: "2025-12-20",
@@ -134,9 +134,9 @@ export const posts: Post[] = [
   // ─────────────────────────────────────────────────────────────────────────
   {
     slug: "accord-national-centres-de-sante",
-    title: "Accord national des centres de santé : ce qu’il structure",
+    title: "Accord national des centres de santé",
     description:
-      "L’accord national encadre les relations entre les centres de santé et l’Assurance Maladie. Rémunérations, engagements, dispositifs forfaitaires : ce qu’il faut comprendre.",
+      "L’accord national encadre les relations entre les CDS et l’Assurance Maladie : rémunérations, engagements et dispositifs forfaitaires.",
     date: "2026-06-07",
     readingTime: "4 min",
     category: "Conventionnement",
@@ -153,7 +153,7 @@ export const posts: Post[] = [
   },
   {
     slug: "conventionnement-centre-de-sante",
-    title: "Conventionnement d’un centre de santé avec l’Assurance Maladie",
+    title: "Conventionnement d’un centre de santé",
     description:
       "Le conventionnement ouvre l’accès aux financements de l’Assurance Maladie. Conditions, démarches et points d’attention pour un centre de santé.",
     date: "2026-06-08",
@@ -191,7 +191,7 @@ export const posts: Post[] = [
   },
   {
     slug: "rosp-centre-de-sante",
-    title: "ROSP en centre de santé : la rémunération sur objectifs",
+    title: "ROSP en centre de santé",
     description:
       "La rémunération sur objectifs de santé publique concerne aussi les centres de santé. Principes, indicateurs et enjeux de pilotage.",
     date: "2026-06-10",
@@ -210,7 +210,7 @@ export const posts: Post[] = [
   },
   {
     slug: "statut-juridique-centre-de-sante",
-    title: "Statut juridique d’un centre de santé : quel choix",
+    title: "Statut juridique d’un centre de santé",
     description:
       "Association, mutuelle, collectivité, SCIC : le statut juridique d’un centre de santé conditionne sa gouvernance, sa fiscalité et ses financements.",
     date: "2026-06-11",
@@ -291,7 +291,7 @@ export const posts: Post[] = [
   },
   {
     slug: "centre-de-sante-ou-maison-de-sante",
-    title: "Centre de santé ou maison de santé : les différences",
+    title: "Centre de santé ou maison de santé",
     description:
       "Centre de santé et maison de santé répondent à des logiques différentes. Statut des praticiens, financement et gouvernance comparés.",
     date: "2026-06-15",
@@ -329,7 +329,7 @@ export const posts: Post[] = [
   },
   {
     slug: "tresorerie-centre-de-sante",
-    title: "Trésorerie d’un centre de santé : points de vigilance",
+    title: "Trésorerie d’un centre de santé",
     description:
       "La trésorerie est un point sensible des centres de santé. Délais de remboursement, charges fixes et financements à mobiliser.",
     date: "2026-06-17",
@@ -543,7 +543,7 @@ export const posts: Post[] = [
   },
   {
     slug: "aides-collectivites-centre-de-sante",
-    title: "Aides des collectivités territoriales aux centres de santé",
+    title: "Aides des collectivités aux CDS",
     description:
       "Communes, départements et régions soutiennent les centres de santé. Types d’aides et conditions de mobilisation.",
     date: "2026-06-28",
@@ -600,7 +600,7 @@ export const posts: Post[] = [
   },
   {
     slug: "gestionnaire-centre-de-sante",
-    title: "Le gestionnaire d’un centre de santé : ses missions",
+    title: "Le gestionnaire d’un centre de santé",
     description:
       "Le gestionnaire assure le bon fonctionnement d’un centre de santé. Missions, compétences et place dans la valorisation des financements.",
     date: "2026-07-01",
@@ -619,7 +619,7 @@ export const posts: Post[] = [
   },
   {
     slug: "qualite-centre-de-sante",
-    title: "Qualité et amélioration continue en centre de santé",
+    title: "Qualité en centre de santé",
     description:
       "La démarche qualité valorise un centre de santé et soutient certains financements. Principes et bénéfices concrets.",
     date: "2026-07-02",
@@ -657,7 +657,7 @@ export const posts: Post[] = [
   },
   {
     slug: "accessibilite-financiere-centre-de-sante",
-    title: "Accessibilité financière et secteur 1 en centre de santé",
+    title: "Accessibilité financière et secteur 1",
     description:
       "Les centres de santé pratiquent le secteur 1 et le tiers payant. Logique d’accessibilité et contreparties de financement.",
     date: "2026-07-04",
@@ -676,7 +676,7 @@ export const posts: Post[] = [
   },
   {
     slug: "subventions-sous-mobilisees-centre-de-sante",
-    title: "Subventions sous-mobilisées : pourquoi tant de centres passent à côté",
+    title: "Subventions sous-mobilisées des CDS",
     description:
       "De nombreux centres de santé ne perçoivent pas toutes les aides auxquelles ils ont droit. Les raisons d’un phénomène courant.",
     date: "2026-07-05",

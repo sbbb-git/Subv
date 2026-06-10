@@ -3,13 +3,14 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
 import { services, PILLARS } from "@/content/services";
+import { makePageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = makePageMeta({
   title: "Nos services pour centres de santé",
   description:
-    "Financement, structuration, développement, accompagnement : tous les sujets administratifs et stratégiques d’un centre de santé, traités par une équipe spécialisée.",
-  alternates: { canonical: "/services" },
-};
+    "Financement, structuration, développement, accompagnement : tous les sujets administratifs et stratégiques d’un centre de santé.",
+  path: "/services",
+});
 
 export default function Page() {
   return (

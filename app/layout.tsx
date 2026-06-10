@@ -80,7 +80,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: SITE_NAME,
     url: SITE_URL,
     description: DEFAULT_DESCRIPTION,
-    areaServed: "FR",
+    image: `${SITE_URL}${OG_IMAGE}`,
+    logo: `${SITE_URL}${OG_IMAGE}`,
+    areaServed: { "@type": "Country", name: "France" },
     serviceType: "Accompagnement des centres de santé",
     knowsAbout: [
       "Subvention Teulade",

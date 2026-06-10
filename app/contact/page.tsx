@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { CONTACT_EMAIL } from "@/lib/seo";
+import { CONTACT_EMAIL, makePageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contactez-nous pour un check-up",
-  description: "Contactez-nous pour un check-up gratuit de votre centre de santé.",
-  alternates: { canonical: "/contact" },
-};
+export const metadata: Metadata = makePageMeta({
+  title: "Contactez-nous pour un check-up gratuit",
+  description:
+    "Un échange court avec notre équipe pour faire le point sur les financements et les sujets administratifs de votre centre de santé.",
+  path: "/contact",
+});
 
 export default function Page() {
   return (
