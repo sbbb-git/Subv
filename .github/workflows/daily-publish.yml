@@ -1,24 +1,27 @@
 name: Daily publish
 
-# Rebuild + redéploie le site chaque jour.
-# Effet : un nouvel article du calendrier éditorial (content/posts.ts) devient
-# visible automatiquement à sa date de publication, sans intervention manuelle.
+# Rebuild + redéploie le site sur Cloudflare Pages.
 #
-# IMPORTANT — pré-requis (à faire une seule fois) :
-#   1. Ce workflow doit être présent sur la branche par DÉFAUT du dépôt
-#      (main / master). GitHub n'exécute les "schedule" que depuis la branche
-#      par défaut. Tant que tout est sur la branche de feature, seul le
-#      déclenchement manuel (workflow_dispatch) fonctionne.
-#   2. Ajouter dans Settings → Secrets and variables → Actions :
+# Effet quand actif : un nouvel article du calendrier éditorial
+# (content/posts.ts) devient visible automatiquement à sa date de
+# publication, sans intervention manuelle.
+#
+# ETAT ACTUEL : DÉSACTIVÉ (pas de cron).
+#   Seul le déclenchement manuel via "workflow_dispatch" est possible
+#   depuis l'onglet Actions de GitHub. Pour réactiver le drip quotidien,
+#   décommenter le bloc "schedule" ci-dessous.
+#
+# Pré-requis si on réactive un jour :
+#   1. Workflow doit être sur la branche par DÉFAUT (main).
+#   2. Settings → Secrets and variables → Actions :
 #        - Secret  CLOUDFLARE_API_TOKEN   (token avec permission "Cloudflare Pages : Edit")
 #        - Secret  CLOUDFLARE_ACCOUNT_ID  (dadded28b1d9f58295d135e40875d2f1)
-#        - Variable CF_PAGES_PROJECT      (le nom exact du projet Pages, ex: "subvention-teulade")
-#      Pour trouver le nom du projet : dashboard Cloudflare → Workers & Pages.
+#        - Variable CF_PAGES_PROJECT      (nom du projet Pages : "subv")
 
 on:
-  schedule:
-    - cron: "0 6 * * *"   # tous les jours à 06:00 UTC (~8h Paris)
-  workflow_dispatch: {}    # déclenchement manuel possible depuis l'onglet Actions
+  # schedule:
+  #   - cron: "0 6 * * *"   # tous les jours à 06:00 UTC (~8h Paris)
+  workflow_dispatch: {}    # déclenchement manuel uniquement
 
 jobs:
   build-and-deploy:
