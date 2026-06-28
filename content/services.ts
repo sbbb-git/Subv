@@ -42,7 +42,7 @@ export const services: Service[] = [
       { title: "Articulation des dispositifs", desc: "Mobilisation cohérente des différents leviers disponibles." },
     ],
     metaTitle: "Financement et subventions pour centres de santé",
-    metaDescription: "Identification, montage et suivi des dossiers de subventions et financements pour votre centre de santé.",
+    metaDescription: "Identification, montage et suivi des dossiers de subventions et financements pour votre centre de santé. On va chercher les aides que vous laissez de côté.",
     keywords: ["financement centre de santé", "subventions centre de santé", "subvention Teulade"],
   },
   {
@@ -59,7 +59,7 @@ export const services: Service[] = [
       { title: "Plan d’action chiffré", desc: "Priorisation, calendrier, gains attendus." },
     ],
     metaTitle: "Audit financier d’un centre de santé",
-    metaDescription: "Audit financier confidentiel : recettes, charges, financements, potentiel non mobilisé.",
+    metaDescription: "Audit financier confidentiel de votre centre de santé : recettes, charges, financements mobilisés et potentiel non réclamé. Une photo claire de votre situation.",
     keywords: ["audit financier centre de santé"],
   },
 
@@ -97,7 +97,7 @@ export const services: Service[] = [
       { title: "Reporting post-octroi", desc: "Bilans intermédiaires et finaux attendus par l’ARS." },
     ],
     metaTitle: "Monter un dossier ARS pour un centre de santé",
-    metaDescription: "Montage de dossier ARS clé en main : rédaction, annexes financières, dépôt, suivi.",
+    metaDescription: "Montage de dossier ARS clé en main pour votre centre de santé : rédaction, annexes financières, dépôt et suivi jusqu'à la validation. On s'occupe de tout.",
     keywords: ["dossier ARS centre de santé", "appel à projets ARS"],
   },
   {
@@ -114,7 +114,7 @@ export const services: Service[] = [
       { title: "RGPD et règlement intérieur", desc: "Politiques internes attendues." },
     ],
     metaTitle: "Conformité et projet de santé",
-    metaDescription: "Mise en conformité, renouvellement du projet de santé, préparation à la visite ARS.",
+    metaDescription: "Mise en conformité et renouvellement du projet de santé, préparation à la visite ARS. On sécurise la conformité réglementaire de votre centre de santé.",
     keywords: ["projet de santé", "visite ARS", "conformité centre de santé"],
   },
 
@@ -133,7 +133,7 @@ export const services: Service[] = [
       { title: "Montée en charge financière", desc: "Articulation des financements existants et nouveaux." },
     ],
     metaTitle: "Développer un centre de santé",
-    metaDescription: "Accompagnement au développement d’un centre de santé : offre, antennes, structuration multi-sites.",
+    metaDescription: "Accompagnement au développement d'un centre de santé : élargissement de l'offre, ouverture d'antennes, structuration multi-sites et financement.",
     keywords: ["développer un centre de santé", "ouvrir une antenne"],
   },
   {
@@ -150,7 +150,7 @@ export const services: Service[] = [
       { title: "Intégration et fidélisation", desc: "Onboarding, parcours, animation de l’équipe." },
     ],
     metaTitle: "Recrutement de médecins pour centres de santé",
-    metaDescription: "Accompagnement au recrutement de médecins : sourcing, attractivité, contrats, intégration.",
+    metaDescription: "Accompagnement au recrutement de médecins salariés : sourcing, attractivité, contrats et intégration. On vous aide à attirer et fidéliser les praticiens.",
     keywords: ["recrutement médecin centre de santé", "médecin salarié"],
   },
   {
@@ -167,7 +167,7 @@ export const services: Service[] = [
       { title: "Fidélisation patient", desc: "Parcours patient, satisfaction, rappels." },
     ],
     metaTitle: "Patientèle et communication pour centres de santé",
-    metaDescription: "Référencement local, prise de RDV en ligne, communication territoriale pour les centres de santé.",
+    metaDescription: "Référencement local, prise de rendez-vous en ligne, communication territoriale : on développe la patientèle et la visibilité de votre centre de santé.",
     keywords: ["communication centre de santé", "patientèle centre de santé"],
   },
 
@@ -186,7 +186,7 @@ export const services: Service[] = [
       { title: "Outils métiers", desc: "Choix et déploiement des logiciels adaptés." },
     ],
     metaTitle: "Conseil en organisation pour centres de santé",
-    metaDescription: "Conseil en organisation : process, gouvernance, flux patients, planning, outils métiers.",
+    metaDescription: "Conseil en organisation pour centre de santé : process, gouvernance, flux patients, planning et outils métiers. On fluidifie votre fonctionnement quotidien.",
     keywords: ["conseil organisation centre de santé"],
   },
   {
@@ -204,7 +204,7 @@ export const services: Service[] = [
       { title: "Reporting", desc: "Tableaux de bord pour la direction et les instances." },
     ],
     metaTitle: "Comptabilité et gestion d’un centre de santé",
-    metaDescription: "Tenue de gestion, pilotage budgétaire, paie, fiscalité, reporting adaptés aux centres de santé.",
+    metaDescription: "Tenue de gestion, pilotage budgétaire, paie, fiscalité et reporting adaptés aux centres de santé. Une gestion saine et lisible, sans charge pour vos équipes.",
     keywords: ["comptabilité centre de santé", "gestion centre de santé"],
   },
   {
@@ -221,7 +221,7 @@ export const services: Service[] = [
       { title: "Satisfaction patient", desc: "Recueil et analyse de la satisfaction." },
     ],
     metaTitle: "Pilotage de l’activité d’un centre de santé",
-    metaDescription: "Pilotage de l’activité : tableaux de bord, cotation, indicateurs ACI et ROSP, satisfaction.",
+    metaDescription: "Pilotage de l'activité de votre centre de santé : tableaux de bord, cotation, indicateurs ACI et ROSP, satisfaction. On optimise vos recettes.",
     keywords: ["pilotage centre de santé", "indicateurs ACI"],
   },
   {
@@ -238,7 +238,7 @@ export const services: Service[] = [
       { title: "Financement", desc: "Crédit-bail, location longue durée, prêts adaptés." },
     ],
     metaTitle: "Achats et investissements pour centres de santé",
-    metaDescription: "Accompagnement aux achats, négociation fournisseurs, financement du matériel.",
+    metaDescription: "Accompagnement aux achats et investissements : négociation fournisseurs et financement du matériel pour votre centre de santé. On optimise vos coûts.",
     keywords: ["achats centre de santé", "matériel centre de santé"],
   },
 ];
