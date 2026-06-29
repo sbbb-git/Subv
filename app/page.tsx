@@ -175,6 +175,49 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* RECRUTEMENT — service phare */}
+      <section className="bg-soft border-b border-line">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="max-w-3xl">
+            <p className="text-xs uppercase tracking-widest font-semibold text-accent-700">Notre service phare en développement</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">
+              Vous galérez à recruter vos médecins ? Nous avons des partenaires pour ça.
+            </h2>
+            <p className="mt-4 text-ink-soft leading-relaxed text-[17px]">
+              Le <Link href="/recrutement-medecins" className="text-accent-700 underline decoration-accent-200 underline-offset-2 hover:decoration-accent-500">recrutement de médecins salariés</Link> est le nerf de la guerre des centres de santé. Un poste vacant, c’est une file active qui se ferme et une équipe qui s’épuise. La pénurie médicale rend l’approche passive de moins en moins efficace : les bons profils ne répondent plus aux annonces, on va les chercher.
+            </p>
+            <p className="mt-4 text-ink-soft leading-relaxed text-[17px]">
+              Nous avons noué des partenariats avec des recruteurs spécialisés dans la santé. Vous gardez un seul interlocuteur, nous orchestrons le sourcing, la contractualisation et l’intégration, et nous travaillons au résultat. Vous bénéficiez de la force d’un recruteur spécialisé, articulée avec notre connaissance du modèle CDS.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href="/contact" className="btn-primary text-base">Contactez-nous pour un check-up</Link>
+              <Link href="/recrutement-medecins" className="btn-secondary text-base">Découvrir notre offre recrutement</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MAILLAGE — accès rapides aux piliers */}
+      <section className="bg-white border-b border-line">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid md:grid-cols-3 gap-5">
+          <Link href="/subvention-teulade" className="group rounded-2xl bg-white ring-1 ring-line hover:ring-accent-400 hover:shadow-md transition p-6 block">
+            <span className="text-xs font-bold uppercase tracking-wider text-accent-700">Financement</span>
+            <h3 className="mt-2 text-lg font-bold text-ink group-hover:text-accent-700">Subvention Teulade</h3>
+            <p className="mt-2 text-[15px] text-ink-soft leading-relaxed">On va chercher la subvention Teulade à votre place, de la constitution du dossier au versement.</p>
+          </Link>
+          <Link href="/recrutement-medecins" className="group rounded-2xl bg-white ring-1 ring-line hover:ring-accent-400 hover:shadow-md transition p-6 block">
+            <span className="text-xs font-bold uppercase tracking-wider text-accent-700">Recrutement</span>
+            <h3 className="mt-2 text-lg font-bold text-ink group-hover:text-accent-700">Recrutement de médecins</h3>
+            <p className="mt-2 text-[15px] text-ink-soft leading-relaxed">Nos partenaires recruteurs vont chercher vos praticiens, du sourcing à l’intégration.</p>
+          </Link>
+          <Link href="/financements" className="group rounded-2xl bg-white ring-1 ring-line hover:ring-accent-400 hover:shadow-md transition p-6 block">
+            <span className="text-xs font-bold uppercase tracking-wider text-accent-700">Financement</span>
+            <h3 className="mt-2 text-lg font-bold text-ink group-hover:text-accent-700">Tous les financements</h3>
+            <p className="mt-2 text-[15px] text-ink-soft leading-relaxed">Panorama des financements sous-mobilisés des centres de santé et des leviers à activer.</p>
+          </Link>
+        </div>
+      </section>
+
       {/* SERVICES — 4 piliers */}
       <section id="services" className="bg-soft relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
