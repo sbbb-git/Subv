@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: { path: string; priority: number; freq: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
     { path: "", priority: 1.0, freq: "weekly" },
     { path: "/subvention-teulade", priority: 0.95, freq: "monthly" },
+    { path: "/recrutement-medecins", priority: 0.95, freq: "monthly" },
+    { path: "/accompagnement", priority: 0.9, freq: "monthly" },
     { path: "/financements", priority: 0.9, freq: "monthly" },
     { path: "/services", priority: 0.9, freq: "monthly" },
     { path: "/centres-de-sante", priority: 0.85, freq: "monthly" },
