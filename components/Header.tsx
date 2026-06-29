@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/subvention-teulade", label: "Subvention Teulade" },
+  { href: "/recrutement-medecins", label: "Recrutement médecins" },
   { href: "/financements", label: "Financements" },
   { href: "/services", label: "Services" },
   { href: "/centres-de-sante", label: "Centres de santé" },
