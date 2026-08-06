@@ -717,6 +717,96 @@ export const posts: Post[] = [
 <p>Contactez-nous pour un check-up gratuit et une vue complète de vos leviers de financement.</p>
 `,
   },
+  {
+    slug: "contrat-medecin-salarie-centre-de-sante",
+    title: "Contrat de travail d’un médecin salarié en CDS",
+    description:
+      "Le contrat de travail d’un médecin salarié en centre de santé encadre rémunération, temps de travail et conditions d’exercice. Points de vigilance.",
+    date: "2026-08-06",
+    readingTime: "2 min",
+    category: "RH",
+    content: `
+<h2>Un cadre à sécuriser dès le départ</h2>
+<p>Le contrat de travail d’un médecin salarié en centre de santé pose les bases de la relation entre le praticien et la structure. Bien construit, il évite les malentendus et les tensions dans les mois qui suivent l’embauche.</p>
+<h2>Les clauses essentielles</h2>
+<p>Au-delà de la rémunération, le contrat précise le temps de travail, la répartition entre activité clinique et autres missions, les conditions de remplacement, la période d’essai et les modalités de rupture. Chaque clause mérite d’être adaptée au fonctionnement réel du centre, plutôt que reprise d’un modèle générique.</p>
+<h2>Des spécificités propres au centre de santé</h2>
+<p>Le statut du centre de santé, ses engagements conventionnels et son organisation collective influencent le contenu du contrat. Cadre pluriprofessionnel, objectifs de coordination, obligations de tiers payant : ces éléments doivent être reflétés dans les engagements du praticien.</p>
+<h2>Un contrat qui prépare la fidélisation</h2>
+<p>Un contrat clair et équilibré est aussi un outil de fidélisation. Il donne au médecin une visibilité sur ses conditions d’exercice et limite les sources de friction. C’est un point que nous travaillons systématiquement dans nos missions de <a href="/recrutement-medecins">recrutement de médecins</a>, aux côtés de nos partenaires recruteurs.</p>
+<h2>Contactez-nous</h2>
+<p>Un check-up gratuit permet de revoir vos modèles de contrat et leur cohérence avec votre organisation. Contactez-nous pour un check-up.</p>
+`,
+  },
+  {
+    slug: "cout-creation-centre-de-sante",
+    title: "Combien coûte la création d’un centre de santé",
+    description:
+      "Créer un centre de santé suppose un investissement initial conséquent. Principaux postes de dépense, facteurs de variation et financements mobilisables.",
+    date: "2026-08-06",
+    readingTime: "2 min",
+    category: "Financement",
+    content: `
+<h2>Un investissement à anticiper</h2>
+<p>Locaux, équipements, système d’information, premiers salaires avant la montée en charge de la patientèle : la création d’un centre de santé mobilise un investissement initial significatif, bien avant que les recettes conventionnelles n’atteignent leur rythme de croisière.</p>
+<h2>Les principaux postes de dépense</h2>
+<ul>
+  <li>Aménagement et équipement des locaux</li>
+  <li>Système d’information et logiciel métier</li>
+  <li>Recrutement et premiers salaires</li>
+  <li>Démarches administratives et juridiques</li>
+  <li>Trésorerie de démarrage, le temps que l’activité monte en puissance</li>
+</ul>
+<h2>Un coût qui varie selon le projet</h2>
+<p>Le montant total dépend fortement de la typologie du centre, de sa taille, de son implantation et du statut juridique retenu. Un centre médical généraliste de petite taille et un centre dentaire équipé de plusieurs fauteuils n’ont pas le même profil d’investissement.</p>
+<h2>Des financements pour alléger la facture</h2>
+<p>Le coût de création ne repose pas uniquement sur les fonds propres du porteur de projet. Plusieurs <a href="/financements">dispositifs de financement</a> publics et conventionnels peuvent contribuer à l’investissement initial et sécuriser la trésorerie des premiers mois. Les identifier tôt évite bien des tensions par la suite.</p>
+<h2>Contactez-nous</h2>
+<p>Un check-up gratuit permet d’estimer les besoins de financement de votre projet et les dispositifs mobilisables. Contactez-nous pour un check-up.</p>
+`,
+  },
+  {
+    slug: "recrutement-medecin-centre-municipal",
+    title: "Recruter un médecin pour un centre municipal",
+    description:
+      "Le recrutement médical en centre municipal de santé répond à des enjeux propres : gouvernance publique, attractivité du territoire, image du service.",
+    date: "2026-08-06",
+    readingTime: "2 min",
+    category: "RH",
+    content: `
+<h2>Un contexte de recrutement particulier</h2>
+<p>Un centre municipal de santé recrute dans un cadre porté par une collectivité territoriale. Ce portage public rassure certains praticiens, mais impose aussi des délais et des procédures qui diffèrent d’une structure associative ou mutualiste.</p>
+<h2>Des atouts à faire valoir</h2>
+<p>La stabilité du portage public, l’ancrage local et l’image du service public sont des arguments d’attractivité réels, notamment auprès de praticiens sensibles au sens de leur mission. Encore faut-il les mettre en avant dans une démarche de recrutement active plutôt que d’attendre les candidatures.</p>
+<h2>Le rôle des élus dans le processus</h2>
+<p>Le recrutement en centre municipal implique souvent la collectivité et ses élus, ce qui peut allonger le circuit de décision. Anticiper ce circuit, sans le subir, permet de rester réactif face à des praticiens qui reçoivent plusieurs propositions en parallèle.</p>
+<h2>S’appuyer sur des partenaires spécialisés</h2>
+<p>Face à la pénurie médicale, un centre municipal a tout intérêt à mobiliser une <a href="/recrutement-medecins">démarche de recrutement structurée</a>, articulée avec des recruteurs spécialisés dans le secteur de la santé. Le sourcing actif compense la lenteur propre aux circuits publics.</p>
+<h2>Contactez-nous</h2>
+<p>Un check-up gratuit permet d’évaluer votre attractivité et d’activer les bons leviers de recrutement. Contactez-nous pour un check-up.</p>
+`,
+  },
+  {
+    slug: "salaire-medecin-salarie-centre-de-sante",
+    title: "Salaire d’un médecin salarié en centre de santé",
+    description:
+      "Le salaire d’un médecin salarié structure l’attractivité d’un centre de santé. Composition de la rémunération, positionnement et équilibre économique.",
+    date: "2026-08-06",
+    readingTime: "2 min",
+    category: "RH",
+    content: `
+<h2>Un critère de choix pour les praticiens</h2>
+<p>La rémunération reste l’un des premiers éléments comparés par un médecin qui envisage un poste salarié. En centre de santé, le salaire ne se limite pas à un chiffre affiché sur une annonce : il s’inscrit dans une grille et un ensemble de conditions qui, mis bout à bout, déterminent l’attractivité réelle du poste.</p>
+<h2>Ce qui compose la rémunération</h2>
+<p>Le salaire d’un médecin salarié en centre de santé repose sur une base fixe, à laquelle peuvent s’ajouter une part variable liée à l’activité, des primes d’ancienneté ou de sujétion, et des avantages annexes comme la prise en charge de la formation continue ou de la protection sociale. La lisibilité de cette structure pèse autant que son niveau dans la décision du praticien.</p>
+<h2>Se positionner face à la concurrence</h2>
+<p>Les centres de santé ne sont pas seuls sur le marché de l’emploi médical. Ils sont en concurrence directe avec l’exercice libéral, l’hôpital et d’autres structures salariées. Proposer une rémunération cohérente avec le marché local, tout en valorisant les atouts propres au salariat (absence de gestion administrative, stabilité, horaires cadrés), fait souvent la différence. C’est un des leviers travaillés dans nos missions de <a href="/recrutement-medecins">recrutement de médecins</a>, aux côtés de nos partenaires recruteurs.</p>
+<h2>Rémunération et équilibre du centre</h2>
+<p>Le niveau de rémunération doit rester cohérent avec l’équilibre économique du centre. Une masse salariale mal calibrée fragilise le modèle, tandis qu’une rémunération trop faible complique le recrutement et la fidélisation. Cet équilibre se construit en tenant compte de l’activité générée par le praticien et des financements mobilisés par ailleurs.</p>
+<h2>Contactez-nous</h2>
+<p>Un check-up gratuit permet d’objectiver le positionnement de votre grille salariale et d’identifier les leviers pour attirer les praticiens dont vous avez besoin. Contactez-nous pour un check-up.</p>
+`,
+  },
 ];
 
 // Renvoie uniquement les articles dont la date de publication est atteinte.
