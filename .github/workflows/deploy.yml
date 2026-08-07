@@ -96,7 +96,24 @@ jobs:
             echo "$code  $p"
             [ "$code" = "200" ] || fail=1
           done
-          [ "$fail" = "0" ] || { echo "::error::Une page attendue ne répond pas 200."; exit 1; }
+
+          # www doit rediriger en 301 vers l'apex, via public/_worker.js.
+          # Si ce contrôle casse, c'est que le worker ne s'exécute plus : le
+          # site resterait servi en double sur deux hostnames.
+          wcode=""
+          for i in 1 2 3 4 5 6; do
+            wcode=$(curl -s -o /dev/null -w "%{http_code}" "https://www.opti-cds.fr/financements" || echo 000)
+            [ "$wcode" = "301" ] && break
+            sleep 10
+          done
+          wloc=$(curl -s -o /dev/null -w "%{redirect_url}" "https://www.opti-cds.fr/financements" || true)
+          echo "$wcode  www.opti-cds.fr/financements -> $wloc"
+          if [ "$wcode" != "301" ]; then
+            echo "::error::www ne redirige pas en 301 (code $wcode)."
+            fail=1
+          fi
+
+          [ "$fail" = "0" ] || { echo "::error::Vérification de production en échec."; exit 1; }
 
       - name: IndexNow
         # Non bloquant : un échec de soumission ne doit pas faire échouer un
