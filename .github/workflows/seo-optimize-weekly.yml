@@ -14,10 +14,18 @@ name: SEO optimisation hebdo
 # PRÉ-REQUIS : le secret ANTHROPIC_API_KEY doit être défini dans
 # Settings → Secrets and variables → Actions. Sans lui, le job est ignoré
 # proprement plutôt que de tomber en échec chaque semaine.
+#
+# DÉCLENCHEMENT MANUEL UNIQUEMENT. L'écriture hebdomadaire est assurée par la
+# Routine `SEO hebdo Opti-CDS` (trig_015srcG4cv1sJLnqS1EGzpwK), qui tourne le
+# lundi à 05:11 UTC dans l'environnement Claude Code et n'exige aucune clé API
+# puisqu'elle s'authentifie avec le compte du propriétaire.
+#
+# Garder les deux planifiés ferait travailler deux rédacteurs sur le même
+# dépôt à la même heure, avec des commits concurrents à la clé. Ce workflow
+# reste donc disponible en secours, à lancer à la main depuis l'onglet Actions
+# si la Routine est indisponible.
 
 on:
-  schedule:
-    - cron: "11 5 * * 1"   # lundi 05:11 UTC, avant l'audit de 07:23
   workflow_dispatch:
     inputs:
       consigne:
