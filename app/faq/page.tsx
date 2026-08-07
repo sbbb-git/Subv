@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
 import { Faq } from "@/components/Faq";
+import { faqItems } from "@/content/faq";
 import { makePageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = makePageMeta({
@@ -12,18 +13,6 @@ export const metadata: Metadata = makePageMeta({
   path: "/faq",
 });
 
-const faqs = [
-  { q: "Qu’est-ce que la subvention Teulade ?", a: "Un dispositif spécifique aux centres de santé conventionnés, prévu par le code de la sécurité sociale. Il s’inscrit dans l’ensemble des financements publics et conventionnels mobilisables par un CDS." },
-  { q: "Mon centre peut-il prétendre à la subvention Teulade ?", a: "Les centres de santé conventionnés peuvent en principe être concernés. Chaque situation s’apprécie individuellement. Contactez-nous pour un check-up gratuit." },
-  { q: "Quels types de centres accompagnez-vous ?", a: "Centres médicaux, dentaires, infirmiers, polyvalents, pluriprofessionnels, qu’ils soient associatifs, mutualistes, municipaux ou en SCIC." },
-  { q: "Sur quels sujets intervenez-vous ?", a: "Création, recrutement, organisation, gestion, financements, dossiers ARS, conformité. Notre offre phare reste la récupération des subventions." },
-  { q: "Comment commence une mission ?", a: "Par un échange. Vous nous écrivez quelques lignes, on en discute, on définit ensemble s’il y a matière à travailler." },
-  { q: "Êtes-vous indépendants ?", a: "Oui. Cabinet privé sans lien capitalistique avec la CPAM, l’URSSAF ou l’Assurance Maladie." },
-  { q: "Travaillez-vous partout en France ?", a: "Oui, sur l’ensemble du territoire métropolitain et ultramarin." },
-  { q: "Quels sont les autres financements d’un centre de santé ?", a: "Au-delà de la subvention Teulade, plusieurs dispositifs publics et conventionnels peuvent être mobilisés. Notre check-up gratuit identifie les leviers adaptés à votre situation." },
-  { q: "Pouvez-vous nous aider à recruter des médecins ?", a: "Oui. Nous orchestrons le recrutement de médecins salariés et mobilisons nos partenaires recruteurs spécialisés dans la santé pour le sourcing. Du cadrage du besoin à l’intégration du praticien, vous gardez un interlocuteur unique. Contactez-nous pour un check-up." },
-  { q: "Comment êtes-vous rémunérés sur le recrutement de médecins ?", a: "Nous travaillons au résultat, sans vous engager sur des frais avant d’avoir avancé concrètement sur votre recrutement. Les conditions sont posées clairement dès le premier échange, sans frais cachés." },
-];
 
 export default function Page() {
   return (
@@ -42,11 +31,26 @@ export default function Page() {
 
       <section className="bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <Faq items={faqs} />
+          <Faq items={faqItems} />
         </div>
       </section>
 
       <CTASection />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqItems.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
     </>
   );
 }

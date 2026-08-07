@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
 import { Faq } from "@/components/Faq";
+import { teuladeBody, teuladeFaq } from "@/content/subvention-teulade";
 import { makePageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -29,28 +30,6 @@ export const metadata: Metadata = {
   ],
 };
 
-const faqs = [
-  {
-    q: "Qu’est-ce que la subvention Teulade ?",
-    a: "Un dispositif spécifique aux centres de santé conventionnés, prévu par le code de la sécurité sociale. Il participe au financement des centres de santé.",
-  },
-  {
-    q: "Pourquoi beaucoup de centres ne la perçoivent pas ?",
-    a: "Parce que les démarches sont longues, techniques et chronophages. Constituer le dossier, rassembler les pièces, faire les calculs, transmettre à la CPAM, suivre les échanges : peu de centres ont les ressources internes pour le faire correctement.",
-  },
-  {
-    q: "Que faites-vous concrètement ?",
-    a: "On prend tout en charge : constitution du dossier, récupération des pièces justificatives, calcul, transmission à la CPAM, échanges et validation jusqu’au paiement.",
-  },
-  {
-    q: "Mon centre de santé peut-il y prétendre ?",
-    a: "Les centres de santé conventionnés peuvent en principe être concernés. Chaque situation s’apprécie individuellement. Contactez-nous pour un check-up gratuit.",
-  },
-  {
-    q: "Combien ça coûte ?",
-    a: "Honoraires transparents, contractualisés en amont, sans frais cachés. On en discute lors du premier échange.",
-  },
-];
 
 const steps = [
   { n: "01", t: "Vérification de l’éligibilité", d: "Premier échange pour valider que votre centre peut prétendre au dispositif." },
@@ -135,32 +114,37 @@ export default function Page() {
       </section>
 
       <article className="bg-white border-b border-line">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 prose-content">
-          <h2>Pour quels centres ?</h2>
-          <p>Le dispositif concerne en principe l’ensemble des typologies de centres de santé conventionnés :</p>
-          <ul>
-            <li><a href="/centres-de-sante/medical">Centres de santé médicaux</a></li>
-            <li><a href="/centres-de-sante/dentaire">Centres de santé dentaires</a></li>
-            <li><a href="/centres-de-sante/infirmier">Centres de santé infirmiers (CSI)</a></li>
-            <li><a href="/centres-de-sante/polyvalent">Centres polyvalents</a></li>
-            <li><a href="/centres-de-sante/pluriprofessionnel">Centres pluriprofessionnels</a></li>
-            <li><a href="/centres-de-sante/municipal">Centres municipaux de santé (CMS)</a></li>
-            <li><a href="/centres-de-sante/associatif">Centres associatifs (loi 1901)</a></li>
-            <li><a href="/centres-de-sante/mutualiste">Centres mutualistes</a></li>
-          </ul>
-        </div>
+        <div
+          className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 prose-content"
+          dangerouslySetInnerHTML={{ __html: teuladeBody }}
+        />
       </article>
 
       <section className="bg-soft border-b border-line">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <h2 className="text-2xl md:text-3xl font-bold text-ink tracking-tight text-center">Questions fréquentes</h2>
           <div className="mt-8">
-            <Faq items={faqs} />
+            <Faq items={teuladeFaq} />
           </div>
         </div>
       </section>
 
       <CTASection title="On va chercher votre subvention pour vous" label="Contactez-nous pour un check-up" href="/contact" />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: teuladeFaq.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
     </>
   );
 }
