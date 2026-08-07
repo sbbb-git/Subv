@@ -2,7 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
-import { makePageMeta } from "@/lib/seo";
+import { makePageMeta, SITE_URL } from "@/lib/seo";
+import { termes } from "@/content/lexique";
 
 export const metadata: Metadata = makePageMeta({
   title: "Lexique des centres de santé",
@@ -11,18 +12,6 @@ export const metadata: Metadata = makePageMeta({
   path: "/lexique",
 });
 
-const terms = [
-  { term: "CDS", def: "Centre de santé. Structure de soins ambulatoires définie par le code de la santé publique, qui emploie des soignants salariés." },
-  { term: "CMS", def: "Centre municipal de santé : centre de santé porté par une commune ou une collectivité territoriale." },
-  { term: "CSI", def: "Centre de soins infirmiers : centre de santé spécialisé en soins infirmiers." },
-  { term: "MSP", def: "Maison de santé pluriprofessionnelle. Structure libérale coordonnée, à distinguer du centre de santé où les soignants sont salariés." },
-  { term: "ARS", def: "Agence régionale de santé. Autorité de tutelle des centres de santé." },
-  { term: "CPAM", def: "Caisse primaire d’assurance maladie." },
-  { term: "Subvention Teulade", def: "Dispositif spécifique aux centres de santé conventionnés, prévu par le code de la sécurité sociale." },
-  { term: "Conventionnement", def: "Acte par lequel un centre de santé adhère à l’accord national avec l’Assurance Maladie." },
-  { term: "Projet de santé", def: "Document central exigé par l’ARS pour ouvrir un centre de santé." },
-  { term: "ACI", def: "Accord conventionnel interprofessionnel : convention qui finance forfaitairement certaines structures coordonnées." },
-];
 
 export default function Page() {
   return (
@@ -40,10 +29,20 @@ export default function Page() {
       <section className="bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <dl className="divide-y divide-line border-y border-line">
-            {terms.map((t) => (
+            {termes.map((t) => (
               <div key={t.term} className="grid md:grid-cols-12 gap-4 py-6">
                 <dt className="md:col-span-3 font-bold text-ink">{t.term}</dt>
-                <dd className="md:col-span-9 text-ink-soft leading-relaxed text-[16px]">{t.def}</dd>
+                <dd className="md:col-span-9 text-ink-soft leading-relaxed text-[16px]">
+                  {t.def}
+                  {t.link && (
+                    <>
+                      {" "}
+                      <Link href={t.link} className="font-semibold text-accent-700 hover:text-accent-900 whitespace-nowrap">
+                        En savoir plus
+                      </Link>
+                    </>
+                  )}
+                </dd>
               </div>
             ))}
           </dl>
@@ -51,6 +50,23 @@ export default function Page() {
       </section>
 
       <CTASection />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "DefinedTermSet",
+            name: "Lexique des centres de santé",
+            url: `${SITE_URL}/lexique`,
+            hasDefinedTerm: termes.map((t) => ({
+              "@type": "DefinedTerm",
+              name: t.term,
+              description: t.def,
+            })),
+          }),
+        }}
+      />
     </>
   );
 }

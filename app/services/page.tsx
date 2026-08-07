@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
+import { hubServicesBody } from "@/content/hubs";
 import { services, PILLARS } from "@/content/services";
 import { makePageMeta } from "@/lib/seo";
 
@@ -67,6 +68,13 @@ export default function Page() {
           </section>
         );
       })}
+
+      <article className="bg-white border-b border-line">
+        <div
+          className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 prose-content"
+          dangerouslySetInnerHTML={{ __html: hubServicesBody }}
+        />
+      </article>
 
       <CTASection title="Parlons de votre centre de santé" label="Contactez-nous pour un check-up" href="/contact" />
     </>

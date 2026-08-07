@@ -8,9 +8,14 @@ name: SEO hebdo
 # rapporte dans une issue GitHub — un canal qui atteint réellement quelqu'un,
 # contrairement à une session que personne ne lit.
 #
-# Il échoue si l'audit remonte du BLOQUANT (404 interne, title manquant,
-# JSX fuité...). La DETTE (articles courts, sans lien interne) n'échoue pas :
-# elle est suivie dans l'issue et doit décroître semaine après semaine.
+# L'audit tourne en mode --strict : il échoue aussi bien sur le BLOQUANT
+# (404 interne, title manquant, JSX fuité) que sur la DETTE (page ou article
+# trop court, absence de lien interne, meta description hors bornes).
+#
+# Ce mode n'a été activé qu'une fois la dette ramenée à zéro. Tant qu'elle
+# était de 77 points, un gate strict aurait figé la production sans rien
+# résoudre. Maintenant qu'elle est nulle, le strict sert à empêcher qu'elle
+# revienne : toute page ajoutée sous le seuil fait échouer le run.
 
 on:
   schedule:
@@ -49,7 +54,7 @@ jobs:
       - name: Audit SEO (lisible)
         id: audit
         continue-on-error: true
-        run: node scripts/seo-audit.mjs
+        run: node scripts/seo-audit.mjs --strict
 
       - name: Audit SEO (json)
         if: always()

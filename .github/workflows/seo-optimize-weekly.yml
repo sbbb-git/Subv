@@ -102,8 +102,9 @@ jobs:
             3. Ne publie AUCUN nouvel article. La mesure Search Console montre
                zéro impression sur le corpus existant, donc la priorité est la
                réparation, pas le volume.
-            4. Relance `npm run build` puis `node scripts/seo-audit.mjs`. La
-               dette doit avoir diminué et il ne doit rester aucun bloquant.
+            4. Relance `npm run build` puis `node scripts/seo-audit.mjs --strict`.
+               La dette est actuellement à zéro et doit le rester : l'audit
+               est bloquant, y compris sur la dette.
             5. Commite avec un message décrivant les articles réellement
                modifiés et l'évolution chiffrée de la dette. Ne pousse pas,
                une étape suivante s'en charge.
@@ -117,7 +118,7 @@ jobs:
         if: steps.garde.outputs.ok == 'true'
         run: |
           npm run build
-          node scripts/seo-audit.mjs
+          node scripts/seo-audit.mjs --strict
           node scripts/seo-audit.mjs --json > /tmp/apres.json
           node -e "
             const a=require('/tmp/avant.json'), b=require('/tmp/apres.json');

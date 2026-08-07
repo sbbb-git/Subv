@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
+import { hubCentresBody } from "@/content/hubs";
 import { cdsTypes } from "@/content/types";
 import { makePageMeta } from "@/lib/seo";
 
@@ -60,6 +61,13 @@ export default function Page() {
           ))}
         </div>
       </section>
+
+      <article className="bg-white border-b border-line">
+        <div
+          className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 prose-content"
+          dangerouslySetInnerHTML={{ __html: hubCentresBody }}
+        />
+      </article>
 
       <CTASection />
     </>

@@ -71,7 +71,7 @@ jobs:
         run: npm run build
 
       - name: Audit SEO (bloquant)
-        run: node scripts/seo-audit.mjs
+        run: node scripts/seo-audit.mjs --strict
 
       - name: Déployer sur Cloudflare Pages
         env:
