@@ -1,0 +1,101 @@
+name: Deploy
+
+# Déploiement d'opti-cds.fr sur Cloudflare Pages.
+#
+# Pourquoi depuis CI et pas depuis une session : le runner construit `out/`
+# à partir du dépôt cloné. Il est donc impossible de déployer du contenu qui
+# n'aurait pas été poussé, ce qui était la cause de la disparition de pages
+# en production. L'ordre « git d'abord, déploiement ensuite » n'est plus une
+# consigne à respecter, c'est une propriété du pipeline.
+#
+# L'audit tourne AVANT le déploiement et l'interrompt s'il remonte du
+# bloquant (404 interne, title manquant, JSX fuité...).
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - claude/healthcare-consulting-site-4rxIZ
+    paths:
+      - "app/**"
+      - "components/**"
+      - "content/**"
+      - "lib/**"
+      - "public/**"
+      - "next.config.js"
+      - "package.json"
+      - ".github/workflows/deploy.yml"
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Vérifier que les identifiants Cloudflare sont présents
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::error::Secret CLOUDFLARE_API_TOKEN absent ou vide. Arrêt avant le build."
+            exit 1
+          fi
+          echo "Identifiants présents."
+
+      - name: Build
+        run: npm run build
+
+      - name: Audit SEO (bloquant)
+        run: node scripts/seo-audit.mjs
+
+      - name: Déployer sur Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx wrangler@3 pages deploy out \
+            --project-name="${{ vars.CF_PAGES_PROJECT || 'subv' }}" \
+            --branch=main
+
+      - name: Vérifier la production
+        run: |
+          fail=0
+          for p in / /recrutement-medecins /accompagnement /financements /subvention-teulade; do
+            code=""
+            # Laisse jusqu'à 60s de propagation avant de conclure à un échec.
+            for i in 1 2 3 4 5 6; do
+              code=$(curl -s -o /dev/null -w "%{http_code}" "https://opti-cds.fr$p" || echo 000)
+              [ "$code" = "200" ] && break
+              sleep 10
+            done
+            echo "$code  $p"
+            [ "$code" = "200" ] || fail=1
+          done
+          [ "$fail" = "0" ] || { echo "::error::Une page attendue ne répond pas 200."; exit 1; }
+
+      - name: IndexNow
+        # Non bloquant : un échec de soumission ne doit pas faire échouer un
+        # déploiement par ailleurs réussi. Mais on ne masque rien.
+        continue-on-error: true
+        run: |
+          KEY=8e34269a671a49aca7d02e799e3645fa
+          code=$(curl -s -o /dev/null -w "%{http_code}" "https://opti-cds.fr/$KEY.txt")
+          if [ "$code" != "200" ]; then
+            echo "::warning::Fichier de clé IndexNow absent en production (HTTP $code). Soumission annulée : elle renverrait 403."
+            exit 1
+          fi
+          bash scripts/indexnow.sh
