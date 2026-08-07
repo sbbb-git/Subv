@@ -115,19 +115,20 @@ que le clone porte le nouveau, le push est refusé. Ce n'est pas une erreur
 réseau : le contrôle compare le nom littéral du dépôt, et aucune nouvelle
 tentative ne changera le résultat.
 
-**Si le `--dry-run` échoue :** n'écris rien, ne commite rien. Notifie
-immédiatement avec le message d'erreur exact, le nom de dépôt vu dans
-`git remote -v`, et cette phrase :
+**Si le `--dry-run` échoue :** n'écris rien, ne commite rien, et arrête-toi
+après avoir notifié.
 
-> Le dépôt doit être ajouté aux sources autorisées de l'environnement sous son
-> nom actuel. Action de configuration, impossible depuis la session.
+La notification doit contenir le message d'erreur exact, la sortie de
+`git remote -v`, et le sha de HEAD. Ne retente pas en boucle : un refus
+d'autorisation n'est pas une erreur réseau, et une seconde tentative donnera
+le même résultat.
 
-Puis arrête-toi.
-
-**Ne réécris jamais l'URL du remote pour contourner le refus.** Ce contrôle
-existe pour vérifier où part le code. Le faire pointer vers un ancien alias du
-même dépôt le viderait de son sens. Le nom dans la configuration doit être
-corrigé, pas esquivé.
+Ce qu'il faut savoir sur cette panne, pour ne pas repartir sur une fausse
+piste : les identifiants git ne se trouvent pas dans le conteneur. Ils sont
+fournis par un proxy et rattachés au dépôt de la session. Il n'existe **pas**
+de liste de dépôts autorisés à configurer dans l'environnement, contrairement
+à ce qu'une version antérieure de ce fichier affirmait. Le sujet se situe au
+niveau de la plateforme, pas dans un réglage du dépôt ni du projet.
 
 ## 1. ÉTAT DES LIEUX
 
