@@ -98,6 +98,37 @@ des runs précédents. Un push échoué doit donc INTERROMPRE le déploiement.
 Séquence : lecture → écriture → build → contrôles qualité → commit → PUSH →
 (si et seulement si le push a réussi) déploiement → IndexNow → notification.
 
+## 0. CONTRÔLE DE POUSSÉE, AVANT TOUTE RÉDACTION
+
+**À faire en premier, avant d'écrire une seule ligne.** Un run qui s'arrête
+proprement en trente secondes vaut mieux qu'un run qui rédige pendant vingt
+minutes avant de découvrir qu'il ne peut rien pousser.
+
+```
+git remote -v
+git push --dry-run origin HEAD
+```
+
+Le compte GitHub a été renommé de `sachabitoun17-ctrl` en `sbbb-git`. Si la
+liste des sources autorisées de la session contient encore l'ancien nom alors
+que le clone porte le nouveau, le push est refusé. Ce n'est pas une erreur
+réseau : le contrôle compare le nom littéral du dépôt, et aucune nouvelle
+tentative ne changera le résultat.
+
+**Si le `--dry-run` échoue :** n'écris rien, ne commite rien. Notifie
+immédiatement avec le message d'erreur exact, le nom de dépôt vu dans
+`git remote -v`, et cette phrase :
+
+> Le dépôt doit être ajouté aux sources autorisées de l'environnement sous son
+> nom actuel. Action de configuration, impossible depuis la session.
+
+Puis arrête-toi.
+
+**Ne réécris jamais l'URL du remote pour contourner le refus.** Ce contrôle
+existe pour vérifier où part le code. Le faire pointer vers un ancien alias du
+même dépôt le viderait de son sens. Le nom dans la configuration doit être
+corrigé, pas esquivé.
+
 ## 1. ÉTAT DES LIEUX
 
 - `git pull`, en vérifiant bien la branche (voir topologie ci-dessus).
