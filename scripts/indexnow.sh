@@ -5,7 +5,7 @@
 # Usage : bash scripts/indexnow.sh
 set -euo pipefail
 
-KEY="88a625b88f3f4c718a8b60b8ac87a5ea"
+KEY="8e34269a671a49aca7d02e799e3645fa"
 HOST="opti-cds.fr"
 SITEMAP="https://${HOST}/sitemap.xml"
 
