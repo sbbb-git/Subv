@@ -1,0 +1,141 @@
+name: SEO optimisation hebdo
+
+# Routine d'optimisation SEO hebdomadaire d'Opti-CDS.
+#
+# C'est le maillon qui manquait : `seo-weekly.yml` mesure et rapporte, mais
+# rien n'écrivait. Ce workflow exécute le prompt versionné dans
+# `.claude/routine-seo-hebdo.md`, laisse Claude étoffer le corpus, puis
+# commite. Le déploiement suit automatiquement via `deploy.yml`, qui écoute
+# la fin de ce workflow.
+#
+# Ordre garanti par construction : le runner part du dépôt cloné, donc rien
+# ne peut être déployé sans avoir été commité d'abord.
+#
+# PRÉ-REQUIS : le secret ANTHROPIC_API_KEY doit être défini dans
+# Settings → Secrets and variables → Actions. Sans lui, le job est ignoré
+# proprement plutôt que de tomber en échec chaque semaine.
+
+on:
+  schedule:
+    - cron: "11 5 * * 1"   # lundi 05:11 UTC, avant l'audit de 07:23
+  workflow_dispatch:
+    inputs:
+      consigne:
+        description: "Consigne ponctuelle ajoutée au prompt de la routine"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: seo-optimize
+  cancel-in-progress: false
+
+jobs:
+  optimiser:
+    # Le secret n'est pas lisible dans une condition de job sur toutes les
+    # configurations, donc on le teste dans une première étape et on sort
+    # proprement si besoin.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Vérifier la présence de la clé
+        id: garde
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "::warning::Secret ANTHROPIC_API_KEY absent. Routine d'optimisation ignorée."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-node@v4
+        if: steps.garde.outputs.ok == 'true'
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Installer les dépendances
+        if: steps.garde.outputs.ok == 'true'
+        run: npm ci
+
+      - name: État initial du corpus
+        if: steps.garde.outputs.ok == 'true'
+        run: |
+          npm run build
+          node scripts/seo-audit.mjs --json > /tmp/avant.json || true
+          node -e "const a=require('/tmp/avant.json');console.log('Avant :',a.blocking,'bloquant,',a.debt,'dette')"
+
+      - name: Configurer git
+        if: steps.garde.outputs.ok == 'true'
+        run: |
+          git config user.email "noreply@anthropic.com"
+          git config user.name "Claude"
+
+      - name: Exécuter la routine SEO
+        if: steps.garde.outputs.ok == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: "--max-turns 60"
+          prompt: |
+            Tu exécutes la routine SEO hebdomadaire d'Opti-CDS.
+
+            Lis d'abord et applique intégralement le prompt versionné dans
+            .claude/routine-seo-hebdo.md . Il fait autorité sur le contexte
+            métier, les règles de rédaction, les garde-fous et l'ordre des
+            opérations. Respecte en particulier : aucun tiret cadratin, aucun
+            chiffre inventé, jamais la méthode d'obtention de la subvention
+            Teulade, et du HTML brut avec des balises a href, jamais de Link JSX.
+
+            Périmètre de CE run, dans l'ordre :
+            1. Lance `node scripts/seo-audit.mjs` pour connaître l'état réel.
+            2. Prends les 5 articles les plus courts listés par l'audit et
+               étoffe-les à 430-520 mots réels chacun, avec au minimum deux
+               liens internes contextuels dont un vers une page pilier.
+            3. Ne publie AUCUN nouvel article. La mesure Search Console montre
+               zéro impression sur le corpus existant, donc la priorité est la
+               réparation, pas le volume.
+            4. Relance `npm run build` puis `node scripts/seo-audit.mjs`. La
+               dette doit avoir diminué et il ne doit rester aucun bloquant.
+            5. Commite avec un message décrivant les articles réellement
+               modifiés et l'évolution chiffrée de la dette. Ne pousse pas,
+               une étape suivante s'en charge.
+
+            Si le build casse ou que l'audit remonte du bloquant, corrige avant
+            de commiter. En cas de doute, fais moins mais propre.
+
+            Consigne ponctuelle éventuelle : ${{ inputs.consigne }}
+
+      - name: Contrôle final avant publication
+        if: steps.garde.outputs.ok == 'true'
+        run: |
+          npm run build
+          node scripts/seo-audit.mjs
+          node scripts/seo-audit.mjs --json > /tmp/apres.json
+          node -e "
+            const a=require('/tmp/avant.json'), b=require('/tmp/apres.json');
+            console.log('Dette', a.debt, '->', b.debt);
+            if (b.debt > a.debt) { console.error('La dette a augmente, publication interrompue.'); process.exit(1); }
+          "
+
+      - name: Pousser
+        if: steps.garde.outputs.ok == 'true'
+        run: |
+          if git diff --quiet HEAD -- && [ -z "$(git log origin/${GITHUB_REF_NAME}..HEAD --oneline)" ]; then
+            echo "Aucun changement à pousser."
+            exit 0
+          fi
+          for i in 1 2 3 4; do
+            git push origin HEAD:"${GITHUB_REF_NAME}" && exit 0
+            echo "Push échoué, nouvelle tentative dans $((2**i))s"
+            sleep $((2**i))
+          done
+          echo "::error::Push impossible après 4 tentatives. Rien ne sera déployé."
+          exit 1

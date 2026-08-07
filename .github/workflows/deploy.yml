@@ -13,6 +13,12 @@ name: Deploy
 
 on:
   workflow_dispatch: {}
+  # Un push effectué avec le GITHUB_TOKEN ne déclenche pas d'autre workflow,
+  # par protection contre les boucles. La routine d'optimisation hebdomadaire
+  # ne serait donc jamais suivie d'un déploiement. On l'enchaîne explicitement.
+  workflow_run:
+    workflows: ["SEO optimisation hebdo"]
+    types: [completed]
   push:
     branches:
       - claude/healthcare-consulting-site-4rxIZ
@@ -36,6 +42,11 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # Déclenché par workflow_run, on ne déploie que si le workflow amont a
+    # réussi. Un run d'optimisation en échec ne doit rien mettre en ligne.
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     steps:
       - uses: actions/checkout@v4
 
