@@ -238,6 +238,27 @@ Cordialement,
 ${SIG_LONG}`,
     }),
   },
+  // ─────────────────────────────────────────────────────────────────────────────
+  {
+    id: "t11_recrutement",
+    name: "Recrutement médecins (partenaires)",
+    angle: "Le point de douleur RH numéro un : trouver des médecins. On a des partenaires pour ça.",
+    targetFit: "Universel — tout CDS avec postes médicaux vacants ou turnover",
+    build: (c) => ({
+      subject: `Difficile de recruter vos médecins ?`,
+      body: `${hello(c)}
+
+Question directe : combien de postes de médecins vous aimeriez pourvoir en ce moment, sans y arriver ?
+
+C'est le sujet numéro un qui revient dans les CDS qu'on rencontre. Les annonces ne suffisent plus, les bons profils ne répondent pas, et chaque poste vacant pèse sur la file active et sur l'équipe.
+
+Chez Opti-CDS on a noué des partenariats avec des recruteurs spécialisés dans la santé. Vous gardez un seul interlocuteur, on orchestre le sourcing, les contrats et l'intégration, et on travaille au résultat. On accompagne aussi sur les autres sujets du centre selon vos besoins.
+
+15 min en visio pour qu'on regarde votre cas ?
+
+${SIG}`,
+    }),
+  },
 ];
 
 export function templateById(id: string): Template | null {

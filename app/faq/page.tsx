@@ -21,6 +21,8 @@ const faqs = [
   { q: "Êtes-vous indépendants ?", a: "Oui. Cabinet privé sans lien capitalistique avec la CPAM, l’URSSAF ou l’Assurance Maladie." },
   { q: "Travaillez-vous partout en France ?", a: "Oui, sur l’ensemble du territoire métropolitain et ultramarin." },
   { q: "Quels sont les autres financements d’un centre de santé ?", a: "Au-delà de la subvention Teulade, plusieurs dispositifs publics et conventionnels peuvent être mobilisés. Notre check-up gratuit identifie les leviers adaptés à votre situation." },
+  { q: "Pouvez-vous nous aider à recruter des médecins ?", a: "Oui. Nous orchestrons le recrutement de médecins salariés et mobilisons nos partenaires recruteurs spécialisés dans la santé pour le sourcing. Du cadrage du besoin à l’intégration du praticien, vous gardez un interlocuteur unique. Contactez-nous pour un check-up." },
+  { q: "Comment êtes-vous rémunérés sur le recrutement de médecins ?", a: "Nous travaillons au résultat, sans vous engager sur des frais avant d’avoir avancé concrètement sur votre recrutement. Les conditions sont posées clairement dès le premier échange, sans frais cachés." },
 ];
 
 export default function Page() {

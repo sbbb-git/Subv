@@ -72,6 +72,9 @@ export const metadata: Metadata = {
   formatDetection: { telephone: false, email: true, address: false },
 };
 
+// Google Analytics 4 — measurement ID
+const GA_ID = "G-BY40KM4XDY";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const orgLd = {
     "@context": "https://schema.org",
@@ -106,6 +109,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={inter.variable}>
       <head>
+        {/* Google tag (gtag.js) — placé en premier dans <head> pour capter
+            les pageviews dès le chargement, sur toutes les pages via le root layout. */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${GA_ID}');`,
+          }}
+        />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta name="theme-color" content="#1660C9" />
         <script
