@@ -19,6 +19,9 @@
 //     - article < 350 mots réels
 //     - article sans aucun lien interne
 //     - meta description hors 110-160 caractères (après décodage des entités)
+//     - page indexable hors article sous 300 mots (services, typologies,
+//       piliers). Sans cette règle, 20 pages d'atterrissage commerciales
+//       restaient sous 200 mots sans que rien ne le signale.
 //
 // Par défaut : sort en 1 sur BLOQUANT uniquement, et affiche la dette.
 // C'est ce qui permet de poser le garde-fou tout de suite sans figer la
@@ -92,8 +95,13 @@ function internalTargetExists(path) {
   ].some((c) => existsSync(c));
 }
 
+// Pages dont la brievete est normale : elles ne visent aucune requete.
+const PAGES_COURTES_LEGITIMES = new Set(["/contact", "/mentions-legales"]);
+const SEUIL_PAGE = 300;
+
 const files = walk(OUT_DIR);
 const shortArticles = [];
+const pagesMinces = [];
 
 for (const file of files) {
   const route = routeOf(file);
@@ -122,6 +130,23 @@ for (const file of files) {
     }
 
     if (!/<meta[^>]+property=["']og:image["']/i.test(html)) block(route, "og-image-manquante", "og:image manquante");
+
+    // Pages minces hors articles. Les pages services et typologies etaient
+    // sous 200 mots alors qu'elles visent des requetes commerciales
+    // disputees. Sans ce controle, l'audit ne les voyait pas.
+    const isArticleRoute = /^\/ressources\/[^/]+\/?$/.test(route) && route !== "/ressources/";
+    if (!isArticleRoute && !PAGES_COURTES_LEGITIMES.has(route.replace(/\/$/, ""))) {
+      const corps = html
+        .replace(/<script[\s\S]*?<\/script>/gi, " ")
+        .replace(/<(nav|footer|head)[\s\S]*?<\/\1>/gi, " ");
+      const main = /<main[\s\S]*?<\/main>/i.exec(corps);
+      const zone = main ? main[0] : corps;
+      const n = decodeEntities(zone.replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim().split(" ").filter(Boolean).length;
+      if (n < SEUIL_PAGE) {
+        owe(route, "page-mince", `${n} mots < ${SEUIL_PAGE}`);
+        pagesMinces.push({ route, words: n });
+      }
+    }
   }
 
   // --- Règles articles : pages /ressources/<slug>/ (hors index) ------------
@@ -162,6 +187,7 @@ for (const file of files) {
 // --- Restitution -----------------------------------------------------------
 const byCode = (list) => list.reduce((a, e) => ((a[e.code] = (a[e.code] || 0) + 1), a), {});
 shortArticles.sort((a, b) => a.words - b.words);
+pagesMinces.sort((a, b) => a.words - b.words);
 
 if (JSON_OUT) {
   console.log(JSON.stringify({
@@ -172,6 +198,7 @@ if (JSON_OUT) {
     debtByCode: byCode(debt),
     blockingDetail: blocking,
     shortestArticles: shortArticles.slice(0, 15),
+    pagesMinces: pagesMinces.slice(0, 20),
   }, null, 2));
 } else {
   if (blocking.length) {
@@ -184,6 +211,10 @@ if (JSON_OUT) {
     if (shortArticles.length) {
       console.error("\n  Articles les plus courts (à étoffer en priorité) :");
       for (const a of shortArticles.slice(0, 10)) console.error(`    ${a.words} mots  ${a.route}`);
+    }
+    if (pagesMinces.length) {
+      console.error("\n  Pages minces hors articles :");
+      for (const p of pagesMinces.slice(0, 12)) console.error(`    ${p.words} mots  ${p.route}`);
     }
   }
   if (!blocking.length && !debt.length) {
