@@ -73,6 +73,15 @@ export default function Page({ params }: { params: Params }) {
         </div>
       </section>
 
+      {s.body && (
+        <article className="bg-white border-t border-line">
+          <div
+            className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 prose-content"
+            dangerouslySetInnerHTML={{ __html: s.body }}
+          />
+        </article>
+      )}
+
       <section className="bg-soft border-y border-line">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <h2 className="text-xl font-bold text-ink">Autres services</h2>

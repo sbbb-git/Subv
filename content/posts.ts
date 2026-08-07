@@ -55,16 +55,26 @@ export const posts: Post[] = [
     date: "2026-03-18",
     readingTime: "3 min",
     category: "Subventions",
-    content: `
-<h2>Un secteur spécifique</h2>
-<p>Les centres de santé dentaires combinent enjeux RH, cadre conventionnel et productivité. Comme tout centre de santé conventionné, ils peuvent mobiliser plusieurs dispositifs de financement.</p>
+    content: `<h2>Un secteur spécifique</h2>
+<p>Les centres de santé dentaires combinent enjeux de ressources humaines, cadre conventionnel et productivité. Comme tout centre de santé conventionné, ils peuvent mobiliser plusieurs dispositifs de financement. Leur économie reste toutefois particulière : le poids du plateau technique, la place des actes prothétiques et le rythme des fauteuils créent une sensibilité à l’organisation que l’on ne retrouve pas au même degré dans un centre médical.</p>
 <h2>Quels dispositifs ?</h2>
-<p>Au-delà des rémunérations conventionnelles, plusieurs subventions et dispositifs forfaitaires peuvent être mobilisés. Chaque cas s’apprécie individuellement selon le statut juridique, la typologie et l’organisation.</p>
+<p>Au-delà des rémunérations conventionnelles, plusieurs subventions et dispositifs forfaitaires peuvent être mobilisés. Chaque cas s’apprécie individuellement selon le statut juridique, la typologie et l’organisation. Certains financements sont communs à l’ensemble des centres conventionnés, d’autres dépendent du territoire d’implantation ou de la collectivité concernée. La subvention Teulade, prévue par le code de la sécurité sociale, figure parmi les dispositifs propres aux centres conventionnés et mérite d’être examinée au cas par cas.</p>
+<h2>Ce qui distingue un centre dentaire</h2>
+<p>L’investissement initial et le renouvellement du matériel pèsent lourd dans le plan de financement. Un fauteuil supplémentaire n’est rentable que s’il est occupé, et son occupation dépend autant de l’assistance dentaire que du praticien. La question du financement rejoint donc rapidement celle du <a href="/ressources/modele-economique-centre-dentaire">modèle économique du centre dentaire</a> : taux d’occupation, répartition entre soins conservateurs et prothèses, organisation des rendez-vous. Un dossier de subvention bien construit s’appuie sur cette réalité plutôt que sur des intentions générales.</p>
+<h2>Le statut juridique conditionne l’accès</h2>
+<p>Un centre porté par une association, par une mutuelle ou par une collectivité n’a pas le même accès aux dispositifs publics et conventionnels. Le statut influence également la fiscalité et le régime des aides. Cette dimension se traite en amont, au moment de la structuration du projet, car la corriger ensuite est long et coûteux. C’est l’un des points qu’il faut trancher avant de chiffrer un <a href="/centres-de-sante/dentaire">projet de centre dentaire</a>.</p>
+<h2>Points de vigilance</h2>
+<ul>
+  <li>Confondre aide à l’investissement et aide au fonctionnement, qui n’obéissent pas aux mêmes logiques</li>
+  <li>Déposer un dossier sans traçabilité comptable permettant de le justifier</li>
+  <li>Ignorer les calendriers propres à certains financeurs</li>
+  <li>Négliger les dispositifs liés au territoire d’implantation</li>
+  <li>Traiter les subventions comme un appoint plutôt que comme une composante du modèle</li>
+</ul>
 <h2>Pourquoi un accompagnement</h2>
-<p>L’articulation entre les différents financements est complexe. Un accompagnement spécialisé permet de sécuriser la démarche et d’éviter les angles morts.</p>
+<p>L’articulation entre les différents financements est complexe. Un accompagnement spécialisé permet de sécuriser la démarche et d’éviter les angles morts. L’enjeu n’est pas seulement d’obtenir une aide isolée, mais de vérifier que l’ensemble des dispositifs mobilisables a été examiné, que leur combinaison est cohérente, et que le centre est en mesure de justifier chaque demande. C’est ce travail d’inventaire, rarement réalisable en interne faute de temps, qui fait la différence sur la durée.</p>
 <h2>Contactez-nous</h2>
-<p>Un check-up gratuit permet d’évaluer rapidement les leviers mobilisables.</p>
-`,
+<p>Un check-up gratuit permet d’évaluer rapidement les leviers mobilisables par votre centre dentaire. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "creer-centre-de-sante",
@@ -122,16 +132,26 @@ export const posts: Post[] = [
     date: "2025-12-20",
     readingTime: "3 min",
     category: "Développement",
-    content: `
-<h2>Quel besoin territorial ?</h2>
-<p>Le développement se justifie quand le besoin de soins existe et que la patientèle potentielle est suffisante.</p>
+    content: `<h2>Quel besoin territorial ?</h2>
+<p>Le développement se justifie quand le besoin de soins existe et que la patientèle potentielle est suffisante. Cette vérification passe avant toute autre. Elle suppose de regarder la démographie des professionnels du secteur, les délais de rendez-vous constatés, les demandes déjà refusées faute de créneaux et la présence des autres structures. Un besoin ressenti par l’équipe ne vaut pas démonstration. Un besoin objectivé et documenté sert au contraire de socle à toutes les discussions à venir, avec l’agence régionale de santé comme avec les collectivités.</p>
+<h2>Trois formes de développement à distinguer</h2>
+<p>Élargir l’offre sur le site existant, ouvrir une antenne ou reprendre une structure en place ne relèvent pas de la même logique. L’élargissement mobilise surtout des compétences nouvelles et des locaux adaptés. L’ouverture d’une antenne crée une seconde organisation à faire vivre, avec sa propre montée en charge. La reprise hérite d’un existant, de ses contrats et parfois de ses difficultés, comme le rappelle le sujet de la <a href="/ressources/reprise-centre-de-sante-difficulte">reprise d’un centre de santé en difficulté</a>. Nommer précisément la voie retenue évite bien des malentendus internes.</p>
 <h2>Quels moyens ?</h2>
-<p>Le développement suppose des moyens RH, juridiques et financiers. Plusieurs dispositifs de financement peuvent être mobilisés pour accompagner la croissance.</p>
+<p>Le développement suppose des moyens RH, juridiques et financiers. Plusieurs dispositifs de financement peuvent être mobilisés pour accompagner la croissance. La contrainte la plus fréquente n’est cependant pas financière, elle est humaine. Sans visibilité sur le recrutement, un projet d’extension reste théorique, et la question du <a href="/ressources/recruter-medecins-salaries-centre-de-sante">recrutement de médecins salariés</a> se pose souvent avant celle des locaux. Le calendrier du projet doit se caler sur le plus long des deux délais, pas sur le plus court.</p>
 <h2>Quelle gouvernance ?</h2>
-<p>Multi-sites, réseau, structure unique : les choix de gouvernance ont des conséquences durables. Ils méritent d’être tranchés en amont.</p>
-<h2>Pour aller plus loin</h2>
-<p>Contactez-nous pour un check-up gratuit de votre projet de développement.</p>
-`,
+<p>Multi-sites, réseau, structure unique : les choix de gouvernance ont des conséquences durables. Ils méritent d’être tranchés en amont. Qui décide des embauches ? Où se situe la responsabilité budgétaire ? Comment les sites partagent-ils les fonctions support, la paie, la facturation, le système d’information ? Une organisation qui grandit sans clarifier ces points reproduit ses tensions à chaque nouveau site. À l’inverse, une structure trop centralisée éloigne la décision du terrain et démobilise les équipes locales.</p>
+<h2>Les erreurs les plus coûteuses</h2>
+<ul>
+  <li>Ouvrir un second site avant que le premier n’ait atteint son équilibre</li>
+  <li>Sous-estimer le temps de direction et de coordination qu’exige un fonctionnement multi-sites</li>
+  <li>Construire le budget sur une activité de croisière en négligeant la période de montée en charge</li>
+  <li>Engager des travaux avant d’avoir sécurisé les autorisations et les financements</li>
+  <li>Piloter la croissance sans indicateurs partagés entre les sites</li>
+</ul>
+<h2>Séquencer et mesurer</h2>
+<p>Un développement solide se déroule par étapes vérifiables. Chaque jalon gagne à être associé à des repères de suivi, tels que ceux évoqués dans les <a href="/ressources/indicateurs-pilotage-centre-de-sante">indicateurs de pilotage d’un centre de santé</a>, afin de décider en connaissance de cause du passage à l’étape suivante. C’est aussi le sens d’un accompagnement au <a href="/services/developpement">développement de centre de santé</a>, qui consiste autant à sécuriser le rythme qu’à ouvrir des portes.</p>
+<h2>Contactez-nous</h2>
+<p>Avant d’engager des moyens, il est utile de faire le point sur la solidité du besoin, les ressources disponibles et les financements accessibles à votre structure. Contactez-nous pour un check-up.</p>`,
   },
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -222,9 +242,8 @@ export const posts: Post[] = [
     date: "2026-06-11",
     readingTime: "4 min",
     category: "Création",
-    content: `
-<h2>Un choix fondateur</h2>
-<p>Le statut juridique d’un centre de santé détermine sa gouvernance, son régime fiscal, son cadre RH et les financements accessibles. C’est une décision qui engage durablement.</p>
+    content: `<h2>Un choix fondateur</h2>
+<p>Le statut juridique d’un centre de santé détermine sa gouvernance, son régime fiscal, son cadre en matière de ressources humaines et les financements accessibles. C’est une décision qui engage durablement. Elle intervient tôt dans le projet, souvent avant que le modèle économique ne soit stabilisé, ce qui explique qu’elle soit parfois prise trop vite.</p>
 <h2>Les formes les plus fréquentes</h2>
 <ul>
   <li>Association loi 1901</li>
@@ -232,11 +251,24 @@ export const posts: Post[] = [
   <li>Structure mutualiste</li>
   <li>Société coopérative d’intérêt collectif</li>
 </ul>
+<h2>Un principe commun : la non-lucrativité</h2>
+<p>Ces formes ont un point commun. Le gestionnaire d’un centre de santé relève du secteur non lucratif ou de la sphère publique, ce qui exclut les montages dont l’objet est la distribution de bénéfices. Ce principe n’est pas une contrainte formelle : il structure la relation avec les financeurs publics et conventionnels, et il explique pourquoi certains dispositifs sont réservés aux centres de santé. Le comprendre évite de bâtir un projet sur une hypothèse inexacte.</p>
+<h2>Ce qui différencie réellement ces statuts</h2>
+<p>Au-delà de la forme, les écarts portent sur quatre plans. La gouvernance d’abord : un conseil d’administration associatif, un conseil municipal et un sociétariat coopératif ne décident ni au même rythme ni selon les mêmes équilibres. La responsabilité ensuite, qui n’engage pas les mêmes personnes. Le cadre social enfin, avec des conventions collectives ou des statuts applicables différents, qui pèsent sur la rémunération et sur les <a href="/ressources/contrat-medecin-salarie-centre-de-sante">contrats des médecins salariés</a>. S’y ajoute le traitement fiscal, variable selon la nature de l’activité et du porteur.</p>
 <h2>Des conséquences financières</h2>
-<p>Chaque statut ouvre ou ferme l’accès à certains dispositifs publics et conventionnels. Le choix doit être pensé en lien avec le plan de financement.</p>
-<h2>Pour aller plus loin</h2>
-<p>Contactez-nous pour articuler statut juridique et leviers de financement.</p>
-`,
+<p>Chaque statut ouvre ou ferme l’accès à certains dispositifs publics et conventionnels. Le choix doit être pensé en lien avec le plan de financement. Une collectivité n’active pas les mêmes leviers qu’une association, et une structure mutualiste dispose de ressources internes que d’autres n’ont pas. Raisonner statut d’abord et financement ensuite conduit régulièrement à découvrir tardivement qu’une aide envisagée n’est pas accessible dans la forme retenue.</p>
+<h2>Les critères qui doivent guider la décision</h2>
+<ul>
+  <li>Qui porte le risque financier et sur quelle durée</li>
+  <li>Le rythme de décision compatible avec le fonctionnement du centre</li>
+  <li>Les financements visés et leurs conditions d’éligibilité</li>
+  <li>La place souhaitée pour les professionnels dans la gouvernance</li>
+  <li>La capacité du porteur à assumer la gestion dans la durée</li>
+</ul>
+<h2>Changer de statut en cours de route</h2>
+<p>C’est possible, mais rarement neutre. Une transformation touche les contrats de travail, les autorisations, le conventionnement et parfois les financements en cours. Elle se prépare et ne s’improvise pas sous la pression d’une difficulté de trésorerie. Mieux vaut arbitrer correctement au moment de la <a href="/services/creation-centre-de-sante">création du centre</a>, quand les engagements sont encore limités.</p>
+<h2>Contactez-nous</h2>
+<p>Un check-up gratuit permet d’articuler votre statut juridique et les leviers de financement réellement mobilisables. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "projet-de-sante-centre-de-sante",
@@ -322,16 +354,26 @@ export const posts: Post[] = [
     date: "2026-06-16",
     readingTime: "3 min",
     category: "Gestion",
-    content: `
-<h2>Une obligation structurante</h2>
-<p>Le tiers payant fait partie des engagements du centre de santé conventionné. Il facilite l’accès aux soins mais alourdit la gestion administrative.</p>
+    content: `<h2>Une obligation structurante</h2>
+<p>Le tiers payant fait partie des engagements du centre de santé conventionné. Il facilite l’accès aux soins mais alourdit la gestion administrative. Pour le patient, l’avance de frais disparaît. Pour le centre, elle est simplement transférée : la structure produit le soin, puis attend son paiement d’un ou plusieurs organismes. Cette obligation est indissociable du cadre du <a href="/ressources/conventionnement-centre-de-sante">conventionnement</a>, et elle emporte des conséquences très concrètes sur l’organisation de l’accueil.</p>
+<h2>Deux flux à ne pas traiter de la même manière</h2>
+<p>La part obligatoire et la part complémentaire n’ont ni les mêmes circuits, ni les mêmes causes de blocage, ni les mêmes délais. La première dépend principalement de l’exactitude des droits du patient au moment de la facturation. La seconde dépend de la connaissance du contrat de la complémentaire et de la convention applicable. Un centre qui suit ces deux flux dans un même tableau perd la capacité d’identifier où se situe réellement le point de friction.</p>
 <h2>Le suivi des rejets</h2>
-<p>Les factures rejetées non retraitées représentent une perte directe. Un suivi rigoureux des rejets et relances est essentiel à l’équilibre financier.</p>
+<p>Les factures rejetées non retraitées représentent une perte directe. Un suivi rigoureux des rejets et relances est essentiel à l’équilibre financier. La difficulté n’est pas de constater les rejets, elle est de les traiter avant qu’ils ne deviennent irrécupérables. Chaque rejet a une cause identifiable : droits fermés, carte non mise à jour, code de facturation inadapté, doublon, mutuelle inconnue. Le classement par motif permet de corriger la source plutôt que de retraiter indéfiniment les mêmes erreurs.</p>
+<h2>Organiser la chaîne de facturation</h2>
+<p>La qualité du tiers payant se joue à l’accueil, pas à la comptabilité. Vérification des droits avant la consultation, mise à jour de la carte vitale, contrôle de la couverture complémentaire, saisie complète du dossier : ce sont ces gestes qui déterminent le taux de rejet ultérieur. Il est utile de nommer un responsable du flux, de fixer un rythme de retraitement et de faire remonter les motifs récurrents aux équipes de soins. Un travail d’<a href="/services/optimisation-de-l-activite">optimisation de l’activité</a> commence souvent par ce point, parce qu’il produit des effets sans exiger de recruter.</p>
 <h2>Un impact sur la trésorerie</h2>
-<p>Les délais de remboursement pèsent sur la trésorerie. Anticiper ces décalages fait partie d’une gestion saine.</p>
+<p>Les délais de remboursement pèsent sur la trésorerie. Anticiper ces décalages fait partie d’une gestion saine. Un centre peut afficher une activité satisfaisante et manquer de liquidités parce que ses créances s’accumulent. La lecture conjointe du stock de factures en attente et du plan de <a href="/ressources/tresorerie-centre-de-sante">trésorerie</a> évite cette dissociation entre le compte de résultat et la réalité bancaire.</p>
+<h2>Les erreurs les plus coûteuses</h2>
+<ul>
+  <li>Laisser les rejets s’accumuler jusqu’à la prescription des créances</li>
+  <li>Confier le retraitement à une personne unique, sans procédure écrite</li>
+  <li>Ne pas rapprocher les paiements reçus des factures émises</li>
+  <li>Négliger la mise à jour des conventions avec les complémentaires</li>
+  <li>Traiter le sujet comme une tâche administrative plutôt que comme une recette</li>
+</ul>
 <h2>Contactez-nous</h2>
-<p>Un check-up gratuit permet de mesurer l’impact du tiers payant sur vos comptes.</p>
-`,
+<p>Un check-up gratuit permet de mesurer l’impact du tiers payant sur vos comptes et de repérer les créances encore récupérables. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "tresorerie-centre-de-sante",
@@ -341,16 +383,26 @@ export const posts: Post[] = [
     date: "2026-06-17",
     readingTime: "3 min",
     category: "Gestion",
-    content: `
-<h2>Un point de tension fréquent</h2>
-<p>Entre charges fixes élevées et délais de remboursement, la trésorerie d’un centre de santé est souvent sous tension. La vigilance s’impose dès le démarrage.</p>
+    content: `<h2>Un point de tension fréquent</h2>
+<p>Entre charges fixes élevées et délais de remboursement, la trésorerie d’un centre de santé est souvent sous tension. La vigilance s’impose dès le démarrage. Un centre de santé encaisse peu au comptoir et beaucoup par virements de tiers. Sa trésorerie ne reflète donc jamais l’activité du jour, mais celle des semaines précédentes, corrigée des rejets et des régularisations. C’est cette dissociation qui surprend les gestionnaires venus d’autres secteurs.</p>
+<h2>Comprendre d’où vient le décalage</h2>
+<p>Le cycle est simple à décrire et long à parcourir : l’acte est réalisé, puis facturé, puis télétransmis, puis remboursé. La part obligatoire et la part complémentaire ne suivent pas le même rythme ni les mêmes circuits. À cela s’ajoutent les factures rejetées, qui repartent au début du cycle si personne ne les reprend. Une organisation du <a href="/ressources/tiers-payant-centre-de-sante">tiers payant</a> solide est donc, avant tout, un sujet de trésorerie.</p>
 <h2>Anticiper les décalages</h2>
-<p>Les recettes conventionnelles arrivent avec un décalage. Un plan de trésorerie réaliste permet d’éviter les mauvaises surprises.</p>
+<p>Les recettes conventionnelles arrivent avec un décalage. Un plan de trésorerie réaliste permet d’éviter les mauvaises surprises. Ce plan doit être glissant, actualisé chaque mois, et intégrer la saisonnalité propre au centre : congés des praticiens, périodes de fermeture, campagnes de vaccination, absences non remplacées. Un mois marqué par plusieurs absences produit ses effets sur les encaissements plusieurs semaines plus tard, alors que les salaires, eux, ont déjà été versés.</p>
+<h2>Le poids des charges fixes</h2>
+<p>La structure de coûts d’un centre de santé est majoritairement salariale, et le salaire ne s’ajuste pas à l’activité du mois. S’y ajoutent le loyer, la maintenance des équipements, les licences logicielles et les assurances. Cette rigidité signifie qu’une baisse d’activité même temporaire se traduit presque intégralement en besoin de trésorerie. C’est la raison pour laquelle un fonds de roulement dimensionné dès l’ouverture vaut mieux qu’un financement d’urgence négocié dans la précipitation.</p>
 <h2>Mobiliser les bons leviers</h2>
-<p>Des financements existent pour soutenir l’équilibre, mais ils sont parfois mobilisés trop tard. Les anticiper sécurise le modèle.</p>
-<h2>Pour aller plus loin</h2>
-<p>Contactez-nous pour un check-up gratuit de votre situation financière.</p>
-`,
+<p>Des financements existent pour soutenir l’équilibre, mais ils sont parfois mobilisés trop tard. Les anticiper sécurise le modèle. Forfaits attachés à la structure, soutiens des collectivités, dispositifs régionaux, subvention Teulade : ces ressources ne se déclenchent pas seules et supposent des dossiers à jour. Un travail structuré sur vos <a href="/services/comptabilite-gestion">outils de comptabilité et de gestion</a> permet de savoir, mois par mois, ce qui est acquis, ce qui est en attente et ce qui n’a jamais été demandé.</p>
+<h2>Les signaux d’alerte à surveiller</h2>
+<ul>
+  <li>Un stock de factures non transmises qui s’allonge d’un mois sur l’autre</li>
+  <li>Des rejets anciens jamais retraités</li>
+  <li>Un recours répété au découvert en fin de mois</li>
+  <li>Des délais fournisseurs allongés sans négociation formalisée</li>
+  <li>L’absence de prévision de trésorerie au-delà du mois en cours</li>
+</ul>
+<h2>Contactez-nous</h2>
+<p>Un check-up gratuit permet de reconstituer votre cycle d’encaissement et d’identifier les recettes qui vous échappent. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "indicateurs-pilotage-centre-de-sante",
@@ -360,9 +412,8 @@ export const posts: Post[] = [
     date: "2026-06-18",
     readingTime: "3 min",
     category: "Gestion",
-    content: `
-<h2>Mesurer pour décider</h2>
-<p>Un pilotage efficace repose sur quelques indicateurs simples et suivis dans le temps. L’objectif n’est pas de tout mesurer, mais de mesurer l’essentiel.</p>
+    content: `<h2>Mesurer pour décider</h2>
+<p>Un pilotage efficace repose sur quelques indicateurs simples et suivis dans le temps. L’objectif n’est pas de tout mesurer, mais de mesurer l’essentiel. Un indicateur n’a de valeur que s’il déclenche une décision. Si personne ne sait ce que l’on ferait différemment selon sa valeur, il encombre le tableau de bord sans l’enrichir. Cette question, posée à chaque ligne, réduit souvent le tableau de moitié.</p>
 <h2>Les familles d’indicateurs</h2>
 <ul>
   <li>Activité et patientèle</li>
@@ -370,11 +421,23 @@ export const posts: Post[] = [
   <li>Taux de rejets de facturation</li>
   <li>Indicateurs de qualité et de prévention</li>
 </ul>
+<p>L’activité et la patientèle disent si le centre remplit sa mission territoriale : file active, part de nouveaux patients, taux d’occupation des plages, délai moyen d’obtention d’un rendez-vous. Les recettes par source montrent la dépendance du modèle : un centre dont les ressources reposent presque uniquement sur l’acte est plus exposé qu’un centre qui a su articuler acte, forfaits et subventions. Le taux de rejets est un indicateur de trésorerie déguisé en indicateur administratif. Les <a href="/ressources/qualite-centre-de-sante">indicateurs de qualité et de prévention</a>, enfin, conditionnent une partie des rémunérations complémentaires.</p>
+<h2>La fréquence compte plus que le nombre</h2>
+<p>Un indicateur consulté une fois par an ne pilote rien. Mieux vaut un jeu restreint, mis à jour chaque mois et regardé en réunion d’équipe, qu’un tableau exhaustif produit pour le rapport d’activité. La régularité crée l’habitude de comparer, et c’est la comparaison dans le temps qui donne le sens : une valeur isolée ne dit presque rien, une série de plusieurs mois révèle une tendance.</p>
 <h2>Un outil de dialogue</h2>
-<p>Ces indicateurs nourrissent le dialogue avec l’ARS, la gouvernance et les équipes. Ils donnent une lecture partagée de la situation.</p>
+<p>Ces indicateurs nourrissent le dialogue avec l’ARS, la gouvernance et les équipes. Ils donnent une lecture partagée de la situation. Face à un financeur, disposer de séries chiffrées cohérentes change la nature de la conversation : le centre cesse de justifier des demandes et commence à démontrer une trajectoire. En interne, ils évitent que les arbitrages de planning ou de recrutement se fassent au ressenti. Ils alimentent aussi le suivi des engagements pris dans le cadre de la <a href="/ressources/rosp-centre-de-sante">rémunération sur objectifs de santé publique</a>.</p>
+<h2>Les pièges du tableau de bord</h2>
+<ul>
+  <li>Multiplier les indicateurs jusqu’à ce que plus personne ne les lise</li>
+  <li>Changer de définition en cours d’année, ce qui rend les séries incomparables</li>
+  <li>Extraire les données à la main, ce qui fait dépendre le pilotage d’une seule personne</li>
+  <li>Suivre l’activité sans jamais suivre les recettes correspondantes</li>
+  <li>Ne mesurer que ce que le logiciel sort spontanément</li>
+</ul>
+<h2>Articuler pilotage et organisation</h2>
+<p>Un tableau de bord révèle des problèmes qu’il ne résout pas. Un délai de rendez-vous qui s’allonge renvoie à l’organisation des plannings, un taux de rejets élevé à la chaîne de facturation. C’est pourquoi le pilotage se travaille avec le <a href="/services/conseil-en-organisation">conseil en organisation</a>, et non isolément.</p>
 <h2>Contactez-nous</h2>
-<p>Un check-up gratuit permet de poser les bons indicateurs pour votre centre.</p>
-`,
+<p>Un check-up gratuit permet de poser les bons indicateurs pour votre centre et de vérifier qu’ils sont extractibles de vos outils. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "role-ars-centre-de-sante",
@@ -403,16 +466,20 @@ export const posts: Post[] = [
     date: "2026-06-20",
     readingTime: "3 min",
     category: "Financement",
-    content: `
-<h2>Le zonage comme point de départ</h2>
-<p>Le classement d’un territoire en zone sous-dense conditionne l’accès à plusieurs aides. Connaître son zonage est un préalable utile.</p>
+    content: `<h2>Le zonage comme point de départ</h2>
+<p>Le classement d’un territoire en zone sous-dense conditionne l’accès à plusieurs aides. Connaître son zonage est un préalable utile. Ce classement est arrêté par l’agence régionale de santé, qui distingue notamment les zones d’intervention prioritaire et les zones d’action complémentaire. Il ne se lit pas à l’échelle du département mais à celle du bassin de vie, si bien que deux communes voisines peuvent relever de statuts différents. Vérifier l’adresse exacte du lieu d’exercice, et non celle du siège du gestionnaire, évite des conclusions erronées.</p>
+<h2>Un zonage qui évolue</h2>
+<p>Le zonage n’est pas figé. Il est révisé en fonction de la démographie des professionnels et des besoins constatés. Un centre peut donc entrer dans un périmètre éligible, ou en sortir, sans que sa propre situation ait changé. Deux réflexes s’imposent. Suivre les arrêtés de révision publiés par l’<a href="/ressources/role-ars-centre-de-sante">agence régionale de santé</a>, dont le rôle dépasse largement l’instruction des dossiers. Et anticiper l’effet d’une sortie de zonage sur les aides en cours, qui ne sont pas toujours reconduites au même niveau.</p>
 <h2>Des dispositifs ciblés</h2>
-<p>Aides à l’installation, soutiens à l’exercice regroupé, appuis des collectivités : plusieurs leviers existent pour les centres implantés dans ces zones.</p>
+<p>Aides à l’installation, soutiens à l’exercice regroupé, appuis des collectivités : plusieurs leviers existent pour les centres implantés dans ces zones. Certains s’adressent au professionnel qui s’installe, d’autres à la structure qui l’accueille, et cette distinction change beaucoup de choses. Un dispositif conçu pour un praticien libéral ne se transpose pas mécaniquement à un médecin salarié. Vérifier la qualité du bénéficiaire avant de bâtir un plan de financement évite des déconvenues au moment de l’instruction.</p>
+<h2>Un argument de recrutement</h2>
+<p>Ces dispositifs ne sont pas seulement des recettes. Ils constituent un argument concret dans une discussion de recrutement, au même titre que le niveau de rémunération ou l’organisation du travail. Un centre situé en zone sous-dense qui maîtrise son environnement d’aides parle plus clairement aux candidats que celui qui découvre le sujet en cours de négociation. C’est un point à intégrer très tôt dans une démarche de <a href="/services/recrutement-de-medecins">recrutement de médecins</a>, et non une fois le contrat en discussion.</p>
 <h2>Des opportunités à saisir</h2>
-<p>Ces dispositifs sont parfois méconnus ou réclamés tardivement. Les identifier tôt permet d’en tirer pleinement parti.</p>
+<p>Ces dispositifs sont parfois méconnus ou réclamés tardivement. Les identifier tôt permet d’en tirer pleinement parti. La plupart supposent une demande formalisée, parfois une convention signée avant l’engagement des dépenses ou avant la prise de fonction du professionnel. Une aide sollicitée après coup se heurte souvent à un refus de principe, indépendamment du bien-fondé du projet. Le calendrier compte donc autant que l’éligibilité, et il se combine avec celui des <a href="/ressources/aides-collectivites-centre-de-sante">aides des collectivités</a>, qui suivent leur propre rythme budgétaire.</p>
+<h2>Ne pas raisonner dispositif par dispositif</h2>
+<p>L’erreur la plus répandue consiste à traiter chaque aide isolément, au fil des opportunités. Une vision d’ensemble permet de vérifier la compatibilité des dispositifs entre eux, d’ordonner les demandes dans le temps et de mesurer ce que représente réellement l’ensemble sur plusieurs exercices. Elle permet aussi de distinguer ce qui relève d’un soutien ponctuel au démarrage et ce qui contribue durablement au modèle du centre.</p>
 <h2>Contactez-nous</h2>
-<p>Un check-up gratuit permet de croiser votre implantation et les aides accessibles.</p>
-`,
+<p>Nous croisons votre implantation, votre statut et votre projet pour repérer les aides réellement accessibles et le bon moment pour les demander. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "fonds-intervention-regional-centre-de-sante",
@@ -441,16 +508,26 @@ export const posts: Post[] = [
     date: "2026-06-22",
     readingTime: "3 min",
     category: "Organisation",
-    content: `
-<h2>Un usage qui se développe</h2>
-<p>Téléconsultation et télé-expertise s’installent dans les pratiques des centres de santé. Bien intégrées, elles élargissent l’accès aux soins.</p>
+    content: `<h2>Un usage qui se développe</h2>
+<p>Téléconsultation et télé-expertise s’installent dans les pratiques des centres de santé. Bien intégrées, elles élargissent l’accès aux soins. Elles permettent de suivre des patients qui se déplacent difficilement, de raccourcir un délai d’avis spécialisé, ou de maintenir un lien avec une patientèle éloignée du centre. Encore faut-il que l’usage soit décidé, et non subi au coup par coup selon les disponibilités du planning.</p>
 <h2>Un cadre à respecter</h2>
-<p>La télémédecine répond à des règles précises de réalisation et de facturation. Le respect du cadre conditionne la valorisation des actes.</p>
+<p>La télémédecine répond à des règles précises de réalisation et de facturation. Le respect du cadre conditionne la valorisation des actes. Les conditions tenant au parcours du patient, à l’identification du professionnel, au consentement et à la traçabilité de l’acte ne sont pas des formalités : elles déterminent la facturabilité. Un acte réalisé correctement sur le plan médical mais mal documenté reste exposé en cas de contrôle.</p>
+<h2>Ce que cela change dans l’organisation</h2>
+<p>La téléconsultation ne se glisse pas dans les interstices d’un planning déjà saturé. Elle suppose des plages identifiées, un espace calme et confidentiel, et souvent un temps d’assistance pour préparer le dossier, installer le patient ou gérer les incidents techniques. La télé-expertise, elle, repose sur des circuits d’adressage clairs entre professionnels. Sans ces circuits, les demandes restent en attente et l’outil tombe rapidement en désuétude. Ces sujets relèvent moins de la technique que de l’<a href="/services/conseil-en-organisation">organisation interne du centre</a>, et rejoignent directement les questions de <a href="/ressources/coordination-centre-de-sante">coordination entre professionnels</a>.</p>
+<h2>Le système d’information conditionne tout</h2>
+<p>La qualité du <a href="/ressources/systeme-information-centre-de-sante">système d’information</a> détermine la faisabilité réelle de la télémédecine. Il faut que la solution de téléconsultation communique avec le dossier patient, que l’acte soit tracé au même endroit que les autres, et que la facturation suive sans double saisie. Les organisations qui ajoutent une plateforme à côté de leur logiciel métier créent une zone grise où l’activité se perd. Ce point mérite d’être vérifié avant de contractualiser avec un prestataire, pas après.</p>
 <h2>Un complément, pas un substitut</h2>
-<p>La télémédecine complète l’activité présentielle sans la remplacer. Son intérêt dépend de l’organisation du centre et des besoins du territoire.</p>
+<p>La télémédecine complète l’activité présentielle sans la remplacer. Son intérêt dépend de l’organisation du centre et des besoins du territoire. Sur une zone dense en offre de soins, le gain est faible. Sur un territoire sous-doté, ou pour des populations à mobilité réduite, il devient réel. La question à trancher n’est donc pas de savoir si le centre doit faire de la télémédecine, mais pour quels patients et pour quels motifs.</p>
+<h2>Les erreurs fréquentes</h2>
+<ul>
+  <li>Lancer l’activité sans définir les situations cliniques concernées</li>
+  <li>Négliger le temps de préparation et d’assistance nécessaire</li>
+  <li>Utiliser une solution isolée du logiciel métier</li>
+  <li>Omettre la traçabilité qui conditionne la valorisation des actes</li>
+  <li>Ne pas évaluer l’usage après quelques mois de fonctionnement</li>
+</ul>
 <h2>Contactez-nous</h2>
-<p>Un check-up gratuit permet d’évaluer la place de la télémédecine dans votre organisation.</p>
-`,
+<p>Un check-up gratuit permet d’évaluer la place de la télémédecine dans votre organisation et les conditions de sa valorisation. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "centre-de-sante-ophtalmologique",
@@ -460,16 +537,26 @@ export const posts: Post[] = [
     date: "2026-06-23",
     readingTime: "3 min",
     category: "Spécialités",
-    content: `
-<h2>Une demande soutenue</h2>
-<p>L’ophtalmologie connaît des délais d’accès élevés. Les centres de santé y apportent une réponse en structurant une offre accessible.</p>
+    content: `<h2>Une demande soutenue</h2>
+<p>L’ophtalmologie connaît des délais d’accès élevés. Les centres de santé y apportent une réponse en structurant une offre accessible. Leur intérêt tient à deux ressorts. Le salariat, qui permet de recruter là où l’installation libérale ne se fait plus. Et le conventionnement, qui lève un obstacle financier pour les patients et rejoint l’enjeu plus large d’<a href="/ressources/accessibilite-financiere-centre-de-sante">accessibilité financière des centres de santé</a>.</p>
 <h2>La délégation de tâches</h2>
-<p>Le travail aidé et la délégation entre professionnels permettent d’augmenter le nombre de patients pris en charge, dans un cadre encadré.</p>
+<p>Le travail aidé et la délégation entre professionnels permettent d’augmenter le nombre de patients pris en charge, dans un cadre encadré. Orthoptistes, infirmiers formés et assistants médicaux réalisent les examens préalables, l’ophtalmologiste concentrant son temps sur l’interprétation et la décision médicale. Ce modèle ne s’improvise pas. Il suppose des professionnels formés, des protocoles écrits, une supervision effective et une traçabilité irréprochable de chaque étape du parcours.</p>
+<h2>Le cadre juridique n’est pas un détail</h2>
+<p>La délégation s’exerce dans un cadre défini, protocoles de coopération, compétences propres à chaque profession, conditions de supervision. Un centre qui organise son flux de patients sans avoir sécurisé ce volet s’expose à la fois sur le terrain de la responsabilité et sur celui de la facturation des actes. Ce sujet gagne à être traité dès la conception de l’organisation, en cohérence avec le <a href="/ressources/projet-de-sante-centre-de-sante">projet de santé</a> du centre, plutôt qu’après une première alerte.</p>
 <h2>Un modèle à équilibrer</h2>
-<p>L’équipement et l’organisation représentent des coûts importants. Leur amortissement suppose une activité soutenue et des financements bien mobilisés.</p>
-<h2>Pour aller plus loin</h2>
-<p>Contactez-nous pour un check-up gratuit adapté à votre activité.</p>
-`,
+<p>L’équipement et l’organisation représentent des coûts importants. Leur amortissement suppose une activité soutenue et des financements bien mobilisés. Rétinographe, tomographe, champ visuel, réfracteur automatisé, les investissements sont lourds et évoluent vite. La question n’est pas seulement celle du prix d’achat, mais celle du coût complet, maintenance, contrats de service, renouvellement, formation des équipes. Ces arbitrages relèvent d’une réflexion d’<a href="/services/achats-et-investissements">achats et investissements</a> menée avant l’engagement, pas une fois le matériel installé.</p>
+<h2>Le système d’information conditionne le débit</h2>
+<p>Dans une organisation à flux tendu, l’outil informatique fait partie du plateau technique. Interfaçage des appareils, remontée automatique des images et des mesures dans le dossier patient, gestion fine des créneaux et des relances de rendez-vous. Un logiciel mal intégré fait perdre à chaque passage un temps qui ne se rattrape jamais, ce que confirme l’expérience des centres sur le <a href="/ressources/systeme-information-centre-de-sante">système d’information</a>.</p>
+<h2>Points de vigilance</h2>
+<ul>
+  <li>Une montée en charge plus lente que prévu, alors que les amortissements courent déjà</li>
+  <li>Une dépendance à un seul ophtalmologiste, qui fragilise toute l’organisation</li>
+  <li>Des rendez-vous non honorés mal maîtrisés, particulièrement coûteux dans un modèle à flux</li>
+  <li>Des protocoles rédigés puis jamais actualisés après un changement d’équipe</li>
+  <li>Des financements mobilisables identifiés une fois l’investissement déjà engagé</li>
+</ul>
+<h2>Contactez-nous</h2>
+<p>Nous examinons votre organisation, vos investissements et vos recettes pour situer les leviers d’équilibre propres à une activité ophtalmologique. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "centre-de-sante-infirmier",
@@ -479,16 +566,26 @@ export const posts: Post[] = [
     date: "2026-06-24",
     readingTime: "3 min",
     category: "Spécialités",
-    content: `
-<h2>Des soins de proximité</h2>
-<p>Les centres de santé infirmiers assurent une présence essentielle dans les territoires, notamment auprès des patients chroniques et dépendants.</p>
+    content: `<h2>Des soins de proximité</h2>
+<p>Les centres de santé infirmiers assurent une présence essentielle dans les territoires, notamment auprès des patients chroniques et dépendants. Ils interviennent au centre comme au domicile et se retrouvent souvent seuls professionnels de santé à passer quotidiennement chez des personnes âgées isolées ou chez des patients en sortie d’hospitalisation. Cette proximité fait leur utilité sociale. Elle façonne aussi, en profondeur, leur modèle de gestion.</p>
+<h2>Une activité largement itinérante</h2>
+<p>La part des soins réalisés au domicile distingue nettement le centre infirmier des autres structures d’exercice regroupé. Tournées, temps de déplacement, amplitude horaire très large et travail de week-end constituent le quotidien des équipes. Un directeur qui ne raisonne qu’en volume d’actes, sans examiner la construction des tournées, passe à côté de l’essentiel. La dispersion géographique de la patientèle, la densité des passages par secteur et l’équilibre des tournées entre soignants sont des paramètres de gestion à part entière.</p>
 <h2>Un financement spécifique</h2>
-<p>Leur modèle repose sur l’activité de soins et des dispositifs conventionnels propres. Leur équilibre demande une gestion attentive.</p>
+<p>Leur modèle repose sur l’activité de soins et des dispositifs conventionnels propres. Leur équilibre demande une gestion attentive, car la structure de recettes laisse peu de marge d’erreur. La qualité de la facturation en <a href="/ressources/tiers-payant-centre-de-sante">tiers payant</a> conditionne directement l’encaissement. Les rejets non repris et les impayés qui s’accumulent constituent un motif de fragilité classique, souvent invisible tant que l’activité progresse, et se lisent d’abord dans le suivi de <a href="/ressources/tresorerie-centre-de-sante">la trésorerie du centre</a>.</p>
+<h2>Les fragilités les plus fréquentes</h2>
+<ul>
+  <li>Une facturation traitée en fin de mois, sans reprise systématique des rejets</li>
+  <li>Des tournées héritées de l’histoire du centre et jamais réexaminées</li>
+  <li>Un absentéisme mal couvert, qui reporte la charge sur les mêmes soignants</li>
+  <li>Une comptabilité analytique inexistante, qui empêche de savoir ce que coûte réellement chaque secteur</li>
+  <li>Des dispositifs de financement identifiés tard, ou pas du tout</li>
+</ul>
 <h2>La coordination au cœur</h2>
-<p>La coordination avec les autres acteurs du territoire conditionne la qualité de la prise en charge et la continuité des soins.</p>
+<p>La coordination avec les autres acteurs du territoire conditionne la qualité de la prise en charge et la continuité des soins. Le centre infirmier dialogue en permanence avec les médecins traitants, les services hospitaliers, les services d’aide à domicile et les pharmacies. Cette fonction demande du temps, elle n’est pas gratuite et elle mérite d’être organisée plutôt que subie. Les structures qui la formalisent, en désignant un référent et en outillant les transmissions, gagnent en fiabilité. Elles se positionnent aussi mieux dans les dynamiques territoriales, comme le montre l’articulation entre un <a href="/ressources/centre-de-sante-cpts">centre de santé et une CPTS</a>.</p>
+<h2>Un modèle qui se pilote</h2>
+<p>Un centre infirmier n’est pas un modèle réduit de centre polyvalent. Ses coûts fixes sont plus légers, mais sa dépendance à la ressource humaine est bien plus forte, et le départ de deux soignants peut suffire à déséquilibrer un exercice. Le pilotage passe par des indicateurs simples et réellement suivis, un dialogue régulier avec les financeurs et une vision claire des recettes mobilisables. Notre approche des <a href="/centres-de-sante/infirmier">centres de santé infirmiers</a> part de cette réalité de terrain plutôt que d’un schéma théorique.</p>
 <h2>Contactez-nous</h2>
-<p>Un check-up gratuit permet d’examiner l’équilibre de votre centre infirmier.</p>
-`,
+<p>Un échange court suffit généralement pour situer l’équilibre de votre centre infirmier, repérer les recettes non perçues et identifier les ajustements d’organisation les plus utiles. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "coordination-centre-de-sante",
@@ -521,16 +618,28 @@ export const posts: Post[] = [
     date: "2026-06-26",
     readingTime: "3 min",
     category: "Gestion",
-    content: `
-<h2>Un outil structurant</h2>
-<p>Le logiciel métier d’un centre de santé porte la facturation, le dossier patient et le suivi des indicateurs. Sa qualité influence directement les recettes.</p>
+    content: `<h2>Un outil structurant</h2>
+<p>Le logiciel métier d’un centre de santé porte la facturation, le dossier patient et le suivi des indicateurs. Sa qualité influence directement les recettes. Un centre peut avoir une file active dense, une équipe engagée et un projet de santé solide, et voir malgré tout une partie de son activité mal valorisée, simplement parce que l’outil qui traduit cette activité en recettes est mal paramétré.</p>
 <h2>Données et financements</h2>
-<p>De nombreux dispositifs reposent sur des données déclaratives. Un système d’information bien tenu sécurise leur valorisation.</p>
+<p>De nombreux dispositifs reposent sur des données déclaratives. Un système d’information bien tenu sécurise leur valorisation. Les rémunérations forfaitaires, les indicateurs de qualité et les remontées attendues par l’assurance maladie supposent que l’information existe dans le logiciel, qu’elle soit codée au bon endroit et qu’elle puisse être extraite. Ce qui n’est pas tracé n’est pas valorisable, même si l’acte a été correctement réalisé. C’est pour cette raison que le système d’information se traite en même temps que les <a href="/ressources/forfaits-structure-centre-de-sante">dispositifs forfaitaires</a>, et non après.</p>
+<h2>Ce qu’il faut regarder avant de choisir</h2>
+<ul>
+  <li>La gestion du tiers payant et le suivi des rejets</li>
+  <li>La capacité à produire des extractions exploitables sans passer par l’éditeur</li>
+  <li>La compatibilité avec les téléservices et les référentiels de l’assurance maladie</li>
+  <li>La gestion du salariat, des plannings et des différentes professions présentes</li>
+  <li>Les conditions de reprise des données en cas de changement d’outil</li>
+</ul>
+<h2>Le paramétrage compte autant que l’outil</h2>
+<p>Deux centres équipés du même logiciel n’obtiennent pas les mêmes résultats. La différence tient au paramétrage : nomenclature des actes, profils utilisateurs, modèles de consultation, règles de facturation, gestion des conventions. Un outil correct mais mal réglé produit des pertes silencieuses, jamais spectaculaires, et permanentes. C’est aussi lui qui rend possible, ou non, la production des <a href="/ressources/indicateurs-pilotage-centre-de-sante">indicateurs de pilotage</a> attendus par la direction et par les financeurs.</p>
+<h2>Les angles morts les plus courants</h2>
+<p>Le suivi des rejets de facturation arrive en tête. Les flux partent, une partie revient en anomalie, et personne n’a formellement la charge de les reprendre. Viennent ensuite les comptes utilisateurs mal attribués, qui faussent l’imputation de l’activité par praticien, puis les données patient incomplètes qui bloquent la chaîne du tiers payant. Ces sujets paraissent techniques, ils sont en réalité organisationnels : ils tiennent à l’attribution des responsabilités, pas à la performance du logiciel.</p>
+<h2>Un changement de logiciel se prépare</h2>
+<p>Migrer coûte du temps, de la formation, et de la qualité de données pendant plusieurs semaines. La décision se justifie quand l’outil bloque réellement la facturation ou le pilotage, pas par simple lassitude des équipes. Avant d’en changer, il est utile d’inventorier les fonctions déjà disponibles et non exploitées, et de rapprocher cette analyse du <a href="/services/conseil-en-organisation">fonctionnement quotidien du centre</a>. Beaucoup de migrations reproduisent les mêmes défauts dans un nouvel environnement.</p>
 <h2>Un choix à ne pas négliger</h2>
-<p>Le choix et le paramétrage de l’outil méritent du soin. Un système mal exploité fait perdre du temps et de l’argent.</p>
+<p>Le choix et le paramétrage de l’outil méritent du soin. Un système mal exploité fait perdre du temps et de l’argent, et fragilise la capacité du centre à justifier son activité auprès des financeurs.</p>
 <h2>Contactez-nous</h2>
-<p>Un check-up gratuit permet d’examiner l’usage que vous faites de votre système.</p>
-`,
+<p>Un check-up gratuit permet d’examiner l’usage réel que vous faites de votre système et les recettes qu’il laisse échapper. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "reprise-centre-de-sante-difficulte",
@@ -540,16 +649,25 @@ export const posts: Post[] = [
     date: "2026-06-27",
     readingTime: "4 min",
     category: "Développement",
-    content: `
-<h2>Un diagnostic d’abord</h2>
-<p>Avant toute reprise, un diagnostic complet s’impose : trésorerie, organisation, recettes mobilisées et non mobilisées. Il conditionne la suite.</p>
+    content: `<h2>Un diagnostic d’abord</h2>
+<p>Avant toute reprise, un diagnostic complet s’impose : trésorerie, organisation, recettes mobilisées et non mobilisées. Il conditionne la suite. Ce diagnostic doit porter sur des données réelles, pas sur les déclarations de l’équipe sortante. Comptes annuels, situation de trésorerie récente, état des créances, contrats de travail en cours, baux, engagements auprès des financeurs : chacun de ces éléments peut modifier la valeur de ce que l’on reprend.</p>
+<h2>Distinguer la crise de trésorerie de la crise de modèle</h2>
+<p>Un centre peut manquer de liquidités tout en ayant une activité saine, par exemple parce que sa facturation prend du retard ou que ses rejets ne sont pas retraités. C’est une situation redressable. Un centre dont les charges de personnel dépassent durablement la capacité de production médicale relève d’un autre problème, qui suppose de revoir l’organisation ou le périmètre d’activité. Confondre les deux conduit à injecter de l’argent dans une structure qui reproduira le même déficit. La lecture de la <a href="/ressources/tresorerie-centre-de-sante">trésorerie du centre</a> est le premier tri à opérer.</p>
 <h2>Identifier les leviers</h2>
-<p>Beaucoup de centres en difficulté ne mobilisent pas l’ensemble des financements auxquels ils ont droit. Les réactiver fait souvent partie du redressement.</p>
+<p>Beaucoup de centres en difficulté ne mobilisent pas l’ensemble des financements auxquels ils ont droit. Les réactiver fait souvent partie du redressement. Forfaits liés à la structure, dispositifs conventionnels, soutiens des collectivités, subvention Teulade : ces recettes existent, mais elles supposent des déclarations à jour et des conditions respectées. Un centre fragilisé a souvent laissé filer ces obligations déclaratives, faute de temps, et perdu de ce fait des ressources auxquelles il restait éligible.</p>
+<h2>Les passifs qui se découvrent tard</h2>
+<p>Certaines difficultés n’apparaissent pas dans les comptes. Indus notifiés par l’assurance maladie, litiges prud’homaux latents, arriérés de cotisations, matériel obsolète à remplacer, dette fournisseur étalée par des accords informels : ces éléments pèsent lourd sur un plan de reprise. Un <a href="/services/audit-financier">audit financier</a> mené avant l’engagement permet de les faire remonter et d’en tenir compte dans la négociation plutôt que de les subir ensuite.</p>
 <h2>Un plan dans le temps</h2>
-<p>Le redressement se construit par étapes, avec des objectifs réalistes. La précipitation est rarement bonne conseillère.</p>
-<h2>Pour aller plus loin</h2>
-<p>Contactez-nous pour un check-up gratuit de la situation à reprendre.</p>
-`,
+<p>Le redressement se construit par étapes, avec des objectifs réalistes. La précipitation est rarement bonne conseillère. Les premières semaines servent à sécuriser l’encaissement et à stabiliser les équipes. Les mois suivants permettent de reprendre l’organisation des plannings, la file active et la facturation. Les décisions structurantes, ouverture ou fermeture d’activité, viennent ensuite, une fois la lecture financière fiable. Chaque étape doit avoir un responsable identifié et un indicateur de suivi.</p>
+<h2>Ce qui fait échouer une reprise</h2>
+<ul>
+  <li>Reprendre sans avoir sécurisé le maintien des praticiens en poste</li>
+  <li>Annoncer un plan de transformation avant d’avoir stabilisé la paie et les encaissements</li>
+  <li>Négliger le dialogue avec l’agence régionale de santé et la collectivité de rattachement</li>
+  <li>Fonder le plan sur une reprise d’activité rapide, sans marge de sécurité</li>
+</ul>
+<h2>Contactez-nous</h2>
+<p>Un check-up gratuit permet d’objectiver la situation à reprendre, d’en chiffrer les zones de risque et de poser les priorités des premiers mois. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "aides-collectivites-centre-de-sante",
@@ -559,16 +677,26 @@ export const posts: Post[] = [
     date: "2026-06-28",
     readingTime: "3 min",
     category: "Financement",
-    content: `
-<h2>Un soutien territorial</h2>
-<p>Les collectivités voient dans les centres de santé un levier d’accès aux soins. Beaucoup soutiennent leur implantation et leur fonctionnement.</p>
+    content: `<h2>Un soutien territorial</h2>
+<p>Les collectivités voient dans les centres de santé un levier d’accès aux soins. Beaucoup soutiennent leur implantation et leur fonctionnement. Pour un maire confronté au départ de médecins, un centre de santé représente une réponse concrète, visible et durable. Cette convergence d’intérêts explique que les élus soient souvent des interlocuteurs plus ouverts que ne l’imaginent les porteurs de projet, y compris lorsque la collectivité n’est pas elle-même gestionnaire de la structure.</p>
 <h2>Des formes variées</h2>
-<p>Mise à disposition de locaux, subventions d’investissement, soutiens au fonctionnement : les aides prennent des formes diverses selon les territoires.</p>
+<p>Mise à disposition de locaux, subventions d’investissement, soutiens au fonctionnement : les aides prennent des formes diverses selon les territoires. S’y ajoutent la prise en charge de travaux d’aménagement, le portage immobilier, l’aide au logement des professionnels recrutés ou encore un appui en communication auprès des habitants. Toutes n’ont pas la même valeur pour un centre. Un loyer minoré allège durablement les charges, alors qu’une subvention d’équipement, utile au démarrage, ne règle pas la question de l’exploitation.</p>
+<h2>Qui fait quoi selon l’échelon</h2>
+<p>Communes et intercommunalités interviennent surtout sur l’immobilier, les locaux et l’ancrage local du projet. Les départements sont sensibles aux enjeux de santé des publics qu’ils accompagnent, personnes âgées, protection maternelle et infantile, action sociale. Les régions s’inscrivent davantage dans des logiques d’aménagement et d’attractivité. Identifier le bon échelon pour chaque besoin évite de solliciter tout le monde pour tout, ce qui affaiblit le message. Le cas des <a href="/ressources/centre-municipal-de-sante-financement">centres municipaux de santé</a> illustre bien cette articulation entre portage public et financements de droit commun.</p>
 <h2>Une mobilisation à construire</h2>
-<p>Ces aides supposent un dialogue avec les élus et des dossiers argumentés. Le projet de santé sert souvent de point d’appui.</p>
+<p>Ces aides supposent un dialogue avec les élus et des dossiers argumentés. Le projet de santé sert souvent de point d’appui. Un <a href="/ressources/projet-de-sante-centre-de-sante">projet de santé</a> solide traduit l’intention en engagements lisibles, horaires d’ouverture, publics visés, participation aux actions de prévention du territoire. C’est ce document, bien plus qu’une plaquette de présentation, qui permet à une collectivité de justifier son soutien devant son assemblée délibérante et de le défendre dans la durée.</p>
+<h2>Points de vigilance</h2>
+<ul>
+  <li>Anticiper le calendrier budgétaire des collectivités, qui ne suit pas celui du centre</li>
+  <li>Vérifier la nature exacte de l’aide, subvention, avance ou mise à disposition, et ses contreparties</li>
+  <li>Formaliser par convention ce qui a été convenu oralement, y compris les conditions de sortie</li>
+  <li>Mesurer l’effet d’une aide non reconductible sur l’équilibre des exercices suivants</li>
+  <li>Rendre compte de l’usage des fonds sans attendre la demande suivante</li>
+</ul>
+<h2>Articuler soutien local et recettes structurelles</h2>
+<p>Le soutien d’une collectivité ne remplace jamais les recettes structurelles du centre. Il complète un ensemble qui comprend l’activité, les forfaits conventionnels et les dispositifs nationaux. Un centre qui s’installe durablement dans la dépendance à une subvention locale déplace son risque sans le réduire, car un changement de majorité ou de priorité budgétaire suffit à le remettre en cause. Une stratégie de <a href="/services/subventions-et-financements">subventions et financements</a> consiste précisément à faire tenir ces sources ensemble, dans le bon ordre, plutôt qu’à empiler des demandes au fil des besoins.</p>
 <h2>Contactez-nous</h2>
-<p>Un check-up gratuit permet d’identifier les soutiens locaux mobilisables.</p>
-`,
+<p>Nous faisons le point avec vous sur les soutiens locaux réellement mobilisables et sur la manière de les présenter à vos interlocuteurs. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "centre-de-sante-polyvalent",
@@ -578,16 +706,26 @@ export const posts: Post[] = [
     date: "2026-06-29",
     readingTime: "3 min",
     category: "Repères",
-    content: `
-<h2>Plusieurs métiers sous un même toit</h2>
-<p>Le centre polyvalent réunit médecine générale, soins spécialisés et parfois dentaire. Cette diversité répond largement aux besoins d’un territoire.</p>
+    content: `<h2>Plusieurs métiers sous un même toit</h2>
+<p>Le centre polyvalent réunit médecine générale, soins spécialisés et parfois dentaire. Cette diversité répond largement aux besoins d’un territoire. Elle permet d’adresser un patient d’une consultation à l’autre sans le renvoyer dans un parcours extérieur, et de maintenir une offre là où l’installation libérale ne se fait plus. C’est aussi ce qui rend ce modèle attractif pour les collectivités, qui y voient une réponse à plusieurs manques à la fois.</p>
+<h2>Ce que la polyvalence apporte au parcours patient</h2>
+<p>L’intérêt du modèle ne tient pas seulement au nombre de spécialités présentes, mais à la qualité des liens entre elles. Un adressage interne rapide, un dossier partagé, des temps d’échange formalisés : c’est là que la polyvalence produit de la valeur clinique. Sans cela, le centre n’est qu’une juxtaposition de cabinets sous un même toit. La <a href="/ressources/coordination-centre-de-sante">coordination des soins</a> est donc le cœur du sujet, pas un supplément.</p>
 <h2>Une gestion plus complexe</h2>
-<p>La coexistence de plusieurs activités complexifie l’organisation, la facturation et le suivi. La rigueur de gestion devient déterminante.</p>
+<p>La coexistence de plusieurs activités complexifie l’organisation, la facturation et le suivi. La rigueur de gestion devient déterminante. Les nomenclatures diffèrent, les logiciels ne sont pas toujours communs, les plannings obéissent à des logiques distinctes, et une comptabilité globale masque vite le résultat réel de chaque activité. Sans analyse par pôle, un secteur excédentaire peut compenser silencieusement un secteur déficitaire pendant des années.</p>
+<h2>Des activités qui n’ont pas le même modèle</h2>
+<p>Le dentaire suppose un investissement en équipement et en plateau technique, avec une exigence de taux d’occupation des fauteuils. Le médical dépend avant tout de la capacité à recruter et à fidéliser des praticiens salariés. Les soins infirmiers ont une structure de coûts encore différente. Ces modèles n’ont ni le même point d’équilibre, ni le même horizon de rentabilité, et les traiter uniformément conduit à des arbitrages erronés. Le <a href="/ressources/modele-economique-centre-dentaire">modèle économique du centre dentaire</a> illustre bien cet écart.</p>
 <h2>Des financements multiples</h2>
-<p>Chaque activité ouvre droit à ses propres dispositifs. Les articuler suppose une vue d’ensemble que peu de centres ont le temps de construire.</p>
-<h2>Pour aller plus loin</h2>
-<p>Contactez-nous pour un check-up gratuit de votre centre polyvalent.</p>
-`,
+<p>Chaque activité ouvre droit à ses propres dispositifs. Les articuler suppose une vue d’ensemble que peu de centres ont le temps de construire. Certaines aides sont attachées à la structure, d’autres à une activité précise, d’autres encore à l’implantation territoriale. La subvention Teulade s’ajoute à ce paysage. Le risque, dans un centre polyvalent, est moins l’absence de dispositifs que la perte de lisibilité : personne ne sait plus quelle recette couvre quelle charge. Nos pages dédiées aux <a href="/centres-de-sante/polyvalent">centres de santé polyvalents</a> détaillent les configurations que nous rencontrons le plus souvent.</p>
+<h2>Points de vigilance avant d’ouvrir une nouvelle activité</h2>
+<ul>
+  <li>Vérifier la conformité du projet de santé et l’information de l’agence régionale de santé</li>
+  <li>Dimensionner les locaux et les équipements avant de recruter</li>
+  <li>Anticiper l’effet sur la trésorerie pendant la montée en charge</li>
+  <li>Prévoir la ventilation analytique dès le premier mois d’exploitation</li>
+  <li>S’assurer que le secrétariat pourra absorber une nomenclature supplémentaire</li>
+</ul>
+<h2>Contactez-nous</h2>
+<p>Un check-up gratuit permet de clarifier le résultat de chaque activité et les financements attachés à chacune. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "fusion-centres-de-sante",
@@ -597,16 +735,26 @@ export const posts: Post[] = [
     date: "2026-06-30",
     readingTime: "3 min",
     category: "Développement",
-    content: `
-<h2>Rechercher la solidité</h2>
-<p>Le regroupement permet de mutualiser les moyens, de renforcer la gestion et de sécuriser le modèle économique. C’est une option de plus en plus envisagée.</p>
+    content: `<h2>Rechercher la solidité</h2>
+<p>Le regroupement permet de mutualiser les moyens, de renforcer la gestion et de sécuriser le modèle économique. C’est une option de plus en plus envisagée, souvent après plusieurs années d’exploitation isolée, lorsque la structure atteint la limite de ce qu’une petite équipe peut porter. Un centre seul supporte l’intégralité de ses fonctions support. Deux centres réunis peuvent partager un temps de direction, une fonction comptable, un référent qualité ou une cellule de facturation, sans dégrader le service rendu aux patients.</p>
+<h2>Trois configurations à ne pas confondre</h2>
+<p>Sous le mot fusion se cachent des opérations très différentes. La fusion juridique fait disparaître une entité au profit d’une autre, avec transfert de l’actif et du passif. La reprise de gestion laisse les structures en place mais confie leur pilotage à un même gestionnaire. La coopération conventionnelle, enfin, mutualise des moyens sans toucher aux personnes morales. Le choix entre ces voies dépend du <a href="/ressources/statut-juridique-centre-de-sante">statut juridique de chaque centre</a>, de l’état de leurs comptes et du degré d’intégration réellement recherché par les gouvernances.</p>
 <h2>Des points de vigilance</h2>
-<p>Gouvernance, statut RH, système d’information : un rapprochement soulève des questions concrètes qu’il faut traiter en amont.</p>
+<p>Gouvernance, statut RH, système d’information : un rapprochement soulève des questions concrètes qu’il faut traiter en amont. Les conventions collectives applicables peuvent différer d’un centre à l’autre, ce qui impose un travail précis sur les contrats, les classifications et les avantages acquis. Les logiciels métier, les comptes de facturation et les habilitations doivent être repris ligne à ligne. Ces sujets paraissent techniques, mais ce sont eux qui allongent les calendriers et fatiguent les équipes.</p>
 <h2>Un effet sur les financements</h2>
-<p>Le périmètre issu d’un regroupement modifie l’accès à certains dispositifs. Anticiper ces effets fait partie d’une opération réussie.</p>
+<p>Le périmètre issu d’un regroupement modifie l’accès à certains dispositifs. Les engagements conventionnels, les forfaits attachés à la structure et les aides accordées par les collectivités sont rattachés à une entité et à un lieu d’exercice donnés. Une opération mal séquencée peut interrompre temporairement un flux de recettes, au moment précis où la structure a le plus besoin de stabilité. Un état des lieux préalable de vos <a href="/services/subventions-et-financements">financements mobilisés et mobilisables</a> permet d’éviter cette rupture et d’identifier ce que le nouveau périmètre ouvre.</p>
+<h2>Ce que le rapprochement change pour les équipes</h2>
+<p>La réussite d’une fusion se joue autant sur le terrain que dans les statuts. Les praticiens s’interrogent sur leur rattachement hiérarchique, les secrétariats sur leurs procédures, les patients sur la continuité de leur suivi. Il est utile de désigner tôt un interlocuteur unique et de nommer clairement la structure de <a href="/ressources/gestionnaire-centre-de-sante">gestion qui portera l’ensemble</a>, plutôt que de laisser cohabiter deux cultures de fonctionnement pendant des mois.</p>
+<h2>Les erreurs fréquentes</h2>
+<ul>
+  <li>Engager le rapprochement sans audit préalable des comptes de chaque entité</li>
+  <li>Traiter la question RH en dernier, alors qu’elle conditionne le calendrier</li>
+  <li>Oublier d’informer l’agence régionale de santé et les financeurs locaux en amont</li>
+  <li>Sous-estimer le coût et la durée de la migration du système d’information</li>
+  <li>Fusionner deux fragilités en espérant qu’elles se compensent</li>
+</ul>
 <h2>Contactez-nous</h2>
-<p>Un check-up gratuit permet d’éclairer un projet de rapprochement.</p>
-`,
+<p>Un check-up gratuit permet d’éclairer un projet de rapprochement, d’en mesurer les effets sur vos recettes et de sécuriser le calendrier. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "gestionnaire-centre-de-sante",
@@ -616,16 +764,26 @@ export const posts: Post[] = [
     date: "2026-07-01",
     readingTime: "3 min",
     category: "RH",
-    content: `
-<h2>Un rôle central</h2>
-<p>Le gestionnaire pilote le quotidien du centre : RH, facturation, relation avec les financeurs, suivi des indicateurs. C’est un poste clé.</p>
+    content: `<h2>Un rôle central</h2>
+<p>Le gestionnaire pilote le quotidien du centre : ressources humaines, facturation, relation avec les financeurs, suivi des indicateurs. C’est un poste clé. Dans beaucoup de structures, il constitue le seul point où convergent l’information médicale, l’information comptable et l’information conventionnelle. Quand ce poste est vacant ou mal soutenu, les difficultés apparaissent rarement d’un coup, elles s’installent progressivement.</p>
 <h2>Des compétences larges</h2>
-<p>La fonction demande des compétences de gestion, de droit social et de dialogue institutionnel. Elle est rarement facile à pourvoir.</p>
+<p>La fonction demande des compétences de gestion, de droit social et de dialogue institutionnel. Elle est rarement facile à pourvoir. Le gestionnaire doit comprendre une convention collective et un contrat de travail, lire un compte de résultat, tenir une relation régulière avec l’agence régionale de santé et la caisse primaire, et parler avec des professionnels de santé dont le métier n’est pas la gestion. Peu de profils réunissent naturellement ces registres.</p>
+<h2>Une frontière à poser avec la gouvernance</h2>
+<p>La difficulté la plus fréquente n’est pas le manque de compétence, c’est le flou du mandat. Un gestionnaire à qui l’on demande d’arbitrer sans lui en donner l’autorité, ou à l’inverse un gestionnaire qui décide seul sur des sujets relevant du conseil d’administration ou de la collectivité, finit par bloquer la structure. Le périmètre gagne à être écrit : ce qui relève de la direction médicale, ce qui relève de l’instance porteuse, ce qui relève de lui. Cette clarification dépend directement du <a href="/ressources/statut-juridique-centre-de-sante">statut juridique retenu</a>, qui ne place pas les décisions au même endroit selon les cas.</p>
 <h2>Un acteur de la performance</h2>
-<p>Un bon gestionnaire sécurise les recettes et mobilise les financements disponibles. Son action a un effet direct sur l’équilibre du centre.</p>
-<h2>Pour aller plus loin</h2>
-<p>Contactez-nous pour appuyer votre gestionnaire sur les sujets de financement.</p>
-`,
+<p>Un bon gestionnaire sécurise les recettes et mobilise les financements disponibles. Son action a un effet direct sur l’équilibre du centre. Il repère les rejets de facturation avant qu’ils ne s’accumulent, il tient le calendrier des déclarations, il anticipe les échéances de <a href="/ressources/tresorerie-centre-de-sante">trésorerie</a> plutôt que de les subir. Ces gains ne se voient pas immédiatement, ils se mesurent sur la durée.</p>
+<h2>Les signaux qui doivent alerter</h2>
+<ul>
+  <li>Aucun tableau de bord partagé avec la gouvernance</li>
+  <li>Un suivi des rejets de facturation inexistant ou irrégulier</li>
+  <li>Des dossiers de financement déposés dans l’urgence, voire oubliés</li>
+  <li>Une rotation répétée sur le poste, sans transmission organisée</li>
+  <li>Un gestionnaire absorbé par l’accueil et le remplacement des absences</li>
+</ul>
+<h2>Outiller plutôt que surcharger</h2>
+<p>Beaucoup de centres réagissent à la surcharge en élargissant encore la fiche de poste. C’est généralement contre-productif. La réponse tient plutôt à trois choses : un système d’information correctement paramétré, des procédures écrites pour les tâches récurrentes, et un appui extérieur sur les sujets techniques qui ne justifient pas une compétence interne permanente. Sur les questions de financement en particulier, un <a href="/accompagnement">accompagnement spécialisé</a> décharge le gestionnaire de la veille réglementaire sans lui retirer le pilotage.</p>
+<h2>Contactez-nous</h2>
+<p>Un check-up gratuit permet de situer la charge réelle du poste et les leviers de financement laissés de côté. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "qualite-centre-de-sante",
@@ -658,16 +816,20 @@ export const posts: Post[] = [
     date: "2026-07-03",
     readingTime: "4 min",
     category: "Spécialités",
-    content: `
-<h2>Une activité intense</h2>
-<p>Le dentaire se caractérise par une activité soutenue, des plateaux techniques coûteux et des enjeux RH spécifiques. L’équilibre y est exigeant.</p>
+    content: `<h2>Une activité intense</h2>
+<p>Le dentaire se caractérise par une activité soutenue, des plateaux techniques coûteux et des enjeux RH spécifiques. L’équilibre y est exigeant. À la différence d’une consultation médicale, l’acte dentaire mobilise simultanément un fauteuil, un praticien, un assistant, un équipement et souvent un laboratoire de prothèse. Chaque minute d’occupation d’un fauteuil a donc un coût, et chaque créneau non honoré se traduit par une perte que rien ne rattrape ensuite.</p>
+<h2>Comprendre la structure des charges</h2>
+<p>Un centre dentaire supporte des charges fixes lourdes, immobilier aménagé, équipements, maintenance, stérilisation, mise en conformité. S’y ajoutent des charges variables directement liées à l’activité, consommables et prothèses en premier lieu. Cette structure explique la sensibilité du modèle au volume. En dessous d’un certain niveau d’occupation, les charges fixes ne sont pas absorbées. Au-delà, chaque acte supplémentaire améliore nettement le résultat. Les décisions d’<a href="/services/achats-et-investissements">achats et d’investissements</a> pèsent donc longtemps sur l’exploitation.</p>
 <h2>La productivité en question</h2>
-<p>L’organisation des fauteuils, des plannings et du travail aidé influence directement le résultat. La marge d’optimisation est souvent réelle.</p>
+<p>L’organisation des fauteuils, des plannings et du travail aidé influence directement le résultat. La marge d’optimisation est souvent réelle. Elle se joue sur des points très concrets. Le taux d’occupation effectif des fauteuils, le traitement des rendez-vous non honorés, la préparation des plateaux avant l’arrivée du patient, la répartition entre soins conservateurs et actes prothétiques, l’articulation entre praticiens et assistantes qualifiées. Aucun de ces leviers ne transforme à lui seul un compte de résultat. Réunis, ils changent l’équation.</p>
+<h2>Le facteur humain</h2>
+<p>Le recrutement et la fidélisation des chirurgiens-dentistes salariés et des assistantes conditionnent tout le reste. Un fauteuil sans praticien ne produit rien mais continue de coûter. Un turnover élevé désorganise les plannings, fait perdre le suivi des plans de traitement en cours et pèse sur la réputation du centre. Les questions de rémunération, de conditions d’exercice et de cadre contractuel se traitent dans la même logique que pour les autres professions, comme l’illustre le sujet du <a href="/ressources/contrat-medecin-salarie-centre-de-sante">contrat de médecin salarié en centre de santé</a>.</p>
 <h2>Des financements à ne pas oublier</h2>
-<p>Au-delà de l’acte, des dispositifs conventionnels existent et restent parfois sous-mobilisés. Les activer renforce l’équilibre.</p>
-<h2>Pour aller plus loin</h2>
-<p>Contactez-nous pour un check-up gratuit de votre centre dentaire.</p>
-`,
+<p>Au-delà de l’acte, des dispositifs conventionnels existent et restent parfois sous-mobilisés. Les activer renforce l’équilibre. Beaucoup de centres dentaires concentrent leur attention sur la production de soins et laissent de côté les recettes complémentaires auxquelles leur conventionnement ouvre droit. Le sujet des <a href="/ressources/subventions-centre-dentaire">subventions pour un centre dentaire</a> mérite un examen posé, mené à distance de la gestion courante et pas seulement lorsque la trésorerie se tend.</p>
+<h2>Piloter avec les bons repères</h2>
+<p>Un centre dentaire se pilote au mois, pas à l’exercice. Suivre l’occupation réelle des fauteuils, le délai moyen d’obtention d’un rendez-vous, la part des devis acceptés et le poids des prothèses dans les charges donne une lecture bien plus utile qu’un chiffre d’affaires global. Ces repères permettent de réagir pendant que la correction est encore simple, plutôt que de découvrir le problème au moment du bilan.</p>
+<h2>Contactez-nous</h2>
+<p>Un regard extérieur sur votre organisation, vos investissements et vos recettes permet de situer précisément où se trouvent vos marges de manœuvre. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "accessibilite-financiere-centre-de-sante",
@@ -702,9 +864,8 @@ export const posts: Post[] = [
     date: "2026-07-05",
     readingTime: "3 min",
     category: "Subventions",
-    content: `
-<h2>Un constat répandu</h2>
-<p>Une part importante des centres de santé ne mobilise pas l’ensemble des dispositifs auxquels ils sont éligibles. Le phénomène est plus courant qu’on ne le pense.</p>
+    content: `<h2>Un constat répandu</h2>
+<p>Une part importante des centres de santé ne mobilise pas l’ensemble des dispositifs auxquels ils sont éligibles. Le phénomène est plus courant qu’on ne le pense. Il ne concerne pas seulement les petites structures fragiles : des centres bien organisés, à l’activité soutenue, laissent eux aussi passer des financements qu’ils auraient pu percevoir.</p>
 <h2>Des causes connues</h2>
 <ul>
   <li>Manque de temps des équipes</li>
@@ -712,11 +873,16 @@ export const posts: Post[] = [
   <li>Méconnaissance de certains dispositifs</li>
   <li>Évolutions réglementaires fréquentes</li>
 </ul>
+<h2>Où se logent les angles morts</h2>
+<p>Le non-recours se concentre rarement sur les recettes principales, que tout le monde surveille. Il touche plutôt les rémunérations liées à la structure et à l’organisation, les dispositifs adossés à des indicateurs déclaratifs, les aides portées par les collectivités et les financements régionaux dont l’ouverture varie d’un territoire à l’autre. La subvention Teulade, prévue à l’article L162-32 du code de la sécurité sociale, figure parmi les dispositifs spécifiques aux centres conventionnés que beaucoup de structures n’examinent jamais sérieusement. C’est aussi le cas d’une partie des <a href="/ressources/aides-collectivites-centre-de-sante">aides mobilisables auprès des collectivités</a>.</p>
+<h2>Pourquoi le sujet ne remonte pas</h2>
+<p>Un financement non demandé ne produit aucune alerte. Il n’apparaît ni au compte de résultat, ni dans un rapprochement bancaire, ni dans un rejet de facturation. Rien ne signale son absence. À l’inverse, une charge mal maîtrisée se voit immédiatement. C’est pourquoi les centres en tension travaillent spontanément sur les dépenses avant de regarder les recettes, alors que la marge est souvent des deux côtés.</p>
 <h2>Un enjeu d’équilibre</h2>
-<p>Ces recettes non perçues pèsent sur l’équilibre des centres. Les récupérer ne demande pas toujours de transformer l’organisation, mais de regarder au bon endroit.</p>
-<h2>Pour aller plus loin</h2>
-<p>Contactez-nous pour un check-up gratuit de votre situation.</p>
-`,
+<p>Ces recettes non perçues pèsent sur l’équilibre des centres. Les récupérer ne demande pas toujours de transformer l’organisation, mais de regarder au bon endroit. Un centre dont le modèle est structurellement sain peut afficher un résultat dégradé pour la seule raison qu’une partie de ses financements de droit n’est pas activée. La distinction est importante : elle change complètement le diagnostic et donc les décisions qui suivent, notamment en matière de <a href="/financements">stratégie de financement</a>.</p>
+<h2>Points de vigilance</h2>
+<p>Trois erreurs reviennent régulièrement. La première consiste à traiter les dispositifs isolément, sans vérifier leur articulation, ce qui conduit parfois à en négliger un au profit d’un autre moins avantageux. La deuxième est le retard : certains dossiers obéissent à des calendriers stricts, et un retard ne se rattrape pas toujours. La troisième est l’absence de traçabilité, qui rend une demande difficile à justifier même lorsqu’elle est fondée. Une <a href="/ressources/optimiser-financement-centre-de-sante">revue d’ensemble des financements</a> permet de traiter ces trois points en une seule fois plutôt que dispositif par dispositif.</p>
+<h2>Contactez-nous</h2>
+<p>Un check-up gratuit permet d’identifier les dispositifs que votre centre n’active pas aujourd’hui et de mesurer ce que cela représente. Contactez-nous pour un check-up.</p>`,
   },
   {
     slug: "optimiser-financement-centre-de-sante",

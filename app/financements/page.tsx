@@ -2,7 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
-import { makePageMeta } from "@/lib/seo";
+import { Faq } from "@/components/Faq";
+import { makePageMeta, SITE_URL } from "@/lib/seo";
+import { financementsBody, financementsFaq, financementsKeywords } from "@/content/financements";
 
 export const metadata: Metadata = {
   ...makePageMeta({
@@ -11,15 +13,7 @@ export const metadata: Metadata = {
       "Panorama des financements et subventions d’un centre de santé : rémunérations, forfaits, Teulade, aides à l’installation.",
     path: "/financements",
   }),
-  keywords: [
-    "financement centre de santé",
-    "financement cds",
-    "subventions centre de santé",
-    "subventions cds",
-    "aide centre de santé",
-    "subvention teulade",
-    "dispositif financier centre de santé",
-  ],
+  keywords: financementsKeywords,
 };
 
 const items = [
@@ -67,7 +61,39 @@ export default function Page() {
         </div>
       </section>
 
+      <article className="bg-white border-b border-line">
+        <div
+          className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 prose-content"
+          dangerouslySetInnerHTML={{ __html: financementsBody }}
+        />
+      </article>
+
+      <section className="bg-soft border-b border-line">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-ink tracking-tight">Questions fréquentes</h2>
+          <div className="mt-8"><Faq items={financementsFaq} /></div>
+        </div>
+      </section>
+
       <CTASection title="Identifions vos subventions" label="Contactez-nous pour un check-up" href="/contact" />
+
+      {/* FAQPage : rend la page éligible aux résultats enrichis sur des
+          requêtes de financement, là où le concurrent principal est installé. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: financementsFaq.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+            url: `${SITE_URL}/financements`,
+          }),
+        }}
+      />
     </>
   );
 }

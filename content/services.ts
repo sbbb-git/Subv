@@ -9,6 +9,14 @@ export type Service = {
   metaTitle: string;
   metaDescription: string;
   keywords: string[];
+  /**
+   * Corps éditorial de la page, en HTML BRUT injecté via
+   * dangerouslySetInnerHTML. Utiliser <h2>, <p>, <ul>, <a href>, jamais <Link>.
+   *
+   * Sans lui, une page service se limite au hero et aux quatre encadrés, soit
+   * moins de 200 mots, sur des requêtes commerciales disputées.
+   */
+  body?: string;
 };
 
 const ICONS = {

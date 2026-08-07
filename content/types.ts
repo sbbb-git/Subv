@@ -4,6 +4,15 @@ export type CdsType = {
   longName: string;
   short: string;
   intro: string;
+  /**
+   * Corps éditorial de la page, en HTML BRUT injecté via
+   * dangerouslySetInnerHTML. Utiliser <h2>, <p>, <ul>, <a href>, jamais <Link>.
+   *
+   * Optionnel : en son absence, la page retombe sur un bloc générique. Ce
+   * bloc étant strictement identique sur les 8 typologies, il constitue du
+   * contenu dupliqué. Renseigner `body` est donc la voie normale.
+   */
+  body?: string;
 };
 
 export const cdsTypes: CdsType[] = [

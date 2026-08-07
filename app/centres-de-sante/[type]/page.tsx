@@ -55,21 +55,28 @@ export default function Page({ params }: { params: Params }) {
       </section>
 
       <article className="bg-white border-b border-line">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 prose-content">
-          <h2>Notre accompagnement</h2>
-          <p>
-            Opti-CDS accompagne les {t.longName.toLowerCase()}s sur l’ensemble
-            de leur cycle de vie : <a href="/services/creation-centre-de-sante">création</a>,{" "}
-            <a href="/services/recrutement-de-medecins">recrutement</a>,{" "}
-            <a href="/services/conseil-en-organisation">organisation</a>,{" "}
-            <a href="/services/comptabilite-gestion">gestion</a>, mobilisation des{" "}
-            <a href="/financements">financements</a> et notamment de la{" "}
-            <a href="/subvention-teulade">subvention Teulade</a>.
-          </p>
-          <p>
-            Chaque situation s’apprécie individuellement. <a href="/contact">Contactez-nous</a> pour un check-up gratuit.
-          </p>
-        </div>
+        {t.body ? (
+          <div
+            className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 prose-content"
+            dangerouslySetInnerHTML={{ __html: t.body }}
+          />
+        ) : (
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 prose-content">
+            <h2>Notre accompagnement</h2>
+            <p>
+              Opti-CDS accompagne les {t.longName.toLowerCase()}s sur l’ensemble
+              de leur cycle de vie : <a href="/services/creation-centre-de-sante">création</a>,{" "}
+              <a href="/services/recrutement-de-medecins">recrutement</a>,{" "}
+              <a href="/services/conseil-en-organisation">organisation</a>,{" "}
+              <a href="/services/comptabilite-gestion">gestion</a>, mobilisation des{" "}
+              <a href="/financements">financements</a> et notamment de la{" "}
+              <a href="/subvention-teulade">subvention Teulade</a>.
+            </p>
+            <p>
+              Chaque situation s’apprécie individuellement. <a href="/contact">Contactez-nous</a> pour un check-up gratuit.
+            </p>
+          </div>
+        )}
       </article>
 
       <section className="bg-soft border-b border-line">
