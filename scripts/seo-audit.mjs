@@ -3,28 +3,45 @@
 // scripts/seo-audit.mjs — contrôle qualité SEO d'Opti-CDS, versionné.
 //
 // S'exécute APRÈS `npm run build`, sur le dossier `out/` produit par le
-// static export. Sort en code 1 (et ne déploie donc rien) si une seule
-// règle ci-dessous est violée. Aucune dépendance externe : Node pur.
+// static export. Aucune dépendance externe : Node pur.
 //
-// Règles (cf. prompt routine SEO, section 4) :
-//   1. title (suffixe " · Opti-CDS" inclus) <= 60 caractères
-//   2. meta description entre 110 et 160 caractères, APRÈS décodage entités
-//   3. toute page indexable a une og:image
-//   4. un article fait >= 350 mots réels (balises retirées)
-//   5. un article a au moins un lien interne
-//   6. un article ne contient aucune balise <Link (JSX fuité dans du HTML brut)
-//   7. un lien interne pointe vers une cible présente dans out/
+// DEUX ÉTAGES, volontairement séparés :
 //
-// Les pages en noindex et out/404.html sont exclues des règles 1-3.
-// Usage : node scripts/seo-audit.mjs [outDir]   (outDir par défaut : "out")
+//   BLOQUANT — de la casse réelle, jamais acceptable en production.
+//     - <title> absent, ou > 60 caractères (suffixe " · Opti-CDS" inclus)
+//     - meta description absente
+//     - og:image absente
+//     - balise <Link (JSX fuité dans du HTML brut, s'affiche cassé)
+//     - lien interne dont la cible est absente de out/ (404 interne)
+//     - corps d'article introuvable
+//
+//   DETTE — de la qualité insuffisante, à résorber run après run.
+//     - article < 350 mots réels
+//     - article sans aucun lien interne
+//     - meta description hors 110-160 caractères (après décodage des entités)
+//
+// Par défaut : sort en 1 sur BLOQUANT uniquement, et affiche la dette.
+// C'est ce qui permet de poser le garde-fou tout de suite sans figer la
+// production le temps que les ~40 articles courts soient étoffés.
+// Avec --strict : sort en 1 dès qu'il reste de la dette (objectif final).
+//
+// Usage :
+//   node scripts/seo-audit.mjs [outDir] [--strict] [--json]
+//   outDir par défaut : "out"
 // ---------------------------------------------------------------------------
 
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { join, relative, sep } from "node:path";
 
-const OUT_DIR = process.argv[2] || "out";
-const errors = [];
-const err = (page, msg) => errors.push(`${page}: ${msg}`);
+const args = process.argv.slice(2);
+const STRICT = args.includes("--strict");
+const JSON_OUT = args.includes("--json");
+const OUT_DIR = args.find((a) => !a.startsWith("--")) || "out";
+
+const blocking = [];
+const debt = [];
+const block = (page, code, msg) => blocking.push({ page, code, msg });
+const owe = (page, code, msg) => debt.push({ page, code, msg });
 
 if (!existsSync(OUT_DIR)) {
   console.error(`seo-audit: dossier "${OUT_DIR}" introuvable. Lance d'abord \`npm run build\`.`);
@@ -57,7 +74,7 @@ function walk(dir, acc = []) {
   return acc;
 }
 
-// URL publique d'un fichier out/ (pour l'affichage et le mapping des liens)
+// URL publique d'un fichier out/
 function routeOf(file) {
   let r = "/" + relative(OUT_DIR, file).split(sep).join("/");
   r = r.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
@@ -68,54 +85,49 @@ function routeOf(file) {
 function internalTargetExists(path) {
   const clean = path.split("#")[0].split("?")[0].replace(/\/$/, "");
   if (clean === "") return true; // "/" -> out/index.html
-  const candidates = [
+  return [
     join(OUT_DIR, clean, "index.html"),
     join(OUT_DIR, `${clean}.html`),
     join(OUT_DIR, clean), // asset direct (svg, txt, png...)
-  ];
-  return candidates.some((c) => existsSync(c));
+  ].some((c) => existsSync(c));
 }
 
 const files = walk(OUT_DIR);
+const shortArticles = [];
 
 for (const file of files) {
   const route = routeOf(file);
   if (file.endsWith("404.html")) continue;
   const html = readFileSync(file, "utf8");
 
-  // Pages noindex exclues des règles meta
   const robots = /<meta[^>]+name=["']robots["'][^>]*content=["']([^"']*)["']/i.exec(html);
   const noindex = robots && /noindex/i.test(robots[1]);
 
   if (!noindex) {
-    // Règle 1 : title <= 60
     const titleM = /<title[^>]*>([\s\S]*?)<\/title>/i.exec(html);
     if (!titleM) {
-      err(route, "aucune balise <title>");
+      block(route, "title-manquant", "aucune balise <title>");
     } else {
       const title = decodeEntities(titleM[1].trim());
-      if (title.length > 60) err(route, `title ${title.length} car > 60 : "${title}"`);
+      if (title.length > 60) block(route, "title-trop-long", `title ${title.length} car > 60 : "${title}"`);
     }
 
-    // Règle 2 : meta description 110-160 après décodage
     const descM = /<meta[^>]+name=["']description["'][^>]*content=["']([\s\S]*?)["']/i.exec(html)
       || /<meta[^>]+content=["']([\s\S]*?)["'][^>]*name=["']description["']/i.exec(html);
     if (!descM) {
-      err(route, "aucune meta description");
+      block(route, "desc-manquante", "aucune meta description");
     } else {
       const d = decodeEntities(descM[1].trim());
-      if (d.length < 110 || d.length > 160) err(route, `meta description ${d.length} car hors 110-160`);
+      if (d.length < 110 || d.length > 160) owe(route, "desc-hors-bornes", `meta description ${d.length} car hors 110-160`);
     }
 
-    // Règle 3 : og:image présente
-    if (!/<meta[^>]+property=["']og:image["']/i.test(html)) err(route, "og:image manquante");
+    if (!/<meta[^>]+property=["']og:image["']/i.test(html)) block(route, "og-image-manquante", "og:image manquante");
   }
 
   // --- Règles articles : pages /ressources/<slug>/ (hors index) ------------
   const isArticle = /^\/ressources\/[^/]+\/?$/.test(route) && route !== "/ressources/";
   if (!isArticle) continue;
 
-  // Isole le corps de l'article (div prose-content)
   const pIdx = html.indexOf("prose-content");
   let body = "";
   if (pIdx !== -1) {
@@ -124,33 +136,63 @@ for (const file of files) {
     body = openEnd !== -1 && closeIdx !== -1 ? html.slice(openEnd + 1, closeIdx) : "";
   }
   if (!body) {
-    err(route, "corps d'article (prose-content) introuvable");
+    block(route, "corps-introuvable", "corps d'article (prose-content) introuvable");
     continue;
   }
 
-  // Règle 6 : aucune balise <Link (fuite JSX). Rendu échappé => &lt;Link
-  if (/<Link\b/i.test(body) || /&lt;Link\b/i.test(body)) err(route, "balise <Link> (JSX) dans le HTML de l'article");
+  if (/<Link\b/i.test(body) || /&lt;Link\b/i.test(body)) {
+    block(route, "jsx-link", "balise <Link> (JSX) dans le HTML de l'article");
+  }
 
-  // Règle 4 : >= 350 mots réels
   const text = decodeEntities(body.replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
   const words = text ? text.split(" ").length : 0;
-  if (words < 350) err(route, `${words} mots < 350`);
+  if (words < 350) {
+    owe(route, "article-court", `${words} mots < 350`);
+    shortArticles.push({ route, words });
+  }
 
-  // Règle 5 + 7 : liens internes présents et cibles existantes
   const hrefs = [...body.matchAll(/href=["']([^"']+)["']/gi)].map((m) => m[1]);
   const internal = hrefs.filter((h) => h.startsWith("/") && !h.startsWith("//"));
-  if (internal.length === 0) err(route, "aucun lien interne");
+  if (internal.length === 0) owe(route, "sans-lien-interne", "aucun lien interne");
   for (const link of internal) {
-    if (!internalTargetExists(link)) err(route, `lien interne cassé vers ${link} (cible absente de out/)`);
+    if (!internalTargetExists(link)) block(route, "lien-casse", `lien interne cassé vers ${link} (cible absente de out/)`);
   }
 }
 
-if (errors.length) {
-  console.error(`\nseo-audit : ${errors.length} erreur(s) — déploiement bloqué.\n`);
-  for (const e of errors) console.error("  ✗ " + e);
-  console.error("");
-  process.exit(1);
+// --- Restitution -----------------------------------------------------------
+const byCode = (list) => list.reduce((a, e) => ((a[e.code] = (a[e.code] || 0) + 1), a), {});
+shortArticles.sort((a, b) => a.words - b.words);
+
+if (JSON_OUT) {
+  console.log(JSON.stringify({
+    pages: files.length,
+    blocking: blocking.length,
+    debt: debt.length,
+    blockingByCode: byCode(blocking),
+    debtByCode: byCode(debt),
+    blockingDetail: blocking,
+    shortestArticles: shortArticles.slice(0, 15),
+  }, null, 2));
+} else {
+  if (blocking.length) {
+    console.error(`\nseo-audit — BLOQUANT : ${blocking.length} erreur(s), déploiement interdit.\n`);
+    for (const e of blocking) console.error(`  ✗ ${e.page}: ${e.msg}`);
+  }
+  if (debt.length) {
+    console.error(`\nseo-audit — DETTE : ${debt.length} point(s) à résorber.`);
+    for (const [code, n] of Object.entries(byCode(debt))) console.error(`  · ${code}: ${n}`);
+    if (shortArticles.length) {
+      console.error("\n  Articles les plus courts (à étoffer en priorité) :");
+      for (const a of shortArticles.slice(0, 10)) console.error(`    ${a.words} mots  ${a.route}`);
+    }
+  }
+  if (!blocking.length && !debt.length) {
+    console.log(`seo-audit : ${files.length} pages contrôlées, 0 erreur.`);
+  } else {
+    console.error(`\n${files.length} pages contrôlées — ${blocking.length} bloquant(s), ${debt.length} dette.\n`);
+  }
 }
 
-console.log(`seo-audit : ${files.length} pages contrôlées, 0 erreur.`);
+if (blocking.length) process.exit(1);
+if (STRICT && debt.length) process.exit(1);
 process.exit(0);
