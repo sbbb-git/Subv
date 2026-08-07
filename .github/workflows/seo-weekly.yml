@@ -16,6 +16,15 @@ on:
   schedule:
     - cron: "23 7 * * 1"   # lundi 07:23 UTC
   workflow_dispatch: {}
+  # Rejoue aussi l'audit dès que le contenu ou l'outillage change, pour ne pas
+  # découvrir une régression une semaine plus tard.
+  push:
+    paths:
+      - "content/**"
+      - "app/**"
+      - "lib/seo.ts"
+      - "scripts/seo-audit.mjs"
+      - ".github/workflows/seo-weekly.yml"
 
 permissions:
   contents: read
