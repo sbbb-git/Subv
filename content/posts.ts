@@ -1106,6 +1106,45 @@ export const posts: Post[] = [
 <h2>Contactez-nous</h2>
 <p>Un check-up gratuit permet d’objectiver le positionnement de votre grille salariale et d’identifier les leviers pour attirer les praticiens dont vous avez besoin. Contactez-nous pour un check-up.</p>`,
   },
+  {
+    slug: "fideliser-medecin-salarie-centre-de-sante",
+    title: "Fidéliser un médecin salarié en centre de santé",
+    description:
+      "Recruter ne suffit pas : un praticien qui part emporte sa patientèle et vos recettes. Leviers concrets de fidélisation en centre de santé.",
+    date: "2026-08-07",
+    readingTime: "4 min",
+    category: "RH",
+    content: `
+<h2>Le départ coûte plus cher que le recrutement</h2>
+<p>Les directions de centres de santé raisonnent presque toujours en termes de recrutement. C'est compréhensible, puisque le poste vacant est visible et douloureux. Pourtant, le départ d'un praticien déjà installé coûte davantage qu'un poste jamais pourvu. Le centre perd le temps médical, mais aussi la patientèle attachée à ce médecin, les indicateurs construits sur son suivi, et la charge retombe sur une équipe déjà tendue. Il faut ensuite recruter, intégrer, et attendre plusieurs mois que le remplaçant atteigne un rythme comparable.</p>
+<p>Autrement dit, la fidélisation n'est pas le prolongement du recrutement, c'est ce qui en détermine le rendement. Un centre qui recrute bien mais retient mal reconstruit en permanence ce qu'il vient de bâtir.</p>
+
+<h2>Pourquoi un médecin salarié s'en va</h2>
+<p>Les motifs de départ que nous rencontrons se répètent, et la rémunération n'arrive jamais seule. Reviennent le plus souvent la charge administrative qui grignote le temps de consultation, le sentiment d'isolement professionnel malgré un cadre collectif, l'absence de perspective au bout de deux ou trois ans, un logiciel métier subi plutôt qu'utilisé, et une organisation qui change sans que les praticiens aient été consultés.</p>
+<p>Ces motifs ont un point commun : ils relèvent tous des conditions d'exercice, pas du contrat. Ils sont donc largement corrigeables, à condition d'être identifiés avant le courrier de démission.</p>
+
+<h2>La rémunération compte, mais elle n'explique pas tout</h2>
+<p>Une grille incohérente fait partir, c'est certain. Mais une grille généreuse ne retient pas à elle seule, et beaucoup de centres surinvestissent ce levier faute d'agir sur les autres. Ce qui pèse autant que le niveau, c'est la lisibilité : un praticien veut savoir comment sa rémunération évoluera, sur quels critères, et à quelle échéance. Une progression prévisible vaut souvent mieux qu'un montant de départ plus élevé sans horizon.</p>
+<p>Le sujet se construit en cohérence avec l'équilibre du centre, comme nous le développons sur le <a href="/ressources/salaire-medecin-salarie-centre-de-sante">salaire d'un médecin salarié en centre de santé</a>, et il se formalise dans le <a href="/ressources/contrat-medecin-salarie-centre-de-sante">contrat de travail</a>, dont les clauses de temps de travail et de remplacement sont des sources de friction fréquentes quand elles restent floues.</p>
+
+<h2>Rendre au praticien le temps qui lui revient</h2>
+<p>C'est le levier le plus efficace et le plus sous-estimé. Un médecin qui passe une part significative de sa journée sur des tâches administratives finit par comparer sa situation à celle qu'il aurait ailleurs. Décharger ce temps ne suppose pas nécessairement d'embaucher : une secrétaire mieux positionnée, un circuit de facturation qui ne remonte plus vers le praticien, un <a href="/ressources/systeme-information-centre-de-sante">système d'information</a> correctement paramétré et une <a href="/ressources/coordination-centre-de-sante">fonction de coordination</a> qui absorbe les interfaces produisent un effet immédiat sur le vécu quotidien.</p>
+<p>Ce travail a un autre mérite : le temps médical libéré se traduit en activité, donc en recettes, ce qui finance en partie l'effort consenti.</p>
+
+<h2>Le collectif retient plus que les avantages</h2>
+<p>Le salariat attire des praticiens qui cherchent autre chose que l'exercice isolé. Encore faut-il que le collectif existe vraiment. Des temps d'échange réguliers sur les situations complexes, une participation réelle aux décisions d'organisation, un accès effectif à la formation continue et un accompagnement des premières semaines pèsent lourd dans la décision de rester. À l'inverse, un praticien qui découvre les changements d'organisation en arrivant le matin se désengage progressivement, même bien payé.</p>
+<p>Un cadre de travail structuré, adossé à une <a href="/ressources/qualite-centre-de-sante">démarche qualité</a> qui associe les soignants plutôt qu'elle ne leur est imposée, produit un effet de rétention que peu de dispositifs égalent.</p>
+
+<h2>Les signaux faibles à surveiller</h2>
+<p>Un départ se prépare longtemps avant d'être annoncé. Les signes précèdent : baisse de participation aux réunions d'équipe, demandes répétées d'aménagement d'horaires, désengagement des projets transversaux, questions inhabituelles sur les modalités de rupture, ou refus systématique de prendre de nouveaux patients. Aucun de ces signaux ne vaut preuve isolément, mais leur accumulation chez un même praticien justifie un entretien avant que la décision ne soit prise. Une fois le courrier envoyé, la marge de manoeuvre est presque toujours nulle.</p>
+
+<h2>Fidélisation et équilibre économique</h2>
+<p>Retenir un praticien protège directement le modèle du centre. La patientèle reste attachée à la structure, les indicateurs de suivi conservent leur continuité, et les <a href="/financements">financements mobilisables par le centre</a> qui reposent sur l'activité et sur la qualité du suivi ne subissent pas de rupture. Un turnover élevé dégrade ces recettes bien au-delà du coût visible du remplacement. C'est un des points que nous examinons systématiquement dans nos missions de <a href="/recrutement-medecins">recrutement de médecins</a>, aux côtés de nos partenaires recruteurs : recruter sans traiter la rétention revient à remplir un réservoir percé.</p>
+
+<h2>Contactez-nous</h2>
+<p>Un check-up gratuit permet d'objectiver votre turnover, d'identifier les conditions d'exercice qui font partir vos praticiens et de hiérarchiser les leviers accessibles à court terme. Contactez-nous pour un check-up.</p>
+`,
+  },
 ];
 
 // Renvoie uniquement les articles dont la date de publication est atteinte.
