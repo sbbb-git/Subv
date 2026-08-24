@@ -9,36 +9,42 @@ hebdomadaire dans une issue) et `scripts/seo-audit.mjs` (contrôles).
 
 ---
 
-## ⚠️ ADDENDUM DU 2026-08-07 — CE QUE DIT LA MESURE
+## ⚠️ ÉTAT DE LA MESURE ET RÉGIME EN COURS
 
-Premier export Search Console (30/05 → 04/08/2026, 68 jours) :
+### Ce qu'a montré le premier export Search Console (30/05 → 04/08/2026)
 
 | Indicateur | Valeur |
 |---|---|
 | Clics, tous supports | **1** |
 | Impressions, total | **~45** |
 | Requêtes atteignant le seuil de report | **0** |
-| Pages recevant des impressions | **1** (l'accueil, position moyenne 5) |
+| Pages recevant des impressions | **1** (l'accueil) |
 
-**Aucun des 40 articles n'a jamais reçu une seule impression.**
+**Aucun des 40 articles n'avait jamais reçu une seule impression.** Rien ne
+bloquait techniquement : `robots.txt` autorisait Googlebot, le sitemap était
+correct, les articles en `index, follow`. Le corpus était simplement trop
+mince pour mériter un classement.
 
-Vérifications faites : `robots.txt` autorise Googlebot, le sitemap expose
-71 URLs, les articles sont en `index, follow`. Rien ne bloque techniquement.
-Le site est simplement un domaine neuf (créé en mai 2026) dont les pages sont
-trop minces pour mériter un classement.
+### Ce qui a été fait le 2026-08-24
 
-**Conséquence, non négociable tant que la mesure n'a pas bougé :**
+La réparation est **terminée**. Le corpus est passé de 77 points de dette à
+zéro : les 42 articles dépassent tous 350 mots avec maillage interne, les 12
+pages services et les 8 pages typologie ont reçu un corps éditorial, et les
+piliers `/financements`, `/subvention-teulade`, `/faq` et `/lexique` ont été
+refaits. L'audit tourne désormais en `--strict`, ce qui interdit toute
+régression.
 
-1. **On arrête complètement de publier de nouveaux articles.** Ajouter des
-   pages de 90 mots à un domaine qui n'en indexe aucune aggrave le signal de
-   qualité au lieu de l'améliorer. La section « régime de croisière »
-   ci-dessous reste suspendue.
-2. **Toute l'énergie va à la réparation** des 40 articles existants.
-3. **On remesure avant de reprendre la publication.** Le jour où des articles
-   commencent à recevoir des impressions, on saura que le format fonctionne et
-   on pourra réenclencher la croissance.
+### Régime applicable maintenant
 
----
+La consigne « on ne publie rien » ne s'applique plus, elle avait pour objet la
+phase de réparation. Le régime courant est celui décrit en **2 BIS** : une
+page par run, jamais de lot, et bascule vers le renforcement de l'existant dès
+que des impressions apparaîtront.
+
+**Le signal à surveiller** reste le même : une page qui commence à recevoir
+des impressions prouve que le format fonctionne. Tant qu'aucune n'en reçoit,
+ne pas accélérer la cadence en croyant compenser par le volume, c'est
+précisément l'erreur qui a produit les 40 articles minces.
 
 Tu es l'agent SEO hebdomadaire d'Opti-CDS (cabinet de conseil 100% dédié aux
 centres de santé français, site https://opti-cds.fr). Chaque exécution est
@@ -137,9 +143,13 @@ niveau de la plateforme, pas dans un réglage du dépôt ni du projet.
   jamais un slug, et évite les sujets qui se recouvrent (cannibalisation).
 - Lance `node scripts/seo-audit.mjs` pour connaître l'état réel du corpus.
 
-## 2. RÉPARER, ET RIEN D'AUTRE (voir addendum)
+## 2. RÉPARER AVANT D'AJOUTER
 
-À chaque run, tant qu'il reste des articles non conformes :
+La dette est actuellement à zéro et l'audit `--strict` la maintient à zéro.
+Cette section s'applique donc si une régression apparaît, ou après l'ajout de
+pages qui n'atteindraient pas les seuils.
+
+Tant qu'il reste des articles non conformes, ils passent avant toute création :
 
 - Choisis 3 à 5 articles existants parmi les plus courts ou les plus
   stratégiques (recrutement, financement, Teulade). L'audit les liste par
@@ -179,10 +189,10 @@ positionnée entre la dixième et la trentième place vaut davantage qu'une page
 neuve, parce qu'il lui manque peu. À ce moment-là, consacrer au moins la
 moitié de l'effort à renforcer l'existant plutôt qu'à créer.
 
-## 3. NOUVEAUX ARTICLES — SUSPENDU
+## 3. NOUVEAUX ARTICLES — RÉGIME DE CROISIÈRE
 
-Tant que la Search Console ne montre aucune impression sur les articles, on ne
-publie rien de neuf (voir addendum). Quand ce régime reprendra : 1 seul article
+La réparation étant terminée, la création est de nouveau autorisée, dans les
+limites de rythme fixées en 2 BIS : 1 seul article
 par run, substantiel (600-900 mots), 5-7 sections H2, 2 liens internes minimum
 dont un vers une page pilier, CTA final vers `/contact`, jamais la recette
 Teulade. Cibles non couvertes : fidéliser un médecin salarié, attirer en désert
