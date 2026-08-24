@@ -40,7 +40,7 @@ export default function Page({ params }: { params: Params }) {
             items={[
               { name: "Accueil", href: "/" },
               { name: "Financements", href: "/financements" },
-              { name: t.nom },
+              { name: t.court },
             ]}
           />
           <p className="mt-8 text-xs uppercase tracking-widest font-semibold text-accent-700">
@@ -76,7 +76,7 @@ export default function Page({ params }: { params: Params }) {
                   href={`/financements/${o.slug}`}
                   className="rounded-lg bg-white ring-1 ring-line hover:ring-accent-400 px-4 py-3 text-sm font-medium text-ink hover:text-accent-700 transition"
                 >
-                  {o.nom}
+                  {o.court}
                 </Link>
               ))}
             </div>
@@ -95,7 +95,7 @@ export default function Page({ params }: { params: Params }) {
             name: `Financement de centres de santé ${t.nom}`,
             serviceType: "Conseil en financement de centres de santé",
             provider: { "@id": `${SITE_URL}#org` },
-            areaServed: { "@type": "AdministrativeArea", name: t.nom.replace(/^(en|dans le|dans les|à) /, "") },
+            areaServed: { "@type": "AdministrativeArea", name: t.court },
             url: `${SITE_URL}/financements/${t.slug}`,
           }),
         }}
