@@ -1145,6 +1145,46 @@ export const posts: Post[] = [
 <p>Un check-up gratuit permet d'objectiver votre turnover, d'identifier les conditions d'exercice qui font partir vos praticiens et de hiérarchiser les leviers accessibles à court terme. Contactez-nous pour un check-up.</p>
 `,
   },
+  {
+    slug: "business-plan-centre-de-sante",
+    title: "Business plan d’un centre de santé",
+    description:
+      "Un centre de santé ne se modélise pas comme un commerce. Structure des recettes, masse salariale, montée en charge et erreurs qui font rejeter un dossier.",
+    date: "2026-08-07",
+    readingTime: "4 min",
+    category: "Création",
+    content: `
+<h2>Ce qu’un business plan de centre de santé doit démontrer</h2>
+<p>Un porteur de projet arrive souvent avec un prévisionnel construit comme celui d’un commerce : un chiffre d’affaires, des charges, une marge. Le centre de santé obéit à une autre logique. Il ne fixe pas ses prix, puisqu’il applique les tarifs conventionnels. Il ne module pas facilement ses charges, puisqu’il salarie ses soignants. Et une part significative de ses recettes ne dépend pas du volume d’actes, mais d’engagements d’organisation.</p>
+<p>Le prévisionnel doit donc démontrer autre chose qu’une rentabilité : il doit établir que la structure tient dans la durée, avec les ressources réellement mobilisables. C’est ce que lisent les financeurs, la collectivité qui porte le projet ou l’organisme qui instruit une demande d’aide.</p>
+
+<h2>Les recettes ne se résument pas à l’activité</h2>
+<p>Le premier réflexe consiste à multiplier un nombre de consultations par un tarif. C’est nécessaire, mais très insuffisant. Un prévisionnel crédible distingue trois blocs : les recettes d’activité issues du conventionnement, les rémunérations forfaitaires liées à la structure et à ses engagements, et les financements publics de projet mobilisables au démarrage ou pour l’investissement.</p>
+<p>Omettre les deux derniers blocs conduit à un modèle artificiellement déficitaire, qui fait renoncer à des projets viables. Les inscrire sans les avoir vérifiés produit l’inverse : un prévisionnel que l’instructeur écarte. Le panorama de ce qui est réellement mobilisable figure sur notre page <a href="/financements">financements</a>.</p>
+
+<h2>La masse salariale commande tout le reste</h2>
+<p>Dans un centre de santé, les charges de personnel constituent le poste dominant, et elles sont largement fixes. C’est là que le modèle se joue. Le raisonnement pertinent ne porte pas sur le salaire affiché mais sur le coût employeur complet d’un poste, rapporté à l’activité que ce poste permet réellement de produire, en tenant compte des absences, des congés et du temps non clinique.</p>
+<p>S’y ajoutent les fonctions support que beaucoup de prévisionnels oublient : accueil, secrétariat, facturation, coordination. Elles ne génèrent pas d’actes mais conditionnent la capacité des soignants à en produire. Les sous-doter au démarrage est une fausse économie qui se paie en temps médical perdu.</p>
+
+<h2>La montée en charge, l’hypothèse la plus souvent fausse</h2>
+<p>C’est l’erreur la plus fréquente et la plus coûteuse. Un centre n’atteint pas son rythme de croisière à l’ouverture. La patientèle se constitue progressivement, les praticiens ne sont pas tous recrutés le premier jour, et les circuits de facturation mettent du temps à fonctionner correctement.</p>
+<p>Un prévisionnel qui suppose une activité pleine dès les premiers mois se trompe rarement sur la cible, mais presque toujours sur le chemin. Or c’est le chemin qui détermine le besoin de trésorerie, donc la survie du projet. Mieux vaut une hypothèse de montée en charge prudente et tenue qu’une hypothèse optimiste qu’il faudra corriger devant un financeur.</p>
+
+<h2>Plan de financement et trésorerie de démarrage</h2>
+<p>Le plan de financement couvre l’investissement initial : aménagement, équipement, système d’information, frais de constitution. Il ne suffit pas. Il faut y ajouter la trésorerie nécessaire pour absorber le décalage entre les soins réalisés et leur encaissement, décalage que le tiers payant accentue mécaniquement.</p>
+<p>Beaucoup de projets sont correctement financés à l’investissement et fragiles au démarrage, faute d’avoir provisionné ce décalage. Nos articles sur le <a href="/ressources/cout-creation-centre-de-sante">coût de création d’un centre de santé</a> et sur la <a href="/ressources/tresorerie-centre-de-sante">trésorerie</a> détaillent ces deux volets.</p>
+
+<h2>Ce qui fait rejeter un dossier</h2>
+<p>Les motifs reviennent avec une régularité frappante. Une incohérence entre les documents, quand le projet de santé décrit une organisation que le prévisionnel ne finance pas. Des hypothèses d’activité non justifiées, posées sans référence au territoire ni aux effectifs prévus. Un statut juridique choisi après coup, alors qu’il conditionne la fiscalité et l’accès à certains dispositifs, comme l’explique notre article sur le <a href="/ressources/statut-juridique-centre-de-sante">statut juridique d’un centre de santé</a>. Et l’absence de scénario dégradé, qui laisse penser que le porteur n’a pas envisagé ce qui se passe si un recrutement échoue.</p>
+<p>Un instructeur ne cherche pas un prévisionnel flatteur. Il cherche à savoir si le porteur a compris son propre modèle.</p>
+
+<h2>Un document qui vit après l’ouverture</h2>
+<p>Le business plan n’est pas une formalité d’entrée. Une fois le centre ouvert, il devient la référence à laquelle comparer l’activité réelle, ce qui suppose de suivre quelques <a href="/ressources/indicateurs-pilotage-centre-de-sante">indicateurs de pilotage</a> stables plutôt que de le ranger dans un tiroir. C’est ce qui permet de détecter tôt un écart et de corriger avant que la trésorerie ne se tende.</p>
+
+<h2>Contactez-nous</h2>
+<p>Un check-up gratuit permet de confronter vos hypothèses à la réalité du modèle des centres de santé et d’identifier les financements à intégrer avant de figer votre prévisionnel. Contactez-nous pour un check-up.</p>
+`,
+  },
 ];
 
 // Renvoie uniquement les articles dont la date de publication est atteinte.
