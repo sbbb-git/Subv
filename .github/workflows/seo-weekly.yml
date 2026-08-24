@@ -56,6 +56,11 @@ jobs:
         continue-on-error: true
         run: node scripts/seo-audit.mjs --strict
 
+      - name: Rythme de publication
+        if: always()
+        continue-on-error: true
+        run: node scripts/check-calendrier.mjs
+
       - name: Audit SEO (json)
         if: always()
         run: node scripts/seo-audit.mjs --json > audit.json

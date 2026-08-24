@@ -152,6 +152,33 @@ niveau de la plateforme, pas dans un réglage du dépôt ni du projet.
 - N'altère jamais le sens, ne supprime pas de contenu existant, ne touche pas
   aux slugs (ce sont des URL indexées).
 
+## 2 BIS. RYTHME DE PUBLICATION
+
+Le rythme n'est pas le facteur limitant du site, et le traiter comme tel nuit.
+Le domaine est récent, sans notoriété, et le corpus vient d'être entièrement
+refait. Publier davantage n'accélère rien : cela disperse le budget de crawl
+sur des pages neuves au lieu de le concentrer sur celles qui viennent d'être
+retravaillées, et brouille la mesure de ce qui fonctionne.
+
+**Règle par défaut : une page par run, jamais plus de deux datées du même
+jour.** `scripts/check-calendrier.mjs` l'applique et fait échouer le
+déploiement en cas de dépassement, sur les dates à venir uniquement.
+
+Quand tu prépares plusieurs pages, ne les date pas toutes du jour : échelonne
+sur plusieurs semaines via le champ `date` d'un article ou `datePublication`
+d'un territoire. Le workflow `Deploy` tourne quotidiennement, donc une page
+datée apparaît d'elle-même le moment venu, sans intervention.
+
+**Jamais de lot.** Une publication groupée sur un domaine jeune ressemble à de
+la génération de masse, ce qui est exactement le signal à éviter. Une page tous
+les trois ou quatre jours, régulièrement, vaut mieux que huit pages puis trois
+semaines de silence.
+
+**Quand des impressions apparaîtront**, la priorité changera : une page déjà
+positionnée entre la dixième et la trentième place vaut davantage qu'une page
+neuve, parce qu'il lui manque peu. À ce moment-là, consacrer au moins la
+moitié de l'effort à renforcer l'existant plutôt qu'à créer.
+
 ## 3. NOUVEAUX ARTICLES — SUSPENDU
 
 Tant que la Search Console ne montre aucune impression sur les articles, on ne
