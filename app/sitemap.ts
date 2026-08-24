@@ -3,6 +3,7 @@ import { SITE_URL } from "@/lib/seo";
 import { services } from "@/content/services";
 import { cdsTypes } from "@/content/types";
 import { publishedPosts } from "@/content/posts";
+import { territoires } from "@/content/territoires";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -33,6 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.85,
+    })),
+    ...territoires.map((t) => ({
+      url: `${SITE_URL}/financements/${t.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: t.type === "region" ? 0.85 : 0.7,
     })),
     ...cdsTypes.map((t) => ({
       url: `${SITE_URL}/centres-de-sante/${t.slug}`,
