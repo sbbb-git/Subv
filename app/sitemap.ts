@@ -3,7 +3,7 @@ import { SITE_URL } from "@/lib/seo";
 import { services } from "@/content/services";
 import { cdsTypes } from "@/content/types";
 import { publishedPosts } from "@/content/posts";
-import { territoires } from "@/content/territoires";
+import { territoiresPublies } from "@/content/territoires";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -35,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.85,
     })),
-    ...territoires.map((t) => ({
+    ...territoiresPublies().map((t) => ({
       url: `${SITE_URL}/financements/${t.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,

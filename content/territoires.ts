@@ -22,6 +22,13 @@ export type Territoire = {
   /** Libellé nu, pour les listes et le fil d'ariane : "Île-de-France". */
   court: string;
   type: "region" | "departement";
+  /**
+   * Date de mise en ligne, au format AAAA-MM-JJ. La page n'est generee et
+   * n'entre au sitemap qu'a partir de cette date, comme les articles.
+   * Publier neuf pages territoriales le meme jour sur un domaine recent est
+   * un signal peu naturel : on etale.
+   */
+  datePublication: string;
   /** Numéro de département, absent pour une région. */
   code?: string;
   metaTitle: string;
@@ -36,6 +43,7 @@ export const territoires: Territoire[] = [
     nom: "en Île-de-France",
     court: "Île-de-France",
     type: "region",
+    datePublication: "2026-08-24",
     metaTitle: "Financer un centre de santé en Île-de-France",
     metaDescription:
       "Aides de l’ARS Île-de-France, contrats en zone d’intervention prioritaire et soutiens régionaux : les leviers accessibles à un centre de santé francilien.",
@@ -92,6 +100,7 @@ export const territoires: Territoire[] = [
     nom: "à Paris",
     court: "Paris",
     type: "departement",
+    datePublication: "2026-08-24",
     code: "75",
     metaTitle: "Financements centre de santé à Paris",
     metaDescription:
@@ -125,6 +134,7 @@ export const territoires: Territoire[] = [
     nom: "dans les Hauts-de-Seine",
     court: "Hauts-de-Seine",
     type: "departement",
+    datePublication: "2026-08-24",
     code: "92",
     metaTitle: "Financements centre de santé Hauts-de-Seine",
     metaDescription:
@@ -158,6 +168,7 @@ export const territoires: Territoire[] = [
     nom: "en Seine-Saint-Denis",
     court: "Seine-Saint-Denis",
     type: "departement",
+    datePublication: "2026-08-24",
     code: "93",
     metaTitle: "Financements centre de santé Seine-Saint-Denis",
     metaDescription:
@@ -191,6 +202,7 @@ export const territoires: Territoire[] = [
     nom: "dans le Val-de-Marne",
     court: "Val-de-Marne",
     type: "departement",
+    datePublication: "2026-08-24",
     code: "94",
     metaTitle: "Financements centre de santé Val-de-Marne",
     metaDescription:
@@ -224,6 +236,7 @@ export const territoires: Territoire[] = [
     nom: "en Seine-et-Marne",
     court: "Seine-et-Marne",
     type: "departement",
+    datePublication: "2026-08-24",
     code: "77",
     metaTitle: "Financements centre de santé Seine-et-Marne",
     metaDescription:
@@ -261,6 +274,7 @@ export const territoires: Territoire[] = [
     nom: "dans les Yvelines",
     court: "Yvelines",
     type: "departement",
+    datePublication: "2026-08-24",
     code: "78",
     metaTitle: "Financements centre de santé Yvelines",
     metaDescription:
@@ -294,6 +308,7 @@ export const territoires: Territoire[] = [
     nom: "en Essonne",
     court: "Essonne",
     type: "departement",
+    datePublication: "2026-08-24",
     code: "91",
     metaTitle: "Financements centre de santé Essonne",
     metaDescription:
@@ -326,6 +341,7 @@ export const territoires: Territoire[] = [
     nom: "dans le Val-d’Oise",
     court: "Val-d’Oise",
     type: "departement",
+    datePublication: "2026-08-24",
     code: "95",
     metaTitle: "Financements centre de santé Val-d’Oise",
     metaDescription:
@@ -361,6 +377,17 @@ export const territoires: Territoire[] = [
   },
 ];
 
+// Territoires dont la date de mise en ligne est atteinte. Le site etant
+// genere statiquement, la revelation suppose un build : le workflow Deploy
+// tourne quotidiennement pour cette raison.
+export function territoiresPublies(now: Date = new Date()): Territoire[] {
+  const today = now.toISOString().slice(0, 10);
+  return territoires.filter((t) => t.datePublication <= today);
+}
+
 export function getTerritoire(slug: string) {
-  return territoires.find((t) => t.slug === slug);
+  const t = territoires.find((x) => x.slug === slug);
+  if (!t) return undefined;
+  const today = new Date().toISOString().slice(0, 10);
+  return t.datePublication <= today ? t : undefined;
 }

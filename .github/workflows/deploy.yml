@@ -13,6 +13,12 @@ name: Deploy
 
 on:
   workflow_dispatch: {}
+  # Reconstruction quotidienne. Le site est genere statiquement : un article ou
+  # une page territoriale dont la date de mise en ligne arrive ne peut
+  # apparaitre que si un build a lieu. Sans ce rendez-vous quotidien,
+  # l'etalement des publications ne se declencherait jamais.
+  schedule:
+    - cron: "37 6 * * *"
   # Un push effectué avec le GITHUB_TOKEN ne déclenche pas d'autre workflow,
   # par protection contre les boucles. La routine d'optimisation hebdomadaire
   # ne serait donc jamais suivie d'un déploiement. On l'enchaîne explicitement.
@@ -73,6 +79,12 @@ jobs:
       - name: Audit SEO (bloquant)
         run: node scripts/seo-audit.mjs --strict
 
+      - name: Relever les URL déjà en ligne
+        run: |
+          curl -s https://opti-cds.fr/sitemap.xml \
+            | grep -oP '<loc>\K[^<]+' | sort > /tmp/avant.txt || true
+          echo "URL actuellement en ligne : $(wc -l < /tmp/avant.txt)"
+
       - name: Déployer sur Cloudflare Pages
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -126,4 +138,16 @@ jobs:
             echo "::warning::Fichier de clé IndexNow absent en production (HTTP $code). Soumission annulée : elle renverrait 403."
             exit 1
           fi
-          bash scripts/indexnow.sh
+          # On ne signale que ce qui vient d'apparaitre, pour ne pas
+          # resoumettre tout le site a chaque passage quotidien.
+          curl -s https://opti-cds.fr/sitemap.xml \
+            | grep -oP '<loc>\K[^<]+' | sort > /tmp/apres.txt || true
+          comm -13 /tmp/avant.txt /tmp/apres.txt > /tmp/nouvelles.txt || true
+          n=$(wc -l < /tmp/nouvelles.txt)
+          echo "Nouvelles URL depuis le dernier déploiement : $n"
+          if [ "$n" -eq 0 ]; then
+            echo "Rien de nouveau, IndexNow n'est pas sollicité."
+            exit 0
+          fi
+          cat /tmp/nouvelles.txt
+          bash scripts/indexnow.sh /tmp/nouvelles.txt

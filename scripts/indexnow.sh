@@ -1,16 +1,31 @@
 #!/usr/bin/env bash
-# Soumet toutes les URLs du sitemap à IndexNow (Bing, Yandex, Seznam, Naver).
-# À lancer après chaque déploiement qui ajoute / modifie des pages.
+# Soumet des URLs à IndexNow (Bing, Yandex, Seznam, Naver).
+# À lancer après un déploiement qui ajoute ou modifie des pages.
 #
-# Usage : bash scripts/indexnow.sh
+# Usage :
+#   bash scripts/indexnow.sh              soumet toutes les URLs du sitemap
+#   bash scripts/indexnow.sh <fichier>    soumet uniquement les URLs listées
+#
+# Le second usage évite de resignaler quotidiennement l'intégralité du site :
+# le déploiement planifié ne transmet que ce qui vient réellement d'apparaître.
 set -euo pipefail
 
 KEY="8e34269a671a49aca7d02e799e3645fa"
 HOST="opti-cds.fr"
 SITEMAP="https://${HOST}/sitemap.xml"
 
-echo "Récupération des URLs depuis ${SITEMAP}..."
-URLS=$(curl -s "$SITEMAP" | grep -oP '<loc>\K[^<]+')
+LISTE="${1:-}"
+if [ -n "$LISTE" ]; then
+  echo "Lecture des URLs depuis ${LISTE}..."
+  URLS=$(grep -v '^[[:space:]]*$' "$LISTE" || true)
+  if [ -z "$URLS" ]; then
+    echo "  aucune URL nouvelle, rien à soumettre."
+    exit 0
+  fi
+else
+  echo "Récupération des URLs depuis ${SITEMAP}..."
+  URLS=$(curl -s "$SITEMAP" | grep -oP '<loc>\K[^<]+')
+fi
 COUNT=$(echo "$URLS" | grep -c . || true)
 echo "  ${COUNT} URLs trouvées"
 

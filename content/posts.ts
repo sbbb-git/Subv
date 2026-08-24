@@ -1111,7 +1111,7 @@ export const posts: Post[] = [
     title: "Fidéliser un médecin salarié en centre de santé",
     description:
       "Recruter ne suffit pas : un praticien qui part emporte sa patientèle et vos recettes. Leviers concrets de fidélisation en centre de santé.",
-    date: "2026-08-07",
+    date: "2026-08-24",
     readingTime: "4 min",
     category: "RH",
     content: `
@@ -1150,7 +1150,7 @@ export const posts: Post[] = [
     title: "Business plan d’un centre de santé",
     description:
       "Un centre de santé ne se modélise pas comme un commerce. Structure des recettes, masse salariale, montée en charge et erreurs qui font rejeter un dossier.",
-    date: "2026-08-07",
+    date: "2026-08-24",
     readingTime: "4 min",
     category: "Création",
     content: `

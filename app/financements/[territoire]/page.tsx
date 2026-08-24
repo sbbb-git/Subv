@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTA";
-import { territoires, getTerritoire } from "@/content/territoires";
+import { territoiresPublies, getTerritoire } from "@/content/territoires";
 import { makePageMeta, SITE_URL } from "@/lib/seo";
 
 type Params = { territoire: string };
 
 export function generateStaticParams() {
-  return territoires.map((t) => ({ territoire: t.slug }));
+  return territoiresPublies().map((t) => ({ territoire: t.slug }));
 }
 
 export function generateMetadata({ params }: { params: Params }): Metadata {
@@ -29,7 +29,7 @@ export default function Page({ params }: { params: Params }) {
   const t = getTerritoire(params.territoire);
   if (!t) notFound();
 
-  const autres = territoires.filter((x) => x.slug !== t.slug);
+  const autres = territoiresPublies().filter((x) => x.slug !== t.slug);
 
   return (
     <>
