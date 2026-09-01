@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CONTACT_EMAIL } from "@/lib/seo";
 import { services } from "@/content/services";
 import { cdsTypes } from "@/content/types";
+import { EmailLink } from "@/components/EmailLink";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -21,7 +22,7 @@ export default function Footer() {
             Accompagnement des centres de santé : création, recrutement, organisation, gestion, financements. Notre offre phare : la récupération des subventions.
           </p>
           <p className="mt-5 text-white/65 text-sm">
-            <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white">{CONTACT_EMAIL}</a>
+            <EmailLink className="hover:text-white" />
           </p>
         </div>
 

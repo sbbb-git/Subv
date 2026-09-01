@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CONTACT_EMAIL, makePageMeta } from "@/lib/seo";
+import { EmailLink } from "@/components/EmailLink";
 
 export const metadata: Metadata = makePageMeta({
   title: "Contactez-nous pour un check-up gratuit",
@@ -38,7 +39,7 @@ export default function Page() {
             <div className="rounded-xl bg-white ring-1 ring-line p-6">
               <h2 className="font-semibold text-ink">Nous joindre directement</h2>
               <p className="mt-3 text-sm text-ink-soft">
-                <a className="text-accent-700 hover:text-accent-900" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+                <EmailLink className="text-accent-700 hover:text-accent-900" />
               </p>
             </div>
             <div className="rounded-xl bg-gradient-to-br from-accent-600 to-accent-500 text-white p-6">

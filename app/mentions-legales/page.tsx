@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_NAME, CONTACT_EMAIL, makePageMeta } from "@/lib/seo";
+import { EmailLink } from "@/components/EmailLink";
 
 export const metadata: Metadata = {
   ...makePageMeta({
@@ -22,7 +23,7 @@ export default function Page() {
         <p>
           <strong>{SITE_NAME}</strong>
           <br />Adresse : [à compléter]
-          <br />Email : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+          <br />Email : <EmailLink />
           <br />SIRET : [à compléter]
           <br />Directeur de la publication : [à compléter]
         </p>
@@ -35,7 +36,7 @@ export default function Page() {
           Les données collectées via le formulaire de contact sont utilisées
           exclusivement pour répondre à votre demande. Vous disposez d’un droit
           d’accès, de rectification et de suppression en écrivant à{" "}
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          <EmailLink />.
         </p>
       </div>
     </section>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { services, PILLARS } from "@/content/services";
 import { Faq } from "@/components/Faq";
+import { EmailLink } from "@/components/EmailLink";
 
 export const metadata: Metadata = {
   title: "Opti-CDS · Accompagnement des centres de santé",
@@ -396,9 +397,7 @@ export default function HomePage() {
               Contactez-nous pour un check-up
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </Link>
-            <a href="mailto:contact@opti-cds.fr" className="inline-flex items-center justify-center gap-2 rounded-lg ring-1 ring-white/30 hover:bg-white/10 text-white font-semibold px-7 py-4 text-base transition">
-              contact@opti-cds.fr
-            </a>
+            <EmailLink className="inline-flex items-center justify-center gap-2 rounded-lg ring-1 ring-white/30 hover:bg-white/10 text-white font-semibold px-7 py-4 text-base transition" />
           </div>
           <p className="mt-6 text-xs text-white/50">
             Sans engagement · Confidentialité totale
