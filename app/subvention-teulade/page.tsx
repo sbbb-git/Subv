@@ -8,9 +8,18 @@ import { makePageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   ...makePageMeta({
-    title: "Subvention Teulade : on fait tout",
+    // Le titre et la description répondent à l'intention de recherche réelle.
+    // La page est en position 8 sur "subvention teulade" avec 31 impressions
+    // et zéro clic : les requêtes observées sont informatives ("c'est quoi",
+    // "loi teulade"), alors que l'ancien snippet promettait un service. Le
+    // décalage explique le CTR nul.
+    //
+    // L'ancienne description citait par ailleurs le calcul, les pièces et la
+    // transmission à la CPAM, ce qui livrait en clair la méthode que le corps
+    // de la page refuse volontairement de détailler.
+    title: "Subvention Teulade : qui peut en bénéficier",
     description:
-      "Constitution du dossier, pièces justificatives, calcul, transmission à la CPAM et suivi jusqu’au versement. On prend tout en charge.",
+      "Dispositif réservé aux centres de santé conventionnés, prévu par l’article L162-32. Qui est concerné, et pourquoi tant de centres passent à côté.",
     path: "/subvention-teulade",
   }),
   keywords: [

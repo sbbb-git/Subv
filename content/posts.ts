@@ -98,28 +98,56 @@ export const posts: Post[] = [
     date: "2026-02-15",
     readingTime: "4 min",
     category: "Création",
-    content: `<h2>Un projet structuré dans le temps</h2>
+    content: `
+<h2>Un projet structuré dans le temps</h2>
 <p>La création d’un centre de santé est un projet exigeant qui se construit sur 12 à 18 mois en moyenne. Plusieurs étapes clés se succèdent : faisabilité, juridique, projet de santé, conventionnement. Ces étapes ne sont pas strictement séquentielles. Certaines se mènent en parallèle, et le calendrier réel dépend surtout de la vitesse à laquelle le porteur de projet sécurise ses praticiens et ses locaux.</p>
+<p>Ce délai surprend souvent les porteurs de projet, en particulier les collectivités, qui raisonnent en année budgétaire. Il s’explique moins par la lourdeur administrative que par l’enchaînement de dépendances : on ne dépose pas un dossier solide sans projet de santé, on n’écrit pas un projet de santé crédible sans savoir quels professionnels seront présents, et on ne recrute pas sans pouvoir annoncer une date d’ouverture.</p>
+
 <h2>Les principaux jalons</h2>
 <ul>
   <li>Étude de faisabilité et zonage</li>
-  <li>Choix du statut juridique</li>
-  <li>Projet de santé pour l’ARS</li>
+  <li>Choix du gestionnaire et du statut juridique</li>
+  <li>Projet de santé et engagement de conformité pour l’ARS</li>
   <li>Conventionnement avec l’Assurance Maladie</li>
   <li>Plan de financement et mobilisation des aides</li>
+  <li>Recrutement, aménagement, ouverture</li>
 </ul>
+
 <h2>L’étude de faisabilité, étape décisive</h2>
 <p>C’est l’étape la plus souvent expédiée et celle qui conditionne pourtant tout le reste. Elle croise trois questions. Le territoire présente-t-il un besoin de soins réel et documenté. Des praticiens sont-ils disponibles ou mobilisables à horizon raisonnable. Le volume d’activité envisageable permet-il de couvrir les charges fixes de la structure. Un projet qui répond favorablement aux deux premières questions mais pas à la troisième reste fragile, quelle que soit la qualité de son portage politique ou associatif.</p>
+<p>Le zonage de la commune d’implantation se vérifie à ce stade, pas plus tard. Il conditionne l’accès à plusieurs contrats conventionnels et le relèvement de certains plafonds d’aide. Deux communes voisines peuvent relever de zonages différents, et cette information change le plan de financement avant même qu’il ne soit écrit.</p>
+
+<h2>Choisir le gestionnaire avant le reste</h2>
+<p>Un centre de santé n’existe pas seul : il est porté par une personne morale qui emploie l’équipe et répond de la conformité devant l’autorité de tutelle. Association, collectivité ou centre communal d’action sociale, mutuelle, fondation : chaque forme emporte une gouvernance, une fiscalité et un circuit de décision différents.</p>
+<p>Ce choix commande la suite, et c’est pourquoi il ne doit pas être arrêté par défaut ni repoussé. Un portage municipal apporte une assise budgétaire mais impose les règles de la commande publique et le calendrier des instances délibérantes. Un portage associatif offre de la souplesse mais suppose une gouvernance réellement active, faute de quoi la structure s’expose à une requalification. Notre article sur le <a href="/ressources/statut-juridique-centre-de-sante">statut juridique d’un centre de santé</a> détaille ces arbitrages, et celui sur le <a href="/ressources/gestionnaire-centre-de-sante">gestionnaire d’un centre de santé</a> précise ses responsabilités.</p>
+
 <h2>Anticiper le modèle économique</h2>
 <p>Le plan de financement doit être anticipé dès le départ. Plusieurs dispositifs publics et conventionnels peuvent contribuer à sécuriser l’équilibre du projet. Deux horizons doivent être distingués. L’investissement initial d’abord, avec les travaux, l’équipement et le système d’information. L’exploitation ensuite, car les charges salariales courent avant que la patientèle n’atteigne son rythme de croisière. Une estimation sérieuse du <a href="/ressources/cout-creation-centre-de-sante">coût de création d’un centre de santé</a> distingue clairement ces deux besoins, faute de quoi la trésorerie devient le premier point de rupture.</p>
+<p>L’erreur la plus fréquente à ce stade consiste à modéliser le centre comme un commerce, en multipliant un nombre de consultations par un tarif. Un centre conventionné ne fixe pas ses prix et tire une part de ses recettes d’engagements d’organisation plutôt que du volume d’actes. Notre article sur le <a href="/ressources/business-plan-centre-de-sante">business plan d’un centre de santé</a> traite cette différence et les hypothèses qui font le plus souvent échouer un prévisionnel.</p>
+
 <h2>Le projet de santé, socle de la démarche</h2>
 <p>Le dossier déposé auprès de l’agence régionale ne se résume pas à un formulaire. Il repose sur un <a href="/ressources/projet-de-sante-centre-de-sante">projet de santé</a> qui décrit l’offre, l’organisation et les engagements pris envers le territoire. Sa cohérence avec le budget prévisionnel est examinée avec attention. Annoncer une amplitude d’ouverture large sans les effectifs correspondants, ou décrire des actions de prévention sans moyens identifiés, affaiblit l’ensemble du dossier.</p>
+<p>Le projet de santé s’accompagne d’un règlement de fonctionnement et d’un engagement de conformité par lequel le gestionnaire atteste du respect des conditions techniques applicables. Ces pièces forment un ensemble : un instructeur les lit ensemble, et des documents qui se contredisent bloquent l’instruction plus sûrement qu’une pièce manquante. Notre mission <a href="/services/dossier-ars">dossier ARS</a> porte sur la construction et la cohérence de ce dossier.</p>
+
+<h2>Le cas des centres dentaires et ophtalmologiques</h2>
+<p>Ces deux activités relèvent d’un régime renforcé, adopté à la suite des dérives constatées dans certaines enseignes. Leur ouverture suppose un agrément préalable de l’agence régionale de santé, la mise en place d’un comité associant les praticiens, et des obligations de transparence sur la gouvernance et sur les liens capitalistiques du gestionnaire.</p>
+<p>Un porteur de projet qui découvre ces exigences en cours de route perd plusieurs mois. Elles doivent être intégrées au calendrier dès le cadrage. Nos pages consacrées au <a href="/centres-de-sante/dentaire">centre de santé dentaire</a> et au <a href="/ressources/centre-de-sante-ophtalmologique">centre de santé ophtalmologique</a> précisent ce que cela change concrètement.</p>
+
+<h2>Le conventionnement, dernière porte avant l’activité</h2>
+<p>Un centre ne facture pas tant qu’il n’est pas conventionné. L’adhésion à l’accord national ouvre l’accès aux financements conventionnels et engage en retour la structure sur les tarifs opposables, le tiers payant et une série d’obligations d’organisation. Le numéro d’identification de la structure, la carte de professionnel de santé des praticiens et un système d’information conforme aux référentiels nationaux en sont les prérequis pratiques.</p>
+<p>Cette étape se prépare pendant les travaux, pas après. Un centre prêt physiquement mais non conventionné supporte ses charges sans recette. Notre article sur le <a href="/ressources/conventionnement-centre-de-sante">conventionnement d’un centre de santé</a> décrit le cadre applicable.</p>
+
 <h2>Le facteur humain, principal aléa</h2>
 <p>La disponibilité des praticiens est la variable qui fait le plus souvent déraper les calendriers. Recruter des médecins salariés demande du temps, un positionnement salarial cohérent avec le marché local et une capacité à présenter un projet crédible. Engager les travaux avant d’avoir sécurisé une équipe expose la structure à ouvrir avec des locaux prêts et des consultations vides.</p>
+<p>Cet aléa se réduit en traitant le recrutement comme un chantier à part entière, mené en parallèle et non à la fin. Il suppose aussi de penser dès l’origine à la rétention : un praticien recruté puis parti au bout d’un an laisse le centre dans une situation pire qu’avant, comme nous le développons dans notre article sur la <a href="/ressources/fideliser-medecin-salarie-centre-de-sante">fidélisation d’un médecin salarié</a>. C’est l’objet de nos missions de <a href="/services/recrutement-de-medecins">recrutement de médecins</a>.</p>
+
 <h2>Les erreurs qui coûtent le plus cher</h2>
 <p>Trois erreurs se répètent. Choisir le statut juridique avant d’avoir arrêté le modèle de financement. Sous-estimer la trésorerie de démarrage. Découvrir tardivement les dispositifs mobilisables, alors que certains supposent d’être sollicités avant l’engagement des dépenses. Un accompagnement dédié à la <a href="/services/creation-centre-de-sante">création de centre de santé</a> permet de traiter ces points dans le bon ordre.</p>
+<p>Une quatrième, plus discrète, consiste à traiter les financements comme une recherche de subventions ponctuelles. Les dispositifs se combinent, leurs calendriers ne coïncident pas, et un dossier déposé auprès d’un financeur conditionne parfois la recevabilité d’un autre. Le panorama complet figure sur notre page <a href="/financements">financements</a>.</p>
+
 <h2>Contactez-nous</h2>
-<p>Nous évaluons la faisabilité de votre projet et les financements mobilisables à chaque étape. Contactez-nous pour un check-up.</p>`,
+<p>Nous évaluons la faisabilité de votre projet, son calendrier réaliste et les financements mobilisables à chaque étape. Contactez-nous pour un check-up.</p>
+`,
   },
   {
     slug: "centre-municipal-de-sante-financement",
