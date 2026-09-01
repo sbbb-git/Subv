@@ -76,9 +76,16 @@ export const metadata: Metadata = {
 const GA_ID = "G-BY40KM4XDY";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // `Organization` et non `ProfessionalService`. Ce dernier est un sous-type de
+  // LocalBusiness, qui exige une adresse postale : sans elle, le balisage est
+  // invalide sur CHAQUE page du site, ce qu'un audit Ahrefs a remonté sur 123
+  // pages. Opti-CDS intervient sur toute la France sans accueil du public, donc
+  // Organization décrit la réalité. Si une adresse d'établissement doit être
+  // affichée un jour, repasser à ProfessionalService en ajoutant `address`
+  // (PostalAddress) et `telephone`, et pas avant.
   const orgLd = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": "Organization",
     "@id": `${SITE_URL}#org`,
     name: SITE_NAME,
     url: SITE_URL,

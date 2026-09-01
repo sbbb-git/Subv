@@ -5,7 +5,10 @@ export const DEFAULT_DESCRIPTION =
 
 export const CONTACT_EMAIL = "contact@opti-cds.fr";
 
-export const OG_IMAGE = "/og-image.svg";
+// PNG et non SVG : Facebook, LinkedIn et X ne rendent pas le SVG, et le
+// balisage schema.org `logo` attend un format matriciel. Regénérable avec
+// `node scripts/gen-og-image.cjs`.
+export const OG_IMAGE = "/og-image.png";
 
 // ---------------------------------------------------------------------------
 // Helpers d'écriture des Metadata Next (corrige le bug "OG image disparaît").
